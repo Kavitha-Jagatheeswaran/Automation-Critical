@@ -1,0 +1,1524 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Title>Untitled Spreadsheet</Title>
+  <Author>Unknown Creator</Author>
+  <LastAuthor>admin</LastAuthor>
+  <Created>2022-05-24T12:27:26Z</Created>
+  <LastSaved>2022-05-28T16:52:32Z</LastSaved>
+  <Company>Microsoft Corporation</Company>
+  <Version>14.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>9405</WindowHeight>
+  <WindowWidth>19815</WindowWidth>
+  <WindowTopX>390</WindowTopX>
+  <WindowTopY>555</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s16">
+   <Font ss:FontName="Calibri" ss:Size="11" ss:Color="#000000" ss:Bold="1"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Customer">
+  <Table ss:ExpandedColumnCount="49" ss:ExpandedRowCount="101" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:Width="297"/>
+   <Column ss:Width="92.25"/>
+   <Column ss:Width="154.5"/>
+   <Column ss:Width="36.75"/>
+   <Column ss:Width="98.25"/>
+   <Column ss:Width="111"/>
+   <Column ss:Width="80.25"/>
+   <Column ss:Width="111"/>
+   <Column ss:Width="55.5"/>
+   <Column ss:Width="98.25"/>
+   <Column ss:Width="55.5"/>
+   <Column ss:Width="160.5"/>
+   <Column ss:Width="290.25" ss:Span="1"/>
+   <Column ss:Index="15" ss:Width="166.5"/>
+   <Column ss:Width="129.75"/>
+   <Column ss:Width="123"/>
+   <Column ss:Width="147.75"/>
+   <Column ss:Width="290.25"/>
+   <Column ss:Width="135.75"/>
+   <Column ss:Width="198"/>
+   <Column ss:Width="166.5"/>
+   <Column ss:Width="290.25"/>
+   <Column ss:Width="333.75"/>
+   <Column ss:Width="173.25"/>
+   <Column ss:Width="135.75"/>
+   <Column ss:Width="129.75"/>
+   <Column ss:Width="154.5"/>
+   <Column ss:Width="290.25"/>
+   <Column ss:Width="141.75"/>
+   <Column ss:Width="204"/>
+   <Column ss:Width="173.25"/>
+   <Column ss:Width="141.75"/>
+   <Column ss:Width="129.75"/>
+   <Column ss:Width="86.25"/>
+   <Column ss:Width="98.25" ss:Span="1"/>
+   <Column ss:Index="38" ss:Width="154.5"/>
+   <Column ss:Width="105"/>
+   <Column ss:Width="67.5"/>
+   <Column ss:Width="42.75" ss:Span="4"/>
+   <Column ss:Index="46" ss:Width="73.5"/>
+   <Column ss:Width="42.75"/>
+   <Column ss:Width="92.25"/>
+   <Column ss:Width="6"/>
+   <Row>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Company name</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Customer email</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Phone</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Alternate phone</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Customer sub type</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Credit limit</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Is portal enabled</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Currency</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Payment term id</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Notes</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Billing address attention</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Billing address</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Billing address street2</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Billing address state code</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Billing address city</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Billing address zip</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Billing address country</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Billing address fax</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Billing address phone</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Billing address alternate phone</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Shipping address attention</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Shipping address</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Shipping address street2</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Shipping address state code</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Shipping address city</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Shipping address zip</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Shipping address country</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Shipping address fax</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Shipping address phone</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Shipping address alternate phone</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Opening balance  journal id</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Opening balance amount</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Opening balance type</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Exchange rate</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Place of supply</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Gstin</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Gst treatment</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Tax exemption id</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Is taxable</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Tds id</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Tcs id</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Tin</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Sin</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Cst</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Pan</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Uin</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Aadhaar number</Data></Cell>
+    <Cell ss:StyleID="s16"/>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Fayaz - Inter State Non Taxable</Data></Cell>
+    <Cell><Data ss:Type="String">FZ Enterprises</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">12</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TG</Data></Cell>
+    <Cell><Data ss:Type="String">35ACHJF0881D1Z3</Data></Cell>
+    <Cell><Data ss:Type="String">Business_gst</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Reg Bus - Composition - Inter State Non Taxable</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">13</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">AP</Data></Cell>
+    <Cell><Data ss:Type="String">27ACOMP0881D1Z3</Data></Cell>
+    <Cell><Data ss:Type="String">Business_gst_composition</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Unreg Bus - Inter State Non Taxable</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">UP</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Consumer - Inter State Non Taxable</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">CT</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Consumer</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Overseas</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">USD</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">OD</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Overseas</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">SEZ - Inter State Non Taxable</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">14</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">KA</Data></Cell>
+    <Cell><Data ss:Type="String">28ACSEZ0881D1Z3</Data></Cell>
+    <Cell><Data ss:Type="String">Overseas_sez</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Deemed Export - Inter State Non Taxable</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">GA</Data></Cell>
+    <Cell><Data ss:Type="String">29ADEEM0881D1Z3</Data></Cell>
+    <Cell><Data ss:Type="String">Overseas_deemed</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Tax Deductor - Inter State Non Taxable</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">LD</Data></Cell>
+    <Cell><Data ss:Type="String">30ACTAX0881D1Z3</Data></Cell>
+    <Cell><Data ss:Type="String">Govt</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Inv Customer</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell><Data ss:Type="String">33ACHPF0881D1Z3</Data></Cell>
+    <Cell><Data ss:Type="String">Business_gst</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Fayaz - Inter State Taxable</Data></Cell>
+    <Cell><Data ss:Type="String">FZ Enterprises</Data></Cell>
+    <Cell><Data ss:Type="String">Fzenterprises@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="String">Test@123</Data></Cell>
+    <Cell><Data ss:Type="String">T1</Data></Cell>
+    <Cell><Data ss:Type="String">83/2, Kalavai Street, Chintadhripet, Chennai 2</Data></Cell>
+    <Cell><Data ss:Type="String">83/1, Kalavai Street, Chintadhripet, Chennai 2</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">Chennai</Data></Cell>
+    <Cell><Data ss:Type="Number">600002</Data></Cell>
+    <Cell><Data ss:Type="String">IN</Data></Cell>
+    <Cell><Data ss:Type="String">83/2, Kalavai Street, Chintadhripet, Chennai 2</Data></Cell>
+    <Cell><Data ss:Type="Number">9791075150</Data></Cell>
+    <Cell><Data ss:Type="Number">9080265471</Data></Cell>
+    <Cell><Data ss:Type="String">T1</Data></Cell>
+    <Cell ss:Index="24"><Data ss:Type="String">83/1, Kalavai Street, Chintadhripet, Chennai 2</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">Chennai</Data></Cell>
+    <Cell><Data ss:Type="Number">600002</Data></Cell>
+    <Cell><Data ss:Type="String">IN</Data></Cell>
+    <Cell><Data ss:Type="String">83/2, Kalavai Street, Chintadhripet, Chennai 2</Data></Cell>
+    <Cell><Data ss:Type="Number">9791075150</Data></Cell>
+    <Cell><Data ss:Type="Number">9080265471</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TS</Data></Cell>
+    <Cell><Data ss:Type="String">35ACHJF0881D1Z3</Data></Cell>
+    <Cell><Data ss:Type="String">Business_gst</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="String">TIN123</Data></Cell>
+    <Cell><Data ss:Type="String">SIN123</Data></Cell>
+    <Cell><Data ss:Type="String">CST123</Data></Cell>
+    <Cell><Data ss:Type="String">ACHPS0881D</Data></Cell>
+    <Cell><Data ss:Type="String">UIN123</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Deemed Export - Inter State Taxable</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">KWD</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">GA</Data></Cell>
+    <Cell><Data ss:Type="String">29ADEEM0881D1Z3</Data></Cell>
+    <Cell><Data ss:Type="String">Overseas_deemed</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="47"><Data ss:Type="String">UIN123</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Reg Bus - Composition - Inter State Taxable</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">KWD</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">AD</Data></Cell>
+    <Cell><Data ss:Type="String">27ACOMP0881D1Z3</Data></Cell>
+    <Cell><Data ss:Type="String">Business_gst_composition</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="47"><Data ss:Type="String">UIN123</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Tax Deductor - Inter State Taxable</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell><Data ss:Type="String">30ACTAX0881D1Z3</Data></Cell>
+    <Cell><Data ss:Type="String">Govt</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Unreg Bus - Inter State Taxable</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">UP</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Consumer - Inter State Taxable</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">CH</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Consumer</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">SEZ - Inter State Taxable</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">KA</Data></Cell>
+    <Cell><Data ss:Type="String">28ACSEZ0881D1Z3</Data></Cell>
+    <Cell><Data ss:Type="String">Overseas_sez</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Fayaz - Intra State Non Taxable</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell><Data ss:Type="String">33ACHPF0881D1Z3</Data></Cell>
+    <Cell><Data ss:Type="String">Business_gst</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Deemed Export - Intra State Non Taxable</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell><Data ss:Type="String">33ADEEM0881D1Z3</Data></Cell>
+    <Cell><Data ss:Type="String">Overseas_deemed</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Reg Bus - Composition - Intra State Non Taxable</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell><Data ss:Type="String">33ACOMP0881D1Z3</Data></Cell>
+    <Cell><Data ss:Type="String">Business_gst_composition</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Tax Deductor - Intra State Non Taxable</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell><Data ss:Type="String">33ACTAX0881D1Z3</Data></Cell>
+    <Cell><Data ss:Type="String">Govt</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Unreg Bus - Intra State Non Taxable</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Consumer - Intra State Non Taxable</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Consumer</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">SEZ - Intra State Non Taxable</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell><Data ss:Type="String">33ACSEZ0881D1Z3</Data></Cell>
+    <Cell><Data ss:Type="String">Overseas_sez</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Fayaz</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Fayazsadhik94@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">B1</Data></Cell>
+    <Cell><Data ss:Type="String">83/2, Kalavai Street, Chintdripet, Chennai 2</Data></Cell>
+    <Cell><Data ss:Type="String">83/1, Kalavai Street, Chintadhripet, Chennai 2</Data></Cell>
+    <Cell><Data ss:Type="String">TAMIL NADU</Data></Cell>
+    <Cell><Data ss:Type="String">Chennai</Data></Cell>
+    <Cell><Data ss:Type="Number">600002</Data></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">B2</Data></Cell>
+    <Cell ss:Index="24"><Data ss:Type="String">101, West Koovam River Road, Chintadhripet, Chennai 2</Data></Cell>
+    <Cell><Data ss:Type="String">Tamil Nadu</Data></Cell>
+    <Cell><Data ss:Type="String">Chennai</Data></Cell>
+    <Cell><Data ss:Type="Number">600002</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell><Data ss:Type="String">33ACHPF0881D1Z3</Data></Cell>
+    <Cell><Data ss:Type="String">Business_gst</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Reg Bus - Composition - Intra State Taxable</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell><Data ss:Type="String">33ACOMP0881D1Z3</Data></Cell>
+    <Cell><Data ss:Type="String">Business_gst_composition</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Unreg Bus - Intra State Taxable</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Consumer - Intra State Taxable</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Consumer</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">SEZ - Intra State Taxable</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">USD</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell><Data ss:Type="String">33ACSEZ0881D1Z3</Data></Cell>
+    <Cell><Data ss:Type="String">Overseas_sez</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Deemed Export - Intra State Taxable</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell><Data ss:Type="String">33ADEEM0881D1Z3</Data></Cell>
+    <Cell><Data ss:Type="String">Overseas_deemed</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Test Customer</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_gst</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Unreg Customer</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="20"><Data ss:Type="Number">9791075150</Data></Cell>
+    <Cell><Data ss:Type="Number">9080265471</Data></Cell>
+    <Cell ss:Index="30"><Data ss:Type="Number">9791075150</Data></Cell>
+    <Cell><Data ss:Type="Number">9080265471</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Overseas</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">19</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Export Baba</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">USD</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Overseas</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Check Shipping</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Attn</Data></Cell>
+    <Cell><Data ss:Type="String">Add</Data></Cell>
+    <Cell><Data ss:Type="String">St2</Data></Cell>
+    <Cell><Data ss:Type="String">OD</Data></Cell>
+    <Cell><Data ss:Type="String">City</Data></Cell>
+    <Cell><Data ss:Type="Number">752002</Data></Cell>
+    <Cell><Data ss:Type="String">IN</Data></Cell>
+    <Cell><Data ss:Type="Number">2222</Data></Cell>
+    <Cell><Data ss:Type="Number">8598944030</Data></Cell>
+    <Cell><Data ss:Type="Number">8598944050</Data></Cell>
+    <Cell><Data ss:Type="String">Attn</Data></Cell>
+    <Cell><Data ss:Type="String">Add</Data></Cell>
+    <Cell><Data ss:Type="String">St2</Data></Cell>
+    <Cell><Data ss:Type="String">OD</Data></Cell>
+    <Cell><Data ss:Type="String">City</Data></Cell>
+    <Cell><Data ss:Type="Number">752002</Data></Cell>
+    <Cell><Data ss:Type="String">IN</Data></Cell>
+    <Cell><Data ss:Type="Number">2222</Data></Cell>
+    <Cell><Data ss:Type="Number">8598944030</Data></Cell>
+    <Cell><Data ss:Type="Number">8598944050</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Consumer</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Preview Test</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_gst</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">USD Inter State Reg Customer</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Fayazsadhik94@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">USD</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Fayaz</Data></Cell>
+    <Cell><Data ss:Type="String">83/2, Kalavai Street, Chintadhripet, Chennai 2</Data></Cell>
+    <Cell><Data ss:Type="String">83/1, Kalavai Street, Chintadhripet, Chennai 2</Data></Cell>
+    <Cell><Data ss:Type="String">TAMIL NADU</Data></Cell>
+    <Cell><Data ss:Type="String">Chennai</Data></Cell>
+    <Cell><Data ss:Type="Number">600002</Data></Cell>
+    <Cell><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">Fayaz</Data></Cell>
+    <Cell><Data ss:Type="String">83/2, Kalavai Street, Chintadhripet, Chennai 2</Data></Cell>
+    <Cell><Data ss:Type="String">83/1, Kalavai Street, Chintadhripet, Chennai 2</Data></Cell>
+    <Cell><Data ss:Type="String">TAMIL NADU</Data></Cell>
+    <Cell><Data ss:Type="String">Chennai</Data></Cell>
+    <Cell><Data ss:Type="Number">600002</Data></Cell>
+    <Cell><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">RJ</Data></Cell>
+    <Cell><Data ss:Type="String">33AREGS0881D1Z3</Data></Cell>
+    <Cell><Data ss:Type="String">Business_gst</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Check</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Consumer</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Test'customer</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell><Data ss:Type="String">33ACHPF0881D1Z3</Data></Cell>
+    <Cell><Data ss:Type="String">Business_gst</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">&amp;</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Overseas</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Julan Customer</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell><Data ss:Type="String">33ACHPF9886D1Z3</Data></Cell>
+    <Cell><Data ss:Type="String">Business_gst</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Test Cutomer 2</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell><Data ss:Type="String">32ALHPP0435C1ZO</Data></Cell>
+    <Cell><Data ss:Type="String">Business_gst</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Registered Business Customer</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell><Data ss:Type="String">33ACOGP0881D1Z3</Data></Cell>
+    <Cell><Data ss:Type="String">Business_gst</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">18</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:Index="46"><Data ss:Type="String">ACHPS0881D</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">RAFE TEST CUST</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">BR</Data></Cell>
+    <Cell><Data ss:Type="String">10AABCU9603R1Z2</Data></Cell>
+    <Cell><Data ss:Type="String">Business_gst</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Cache1</Data></Cell>
+    <Cell><Data ss:Type="String">12ddddddd</Data></Cell>
+    <Cell><Data ss:Type="String">Dssss@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">AS</Data></Cell>
+    <Cell><Data ss:Type="String">18AABCU9603R1ZM</Data></Cell>
+    <Cell><Data ss:Type="String">Business_gst</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:Index="46"><Data ss:Type="String">AABCU9603R</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Dhana Test New</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Vakilsearch</Data></Cell>
+    <Cell><Data ss:Type="String">Prince Info Park</Data></Cell>
+    <Cell><Data ss:Type="String">Ambit IT Park</Data></Cell>
+    <Cell><Data ss:Type="Number">33</Data></Cell>
+    <Cell><Data ss:Type="String">Chennai</Data></Cell>
+    <Cell><Data ss:Type="Number">6000058</Data></Cell>
+    <Cell><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">Vakilsearch</Data></Cell>
+    <Cell><Data ss:Type="String">Prince Info Park</Data></Cell>
+    <Cell><Data ss:Type="String">Ambit IT Park</Data></Cell>
+    <Cell><Data ss:Type="Number">33</Data></Cell>
+    <Cell><Data ss:Type="String">Chennai</Data></Cell>
+    <Cell><Data ss:Type="Number">6000058</Data></Cell>
+    <Cell><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Consumer</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Dhana 2</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Consumer</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Cache12345568</Data></Cell>
+    <Cell><Data ss:Type="String">Dfgfgd</Data></Cell>
+    <Cell><Data ss:Type="String">Dssss@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Consumer</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="46"><Data ss:Type="String">AABCU9603R</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Check123cache</Data></Cell>
+    <Cell><Data ss:Type="String">Ddddd</Data></Cell>
+    <Cell><Data ss:Type="String">Dddddd@ddd.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Cache12345678</Data></Cell>
+    <Cell><Data ss:Type="String">Fffffffffddd</Data></Cell>
+    <Cell><Data ss:Type="String">Dddddddddd@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Consumer</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Dhdhdhdhd</Data></Cell>
+    <Cell><Data ss:Type="String">Ddddddddsss</Data></Cell>
+    <Cell><Data ss:Type="String">Sssss@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Consumer</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">1254364747</Data></Cell>
+    <Cell><Data ss:Type="String">Ddddd</Data></Cell>
+    <Cell><Data ss:Type="String">Ddddsss@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Consumer</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Cachechecking</Data></Cell>
+    <Cell><Data ss:Type="String">Dhdhdhdhd</Data></Cell>
+    <Cell><Data ss:Type="String">Dhana98aaaa@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Consumer</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Cache432123</Data></Cell>
+    <Cell><Data ss:Type="String">Ddddd</Data></Cell>
+    <Cell><Data ss:Type="String">Dsssdddd@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Consumer</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">New_Cus_Unreg_Bus</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Individual</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">54321</Data></Cell>
+    <Cell><Data ss:Type="String">Ddddddddd</Data></Cell>
+    <Cell><Data ss:Type="String">Dd@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Dddd76543</Data></Cell>
+    <Cell><Data ss:Type="String">Dddddddd</Data></Cell>
+    <Cell><Data ss:Type="String">Ddddddddeed@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Testing12311111111111111111</Data></Cell>
+    <Cell><Data ss:Type="String">Wwwwwwwwwww</Data></Cell>
+    <Cell><Data ss:Type="String">Ww@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">I Am Checking </Data></Cell>
+    <Cell><Data ss:Type="String">Ddddddddd</Data></Cell>
+    <Cell><Data ss:Type="String">Dssssddddddd@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Innu</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Consumer</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">90909090</Data></Cell>
+    <Cell><Data ss:Type="String">Ffff</Data></Cell>
+    <Cell><Data ss:Type="String">Fffffrf@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Consumer</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="46"><Data ss:Type="String">AABCU9603R</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">1233333333333333</Data></Cell>
+    <Cell><Data ss:Type="String">Ddd</Data></Cell>
+    <Cell><Data ss:Type="String">Dds@c.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Padddddddd</Data></Cell>
+    <Cell><Data ss:Type="String">Dddsdsds</Data></Cell>
+    <Cell><Data ss:Type="String">Dsssxsxsxsxsxd@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Customer 1 Test</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell><Data ss:Type="String">33ACHPF0889D1Z3</Data></Cell>
+    <Cell><Data ss:Type="String">Business_gst</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">A2B</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Individual</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Ganesh Bhavan</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Ganesh Bhavan</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">DIADEM</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Pulin</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Consumer</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Dhanasekar</Data></Cell>
+    <Cell><Data ss:Type="String">Dhanaseeee</Data></Cell>
+    <Cell><Data ss:Type="String">Dhana@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">0123456 - Test </Data></Cell>
+    <Cell><Data ss:Type="String">Ddddd</Data></Cell>
+    <Cell><Data ss:Type="String">Dhana@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Consumer</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Test1234</Data></Cell>
+    <Cell><Data ss:Type="String">Dhananans</Data></Cell>
+    <Cell><Data ss:Type="String">Dhanana@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Testing 9876</Data></Cell>
+    <Cell><Data ss:Type="String">Sdfsfsdfs</Data></Cell>
+    <Cell><Data ss:Type="String">Dhanaas@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">98765 Dhana</Data></Cell>
+    <Cell><Data ss:Type="String">Dfdfedfef</Data></Cell>
+    <Cell><Data ss:Type="String">Dhana@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Vvvva</Data></Cell>
+    <Cell><Data ss:Type="String">Dhana765</Data></Cell>
+    <Cell><Data ss:Type="String">Dsdd@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Madhan</Data></Cell>
+    <Cell><Data ss:Type="String">Madhan</Data></Cell>
+    <Cell><Data ss:Type="String">Madhan@12.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Madhan1</Data></Cell>
+    <Cell><Data ss:Type="String">Madhah22</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Tetsyyyy</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Dhanasekar1234</Data></Cell>
+    <Cell><Data ss:Type="String">Dhananas</Data></Cell>
+    <Cell><Data ss:Type="String">Dhana@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="String">Dd</Data></Cell>
+    <Cell><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Checkcache1234</Data></Cell>
+    <Cell><Data ss:Type="String">Checkcache1234</Data></Cell>
+    <Cell><Data ss:Type="String">Checkcache1234@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Hello World</Data></Cell>
+    <Cell><Data ss:Type="String">Hello Wolrd </Data></Cell>
+    <Cell><Data ss:Type="String">Hhhhhh@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Caaahahhahahah</Data></Cell>
+    <Cell><Data ss:Type="String">Wefdwedwd</Data></Cell>
+    <Cell><Data ss:Type="String">Dhana@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Dhana98899898</Data></Cell>
+    <Cell><Data ss:Type="String">Asddwd</Data></Cell>
+    <Cell><Data ss:Type="String">Dwdw@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Helllo Wwewewdededededed</Data></Cell>
+    <Cell><Data ss:Type="String">Dwedxwed</Data></Cell>
+    <Cell><Data ss:Type="String">Xx@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">1111</Data></Cell>
+    <Cell><Data ss:Type="String">Ddddd</Data></Cell>
+    <Cell><Data ss:Type="String">Ewdwe@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">11111111</Data></Cell>
+    <Cell><Data ss:Type="String">Qdwqdwed</Data></Cell>
+    <Cell><Data ss:Type="String">Dwed@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">122278</Data></Cell>
+    <Cell><Data ss:Type="String">Sdfsdc</Data></Cell>
+    <Cell><Data ss:Type="String">Dcwec@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Hello World 12345678</Data></Cell>
+    <Cell><Data ss:Type="String">Csdcecec</Data></Cell>
+    <Cell><Data ss:Type="String">Ewce@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Test Customer Prod</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell><Data ss:Type="String">33ANNPF0881D1Z3</Data></Cell>
+    <Cell><Data ss:Type="String">Business_gst</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Reg Customer</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_gst</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Dhana</Data></Cell>
+    <Cell><Data ss:Type="String">Dhana And Co</Data></Cell>
+    <Cell><Data ss:Type="String">Dhana@dhana.co.in</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell><Data ss:Type="Number">1E+17</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">GJ</Data></Cell>
+    <Cell><Data ss:Type="String">24AAACJ3770E2ZV</Data></Cell>
+    <Cell><Data ss:Type="String">Business_gst</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="46"><Data ss:Type="String">AAACJ3770E2</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Testing1239999</Data></Cell>
+    <Cell><Data ss:Type="String">Ddddd</Data></Cell>
+    <Cell><Data ss:Type="String">Deded@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell><Data ss:Type="Number">2323</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">9025165942</Data></Cell>
+    <Cell><Data ss:Type="String">Ddddd</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">1111uuuuawdwd</Data></Cell>
+    <Cell><Data ss:Type="String">Deded</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Consumer</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Cache1cACHE1</Data></Cell>
+    <Cell><Data ss:Type="String">Dfgfgd</Data></Cell>
+    <Cell><Data ss:Type="String">Dddddd@ddd.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">12345678</Data></Cell>
+    <Cell><Data ss:Type="String">Dfgfgd</Data></Cell>
+    <Cell><Data ss:Type="String">Dsssxsxsxsxsxd@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">15151515151</Data></Cell>
+    <Cell><Data ss:Type="String">Efrefrf</Data></Cell>
+    <Cell><Data ss:Type="String">Dsssxsxsxsxsxd@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">00000</Data></Cell>
+    <Cell><Data ss:Type="String">Dfgfgd</Data></Cell>
+    <Cell><Data ss:Type="String">Cdc@gmail.com</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_gst</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Santhosh Kumar1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell><Data ss:Type="Number">5000</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Vakilsearch</Data></Cell>
+    <Cell><Data ss:Type="String">Prince Info Park</Data></Cell>
+    <Cell><Data ss:Type="String">Ambit IT Park</Data></Cell>
+    <Cell><Data ss:Type="Number">33</Data></Cell>
+    <Cell><Data ss:Type="String">Chennai</Data></Cell>
+    <Cell><Data ss:Type="Number">6000058</Data></Cell>
+    <Cell><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">Kumar</Data></Cell>
+    <Cell><Data ss:Type="String">Vakilsearch</Data></Cell>
+    <Cell><Data ss:Type="String">Prince Info Park</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">Chennai</Data></Cell>
+    <Cell><Data ss:Type="Number">6000058</Data></Cell>
+    <Cell><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell><Data ss:Type="String">33AABCU7650C1ZM</Data></Cell>
+    <Cell><Data ss:Type="String">Business_gst</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="46"><Data ss:Type="String">EJHPS4387C</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Tested New Customer For The Issue</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_none</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Gst Customer</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="String">Business_gst</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Gst Customer 1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Business</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">INR</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">IN</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">Credit</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">TN</Data></Cell>
+    <Cell><Data ss:Type="String">33ACPF0881D1Z3</Data></Cell>
+    <Cell><Data ss:Type="String">Business_gst</Data></Cell>
+    <Cell ss:Index="40"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>3</ActiveRow>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+   <AllowFormatCells/>
+   <AllowSizeCols/>
+   <AllowSizeRows/>
+   <AllowInsertCols/>
+   <AllowInsertRows/>
+   <AllowInsertHyperlinks/>
+   <AllowDeleteCols/>
+   <AllowDeleteRows/>
+   <AllowSort/>
+   <AllowFilter/>
+   <AllowUsePivotTables/>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>
