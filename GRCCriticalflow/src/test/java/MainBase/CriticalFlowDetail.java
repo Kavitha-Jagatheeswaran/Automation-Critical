@@ -377,6 +377,8 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		robot.keyPress(KeyEvent.VK_R);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
 		Thread.sleep(2500);
+		robot.keyPress(KeyEvent.VK_PAGE_UP);
+		robot.keyRelease(KeyEvent.VK_PAGE_UP);
 		HelpdeskPageobject.CreatenewQuotation.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		HelpdeskPageobject.editquoation.click();
@@ -580,10 +582,16 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			HelpdeskPageobject.Merge.click();
 		}
 
-		Thread.sleep(2000);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		HelpdeskPageobject.mergesearchticketId1.click();
-		Thread.sleep(1500);
+		try {
+			Thread.sleep(2000);
+			HelpdeskPageobject.mergesearchticketId1.click();
+		} catch (NoSuchElementException mergesearchticketId1) {
+			driver.findElement(By.xpath("//a[contains(text(),'Merge')]")).click();
+			Thread.sleep(2000);
+			HelpdeskPageobject.mergesearchticketId1.click();
+			Thread.sleep(1500);
+		}
+		
 
 		robot.keyPress(KeyEvent.VK_3);
 		robot.keyRelease(KeyEvent.VK_3);
@@ -656,12 +664,24 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		List<String> all3 = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(all3.get(1));
 		Thread.sleep(5000);
+	try {
 		GRCPageobject.ProfileMenu.click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//p[contains(text(),'Sign out')]")).click();
-		driver.close();
+	} catch (ElementClickInterceptedException e290) {
+		driver.findElement(By.xpath("//div[contains(text(),'Continue your service request from here ')]")).click();
+		Thread.sleep(1500);
+		GRCPageobject.ProfileMenu.click();
+
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//p[contains(text(),'Sign out')]")).click();
+	}
+	
+	    driver.close();
 		driver.switchTo().window(all3.get(0));
+		Thread.sleep(2000);
         driver.findElement(By.xpath("(//div[@class='collapse navbar-collapse']/child::ul/child::li/child::a)[3]")).click();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         driver.findElement(By.xpath("//a[contains(text(),'Logout')]")).click();
 	}
 }
