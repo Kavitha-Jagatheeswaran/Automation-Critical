@@ -78,7 +78,7 @@ public class Criticalflow {
 		extentreport.attachReporter(htmlReporter);
 
 	}
-
+ 
 	@BeforeTest
 	public void Max() throws InterruptedException, AWTException {
 		Driver d = new Driver(driver);
