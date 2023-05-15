@@ -66,7 +66,7 @@ public class Criticalflow {
 		}
 		System.out.println(testData.toString());
 		return testData;
-		
+
 	}
 
 	public WebDriver driver;
@@ -78,14 +78,14 @@ public class Criticalflow {
 		extentreport.attachReporter(htmlReporter);
 
 	}
- 
+
 	@BeforeTest
 	public void Max() throws InterruptedException, AWTException {
 		Driver d = new Driver(driver);
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
- 
+
 	}
 
 	@BeforeClass
@@ -94,21 +94,23 @@ public class Criticalflow {
 		PageFactory.initElements(driver, HomescreenPageobject.class);
 		PageFactory.initElements(driver, HelpdeskPageobject.class);
 		Thread.sleep(3000);
- 
-	} 
+
+	}
 
 	@Test(dataProvider = "itemsdata")
 	public void Customercreation100(String Username, String Mobilenumber, String Helpdeskuserid,
 			String helpdeskpassword, String notesname, String notedescrption, String QNameOfCustomer, String qaddress,
-			String qpincode, String Professionalfees, String assignedtoName, String BDAgentName, String CrossSaleName,String GRCMobileNumber,String GRCNewCompanyName,String CINNumber,String CrmUsernames,String CrmUserpassword)
-			throws Exception {
+			String qpincode, String Professionalfees, String assignedtoName, String BDAgentName, String CrossSaleName,
+			String GRCMobileNumber, String GRCNewCompanyName, String CINNumber, String CrmUsernames,
+			String CrmUserpassword) throws Exception {
 
-Base base = new Base(driver, Username, Mobilenumber,extentreport);
-		CriticalFlowDetail Criticalflow = new CriticalFlowDetail(driver, Helpdeskuserid, helpdeskpassword, notesname, notedescrption,
-			QNameOfCustomer, qaddress, qpincode, Professionalfees, assignedtoName, BDAgentName, CrossSaleName, GRCMobileNumber, CrmUsernames, CrmUserpassword,extentreport);
-        GRCPage grcpage = new GRCPage(driver,extentreport,GRCMobileNumber,GRCNewCompanyName,CINNumber,Helpdeskuserid,helpdeskpassword,assignedtoName);
+		Base base = new Base(driver, Username, Mobilenumber, extentreport);
+		CriticalFlowDetail Criticalflow = new CriticalFlowDetail(driver, Helpdeskuserid, helpdeskpassword, notesname,
+				notedescrption, QNameOfCustomer, qaddress, qpincode, Professionalfees, assignedtoName, BDAgentName,
+				CrossSaleName, GRCMobileNumber, CrmUsernames, CrmUserpassword, extentreport);
+		GRCPage grcpage = new GRCPage(driver, extentreport, GRCMobileNumber, GRCNewCompanyName, CINNumber,
+				Helpdeskuserid, helpdeskpassword, assignedtoName);
 
-   
 	}
 
 	@AfterClass
@@ -127,7 +129,7 @@ Base base = new Base(driver, Username, Mobilenumber,extentreport);
 
 	@AfterSuite
 	public void cleanup() {
-	//driver.quit(); 
-  	}
+		// driver.quit();
+	}
 
 }
