@@ -50,7 +50,7 @@ public class Criticalflow {
 
 	public String[][] getExcelData() throws BiffException, IOException {
 		FileInputStream excel = new FileInputStream(
-				"C:\\Users\\admin\\eclipse-workspace\\GRCCriticalflow\\Excel\\Items jxl.xls");
+				"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Excel\\Items jxl.xls");
 		Workbook workbook = Workbook.getWorkbook(excel);
 		Sheet sheet = workbook.getSheet("Sheet5");
 		int rowCount = sheet.getRows();
@@ -100,12 +100,12 @@ public class Criticalflow {
 	@Test(dataProvider = "itemsdata")
 	public void Customercreation100(String Username, String Mobilenumber, String Helpdeskuserid,
 			String helpdeskpassword, String notesname, String notedescrption, String QNameOfCustomer, String qaddress,
-			String qpincode, String Professionalfees, String assignedtoName, String BDAgentName, String CrossSaleName,String GRCMobileNumber,String GRCNewCompanyName,String CINNumber)
+			String qpincode, String Professionalfees, String assignedtoName, String BDAgentName, String CrossSaleName,String GRCMobileNumber,String GRCNewCompanyName,String CINNumber,String CrmUsernames,String CrmUserpassword)
 			throws Exception {
 
 Base base = new Base(driver, Username, Mobilenumber,extentreport);
 		CriticalFlowDetail Criticalflow = new CriticalFlowDetail(driver, Helpdeskuserid, helpdeskpassword, notesname, notedescrption,
-			QNameOfCustomer, qaddress, qpincode, Professionalfees, assignedtoName, BDAgentName, CrossSaleName,GRCMobileNumber,extentreport);
+			QNameOfCustomer, qaddress, qpincode, Professionalfees, assignedtoName, BDAgentName, CrossSaleName, GRCMobileNumber, CrmUsernames, CrmUserpassword,extentreport);
         GRCPage grcpage = new GRCPage(driver,extentreport,GRCMobileNumber,GRCNewCompanyName,CINNumber,Helpdeskuserid,helpdeskpassword,assignedtoName);
 
    

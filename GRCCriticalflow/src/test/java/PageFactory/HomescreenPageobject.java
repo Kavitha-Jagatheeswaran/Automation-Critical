@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomescreenPageobject {
+public class HomescreenPageobject extends NewCRMPageobject {
 	
 	@FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/span[1]" )
 	public static WebElement MYIntrestCTA;

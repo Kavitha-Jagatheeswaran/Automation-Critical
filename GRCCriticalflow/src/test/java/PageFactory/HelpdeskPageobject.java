@@ -3,7 +3,7 @@ package PageFactory;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HelpdeskPageobject {
+public class HelpdeskPageobject extends LoginPageobjects {
 	
 	@FindBy (xpath = "//input[@class='form-control floating-input email']")
 	public static WebElement Username ;
