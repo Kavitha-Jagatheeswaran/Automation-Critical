@@ -55,7 +55,9 @@ public class GRCPage extends GRCPageobject {
 		GRCUsername.sendKeys(GRCMobileNumber);
 		Thread.sleep(2500);
 		GRCPhonenumberConfirm.click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
+		wait.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath("(//input[@style='width: 1em; text-align: center;'])[1]")));
 		GRCOTP1.sendKeys("0");
 		GRCOTP2.sendKeys("0");
 		GRCOTP3.sendKeys("0");
@@ -93,7 +95,8 @@ public class GRCPage extends GRCPageobject {
 
 			wait.until(ExpectedConditions
 					.elementToBeClickable(By.xpath("//button[@class='styles_dropdownBtn__I6_4i']/child::p")));
-			Thread.sleep(2500);
+			Thread.sleep(3500);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@class='styles_dropdownBtn__I6_4i']/child::p")));
 			OpenEntityList.click();
 			Thread.sleep(1500);
 			AddNewBusiness2.click();
@@ -145,8 +148,10 @@ robot.keyRelease(KeyEvent.VK_CONTROL);
 		wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("//button[@class='styles_dropdownBtn__I6_4i']/child::p")));
 		Thread.sleep(2500);
-		OpenEntityList.click();
-		EntitySelect2.click();
+		
+		//**just for option
+//	**	OpenEntityList.click();
+//		***EntitySelect2.click();
 		Thread.sleep(1500);
 		ProfileMenu.click();
 		Thread.sleep(1500);
@@ -170,7 +175,7 @@ robot.keyRelease(KeyEvent.VK_CONTROL);
 		robot.keyPress(KeyEvent.VK_MINUS);
 		robot.keyRelease(KeyEvent.VK_MINUS);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
-		
+		js1.executeScript("arguments[0].scrollIntoView(true);", BuyNowService);
 		BuyNowService.click();
 		Thread.sleep(1500);
 		try {
@@ -209,23 +214,14 @@ robot.keyRelease(KeyEvent.VK_CONTROL);
 
 		}
 		
-		try {
+		
 			String ServiceID = GetServiceID.getText().substring(1);
 			System.out.println(ServiceID + "GRC");
 			robot.keyPress(KeyEvent.VK_CONTROL);
 			robot.keyPress(KeyEvent.VK_R);
 			robot.keyRelease(KeyEvent.VK_R);
 			robot.keyRelease(KeyEvent.VK_CONTROL);
-		} catch (NoSuchElementException GetServiceID) {
-			
 		
-			
-			robot.keyPress(KeyEvent.VK_CONTROL);
-			robot.keyPress(KeyEvent.VK_R);
-			robot.keyRelease(KeyEvent.VK_R);
-			robot.keyRelease(KeyEvent.VK_CONTROL);
-		}
-	
 //		Thread.sleep(1500);
 //		MessagesCTA.click();
 //		Thread.sleep(1500);
@@ -367,6 +363,11 @@ robot.keyRelease(KeyEvent.VK_CONTROL);
 //		HelpdeskPageobject.SaveEntity2.click();
 //		driver.switchTo().alert().accept();
 		
+		
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_R);
+		robot.keyRelease(KeyEvent.VK_R);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
 		
 		
 		

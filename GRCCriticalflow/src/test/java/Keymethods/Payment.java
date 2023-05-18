@@ -9,6 +9,7 @@ import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -49,7 +50,12 @@ public class Payment extends HomescreenPageobject {
 		
 		Thread.sleep(4000);
 		try {
-			Yestocancel.click();
+			try {
+				Yestocancel.click();
+			} catch (UnhandledAlertException yestocancel) {
+				driver.switchTo().alert().accept();
+			}
+			
 		} catch (ElementClickInterceptedException Yestocancel) {
 			System.out.println("Action Performed");
 			actions.click(driver.findElement(By.xpath("//button[contains(text(),'YES, CANCEL')]"))).build().perform();

@@ -12,6 +12,7 @@ public class NewCRM extends GRCPageobject {
 
 	public void newCRM(WebDriver driver, String e, String CrmUsernames, String CrmUserpassword) throws InterruptedException, AWTException {
 Robot robot = new Robot();
+Thread.sleep(3000);
 		driver.get("https://newcrm.vakilsearch.com/login");
 		CrmUsername.sendKeys(CrmUsernames);
 		Thread.sleep(1500);
