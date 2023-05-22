@@ -27,13 +27,14 @@ import com.aventstack.extentreports.Status;
 import CriticalFlowRun.Criticalflow;
 import PageFactory.GRCPageobject;
 import PageFactory.HelpdeskPageobject;
+import groovyjarjarantlr4.v4.parse.ANTLRParser.element_return;
 
 public class GRCPage extends GRCPageobject {
 	ExtentTest test;
 	
 	public GRCPage(WebDriver driver,ExtentReports extentreport, String GRCMobileNumber, String GRCNewCompanyName,
 			String CINNumber, String Helpdeskuserid, String helpdeskpassword, String assignedtoName)
-			throws InterruptedException, AWTException {
+			throws InterruptedException, AWTException,ElementClickInterceptedException {
 //		Set<String> allwindowsid = driver.getWindowHandles();
 //		List<String> all = new ArrayList<>();
 //		all.addAll(allwindowsid);
@@ -176,6 +177,7 @@ robot.keyRelease(KeyEvent.VK_CONTROL);
 		robot.keyRelease(KeyEvent.VK_MINUS);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
 		js1.executeScript("arguments[0].scrollIntoView(true);", BuyNowService);
+		wait.until(ExpectedConditions.elementToBeClickable(BuyNowService));
 		BuyNowService.click();
 		Thread.sleep(1500);
 		try {

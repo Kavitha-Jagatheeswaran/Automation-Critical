@@ -4,6 +4,8 @@ import java.awt.AWTException;
 import java.io.FileInputStream;
 import java.io.IOException;
 import MainBase.*;
+
+import org.apache.commons.mail.EmailException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -21,12 +23,12 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
-import Keymethods.AicPortalEmailTestReport;
+
 import Keymethods.Base;
 import Keymethods.Driver;
 
 import Keymethods.GRCPage;
-
+import Keymethods.SendMailSSLWithAttachment;
 import PageFactory.HomescreenPageobject;
 import PageFactory.HelpdeskPageobject;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -103,15 +105,16 @@ public class Criticalflow {
 			String qpincode, String Professionalfees, String assignedtoName, String BDAgentName, String CrossSaleName,
 			String GRCMobileNumber, String GRCNewCompanyName, String CINNumber, String CrmUsernames,
 			String CrmUserpassword) throws Exception {
-
-	//	Base base = new Base(driver, Username, Mobilenumber, extentreport);
+	
+	//	********Base base = new Base(driver, Username, Mobilenumber, extentreport);
 		GRCPage grcpage = new GRCPage(driver, extentreport, GRCMobileNumber, GRCNewCompanyName, CINNumber,
 				Helpdeskuserid, helpdeskpassword, assignedtoName);
 		CriticalFlowDetail Criticalflow = new CriticalFlowDetail(driver, Helpdeskuserid, helpdeskpassword, notesname,
 				notedescrption, QNameOfCustomer, qaddress, qpincode, Professionalfees, assignedtoName, BDAgentName,
 				CrossSaleName, GRCMobileNumber, CrmUsernames, CrmUserpassword, extentreport);
-//		GRCPage grcpage = new GRCPage(driver, extentreport, GRCMobileNumber, GRCNewCompanyName, CINNumber,
-//				Helpdeskuserid, helpdeskpassword, assignedtoName);
+		
+		
+	
 
 	}
 
@@ -125,13 +128,18 @@ public class Criticalflow {
 	@AfterTest
 	public void Report() {
 		extentreport.flush();
+		
 		System.out.println("Test completed");
+		
 
 	}
 
 	@AfterSuite
-	public void cleanup() {
-		// driver.quit();
+	public void cleanup() throws EmailException {
+		SendMailSSLWithAttachment Mail = new SendMailSSLWithAttachment();
+		Mail.main();
+		
+		//driver.quit();
 	}
 
 }
