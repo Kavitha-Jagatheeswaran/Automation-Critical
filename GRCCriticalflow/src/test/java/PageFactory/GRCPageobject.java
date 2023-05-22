@@ -3,7 +3,7 @@ package PageFactory;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class GRCPageobject {
+public class GRCPageobject extends HelpdeskPageobject{
 
 	@FindBy(xpath = "//input[@placeholder='Mobile number or Email']")
 	public static WebElement GRCUsername;

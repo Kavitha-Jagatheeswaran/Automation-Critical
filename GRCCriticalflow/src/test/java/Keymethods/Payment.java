@@ -1,10 +1,15 @@
 package Keymethods;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.ElementNotInteractableException;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -19,7 +24,12 @@ public class Payment extends HomescreenPageobject {
 
 	public Payment(WebDriver driver, ExtentTest test) throws InterruptedException {
 		Actions actions = new Actions(driver);
-		HomescreenPageobject.Firstsericepaynow.click();
+		
+		
+		try{HomescreenPageobject.Firstsericepaynow.click();
+		
+		
+		
 
 		if (HomescreenPageobject.PaymentModes.isDisplayed()) {
 			test.log(Status.PASS, "Payment Cart page is Working");
@@ -40,7 +50,12 @@ public class Payment extends HomescreenPageobject {
 		
 		Thread.sleep(4000);
 		try {
-			Yestocancel.click();
+			try {
+				Yestocancel.click();
+			} catch (UnhandledAlertException yestocancel) {
+				driver.switchTo().alert().accept();
+			}
+			
 		} catch (ElementClickInterceptedException Yestocancel) {
 			System.out.println("Action Performed");
 			actions.click(driver.findElement(By.xpath("//button[contains(text(),'YES, CANCEL')]"))).build().perform();
@@ -48,8 +63,24 @@ public class Payment extends HomescreenPageobject {
 			driver.findElement(By.xpath("//small[contains(text(),'Back')]")).click();
 			Thread.sleep(2000);
 			Yestocancel.click();
+			
 		}
+		Thread.sleep(3000);
+		String currentUrl = driver.getCurrentUrl();
+		
+		if (currentUrl.equals("https://vakilsearch.com/retry-payment?EIGF6-RIIMD&source=grc")) {
+			test.log(Status.PASS, "Retry Cart page success");
+		} else {
+
+			test.log(Status.FAIL, "Retry Cart page failed");
+		}
+
 		Thread.sleep(4000);
+		}catch(NoSuchElementException payment1){
+			TakesScreenshot scrShot =((TakesScreenshot)driver);
+			File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
+			test.log(Status.FAIL, "Whole payment failed");
+		}
+	}
 	}
 
-}

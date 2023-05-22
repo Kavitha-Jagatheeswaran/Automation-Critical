@@ -4,6 +4,8 @@ import java.awt.AWTException;
 import java.io.FileInputStream;
 import java.io.IOException;
 import MainBase.*;
+
+import org.apache.commons.mail.EmailException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -21,12 +23,12 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
-import Keymethods.AicPortalEmailTestReport;
+
 import Keymethods.Base;
 import Keymethods.Driver;
 
 import Keymethods.GRCPage;
-
+import Keymethods.SendMailSSLWithAttachment;
 import PageFactory.HomescreenPageobject;
 import PageFactory.HelpdeskPageobject;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -50,7 +52,7 @@ public class Criticalflow {
 
 	public String[][] getExcelData() throws BiffException, IOException {
 		FileInputStream excel = new FileInputStream(
-				"C:\\Users\\admin\\eclipse-workspace\\GRCCriticalflow\\Excel\\Items jxl.xls");
+				"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Excel\\Items jxl.xls");
 		Workbook workbook = Workbook.getWorkbook(excel);
 		Sheet sheet = workbook.getSheet("Sheet5");
 		int rowCount = sheet.getRows();
@@ -66,7 +68,7 @@ public class Criticalflow {
 		}
 		System.out.println(testData.toString());
 		return testData;
-		
+
 	}
 
 	public WebDriver driver;
@@ -85,7 +87,7 @@ public class Criticalflow {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
- 
+
 	}
 
 	@BeforeClass
@@ -94,21 +96,26 @@ public class Criticalflow {
 		PageFactory.initElements(driver, HomescreenPageobject.class);
 		PageFactory.initElements(driver, HelpdeskPageobject.class);
 		Thread.sleep(3000);
- 
-	} 
+
+	}
 
 	@Test(dataProvider = "itemsdata")
 	public void Customercreation100(String Username, String Mobilenumber, String Helpdeskuserid,
 			String helpdeskpassword, String notesname, String notedescrption, String QNameOfCustomer, String qaddress,
-			String qpincode, String Professionalfees, String assignedtoName, String BDAgentName, String CrossSaleName,String GRCMobileNumber,String GRCNewCompanyName,String CINNumber)
-			throws Exception {
+			String qpincode, String Professionalfees, String assignedtoName, String BDAgentName, String CrossSaleName,
+			String GRCMobileNumber, String GRCNewCompanyName, String CINNumber, String CrmUsernames,
+			String CrmUserpassword) throws Exception {
+	
+	//	********Base base = new Base(driver, Username, Mobilenumber, extentreport);
+		GRCPage grcpage = new GRCPage(driver, extentreport, GRCMobileNumber, GRCNewCompanyName, CINNumber,
+				Helpdeskuserid, helpdeskpassword, assignedtoName);
+		CriticalFlowDetail Criticalflow = new CriticalFlowDetail(driver, Helpdeskuserid, helpdeskpassword, notesname,
+				notedescrption, QNameOfCustomer, qaddress, qpincode, Professionalfees, assignedtoName, BDAgentName,
+				CrossSaleName, GRCMobileNumber, CrmUsernames, CrmUserpassword, extentreport);
+		
+		
+	
 
-Base base = new Base(driver, Username, Mobilenumber,extentreport);
-		CriticalFlowDetail Criticalflow = new CriticalFlowDetail(driver, Helpdeskuserid, helpdeskpassword, notesname, notedescrption,
-			QNameOfCustomer, qaddress, qpincode, Professionalfees, assignedtoName, BDAgentName, CrossSaleName,GRCMobileNumber,extentreport);
-        GRCPage grcpage = new GRCPage(driver,extentreport,GRCMobileNumber,GRCNewCompanyName,CINNumber,Helpdeskuserid,helpdeskpassword,assignedtoName);
-
-   
 	}
 
 	@AfterClass
@@ -121,13 +128,18 @@ Base base = new Base(driver, Username, Mobilenumber,extentreport);
 	@AfterTest
 	public void Report() {
 		extentreport.flush();
+		
 		System.out.println("Test completed");
+		
 
 	}
 
 	@AfterSuite
-	public void cleanup() {
-	
-  	}
+	public void cleanup() throws EmailException {
+		SendMailSSLWithAttachment Mail = new SendMailSSLWithAttachment();
+		Mail.main();
+		
+		//driver.quit();
+	}
 
 }

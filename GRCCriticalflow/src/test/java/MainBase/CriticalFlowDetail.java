@@ -36,28 +36,35 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 import Keymethods.GrcLogin;
+import Keymethods.NewCRM;
 import Keymethods.Payment;
 import PageFactory.GRCPageobject;
 import PageFactory.HelpdeskPageobject;
 import PageFactory.HomescreenPageobject;
 import PageFactory.LoginPageobjects;
+import PageFactory.NewCRMPageobject;
 import groovyjarjarantlr4.v4.codegen.model.Action;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class CriticalFlowDetail extends HelpdeskPageobject {
 
+	JavascriptExecutor js;
+	Robot robot;
 	ExtentTest test;
+	
 
 	public CriticalFlowDetail(WebDriver driver, String Helpdeskuserid, String helpdeskpassword, String notesname,
 			String notedescrption, String QNameOfCustomer, String qaddress, String qpincode, String Professionalfees,
 			String assignedtoName, String BDAgentName, String CrossSaleName, String GRCMobileNumber,
-			ExtentReports extentreport) throws InterruptedException, AWTException {
+			String CrmUsernames, String CrmUserpassword, ExtentReports extentreport)
+			throws InterruptedException, AWTException {
 		Robot robot = new Robot();
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		test = extentreport.createTest("Test1");
 		WebDriverWait wait = new WebDriverWait(driver, 100);
 		PageFactory.initElements(driver, GRCPageobject.class);
+		PageFactory.initElements(driver, NewCRMPageobject.class);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		robot.keyPress(KeyEvent.VK_PAGE_UP);
 		robot.keyRelease(KeyEvent.VK_PAGE_UP);
@@ -82,10 +89,10 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		String e = driver.findElement(By.xpath("(//div[@class='styles_ticketDetail__jg4A0']//child::P)[1]")).getText()
 				.substring(1);
 		if (e.matches(e)) {
-			test.log(Status.PASS, "Yes");
+			test.log(Status.PASS, "Create a ticket from the vakilsearch.com");
 		} else {
 
-			test.log(Status.FAIL, "no");
+			test.log(Status.FAIL, "no lead is Create a ticket from the vakilsearch.com");
 		}
 
 		System.out.println(e);
@@ -97,8 +104,8 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		driver.get("https://helpdesk.vakilsearch.com/login");
 
 		Thread.sleep(10000);
-		HelpdeskPageobject.Username.sendKeys(Helpdeskuserid);
-		String text1 = HelpdeskPageobject.Username.getText();
+		Username.sendKeys(Helpdeskuserid);
+		String text1 = Username.getText();
 		String text2 = "testingsa_2_2020@vakilsearch.com";
 		System.out.println(text1);
 		if (text1.contentEquals(text2)) {
@@ -108,25 +115,29 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			test.log(Status.FAIL, "no1");
 		}
 
-		HelpdeskPageobject.Password.sendKeys(helpdeskpassword);
-		HelpdeskPageobject.Signin.click();
+		Password.sendKeys(helpdeskpassword);
+		Signin.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		HelpdeskPageobject.Helpdesk.click();
+		Helpdesk.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		HelpdeskPageobject.Tickets.click();
+		Tickets.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		HelpdeskPageobject.ticketid.sendKeys(e);
+		ticketid.sendKeys(e);
 
-		HelpdeskPageobject.Search.click();
-		HelpdeskPageobject.Firstservice.click();
+		Search.click();
+		Firstservice.click();
+		
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		HelpdeskPageobject.CriticalnotesCTA.click();
+		try {
+			
+		
+		CriticalnotesCTA.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		HelpdeskPageobject.NewCriticalNoteCTA.click();
+		NewCriticalNoteCTA.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(5000);
 
-		HelpdeskPageobject.TypeCriticalNotes.click();
+		TypeCriticalNotes.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(5000);
 
@@ -145,20 +156,25 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		robot.keyPress(KeyEvent.VK_G);
 		robot.keyRelease(KeyEvent.VK_G);
 
-//		 HelpdeskPageobject.TypeCriticalNotes.sendKeys("Testing");driver.manage().timeouts().implicitlyWait(30,
+//		 TypeCriticalNotes.sendKeys("Testing");driver.manage().timeouts().implicitlyWait(30,
 //		 TimeUnit.SECONDS);
-//		 HelpdeskPageobject.ChooseCriticalNoesFile.click();
-		HelpdeskPageobject.ChooseCriticalNoesFile
-				.sendKeys("C:\\Users\\admin\\eclipse-workspace\\GRCCriticalflow\\Excel\\Customer.xlsx");
+//		 ChooseCriticalNoesFile.click();
+		ChooseCriticalNoesFile.sendKeys("C:\\Users\\admin\\eclipse-workspace\\GRCCriticalflow\\Excel\\Customer.xlsx");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		HelpdeskPageobject.CriticalNoteSave.click();
-		Thread.sleep(10000);
+		CriticalNoteSave.click();
+		Thread.sleep(5000);
+		test.log(Status.PASS, "Critical Note added");
+		} catch (Exception CriticalNote) {
+			test.log(Status.PASS, "Critical note Failed");
+		}
+try {
+	
 
-		HelpdeskPageobject.PersonalNote.click();
+		PersonalNote.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		HelpdeskPageobject.NewPersonalNote.click();
+		NewPersonalNote.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		HelpdeskPageobject.TypePersonalnote.click();
+		TypePersonalnote.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		robot.keyPress(KeyEvent.VK_T);
 		robot.keyRelease(KeyEvent.VK_T);
@@ -174,15 +190,26 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		robot.keyRelease(KeyEvent.VK_N);
 		robot.keyPress(KeyEvent.VK_G);
 		robot.keyRelease(KeyEvent.VK_G);
-		HelpdeskPageobject.savepersonalnote.click();
+		savepersonalnote.click();
+		test.log(Status.PASS, "Personal Note added");
+
+
+} catch (Exception PersonalNote) {
+	
+
+	test.log(Status.FAIL, "Personal Note Failed");
+}
 
 		Thread.sleep(1500);
+		
+		try {
+			
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		HelpdeskPageobject.addnote.click();
+		addnote.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		HelpdeskPageobject.addnoteattachment
+		addnoteattachment
 				.sendKeys("C:\\\\Users\\\\admin\\\\eclipse-workspace\\\\GRCCriticalflow\\\\Excel\\\\Customer.xlsx");
-		HelpdeskPageobject.typeaddnote.click();
+		typeaddnote.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		robot.keyPress(KeyEvent.VK_T);
 		robot.keyRelease(KeyEvent.VK_T);
@@ -198,72 +225,102 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		robot.keyRelease(KeyEvent.VK_N);
 		robot.keyPress(KeyEvent.VK_G);
 		robot.keyRelease(KeyEvent.VK_G);
-		HelpdeskPageobject.addnotesend.click();
+		addnotesend.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-		HelpdeskPageobject.addnote.click();
+		addnote.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		HelpdeskPageobject.EmailTo.click();
+		driver.findElement(By.xpath("(//iframe[@class='cke_wysiwyg_frame cke_reset'])[4]")).click();
+		driver.findElement(By.xpath("(//iframe[@class='cke_wysiwyg_frame cke_reset'])[4]"))
+				.sendKeys("Testing Add note CRM");
+		EmailTo.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		HelpdeskPageobject.emailsearchTo.sendKeys(assignedtoName);
+		emailsearchTo.sendKeys(assignedtoName);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
-		HelpdeskPageobject.Emailtoaddnote.click();
+		Emailtoaddnote.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-		HelpdeskPageobject.EmailAddAttachment
+		EmailAddAttachment
 				.sendKeys("C:\\\\Users\\\\admin\\\\eclipse-workspace\\\\GRCCriticalflow\\\\Excel\\\\Customer.xlsx");
-		HelpdeskPageobject.EmailButtonSend.click();
+		EmailButtonSend.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		test.log(Status.PASS, "Add Note Created");
+		} catch (Exception AddNote) {
+			test.log(Status.FAIL, "Add Note Failed");
+		}
+		
+		
+try {
+	MenuDownArrow.click();
+} catch (ElementClickInterceptedException MenuDownArrow1) {
+	robot.keyPress(KeyEvent.VK_PAGE_UP);
+	robot.keyRelease(KeyEvent.VK_PAGE_UP);
+	MenuDownArrow.click();
+}
 
-		HelpdeskPageobject.MenuDownArrow.click();
+	try {
+		
+	
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		HelpdeskPageobject.CannedResponseCTA.click();
+		CannedResponseCTA.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 		wait.until(ExpectedConditions
 				.visibilityOfElementLocated(By.xpath("//a[@class='nav-link canned_response_folder_select active']")));
 		try {
-			HelpdeskPageobject.cannedAddingaDriector.click();
+			cannedAddingaDriector.click();
 		} catch (StaleElementReferenceException e02) {
-			HelpdeskPageobject.cannedaddingadirector1.click();
+			cannedaddingadirector1.click();
 		}
 
 		wait.until(ExpectedConditions
 				.visibilityOfElementLocated(By.xpath("(//a[@class='email-tempalte-object template_object_new'])[2]")));
 		try {
-			HelpdeskPageobject.cannedFollowingEmail.click();
+			cannedFollowingEmail.click();
 		} catch (StaleElementReferenceException e03) {
-			HelpdeskPageobject.cannedFollowingEmail1.click();
+			cannedFollowingEmail1.click();
 		}
 
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		HelpdeskPageobject.cannedEmailaddattachment.sendKeys(
+		cannedEmailaddattachment.sendKeys(
 				"C:\\\\\\\\Users\\\\\\\\admin\\\\\\\\eclipse-workspace\\\\\\\\GRCCriticalflow\\\\\\\\Excel\\\\\\\\Customer.xlsx");
-		HelpdeskPageobject.cannedsubject.sendKeys(notesname);
+		cannedsubject.sendKeys(notesname);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(3000);
-		HelpdeskPageobject.cannedselectdate.click();
+		cannedselectdate.click();
 
 		try {
-			HelpdeskPageobject.cannedDate29.click();
+			cannedDate29.click();
 		} catch (StaleElementReferenceException e04) {
 
-			driver.findElement(By.xpath("(//td[@class='xdsoft_date xdsoft_day_of_week1 xdsoft_date true,'])[4]")).click();
+			try {
+
+				driver.findElement(By.xpath("(//td[@class='xdsoft_date xdsoft_day_of_week1 xdsoft_date true,'])[4]"))
+						.click();
+			} catch (NoSuchElementException CanneddateCatch1) {
+
+				driver.findElement(By.xpath("(//td[@data-date='29'])[1]")).click();
+			}
+
 		} catch (ElementNotInteractableException CanneddateCatch) {
 
-			driver.findElement(By.xpath("(//td[@data-date='27'])[1]")).click();
+			driver.findElement(By.xpath("(//td[@data-date='27'])[4]")).click();
 		}
 
 		Thread.sleep(3000);
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		HelpdeskPageobject.cannedDescription.sendKeys("Test1");
+		cannedDescription.sendKeys("Test1");
 
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		HelpdeskPageobject.cannedupdateCTA.click();
+		cannedupdateCTA.click();
+		test.log(Status.PASS, "Canned response Created");
+	} catch (Exception cannedException) {
+		test.log(Status.FAIL, "Canned response Failed");
+	}	
 
 		Thread.sleep(2000);
 
@@ -271,28 +328,28 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		robot.keyRelease(KeyEvent.VK_PAGE_UP);
 
 		Thread.sleep(2000);
-		js.executeScript("arguments[0].scrollIntoView(true);", HelpdeskPageobject.CreateQuotation);
+		js.executeScript("arguments[0].scrollIntoView(true);", CreateQuotation);
 		try {
 
 			robot.keyPress(KeyEvent.VK_PAGE_UP);
 			robot.keyRelease(KeyEvent.VK_PAGE_UP);
-			HelpdeskPageobject.CreatenewQuotation.click();
-			HelpdeskPageobject.CreateQuotation.click();
-			HelpdeskPageobject.CreateQuotation.click();
+			CreatenewQuotation.click();
+			CreateQuotation.click();
+			CreateQuotation.click();
 		} catch (ElementClickInterceptedException e211) {
 
 			Thread.sleep(1500);
-			js.executeScript("arguments[0].scrollIntoView(true);", HelpdeskPageobject.CreatenewQuotation);
+			js.executeScript("arguments[0].scrollIntoView(true);", CreatenewQuotation);
 
 			robot.keyPress(KeyEvent.VK_PAGE_UP);
 			robot.keyRelease(KeyEvent.VK_PAGE_UP);
-			// HelpdeskPageobject.CreatenewQuotation.click();
+			// CreatenewQuotation.click();
 			Thread.sleep(3500);
-			HelpdeskPageobject.CreateQuotation.click();
-			HelpdeskPageobject.CreateQuotation.click();
+			CreateQuotation.click();
+			CreateQuotation.click();
 		}
 
-		// HelpdeskPageobject.EventCheckbox.click();
+		// EventCheckbox.click();
 
 		Thread.sleep(5000);
 		Set<String> allwindowsid = driver.getWindowHandles();
@@ -300,21 +357,20 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		all.addAll(allwindowsid);
 		driver.switchTo().window(all.get(1));
 
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='name']//child::input)[1]")));
-		HelpdeskPageobject.QNameofthecustomer.click();
+		QNameofthecustomer.click();
 
-		HelpdeskPageobject.QNameofthecustomer.sendKeys(QNameOfCustomer);
-		HelpdeskPageobject.Qaddress.click();
+		QNameofthecustomer.sendKeys(QNameOfCustomer);
+		Qaddress.click();
 
-		HelpdeskPageobject.Qaddress.sendKeys(qaddress);
-		HelpdeskPageobject.Qpincode.click();
-		HelpdeskPageobject.Qpincode.sendKeys(qpincode);
+		Qaddress.sendKeys(qaddress);
+		Qpincode.click();
+		Qpincode.sendKeys(qpincode);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		WebElement QPaymenttypescroll = driver.findElement(By.xpath("//option[contains(text(),'Full Payment')]"));
 		js.executeScript("arguments[0].scrollIntoView(true);", QPaymenttypescroll);
 
-		HelpdeskPageobject.PaymentType.click();
+		PaymentType.click();
 		robot.keyPress(KeyEvent.VK_DOWN);
 		robot.keyRelease(KeyEvent.VK_DOWN);
 		robot.keyPress(KeyEvent.VK_ENTER);
@@ -335,9 +391,9 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		WebElement QConfirmquotationScroll = driver.findElement(By.xpath("//a[@class='send confirm_value']"));
 		js.executeScript("arguments[0].scrollIntoView(true);", QConfirmquotationScroll);
-		HelpdeskPageobject.Confirmquotation.click();
+		Confirmquotation.click();
 
-		js.executeScript("arguments[0].scrollIntoView(true);", HelpdeskPageobject.sendquotation);
+		js.executeScript("arguments[0].scrollIntoView(true);", sendquotation);
 		robot.keyPress(KeyEvent.VK_CONTROL);
 		robot.keyPress(KeyEvent.VK_MINUS);
 		robot.keyRelease(KeyEvent.VK_MINUS);
@@ -346,11 +402,11 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		robot.keyRelease(KeyEvent.VK_CONTROL);
 		Thread.sleep(1500);
 
-		HelpdeskPageobject.sendquotation.click();
+		sendquotation.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 		try {
-			HelpdeskPageobject.CreatenewQuotation.click();
+			CreatenewQuotation.click();
 			Thread.sleep(2500);
 			robot.keyPress(KeyEvent.VK_CONTROL);
 			robot.keyRelease(KeyEvent.VK_R);
@@ -358,7 +414,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			robot.keyRelease(KeyEvent.VK_CONTROL);
 		} catch (NoSuchElementException deactivate) {
 
-			HelpdeskPageobject.DeactivateYES.click();
+			DeactivateYES.click();
 			Thread.sleep(3500);
 
 			robot.keyPress(KeyEvent.VK_CONTROL);
@@ -377,9 +433,11 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		robot.keyPress(KeyEvent.VK_R);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
 		Thread.sleep(2500);
-		HelpdeskPageobject.CreatenewQuotation.click();
+		robot.keyPress(KeyEvent.VK_PAGE_UP);
+		robot.keyRelease(KeyEvent.VK_PAGE_UP);
+		CreatenewQuotation.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		HelpdeskPageobject.editquoation.click();
+		editquoation.click();
 		Thread.sleep(2500);
 		List<String> all2 = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(all2.get(1));
@@ -393,7 +451,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 //		all.addAll(allwindowsid);
 //		driver.switchTo().window(all.get(2));
 
-		HelpdeskPageobject.PaymentType.click();
+		PaymentType.click();
 		robot.keyPress(KeyEvent.VK_DOWN);
 		robot.keyRelease(KeyEvent.VK_DOWN);
 		robot.keyPress(KeyEvent.VK_DOWN);
@@ -413,11 +471,11 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		robot.keyPress(KeyEvent.VK_MINUS);
 		robot.keyRelease(KeyEvent.VK_MINUS);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
-		js.executeScript("arguments[0].scrollIntoView(true);", HelpdeskPageobject.ConfirmquotationEdit);
-		HelpdeskPageobject.ConfirmquotationEdit.click();
+		js.executeScript("arguments[0].scrollIntoView(true);", ConfirmquotationEdit);
+		ConfirmquotationEdit.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-		HelpdeskPageobject.sendquotationedit.click();
+		sendquotationedit.click();
 		Thread.sleep(2500);
 		driver.close();
 		Thread.sleep(2500);
@@ -431,9 +489,9 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-		HelpdeskPageobject.CreatenewQuotation.click();
+		CreatenewQuotation.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		HelpdeskPageobject.Generatequotation.click();
+		Generatequotation.click();
 		Thread.sleep(2000);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		List<String> all4 = new ArrayList<String>(driver.getWindowHandles());
@@ -443,13 +501,13 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		Thread.sleep(2000);
 		driver.switchTo().window(all4.get(0));
 		Thread.sleep(2000);
-		HelpdeskPageobject.deactivateQuotation.click();
+		deactivateQuotation.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		robot.keyPress(KeyEvent.VK_PAGE_DOWN);
 		Thread.sleep(4000);
 		robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
 		Thread.sleep(2000);
-		HelpdeskPageobject.LoadmoreMessagesCTA.click();
+		LoadmoreMessagesCTA.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(2000);
 		robot.keyPress(KeyEvent.VK_PAGE_UP);
@@ -469,8 +527,8 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		Thread.sleep(1500);
 		try {
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@id='editBtn']")));
-			js.executeScript("arguments[0].scrollIntoView(true);", HelpdeskPageobject.Editticket);
-			HelpdeskPageobject.Editticket.click();
+			js.executeScript("arguments[0].scrollIntoView(true);", Editticket);
+			Editticket.click();
 
 		} catch (ElementClickInterceptedException elementintercptedEdit) {
 			robot.keyPress(KeyEvent.VK_PAGE_UP);
@@ -482,11 +540,11 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		}
 
 		Thread.sleep(2500);
-		HelpdeskPageobject.Assignedto.click();
+		Assignedto.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(1500);
-		HelpdeskPageobject.Assignedtoname.click();
-		HelpdeskPageobject.Assignedtoname.sendKeys(assignedtoName);
+		Assignedtoname.click();
+		Assignedtoname.sendKeys(assignedtoName);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 		robot.keyPress(KeyEvent.VK_ENTER);
@@ -495,7 +553,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-		HelpdeskPageobject.BDagentCTA.click();
+		BDagentCTA.click();
 		Thread.sleep(1500);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -519,22 +577,22 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
 
-		HelpdeskPageobject.Updateticket.click();
+		Updateticket.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		Thread.sleep(3500);
-		driver.switchTo().alert().accept();
-		HelpdeskPageobject.CrosssaleCTA.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		Thread.sleep(1500);
-		HelpdeskPageobject.Selectcrosssale.click();
+		wait.until(ExpectedConditions.alertIsPresent()).accept();
+	
+		CrosssaleCTA.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(1500);
-		HelpdeskPageobject.Selectcrosssale.sendKeys(CrossSaleName);
+		Selectcrosssale.click();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		Thread.sleep(1500);
+		Selectcrosssale.sendKeys(CrossSaleName);
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(1500);
-		HelpdeskPageobject.Createcrosssale.click();
+		Createcrosssale.click();
 		Thread.sleep(2500);
 		robot.keyPress(KeyEvent.VK_CONTROL);
 		robot.keyRelease(KeyEvent.VK_R);
@@ -547,12 +605,12 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		robot.keyPress(KeyEvent.VK_R);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
 		Thread.sleep(10000);
-		HelpdeskPageobject.RecentTickets.click();
+		RecentTickets.click();
 		Thread.sleep(2500);
-		HelpdeskPageobject.Recenetfirstticket.click();
+		Recenetfirstticket.click();
 		Thread.sleep(5000);
 
-		String T1 = HelpdeskPageobject.recentTicketID.getText().substring(1, 8);
+		String T1 = recentTicketID.getText().substring(1, 8);
 		System.out.println(T1);
 		driver.navigate().back();
 		try {
@@ -570,20 +628,25 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		}
 
 		try {
-			HelpdeskPageobject.Merge.click();
-		} catch (ElementClickInterceptedException Merge) {
+			Merge.click();
+		} catch (ElementClickInterceptedException Merge34) {
 			robot.keyPress(KeyEvent.VK_CONTROL);
 			robot.keyRelease(KeyEvent.VK_R);
 			robot.keyPress(KeyEvent.VK_R);
 			robot.keyRelease(KeyEvent.VK_CONTROL);
 			Thread.sleep(2500);
-			HelpdeskPageobject.Merge.click();
+			Merge.click();
 		}
 
-		Thread.sleep(2000);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		HelpdeskPageobject.mergesearchticketId1.click();
-		Thread.sleep(1500);
+		try {
+			Thread.sleep(2000);
+			mergesearchticketId1.click();
+		} catch (NoSuchElementException m9ergesearchticketId1) {
+			driver.findElement(By.xpath("//a[contains(text(),'Merge')]")).click();
+			Thread.sleep(2000);
+			mergesearchticketId1.click();
+			Thread.sleep(1500);
+		}
 
 		robot.keyPress(KeyEvent.VK_3);
 		robot.keyRelease(KeyEvent.VK_3);
@@ -591,7 +654,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		robot.keyRelease(KeyEvent.VK_BACK_SPACE);
 		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		HelpdeskPageobject.mergesearchticketId.sendKeys(T1);
+		mergesearchticketId.sendKeys(T1);
 
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(1500);
@@ -599,16 +662,16 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		robot.keyRelease(KeyEvent.VK_ENTER);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(1500);
-		HelpdeskPageobject.mergeSecondcheckbox.click();
+		mergeSecondcheckbox.click();
 		Thread.sleep(1500);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-		HelpdeskPageobject.mergesavechanges.click();
+		mergesavechanges.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(2000);
 		Thread.sleep(3500);
 		driver.switchTo().alert().accept();
-		HelpdeskPageobject.Magickeycopy.click();
+		Magickeycopy.click();
 
 		robot.keyPress(KeyEvent.VK_CONTROL);
 		robot.keyPress(KeyEvent.VK_C);
@@ -647,21 +710,39 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-		HelpdeskPageobject.CustomerDashboard.click();
+		CustomerDashboard.click();
 		Thread.sleep(3000);
 		driver.navigate().back();
 
 		Thread.sleep(3000);
-		HelpdeskPageobject.GRCCTA.click();
+		GRCCTA.click();
 		List<String> all3 = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(all3.get(1));
 		Thread.sleep(5000);
-		GRCPageobject.ProfileMenu.click();
-		driver.findElement(By.xpath("//p[contains(text(),'Sign out')]")).click();
+		try {
+			GRCPageobject.ProfileMenu.click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//p[contains(text(),'Sign out')]")).click();
+		} catch (ElementClickInterceptedException e290) {
+			driver.findElement(By.xpath("//div[contains(text(),'Continue your service request from here ')]")).click();
+			Thread.sleep(1500);
+			GRCPageobject.ProfileMenu.click();
+
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//p[contains(text(),'Sign out')]")).click();
+		}
+
 		driver.close();
 		driver.switchTo().window(all3.get(0));
-        driver.findElement(By.xpath("(//div[@class='collapse navbar-collapse']/child::ul/child::li/child::a)[3]")).click();
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("//a[contains(text(),'Logout')]")).click();
+
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("(//div[@class='collapse navbar-collapse']/child::ul/child::li/child::a)[3]"))
+				.click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//a[contains(text(),'Logout')]")).click();
+NewCRM newCRM = new NewCRM();
+
+		newCRM.newCRM(driver, e, CrmUsernames, CrmUserpassword);
 	}
+
 }

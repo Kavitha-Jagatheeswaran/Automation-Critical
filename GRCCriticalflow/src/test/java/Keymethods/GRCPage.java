@@ -27,13 +27,14 @@ import com.aventstack.extentreports.Status;
 import CriticalFlowRun.Criticalflow;
 import PageFactory.GRCPageobject;
 import PageFactory.HelpdeskPageobject;
+import groovyjarjarantlr4.v4.parse.ANTLRParser.element_return;
 
 public class GRCPage extends GRCPageobject {
 	ExtentTest test;
 	
 	public GRCPage(WebDriver driver,ExtentReports extentreport, String GRCMobileNumber, String GRCNewCompanyName,
 			String CINNumber, String Helpdeskuserid, String helpdeskpassword, String assignedtoName)
-			throws InterruptedException, AWTException {
+			throws InterruptedException, AWTException,ElementClickInterceptedException {
 //		Set<String> allwindowsid = driver.getWindowHandles();
 //		List<String> all = new ArrayList<>();
 //		all.addAll(allwindowsid);
@@ -55,7 +56,9 @@ public class GRCPage extends GRCPageobject {
 		GRCUsername.sendKeys(GRCMobileNumber);
 		Thread.sleep(2500);
 		GRCPhonenumberConfirm.click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
+		wait.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath("(//input[@style='width: 1em; text-align: center;'])[1]")));
 		GRCOTP1.sendKeys("0");
 		GRCOTP2.sendKeys("0");
 		GRCOTP3.sendKeys("0");
@@ -93,7 +96,8 @@ public class GRCPage extends GRCPageobject {
 
 			wait.until(ExpectedConditions
 					.elementToBeClickable(By.xpath("//button[@class='styles_dropdownBtn__I6_4i']/child::p")));
-			Thread.sleep(2500);
+			Thread.sleep(3500);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@class='styles_dropdownBtn__I6_4i']/child::p")));
 			OpenEntityList.click();
 			Thread.sleep(1500);
 			AddNewBusiness2.click();
@@ -145,8 +149,10 @@ robot.keyRelease(KeyEvent.VK_CONTROL);
 		wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("//button[@class='styles_dropdownBtn__I6_4i']/child::p")));
 		Thread.sleep(2500);
-		OpenEntityList.click();
-		EntitySelect2.click();
+		
+		//**just for option
+//	**	OpenEntityList.click();
+//		***EntitySelect2.click();
 		Thread.sleep(1500);
 		ProfileMenu.click();
 		Thread.sleep(1500);
@@ -170,7 +176,8 @@ robot.keyRelease(KeyEvent.VK_CONTROL);
 		robot.keyPress(KeyEvent.VK_MINUS);
 		robot.keyRelease(KeyEvent.VK_MINUS);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
-		
+		js1.executeScript("arguments[0].scrollIntoView(true);", BuyNowService);
+		wait.until(ExpectedConditions.elementToBeClickable(BuyNowService));
 		BuyNowService.click();
 		Thread.sleep(1500);
 		try {
@@ -208,7 +215,7 @@ robot.keyRelease(KeyEvent.VK_CONTROL);
 			}
 
 		}
-		Thread.sleep(5000);
+		
 		
 			String ServiceID = GetServiceID.getText().substring(1);
 			System.out.println(ServiceID + "GRC");
@@ -217,7 +224,6 @@ robot.keyRelease(KeyEvent.VK_CONTROL);
 			robot.keyRelease(KeyEvent.VK_R);
 			robot.keyRelease(KeyEvent.VK_CONTROL);
 		
-	
 //		Thread.sleep(1500);
 //		MessagesCTA.click();
 //		Thread.sleep(1500);
@@ -236,13 +242,7 @@ robot.keyRelease(KeyEvent.VK_CONTROL);
 		wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("(//div[@class='styles_needHelpModal__xIW3p']/child::div/div)[6]")));
 		clickVideo.click();
-		Thread.sleep(2500);
-		robot.keyPress(KeyEvent.VK_TAB);
-		robot.keyRelease(KeyEvent.VK_TAB);
-		Thread.sleep(1500);
-		robot.keyPress(KeyEvent.VK_TAB);
-		robot.keyRelease(KeyEvent.VK_TAB);
-		Thread.sleep(1500);
+		Thread.sleep(3500);
 		robot.keyPress(KeyEvent.VK_TAB);
 		robot.keyRelease(KeyEvent.VK_TAB);
 		Thread.sleep(1500);
@@ -254,96 +254,97 @@ robot.keyRelease(KeyEvent.VK_CONTROL);
 		Thread.sleep(1500);
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
-		driver.get("https://helpdesk.vakilsearch.com/login");
-//		Set<String> windowHandles = driver.getWindowHandles();
-//		Iterator it = windowHandles.iterator();
-//		String parentid = (String) it.next();
-//		String childid = (String) it.next();
-//		driver.switchTo().window(childid);
-		Thread.sleep(3000);
-		HelpdeskPageobject.Username.click();
-		HelpdeskPageobject.Username.sendKeys(Helpdeskuserid);
-		String text1 = HelpdeskPageobject.Username.getText();
-		String text2 = "testingsa_2_2020@vakilsearch.com";
-		System.out.println(text1);
-		if (text1.contentEquals(text2)) {
-			test.log(Status.PASS, "Yes");
-		} else {
-
-			test.log(Status.FAIL, "no1");
-		}
-
-		HelpdeskPageobject.Password.sendKeys(helpdeskpassword);
-		HelpdeskPageobject.Signin.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		HelpdeskPageobject.Helpdesk.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		HelpdeskPageobject.Tickets.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		HelpdeskPageobject.ticketid.sendKeys(ServiceID);
-
-		HelpdeskPageobject.Search.click();
-		HelpdeskPageobject.Firstservice.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		try {
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@id='editBtn']")));
-			js1.executeScript("arguments[0].scrollIntoView(true);", HelpdeskPageobject.Editticket);
-			HelpdeskPageobject.Editticket.click();
-
-		} catch (ElementClickInterceptedException elementintercptedEdit) {
-			robot.keyPress(KeyEvent.VK_PAGE_UP);
-			Thread.sleep(3000);
-			robot.keyRelease(KeyEvent.VK_PAGE_UP);
-			robot.keyPress(KeyEvent.VK_PAGE_UP);
-			robot.keyRelease(KeyEvent.VK_PAGE_UP);
-			driver.findElement(By.xpath("//button[contains(text(),'Edit')]")).click();
-		}
-
-		Thread.sleep(2500);
-		HelpdeskPageobject.Assignedto.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		Thread.sleep(1500);
-		HelpdeskPageobject.Assignedtoname.click();
-		HelpdeskPageobject.Assignedtoname.sendKeys(assignedtoName);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
-		robot.keyPress(KeyEvent.VK_ENTER);
-		robot.keyRelease(KeyEvent.VK_ENTER);
-		Thread.sleep(1500);
-
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
-		HelpdeskPageobject.BDagentCTA.click();
-		Thread.sleep(1500);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
-		HelpdeskPageobject.Paymentstatus.click();
-		robot.keyPress(KeyEvent.VK_DOWN);
-		robot.keyRelease(KeyEvent.VK_DOWN);
-		robot.keyPress(KeyEvent.VK_DOWN);
-		robot.keyRelease(KeyEvent.VK_DOWN);
-		robot.keyPress(KeyEvent.VK_DOWN);
-		robot.keyRelease(KeyEvent.VK_DOWN);
-		robot.keyPress(KeyEvent.VK_DOWN);
-		robot.keyRelease(KeyEvent.VK_DOWN);
-		robot.keyPress(KeyEvent.VK_DOWN);
-		robot.keyRelease(KeyEvent.VK_DOWN);
-		robot.keyPress(KeyEvent.VK_DOWN);
-		robot.keyRelease(KeyEvent.VK_DOWN);
-		robot.keyPress(KeyEvent.VK_DOWN);
-		robot.keyRelease(KeyEvent.VK_DOWN);
-		robot.keyPress(KeyEvent.VK_DOWN);
-		robot.keyRelease(KeyEvent.VK_DOWN);
-		robot.keyPress(KeyEvent.VK_ENTER);
-		robot.keyRelease(KeyEvent.VK_ENTER);
+		Thread.sleep(8000);
+//		driver.get("https://helpdesk.vakilsearch.com/login");
+////		Set<String> windowHandles = driver.getWindowHandles();
+////		Iterator it = windowHandles.iterator();
+////		String parentid = (String) it.next();
+////		String childid = (String) it.next();
+////		driver.switchTo().window(childid);
+//		Thread.sleep(3000);
+//		HelpdeskPageobject.Username.click();
+//		HelpdeskPageobject.Username.sendKeys(Helpdeskuserid);
+//		String text1 = HelpdeskPageobject.Username.getText();
+//		String text2 = "testingsa_2_2020@vakilsearch.com";
+//		System.out.println(text1);
+//		if (text1.contentEquals(text2)) {
+//			test.log(Status.PASS, "Yes");
+//		} else {
+//
+//			test.log(Status.FAIL, "no1");
+//		}
+//
+//		HelpdeskPageobject.Password.sendKeys(helpdeskpassword);
+//		HelpdeskPageobject.Signin.click();
+//		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+//		HelpdeskPageobject.Helpdesk.click();
+//		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+//		HelpdeskPageobject.Tickets.click();
+//		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+//		HelpdeskPageobject.ticketid.sendKeys(ServiceID);
+//
+//		HelpdeskPageobject.Search.click();
+//		HelpdeskPageobject.Firstservice.click();
+//		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+//		try {
+//			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@id='editBtn']")));
+//			js1.executeScript("arguments[0].scrollIntoView(true);", HelpdeskPageobject.Editticket);
+//			HelpdeskPageobject.Editticket.click();
+//
+//		} catch (ElementClickInterceptedException elementintercptedEdit) {
+//			robot.keyPress(KeyEvent.VK_PAGE_UP);
+//			Thread.sleep(3000);
+//			robot.keyRelease(KeyEvent.VK_PAGE_UP);
+//			robot.keyPress(KeyEvent.VK_PAGE_UP);
+//			robot.keyRelease(KeyEvent.VK_PAGE_UP);
+//			driver.findElement(By.xpath("//button[contains(text(),'Edit')]")).click();
+//		}
+//
+//		Thread.sleep(2500);
+//		HelpdeskPageobject.Assignedto.click();
+//		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+//		Thread.sleep(1500);
+//		HelpdeskPageobject.Assignedtoname.click();
+//		HelpdeskPageobject.Assignedtoname.sendKeys(assignedtoName);
+//		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+//
+//		robot.keyPress(KeyEvent.VK_ENTER);
+//		robot.keyRelease(KeyEvent.VK_ENTER);
+//		Thread.sleep(1500);
+//
+//		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+//
+//		HelpdeskPageobject.BDagentCTA.click();
+//		Thread.sleep(1500);
+//		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+//
+//		HelpdeskPageobject.Paymentstatus.click();
+//		robot.keyPress(KeyEvent.VK_DOWN);
+//		robot.keyRelease(KeyEvent.VK_DOWN);
+//		robot.keyPress(KeyEvent.VK_DOWN);
+//		robot.keyRelease(KeyEvent.VK_DOWN);
+//		robot.keyPress(KeyEvent.VK_DOWN);
+//		robot.keyRelease(KeyEvent.VK_DOWN);
+//		robot.keyPress(KeyEvent.VK_DOWN);
+//		robot.keyRelease(KeyEvent.VK_DOWN);
+//		robot.keyPress(KeyEvent.VK_DOWN);
+//		robot.keyRelease(KeyEvent.VK_DOWN);
+//		robot.keyPress(KeyEvent.VK_DOWN);
+//		robot.keyRelease(KeyEvent.VK_DOWN);
+//		robot.keyPress(KeyEvent.VK_DOWN);
+//		robot.keyRelease(KeyEvent.VK_DOWN);
+//		robot.keyPress(KeyEvent.VK_DOWN);
+//		robot.keyRelease(KeyEvent.VK_DOWN);
+//		robot.keyPress(KeyEvent.VK_ENTER);
+//		robot.keyRelease(KeyEvent.VK_ENTER);
+//		
+//		HelpdeskPageobject.Updateticket.click();
+//		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+//		Thread.sleep(1500);
+//		driver.switchTo().alert().accept();
+//		Thread.sleep(1500);
+	//***	//driver.switchTo().window(parentid);
 		
-		HelpdeskPageobject.Updateticket.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		Thread.sleep(1500);
-		driver.switchTo().alert().accept();
-		Thread.sleep(1500);
-		//driver.switchTo().window(parentid);
-		Thread.sleep(1500);
 //		HelpdeskPageobject.EntityInfo.click();
 //		Thread.sleep(3500);
 //		HelpdeskPageobject.ChangeEntity.click();
@@ -364,6 +365,11 @@ robot.keyRelease(KeyEvent.VK_CONTROL);
 //		HelpdeskPageobject.SaveEntity2.click();
 //		driver.switchTo().alert().accept();
 		
+		
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_R);
+		robot.keyRelease(KeyEvent.VK_R);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
 		
 		
 		
