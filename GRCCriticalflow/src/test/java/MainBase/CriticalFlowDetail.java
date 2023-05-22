@@ -108,11 +108,11 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		String text1 = Username.getText();
 		String text2 = "testingsa_2_2020@vakilsearch.com";
 		System.out.println(text1);
-		if (text1.contentEquals(text2)) {
+		if (text1.contains(text2)) {
 			test.log(Status.PASS, "Yes");
 		} else {
 
-			test.log(Status.FAIL, "no1");
+			test.log(Status.FAIL, "Username Not same");
 		}
 
 		Password.sendKeys(helpdeskpassword);

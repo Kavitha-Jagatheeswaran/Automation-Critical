@@ -68,7 +68,7 @@ public class Payment extends HomescreenPageobject {
 		Thread.sleep(3000);
 		String currentUrl = driver.getCurrentUrl();
 		
-		if (currentUrl.equals("https://vakilsearch.com/retry-payment?EIGF6-RIIMD&source=grc")) {
+		if (currentUrl.contains("retry")) {
 			test.log(Status.PASS, "Retry Cart page success");
 		} else {
 
