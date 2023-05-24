@@ -23,11 +23,11 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
-
 import Keymethods.Base;
 import Keymethods.Driver;
 
 import Keymethods.GRCPage;
+import Keymethods.NewCRM;
 import Keymethods.SendMailSSLWithAttachment;
 import PageFactory.HomescreenPageobject;
 import PageFactory.HelpdeskPageobject;
@@ -105,16 +105,16 @@ public class Criticalflow {
 			String qpincode, String Professionalfees, String assignedtoName, String BDAgentName, String CrossSaleName,
 			String GRCMobileNumber, String GRCNewCompanyName, String CINNumber, String CrmUsernames,
 			String CrmUserpassword) throws Exception {
-	
-	//	********Base base = new Base(driver, Username, Mobilenumber, extentreport);
-	//	GRCPage grcpage = new GRCPage(driver, extentreport, GRCMobileNumber, GRCNewCompanyName, CINNumber,
-	//			Helpdeskuserid, helpdeskpassword, assignedtoName);
-	//	CriticalFlowDetail Criticalflow = new CriticalFlowDetail(driver, Helpdeskuserid, helpdeskpassword, notesname,
-		//		notedescrption, QNameOfCustomer, qaddress, qpincode, Professionalfees, assignedtoName, BDAgentName,
-		//		CrossSaleName, GRCMobileNumber, CrmUsernames, CrmUserpassword, extentreport);
+
+		// ********Base base = new Base(driver, Username, Mobilenumber, extentreport);
+		GRCPage grcpage = new GRCPage(driver, extentreport, GRCMobileNumber, GRCNewCompanyName, CINNumber,
+				Helpdeskuserid, helpdeskpassword, assignedtoName);
+		CriticalFlowDetail Criticalflow = new CriticalFlowDetail(driver, Helpdeskuserid, helpdeskpassword, notesname,
+				notedescrption, QNameOfCustomer, qaddress, qpincode, Professionalfees, assignedtoName, BDAgentName,
+				CrossSaleName, GRCMobileNumber, CrmUsernames, CrmUserpassword, extentreport);
 		
-		System.out.println("pass");
-	
+
+		
 
 	}
 
@@ -128,9 +128,8 @@ public class Criticalflow {
 	@AfterTest
 	public void Report() {
 		extentreport.flush();
-		
+
 		System.out.println("Test completed");
-		
 
 	}
 
@@ -138,8 +137,8 @@ public class Criticalflow {
 	public void cleanup() throws EmailException {
 		SendMailSSLWithAttachment Mail = new SendMailSSLWithAttachment();
 		Mail.main();
-		
-		//driver.quit();
+
+		// driver.quit();
 	}
 
 }

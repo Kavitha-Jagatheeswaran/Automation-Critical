@@ -32,6 +32,12 @@
 			<version>7.3.0</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>1.18.24</version>
+    <scope>provided</scope>
+</dependency>
 		<!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
 		<dependency>
 			<groupId>com.googlecode.json-simple</groupId>

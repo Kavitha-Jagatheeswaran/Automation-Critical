@@ -31,10 +31,10 @@ import groovyjarjarantlr4.v4.parse.ANTLRParser.element_return;
 
 public class GRCPage extends GRCPageobject {
 	ExtentTest test;
-	
-	public GRCPage(WebDriver driver,ExtentReports extentreport, String GRCMobileNumber, String GRCNewCompanyName,
+
+	public GRCPage(WebDriver driver, ExtentReports extentreport, String GRCMobileNumber, String GRCNewCompanyName,
 			String CINNumber, String Helpdeskuserid, String helpdeskpassword, String assignedtoName)
-			throws InterruptedException, AWTException,ElementClickInterceptedException {
+			throws InterruptedException, AWTException, ElementClickInterceptedException {
 //		Set<String> allwindowsid = driver.getWindowHandles();
 //		List<String> all = new ArrayList<>();
 //		all.addAll(allwindowsid);
@@ -48,23 +48,22 @@ public class GRCPage extends GRCPageobject {
 		test = extentreport.createTest("GRC");
 		WebDriverWait wait = new WebDriverWait(driver, 100);
 		PageFactory.initElements(driver, GRCPageobject.class);
-		
+
 		driver.get("https://grc.vakilsearch.com/grc/login");
 		Thread.sleep(2500);
-		
-		
+
 		GRCUsername.sendKeys(GRCMobileNumber);
 		Thread.sleep(2500);
 		GRCPhonenumberConfirm.click();
 		Thread.sleep(3000);
-		wait.until(
-				ExpectedConditions.visibilityOfElementLocated(By.xpath("(//input[@style='width: 1em; text-align: center;'])[1]")));
+		wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("(//input[@style='width: 1em; text-align: center;'])[1]")));
 		GRCOTP1.sendKeys("0");
 		GRCOTP2.sendKeys("0");
 		GRCOTP3.sendKeys("0");
 		GRCOTP4.sendKeys("0");
 		Thread.sleep(1500);
-		
+
 		robot.keyPress(KeyEvent.VK_CONTROL);
 		robot.keyPress(KeyEvent.VK_MINUS);
 		robot.keyRelease(KeyEvent.VK_MINUS);
@@ -84,23 +83,37 @@ public class GRCPage extends GRCPageobject {
 			robot.keyPress(KeyEvent.VK_ENTER);
 			robot.keyRelease(KeyEvent.VK_ENTER);
 		}
-
-		Thread.sleep(1500);
-		GRCMailId0.click();
-		GRCMailIdConfirm.click();
-
+		try {
+			Thread.sleep(1500);
+			GRCMailId0.click();
+			GRCMailIdConfirm.click();
+		} catch (NoSuchElementException Grcmail) {
+			GRCOTPConfirm.click();
+			Thread.sleep(1500);
+			GRCMailId0.click();
+			GRCMailIdConfirm.click();
+		}
 		Thread.sleep(3500);
 		try {
+			
 			addnewEntity.click();
 		} catch (NoSuchElementException addnewEntity) {
 
-			wait.until(ExpectedConditions
+			
+			try {
+				wait.until(ExpectedConditions
 					.elementToBeClickable(By.xpath("//button[@class='styles_dropdownBtn__I6_4i']/child::p")));
-			Thread.sleep(3500);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@class='styles_dropdownBtn__I6_4i']/child::p")));
-			OpenEntityList.click();
-			Thread.sleep(1500);
-			AddNewBusiness2.click();
+				Thread.sleep(2500);
+				OpenEntityList.click();
+				Thread.sleep(2500);
+				AddNewBusiness2.click();
+			} catch(Exception openentity1) {
+				Actions act =  new Actions(driver);
+				act.moveToElement(driver.findElement(By.xpath("//button[@class='styles_dropdownBtn__I6_4i']/child::p"))).click().perform();
+				Thread.sleep(2500);
+				
+				AddNewBusiness2.click();
+			}
 
 		}
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='btn btn-primary']")));
@@ -141,16 +154,16 @@ public class GRCPage extends GRCPageobject {
 		Skip.click();
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//p[contains(text(),'Continue')]")));
 		LetsGetStartedContinue.click();
-Thread.sleep(2500);
-robot.keyPress(KeyEvent.VK_CONTROL);
-robot.keyPress(KeyEvent.VK_R);
-robot.keyRelease(KeyEvent.VK_R);
-robot.keyRelease(KeyEvent.VK_CONTROL);
-		wait.until(ExpectedConditions
-				.elementToBeClickable(By.xpath("//button[@class='styles_dropdownBtn__I6_4i']/child::p")));
 		Thread.sleep(2500);
-		
-		//**just for option
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_R);
+		robot.keyRelease(KeyEvent.VK_R);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		wait.until(ExpectedConditions
+				.elementToBeClickable(By.xpath("(//div[@class='styles_btnContainer__sVb_P']/child::button)[2]")));
+		Thread.sleep(2500);
+
+		// **just for option
 //	**	OpenEntityList.click();
 //		***EntitySelect2.click();
 		Thread.sleep(1500);
@@ -160,7 +173,7 @@ robot.keyRelease(KeyEvent.VK_CONTROL);
 		Thread.sleep(1500);
 
 		driver.navigate().back();
-	Thread.sleep(2500);
+		Thread.sleep(2500);
 //		// actions.moveToElement(BuyNowService).click().perform();
 //		js1.executeScript("arguments[0].scrollIntoView(true);", BuyNowService);
 //		Thread.sleep(1000);
@@ -170,14 +183,14 @@ robot.keyRelease(KeyEvent.VK_CONTROL);
 		robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
 		robot.keyPress(KeyEvent.VK_PAGE_DOWN);
 		robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
+		
+		js1.executeScript("arguments[0].scrollIntoView(true);", BuyNowService);
+		wait.until(ExpectedConditions.elementToBeClickable(BuyNowService));
 		robot.keyPress(KeyEvent.VK_CONTROL);
-	
-	
+
 		robot.keyPress(KeyEvent.VK_MINUS);
 		robot.keyRelease(KeyEvent.VK_MINUS);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
-		js1.executeScript("arguments[0].scrollIntoView(true);", BuyNowService);
-		wait.until(ExpectedConditions.elementToBeClickable(BuyNowService));
 		BuyNowService.click();
 		Thread.sleep(1500);
 		try {
@@ -206,7 +219,7 @@ robot.keyRelease(KeyEvent.VK_CONTROL);
 				ContinueGST.click();
 				ContinueGST.click();
 			} catch (NoSuchElementException AreyouintrestedinGST1) {
-				
+
 				try {
 					ContinueGST.click();
 				} catch (NoSuchElementException ContinueGST) {
@@ -215,15 +228,14 @@ robot.keyRelease(KeyEvent.VK_CONTROL);
 			}
 
 		}
-		
-		
-			String ServiceID = GetServiceID.getText().substring(1);
-			System.out.println(ServiceID + "GRC");
-			robot.keyPress(KeyEvent.VK_CONTROL);
-			robot.keyPress(KeyEvent.VK_R);
-			robot.keyRelease(KeyEvent.VK_R);
-			robot.keyRelease(KeyEvent.VK_CONTROL);
-		
+
+		String ServiceID = GetServiceID.getText().substring(1);
+		System.out.println(ServiceID + "GRC");
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_R);
+		robot.keyRelease(KeyEvent.VK_R);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+
 //		Thread.sleep(1500);
 //		MessagesCTA.click();
 //		Thread.sleep(1500);
@@ -343,8 +355,8 @@ robot.keyRelease(KeyEvent.VK_CONTROL);
 //		Thread.sleep(1500);
 //		driver.switchTo().alert().accept();
 //		Thread.sleep(1500);
-	//***	//driver.switchTo().window(parentid);
-		
+		// *** //driver.switchTo().window(parentid);
+
 //		HelpdeskPageobject.EntityInfo.click();
 //		Thread.sleep(3500);
 //		HelpdeskPageobject.ChangeEntity.click();
@@ -364,17 +376,11 @@ robot.keyRelease(KeyEvent.VK_CONTROL);
 //		robot.keyRelease(KeyEvent.VK_ENTER);
 //		HelpdeskPageobject.SaveEntity2.click();
 //		driver.switchTo().alert().accept();
-		
-		
+
 		robot.keyPress(KeyEvent.VK_CONTROL);
 		robot.keyPress(KeyEvent.VK_R);
 		robot.keyRelease(KeyEvent.VK_R);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
-		
-		
-		
-
-	
 
 	}
 

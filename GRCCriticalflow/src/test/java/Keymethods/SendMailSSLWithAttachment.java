@@ -67,17 +67,17 @@ public class SendMailSSLWithAttachment{
 			message.setFrom(new InternetAddress("sakthipriyan071297@gmail.com"));
 
 			// Set the recipient address
-			message.setRecipients(Message.RecipientType.TO,InternetAddress.parse("sakthi.priyan@vakilsearch.com,sakthipriyan071297@gmail.com"));
+			message.setRecipients(Message.RecipientType.TO,InternetAddress.parse("sakthi.priyan@vakilsearch.com,sakthipriyan071297@gmail.com,kavitha.jagatheeswaran@vakilsearch.com,saravanan.muthu@vakilsearch.com,selvamani@vakilsearch.com,aejaaz.ghouse@vakilsearch.com,naveen.nagalingam@vakilsearch.com,divya.vijayaraghavan@vakilsearch.com"));
 			
          
                      // Add the subject link
-			message.setSubject("Testing Subject");
+			message.setSubject("CriticalFLow Automaton");
 
 			// Create object to add multimedia type content
 			BodyPart messageBodyPart1 = new MimeBodyPart();
 
 			// Set the body of email
-			messageBodyPart1.setText("This is message body yes");
+			messageBodyPart1.setText("Automation Test Result");
 
 			// Create another object to add another content
 			MimeBodyPart messageBodyPart2 = new MimeBodyPart();

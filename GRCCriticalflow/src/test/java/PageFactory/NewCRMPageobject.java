@@ -16,7 +16,7 @@ public class NewCRMPageobject  {
 	@FindBy (xpath = "//button[contains(text(),'Log In')]")
 	public static WebElement CrmLoginCTA ;
 	
-	@FindBy (xpath = "//span[contains(text(),'All')]")
+	@FindBy (xpath = "//parent::a//span[contains(text(),'All')]")
 	public static WebElement CrmAllBucket ;
 	
 	@FindBy (xpath = "//input[@placeholder='Search for tickets ID or subject']")
