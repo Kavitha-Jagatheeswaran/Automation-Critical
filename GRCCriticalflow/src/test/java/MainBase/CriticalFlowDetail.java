@@ -235,7 +235,9 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			robot.keyPress(KeyEvent.VK_ENTER);
 			robot.keyRelease(KeyEvent.VK_ENTER);
-			Emailtoaddnote.click();
+			Thread.sleep(2000);
+			Emailtoaddnote.click();Thread.sleep(1500);
+			Emailtoaddnote.sendKeys("Testing");
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 			EmailAddAttachment
@@ -252,6 +254,11 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		} catch (ElementClickInterceptedException MenuDownArrow1) {
 			robot.keyPress(KeyEvent.VK_PAGE_UP);
 			robot.keyRelease(KeyEvent.VK_PAGE_UP);
+			robot.keyPress(KeyEvent.VK_CONTROL);
+			robot.keyPress(KeyEvent.VK_MINUS);
+			robot.keyRelease(KeyEvent.VK_MINUS);
+			robot.keyRelease(KeyEvent.VK_CONTROL);
+
 			MenuDownArrow.click();
 		}
 
@@ -766,6 +773,11 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			driver.switchTo().window(all3.get(1));
 			Thread.sleep(5000);
 			try {
+				GRCPageobject.Closepopup.click();
+				}catch(Exception Closepopup) {
+					System.out.println("No popup");
+				}
+			try {
 				GRCPageobject.ProfileMenu.click();
 				Thread.sleep(2000);
 				driver.findElement(By.xpath("//p[contains(text(),'Sign out')]")).click();
@@ -777,6 +789,8 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 
 				Thread.sleep(2000);
 				driver.findElement(By.xpath("//p[contains(text(),'Sign out')]")).click();
+			}finally {
+				System.out.println("GRC");
 			}
 
 			driver.close();
@@ -786,10 +800,15 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			test.log(Status.FAIL, "Grc page redirection Failed");
 		}
 		Thread.sleep(2000);
+		try {
 		driver.findElement(By.xpath("(//div[@class='collapse navbar-collapse']/child::ul/child::li/child::a)[3]"))
 				.click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//a[contains(text(),'Logout')]")).click();
+		}catch(Exception Logout1) {
+			System.out.println("already Logout");
+			
+		}
 		NewCRM newCRM = new NewCRM();
 
 		newCRM.newCRM(driver, e, CrmUsernames, CrmUserpassword, extentreport);

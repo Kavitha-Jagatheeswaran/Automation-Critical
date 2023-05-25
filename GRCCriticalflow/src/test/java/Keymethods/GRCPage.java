@@ -95,9 +95,17 @@ public class GRCPage extends GRCPageobject {
 		}
 		Thread.sleep(3500);
 		try {
+			Closepopup.click();
+			}catch(Exception Closepopup) {
+				System.out.println("No popup");
+			}
+		
+		
+		
+		try {
 			
 			addnewEntity.click();
-		} catch (NoSuchElementException addnewEntity) {
+		} catch (Exception addnewEntity) {
 
 			
 			try {
@@ -109,6 +117,17 @@ public class GRCPage extends GRCPageobject {
 				AddNewBusiness2.click();
 			} catch(Exception openentity1) {
 				Actions act =  new Actions(driver);
+				robot.keyPress(KeyEvent.VK_CONTROL);
+				robot.keyRelease(KeyEvent.VK_R);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_CONTROL);
+				try {
+					Thread.sleep(2500);
+					Closepopup.click();
+					}catch(Exception Closepopup) {
+						System.out.println("No popup");
+					}
+				Thread.sleep(2500);
 				act.moveToElement(driver.findElement(By.xpath("//button[@class='styles_dropdownBtn__I6_4i']/child::p"))).click().perform();
 				Thread.sleep(2500);
 				
@@ -132,9 +151,16 @@ public class GRCPage extends GRCPageobject {
 		CINNo.click();
 		CINNo.sendKeys(CINNumber);
 		Thread.sleep(2500);
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(),'Continue')]")));
-		Continue.click();
-		Thread.sleep(2500);
+		try {
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(),'Continue')]")));
+			Continue.click();
+			Thread.sleep(2500);
+		} catch (Exception e102) {
+		
+			Continue.click();
+			Thread.sleep(2500);
+		}
+		
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div//p[contains(text(),'Business Industry')]")));
 		BusinessIndustry.click();
 		Thread.sleep(1500);
@@ -162,7 +188,11 @@ public class GRCPage extends GRCPageobject {
 		wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("(//div[@class='styles_btnContainer__sVb_P']/child::button)[2]")));
 		Thread.sleep(2500);
-
+		try {
+		Closepopup.click();
+		}catch(Exception Closepopup) {
+			System.out.println("No popup");
+		}
 		// **just for option
 //	**	OpenEntityList.click();
 //		***EntitySelect2.click();
@@ -179,15 +209,14 @@ public class GRCPage extends GRCPageobject {
 //		Thread.sleep(1000);
 //		js1.executeScript("arguments[0].scrollIntoView(true);", BuyNowService);
 //		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[contains(text(),'Buy now ')])[1]")));
-		robot.keyPress(KeyEvent.VK_PAGE_DOWN);
-		robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
-		robot.keyPress(KeyEvent.VK_PAGE_DOWN);
-		robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
+//		robot.keyPress(KeyEvent.VK_PAGE_DOWN);
+//		robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
+//		robot.keyPress(KeyEvent.VK_PAGE_DOWN);
+//		robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
 		
 		js1.executeScript("arguments[0].scrollIntoView(true);", BuyNowService);
 		wait.until(ExpectedConditions.elementToBeClickable(BuyNowService));
 		robot.keyPress(KeyEvent.VK_CONTROL);
-
 		robot.keyPress(KeyEvent.VK_MINUS);
 		robot.keyRelease(KeyEvent.VK_MINUS);
 		robot.keyRelease(KeyEvent.VK_CONTROL);

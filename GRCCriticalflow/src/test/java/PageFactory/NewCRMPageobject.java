@@ -25,7 +25,7 @@ public class NewCRMPageobject  {
 	@FindBy (xpath = "(//ul[@class='ticket-list']/child::li)[1]")
 	public static WebElement CrmFirstTicketSelect ;
 	
-	@FindBy (xpath = "(//div[@class='markup']//parent::div/child::p)[1]")
+	@FindBy (xpath = "(//div[@class='markup']/child::p)[1]")
 	public static WebElement CrmInternalNote ;
 	
 }

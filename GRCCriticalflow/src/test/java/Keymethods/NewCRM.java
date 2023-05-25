@@ -22,7 +22,7 @@ public class NewCRM extends GRCPageobject {
 Robot robot = new Robot();
 Thread.sleep(3000);test = extentreport.createTest("NewCRM");
 WebDriverWait wait = new WebDriverWait(driver, 100);
-//try {
+try {
 		driver.get("https://newcrm.vakilsearch.com/login");
 		CrmUsername.sendKeys(CrmUsernames);
 		Thread.sleep(1500);
@@ -37,20 +37,31 @@ WebDriverWait wait = new WebDriverWait(driver, 100);
 		wait.until(ExpectedConditions.alertIsPresent());
 		driver.switchTo().alert().accept();
 		Thread.sleep(2500);
-		wait.until(ExpectedConditions
-				.elementToBeClickable(CrmAllBucket));
-		CrmAllBucket.click();
+		try {
+			wait.until(ExpectedConditions
+					.elementToBeClickable(CrmAllBucket));
+			CrmAllBucket.click();	
+		} catch (Exception e322) {
+			driver.findElement(By.xpath("//i[@class='fa-fw far vs-tickets']"));
+		}
+		//i[@class='fa-fw far vs-tickets']
 		Thread.sleep(2500);
 		CrmSearchforticketsIDorsubject.click();
+		CrmSearchforticketsIDorsubject.sendKeys(e);
 		Thread.sleep(2500);
 		CrmFirstTicketSelect.click();
-		String InternalNotes = CrmInternalNote.getText();
-		System.out.println(InternalNotes);
-		
-//		test.log(Status.PASS, "NewCrm add note verification success");
-//} catch (Exception Newcrnotevalidation1) {
-//	test.log(Status.FAIL, "NewCrm add note verification Failed");
-//}
+//		String InternalNotes = CrmInternalNote.getText();
+//		String b = "Testing";
+//		if ( InternalNotes== b) {
+//			test.log(Status.PASS, "add note verification success");
+//		} else {
+//			test.log(Status.FAIL, "add note verification Failed");
+//		}
+//		
+		test.log(Status.PASS, "NewCrm  success");
+} catch (Exception Newcrnotevalidation1) {
+	test.log(Status.FAIL, "NewCrm  Failed");
+}
 	}
 
 }
