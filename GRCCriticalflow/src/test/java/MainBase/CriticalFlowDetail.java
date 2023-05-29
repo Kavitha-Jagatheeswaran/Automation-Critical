@@ -68,10 +68,171 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		robot.keyPress(KeyEvent.VK_PAGE_UP);
 		robot.keyRelease(KeyEvent.VK_PAGE_UP);
 		Thread.sleep(3000);
+		//**********
+		driver.findElement(By.xpath("//button[@class='styles_gearBtn__s6cgl']")).click();
+		driver.findElement(By.xpath("//p[contains(text(),'Business Profile')]")).click();
+		String BusinessProfileURL = driver.getCurrentUrl();
+		String BusinessProfileURL1 = "https://grc.vakilsearch.com/grc/business-profile/RnJxd0dES1FCUDJ3NGVPdi58fC4xMmZlNzY2ZmQ3Lnx8LkGMLz4SKeWUMX6ZwI8PGNf5ykJud-YT1HGCasaEjTAsyhcx3Uj9SkWJCjaqocv_3_fOjMyZk0LrBT7p2Mweeez8IVRj_kp5NgllycK73C0H?showBusinessProfile=true";
+				if (BusinessProfileURL1==BusinessProfileURL) {
+					test.log(Status.PASS, "BusinessProfileURL");
+					System.out.println(BusinessProfileURL1);
+				} else {
+					test.log(Status.FAIL, "BusinessProfileURL Not Same");
+					System.out.println(BusinessProfileURL);
+				}
+		
+		driver.navigate().back();
+		
+		//*********
+		driver.findElement(By.xpath("//button[@class='styles_gearBtn__s6cgl']")).click();
+		driver.findElement(By.xpath("//p[contains(text(),'Users & Roles')]")).click();
+		String UsersandRolesURL = driver.getCurrentUrl();
+		String UsersandRolesURL1 = "https://grc.vakilsearch.com/grc/user_roles/RnJxd0dES1FCUDJ3NGVPdi58fC4xMmZlNzY2ZmQ3Lnx8LkGMLz4SKeWUMX6ZwI8PGNf5ykJud-YT1HGCasaEjTAsyhcx3Uj9SkWJCjaqocv_3_fOjMyZk0LrBT7p2Mweeez8IVRj_kp5NgllycK73C0H";
+				if (UsersandRolesURL1==UsersandRolesURL) {
+					test.log(Status.PASS, "UsersAndRolesURL");
+					System.out.println(UsersandRolesURL1);
+				} else {
+					test.log(Status.FAIL, "UsersAndRolesURL Not Same");
+					System.out.println(UsersandRolesURL);
+				}
+		driver.navigate().back();
+		
+		driver.findElement(By.xpath("//button[@class='styles_gearBtn__s6cgl']")).click();
+		driver.findElement(By.xpath("//p[contains(text(),'Users & Roles')]")).click();
+		driver.findElement(By.xpath("//Button[contains(text(),'Add users')]")).click();
+		String AddUserURL = driver.getCurrentUrl();
+		String AddUserURL1 = "https://grc.vakilsearch.com/grc/user_roles/RnJxd0dES1FCUDJ3NGVPdi58fC4xMmZlNzY2ZmQ3Lnx8LkGMLz4SKeWUMX6ZwI8PGNf5ykJud-YT1HGCasaEjTAsyhcx3Uj9SkWJCjaqocv_3_fOjMyZk0LrBT7p2Mweeez8IVRj_kp5NgllycK73C0H";
+				if (AddUserURL1==AddUserURL) {
+					test.log(Status.PASS, "AddUserURL");
+					System.out.println(AddUserURL1);
+				} else {
+					test.log(Status.FAIL, "AddUserURL Not Same");
+					System.out.println(AddUserURL);
+				}
+		driver.navigate().back();
+		driver.navigate().back();
+		
+		//*********
+		driver.findElement(By.xpath("//button[@class='styles_gearBtn__s6cgl']")).click();
+		driver.findElement(By.xpath("//p[contains(text(),'Help')]")).click();
+		String HelpURL = driver.getCurrentUrl();
+		String HelpURL1 = "https://grc.vakilsearch.com/grc/help";
+				if (HelpURL1==HelpURL) {
+					test.log(Status.PASS, "HelpURL");
+					System.out.println(HelpURL1);
+				} else {
+					test.log(Status.FAIL, "HelpURL Not Same");
+					System.out.println(HelpURL);
+				}
+		driver.navigate().back();
+		//**********
+		driver.findElement(By.xpath("//button[@class='styles_gearBtn__s6cgl']")).click();
+		driver.findElement(By.xpath("//p[contains(text(),'Support')]")).click();
+		String SupportURL = driver.getCurrentUrl();
+		String SupportURL1 = "https://grc.vakilsearch.com/grc/contact-us";
+				if (SupportURL1==SupportURL) {
+					test.log(Status.PASS, "SupportURL");
+					System.out.println(SupportURL1);
+				} else {
+					test.log(Status.FAIL, "SupportURL Not Same");
+					System.out.println(SupportURL);
+				}
+		driver.navigate().back();
+		//**************
+	//	driver.findElement(By.xpath("//button[@class='styles_gearBtn__s6cgl']")).click();
+		driver.findElement(By.xpath("//span[contains(text(),'Messages')]")).click();
+		String MessagesURL = driver.getCurrentUrl();
+		String MessagesURL1 = "https://grc.vakilsearch.com/grc/messages";
+				if (MessagesURL1==MessagesURL) {
+					test.log(Status.PASS, "MessagesURL");
+					System.out.println(MessagesURL1);
+				} else {
+					test.log(Status.FAIL, "MessagesURL Not Same");
+					System.out.println(MessagesURL);
+				}
+		
+		driver.navigate().back();
+		//********
+		
+	//	driver.findElement(By.xpath("//button[@class='styles_gearBtn__s6cgl']")).click();
+		driver.findElement(By.xpath("//span[contains(text(),'All Services')]")).click();
+		String AllServicesURL = driver.getCurrentUrl();
+		String AllServicesURL1 = "https://grc.vakilsearch.com/grc/services/VXgxRXQ2SmVrYjNVVUFqdy58fC4yNGVkZWY1Y2RiLnx8Lgnrb6u54cOopAREu9iUZ7tVC8tWpLxMKzDegk-Cfsq3izkmU5zfatcKoNKh7FMYAfM0QGoRyW_1QwmmyOXIUuXotaHZOToRrel1bUc8MBmB";
+				if (AllServicesURL1==AllServicesURL) {
+					test.log(Status.PASS, "AllServicesURL");
+					System.out.println(AllServicesURL1);
+				} else {
+					test.log(Status.FAIL, "AllServicesURL Not Same");
+					System.out.println(AllServicesURL);
+				}
+		driver.navigate().back();
+	//	driver.findElement(By.xpath("//button[@class='styles_gearBtn__s6cgl']")).click();
+		driver.findElement(By.xpath("//span[contains(text(),'Compliances for you')]")).click();
+		String CompliancesForYou = driver.getCurrentUrl();
+		String CompliancesForYou1 = "https://grc.vakilsearch.com/grc/compliance-score";
+				if (CompliancesForYou==CompliancesForYou1) {
+					test.log(Status.PASS, "CompliancesForYou");
+					System.out.println(CompliancesForYou1);
+				} else {
+					test.log(Status.FAIL, "CompliancesForYou Not Same");
+					System.out.println(CompliancesForYou);
+				}
+		driver.navigate().back();
+	//	driver.findElement(By.xpath("//button[@class='styles_gearBtn__s6cgl']")).click();
+		driver.findElement(By.xpath("//span[contains(text(),'Payments')]")).click();
+		String PaymentsURL = driver.getCurrentUrl();
+		String PaymentsURL1 = "https://grc.vakilsearch.com/grc/payments/VXgxRXQ2SmVrYjNVVUFqdy58fC4yNGVkZWY1Y2RiLnx8Lgnrb6u54cOopAREu9iUZ7tVC8tWpLxMKzDegk-Cfsq3izkmU5zfatcKoNKh7FMYAfM0QGoRyW_1QwmmyOXIUuXotaHZOToRrel1bUc8MBmB";
+				if (PaymentsURL==PaymentsURL1) {
+					test.log(Status.PASS, "PaymentsURL");
+					System.out.println(PaymentsURL1);
+				} else {
+					test.log(Status.FAIL, "PaymentsURL Not Same");
+					System.out.println(PaymentsURL);
+				}
+		driver.navigate().back();
+	//	driver.findElement(By.xpath("//button[@class='styles_gearBtn__s6cgl']")).click();
+		driver.findElement(By.xpath("//span[contains(text(),'Compliance Calendar')]")).click();
+		String ComplianceCalendar = driver.getCurrentUrl();
+		String ComplianceCalendar1 = "https://grc.vakilsearch.com/grc/calendar/VXgxRXQ2SmVrYjNVVUFqdy58fC4yNGVkZWY1Y2RiLnx8Lgnrb6u54cOopAREu9iUZ7tVC8tWpLxMKzDegk-Cfsq3izkmU5zfatcKoNKh7FMYAfM0QGoRyW_1QwmmyOXIUuXotaHZOToRrel1bUc8MBmB";
+				if (ComplianceCalendar==ComplianceCalendar1) {
+					test.log(Status.PASS, "ComplianceCalendar");
+					System.out.println(ComplianceCalendar1);
+				} else {
+					test.log(Status.FAIL, "ComplianceCalendar Not Same");
+					System.out.println(ComplianceCalendar);
+				}
+
+		driver.navigate().back();
+		driver.findElement(By.xpath("//span[contains(text(),'Rewards')]")).click();
+		String RewardsURL = driver.getCurrentUrl();
+		String RewardsURL1 = "https://grc.vakilsearch.com/grc/rewards/VXgxRXQ2SmVrYjNVVUFqdy58fC4yNGVkZWY1Y2RiLnx8Lgnrb6u54cOopAREu9iUZ7tVC8tWpLxMKzDegk-Cfsq3izkmU5zfatcKoNKh7FMYAfM0QGoRyW_1QwmmyOXIUuXotaHZOToRrel1bUc8MBmB";
+				if (RewardsURL==RewardsURL1) {
+					test.log(Status.PASS, "RewardsURL");
+					System.out.println(RewardsURL1);
+				} else {
+					test.log(Status.FAIL, "RewardsURL Not Same");
+					System.out.println(RewardsURL);
+				}
+		driver.navigate().back();
+		driver.findElement(By.xpath("//span[contains(text(),'My Services')]")).click();
+		String MyServicesURL = driver.getCurrentUrl();
+		String MyServicesURL1 = "https://grc.vakilsearch.com/grc/my-services/VXgxRXQ2SmVrYjNVVUFqdy58fC4yNGVkZWY1Y2RiLnx8Lgnrb6u54cOopAREu9iUZ7tVC8tWpLxMKzDegk-Cfsq3izkmU5zfatcKoNKh7FMYAfM0QGoRyW_1QwmmyOXIUuXotaHZOToRrel1bUc8MBmB";
+				if (MyServicesURL==MyServicesURL1) {
+					test.log(Status.PASS, "MyServicesURL");
+					System.out.println(MyServicesURL1);
+				} else {
+					test.log(Status.FAIL, "MyServicesURL Not Same");
+					System.out.println(MyServicesURL);
+				}
+		driver.navigate().back();
+		
+		
+		
+		
 
 		try {
 			wait.until(
-					ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'My Interests')]")));
+					ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'My Interests')]")));
 			driver.findElement(By.xpath("//span[contains(text(),'My Interests')]")).click();
 
 		} catch (NoSuchElementException e7) {
@@ -87,6 +248,16 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 //System.out.println(Ticketid1);
 		String e = driver.findElement(By.xpath("(//div[@class='styles_ticketDetail__jg4A0']//child::P)[1]")).getText()
 				.substring(1);
+		
+		String MyInterestURL = driver.getCurrentUrl();
+		String MyInterestURL1 = "https://grc.vakilsearch.com/grc/my-interests";
+				if (MyInterestURL1==MyInterestURL) {
+					test.log(Status.PASS, "MyInterestURL");
+					System.out.println(MyInterestURL);
+				} else {
+					test.log(Status.FAIL, "MyInterestURL Not Same");
+					System.out.println(MyInterestURL1);
+				}
 		if (e.matches(e)) {
 			test.log(Status.PASS, "Create a ticket from the vakilsearch.com");
 		} else {
@@ -96,6 +267,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 
 		System.out.println(e);
 
+		
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Payment key = new Payment(driver, test);
 		Thread.sleep(5000);
@@ -230,6 +402,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			driver.findElement(By.xpath("(//iframe[@class='cke_wysiwyg_frame cke_reset'])[4]"))
 					.sendKeys("Testing Add note CRM");
 			EmailTo.click();
+			emailsearchTo.click();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			emailsearchTo.sendKeys(assignedtoName);
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -276,7 +449,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 				cannedaddingadirector1.click();
 			}
 
-			wait.until(ExpectedConditions.visibilityOfElementLocated(
+			wait.until(ExpectedConditions.elementToBeClickable(
 					By.xpath("(//a[@class='email-tempalte-object template_object_new'])[2]")));
 			try {
 				cannedFollowingEmail.click();
@@ -360,7 +533,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			driver.switchTo().window(all.get(1));
 
 			wait.until(
-					ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='name']//child::input)[1]")));
+					ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='name']//child::input)[1]")));
 			QNameofthecustomer.click();
 
 			QNameofthecustomer.sendKeys(QNameOfCustomer);
@@ -441,6 +614,8 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		robot.keyPress(KeyEvent.VK_R);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
 		Thread.sleep(2500);
+		robot.keyPress(KeyEvent.VK_PAGE_UP);
+		robot.keyRelease(KeyEvent.VK_PAGE_UP);
 		robot.keyPress(KeyEvent.VK_PAGE_UP);
 		robot.keyRelease(KeyEvent.VK_PAGE_UP);
 		CreatenewQuotation.click();
@@ -554,7 +729,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		Thread.sleep(1500);
 		try {
 			try {
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@id='editBtn']")));
+				wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='editBtn']")));
 				js.executeScript("arguments[0].scrollIntoView(true);", Editticket);
 				Editticket.click();
 

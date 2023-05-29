@@ -20,7 +20,7 @@ public class GRCPageobject extends HelpdeskPageobject{
 	@FindBy(xpath = "(//input[@style='width: 1em; text-align: center;'])[4]")
 	public static WebElement GRCOTP4;
 
-	@FindBy(xpath = "(//div[@class='styles_details__BqLwC'])[2]")
+	@FindBy(xpath = "(//div[@class='styles_details__BqLwC'])[1]")
 	public static WebElement GRCMailId0;
 
 	@FindBy(xpath = "//button[contains(text(),'Confirm')]")

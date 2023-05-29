@@ -45,19 +45,19 @@ public class GRCPage extends GRCPageobject {
 		JavascriptExecutor js1 = (JavascriptExecutor) driver;
 		Robot robot = new Robot();
 		Actions actions = new Actions(driver);
-		test = extentreport.createTest("GRC");
+		test = extentreport.createTest("GRC Test");
 		WebDriverWait wait = new WebDriverWait(driver, 100);
 		PageFactory.initElements(driver, GRCPageobject.class);
 
 		driver.get("https://grc.vakilsearch.com/grc/login");
 		Thread.sleep(2500);
-
+		
 		GRCUsername.sendKeys(GRCMobileNumber);
 		Thread.sleep(2500);
 		GRCPhonenumberConfirm.click();
 		Thread.sleep(3000);
 		wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("(//input[@style='width: 1em; text-align: center;'])[1]")));
+				.elementToBeClickable(By.xpath("(//input[@style='width: 1em; text-align: center;'])[1]")));
 		GRCOTP1.sendKeys("0");
 		GRCOTP2.sendKeys("0");
 		GRCOTP3.sendKeys("0");
@@ -99,8 +99,15 @@ public class GRCPage extends GRCPageobject {
 			}catch(Exception Closepopup) {
 				System.out.println("No popup");
 			}
-		
-		
+		String DashboardURL = driver.getCurrentUrl();
+		String DashboardURL1 = "https://grc.vakilsearch.com/grc/dashboard/VXgxRXQ2SmVrYjNVVUFqdy58fC4yNGVkZWY1Y2RiLnx8Lgnrb6u54cOopAREu9iUZ7tVC8tWpLxMKzDegk-Cfsq3izkmU5zfatcKoNKh7FMYAfM0QGoRyW_1QwmmyOXIUuXotaHZOToRrel1bUc8MBmB";
+				if (DashboardURL1==DashboardURL) {
+					test.log(Status.PASS, "Dashboard URL");
+					System.out.println(DashboardURL);
+				} else {
+					test.log(Status.FAIL, "Dashboard URL Not Same");
+					System.out.println(DashboardURL1);
+				}
 		
 		try {
 			
@@ -181,6 +188,11 @@ public class GRCPage extends GRCPageobject {
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//p[contains(text(),'Continue')]")));
 		LetsGetStartedContinue.click();
 		Thread.sleep(2500);
+		try {
+			Closepopup.click();
+			}catch(Exception Closepopup) {
+				System.out.println("No popup");
+			}
 		robot.keyPress(KeyEvent.VK_CONTROL);
 		robot.keyPress(KeyEvent.VK_R);
 		robot.keyRelease(KeyEvent.VK_R);
@@ -189,6 +201,7 @@ public class GRCPage extends GRCPageobject {
 				.elementToBeClickable(By.xpath("(//div[@class='styles_btnContainer__sVb_P']/child::button)[2]")));
 		Thread.sleep(2500);
 		try {
+			
 		Closepopup.click();
 		}catch(Exception Closepopup) {
 			System.out.println("No popup");
@@ -201,7 +214,16 @@ public class GRCPage extends GRCPageobject {
 		Thread.sleep(1500);
 		ViewProfile.click();
 		Thread.sleep(1500);
-
+		String ProfileInformationURL = driver.getCurrentUrl();
+		String ProfileInformationURL1 = "https://grc.vakilsearch.com/grc/user-profile";
+				if (ProfileInformationURL1==ProfileInformationURL) {
+					test.log(Status.PASS, "ProfileInformationURL");
+					System.out.println(ProfileInformationURL);
+				} else {
+					test.log(Status.FAIL, "ProfileInformationURL Not Same");
+					System.out.println(ProfileInformationURL1);
+				}
+		
 		driver.navigate().back();
 		Thread.sleep(2500);
 //		// actions.moveToElement(BuyNowService).click().perform();
@@ -220,7 +242,10 @@ public class GRCPage extends GRCPageobject {
 		robot.keyPress(KeyEvent.VK_MINUS);
 		robot.keyRelease(KeyEvent.VK_MINUS);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
-		BuyNowService.click();
+		
+		wait.until(ExpectedConditions
+				.elementToBeClickable(By.xpath("(//button[contains(text(),'Buy now')])[1]"))).click();
+		//BuyNowService.click();
 		Thread.sleep(1500);
 		try {
 			AreyouintrestedinGST.click();
@@ -250,6 +275,7 @@ public class GRCPage extends GRCPageobject {
 			} catch (NoSuchElementException AreyouintrestedinGST1) {
 
 				try {
+					Thread.sleep(2500);
 					ContinueGST.click();
 				} catch (NoSuchElementException ContinueGST) {
 					Thread.sleep(3000);
@@ -276,10 +302,28 @@ public class GRCPage extends GRCPageobject {
 //		Thread.sleep(1500);
 //		messageAttachment.sendKeys("C:\\Users\\admin\\eclipse-workspace\\GRCCriticalflow\\Excel\\Customer.xlsx");
 //		Sendmessage.click();
+		
+		try {
+			
+			Closepopup.click();
+			}catch(Exception Closepopup1) {
+				System.out.println("No popup");
+			}
 
 		Thread.sleep(3000);
+		actions.click(Needhelp);
+		System.out.println("completed");
 		Needhelp.click();
 		Thread.sleep(1500);
+		String NeedHelpURL = driver.getCurrentUrl();
+		String NeedHelpURL1 = "https://grc.vakilsearch.com/grc/help";
+				if (NeedHelpURL1==NeedHelpURL) {
+					test.log(Status.PASS, "NeedHelpURL");
+					System.out.println(NeedHelpURL);
+				} else {
+					test.log(Status.FAIL, "NeedHelpURL Not Same");
+					System.out.println(NeedHelpURL1);
+				}
 		wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("(//div[@class='styles_needHelpModal__xIW3p']/child::div/div)[6]")));
 		clickVideo.click();

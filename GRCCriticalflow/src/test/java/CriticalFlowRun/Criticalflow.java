@@ -6,8 +6,10 @@ import java.io.IOException;
 import MainBase.*;
 
 import org.apache.commons.mail.EmailException;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
@@ -86,6 +88,8 @@ public class Criticalflow {
 		Driver d = new Driver(driver);
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
+		driver.manage().window().setSize(new Dimension(1440, 900));
+		
 		driver.manage().window().maximize();
 
 	}
@@ -124,7 +128,7 @@ public class Criticalflow {
 		System.out.println("The close_up process is completed");
 
 	}
-
+ 
 	@AfterTest
 	public void Report() {
 		extentreport.flush();
@@ -135,8 +139,8 @@ public class Criticalflow {
 
 	@AfterSuite
 	public void cleanup() throws EmailException {
-		SendMailSSLWithAttachment Mail = new SendMailSSLWithAttachment();
-		Mail.main();
+		//SendMailSSLWithAttachment Mail = new SendMailSSLWithAttachment();
+		//Mail.main();
 
 		// driver.quit();
 	}
