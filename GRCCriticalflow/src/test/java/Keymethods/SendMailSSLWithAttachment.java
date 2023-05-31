@@ -31,10 +31,10 @@ public class SendMailSSLWithAttachment{
 	 Properties props = new Properties();
 
 		// this will set host of server- you can change based on your requirement 
-		props.put("mail.smtp.host", "sandbox.smtp.mailtrap.io");
+		props.put("mail.smtp.host", "smtp-relay.sendinblue.com");
 		//props.put("mail.smtp.host", "smtp.gmail.com");
 		// set the port of socket factory 
-		props.put("mail.smtp.socketFactory.port", "2525");
+		props.put("mail.smtp.socketFactory.port", "587");
 
 		// set socket factory
 		props.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");
@@ -43,7 +43,7 @@ public class SendMailSSLWithAttachment{
 		props.put("mail.smtp.auth", "true");
 
 		// set the port of SMTP server
-		props.put("mail.smtp.port", "2525");
+		props.put("mail.smtp.port", "587");
 
 		// This will handle the complete authentication
 		Session session = Session.getDefaultInstance(props,
@@ -52,7 +52,7 @@ public class SendMailSSLWithAttachment{
 
 					protected PasswordAuthentication getPasswordAuthentication() {
 
-					return new PasswordAuthentication("544212b5d7fd47", "8f2cf98cecbaeb");
+					return new PasswordAuthentication("legalisnowsimple@gmail.com", "xsmtpsib-c983edc8e24c956b9076ebec147580bcb684402b24892673c885fdcf56296b15-PALYSO7pnjsdCwQm");
 
 					}
 
@@ -64,14 +64,14 @@ public class SendMailSSLWithAttachment{
 			Message message = new MimeMessage(session);
 
 			// Set the from address
-			message.setFrom(new InternetAddress("sakthipriyan071297@gmail.com"));
+			message.setFrom(new InternetAddress("automation@vakilsearch-emailer.com"));
 
 			// Set the recipient address
-			message.setRecipients(Message.RecipientType.TO,InternetAddress.parse("sakthi.priyan@vakilsearch.com,sakthipriyan071297@gmail.com,kavitha.jagatheeswaran@vakilsearch.com,saravanan.muthu@vakilsearch.com,selvamani@vakilsearch.com,aejaaz.ghouse@vakilsearch.com,naveen.nagalingam@vakilsearch.com,divya.vijayaraghavan@vakilsearch.com"));
-			
-         
+			//message.setRecipients(Message.RecipientType.TO,InternetAddress.parse("sakthi.priyan@vakilsearch.com"));
+         			message.setRecipients(Message.RecipientType.TO,InternetAddress.parse("sakthi.priyan@vakilsearch.com,sakthipriyan071297@gmail.com,kavitha.jagatheeswaran@vakilsearch.com,saravanan.muthu@vakilsearch.com,selvamani@vakilsearch.com,aejaaz.ghouse@vakilsearch.com,naveen.nagalingam@vakilsearch.com,divya.vijayaraghavan@vakilsearch.com"));
+
                      // Add the subject link
-			message.setSubject("CriticalFLow Automaton");
+			message.setSubject("CriticalFlow Automation");
 
 			// Create object to add multimedia type content
 			BodyPart messageBodyPart1 = new MimeBodyPart();

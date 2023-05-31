@@ -101,7 +101,7 @@ public class GRCPage extends GRCPageobject {
 			}
 		String DashboardURL = driver.getCurrentUrl();
 		String DashboardURL1 = "https://grc.vakilsearch.com/grc/dashboard/VXgxRXQ2SmVrYjNVVUFqdy58fC4yNGVkZWY1Y2RiLnx8Lgnrb6u54cOopAREu9iUZ7tVC8tWpLxMKzDegk-Cfsq3izkmU5zfatcKoNKh7FMYAfM0QGoRyW_1QwmmyOXIUuXotaHZOToRrel1bUc8MBmB";
-				if (DashboardURL1==DashboardURL) {
+				if (DashboardURL1.contains(DashboardURL)) {
 					test.log(Status.PASS, "Dashboard URL");
 					System.out.println(DashboardURL);
 				} else {
@@ -216,7 +216,7 @@ public class GRCPage extends GRCPageobject {
 		Thread.sleep(1500);
 		String ProfileInformationURL = driver.getCurrentUrl();
 		String ProfileInformationURL1 = "https://grc.vakilsearch.com/grc/user-profile";
-				if (ProfileInformationURL1==ProfileInformationURL) {
+				if (ProfileInformationURL1.contains(ProfileInformationURL)) {
 					test.log(Status.PASS, "ProfileInformationURL");
 					System.out.println(ProfileInformationURL);
 				} else {
@@ -317,7 +317,7 @@ public class GRCPage extends GRCPageobject {
 		Thread.sleep(1500);
 		String NeedHelpURL = driver.getCurrentUrl();
 		String NeedHelpURL1 = "https://grc.vakilsearch.com/grc/help";
-				if (NeedHelpURL1==NeedHelpURL) {
+				if (NeedHelpURL1.contains(NeedHelpURL)) {
 					test.log(Status.PASS, "NeedHelpURL");
 					System.out.println(NeedHelpURL);
 				} else {

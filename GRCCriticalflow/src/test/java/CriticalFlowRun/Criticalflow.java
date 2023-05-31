@@ -115,7 +115,7 @@ public class Criticalflow {
 				Helpdeskuserid, helpdeskpassword, assignedtoName);
 		CriticalFlowDetail Criticalflow = new CriticalFlowDetail(driver, Helpdeskuserid, helpdeskpassword, notesname,
 				notedescrption, QNameOfCustomer, qaddress, qpincode, Professionalfees, assignedtoName, BDAgentName,
-				CrossSaleName, GRCMobileNumber, CrmUsernames, CrmUserpassword, extentreport);
+			CrossSaleName, GRCMobileNumber, CrmUsernames, CrmUserpassword, extentreport);
 		
 
 		
@@ -140,9 +140,9 @@ public class Criticalflow {
 	@AfterSuite
 	public void cleanup() throws EmailException {
 		//SendMailSSLWithAttachment Mail = new SendMailSSLWithAttachment();
-		//Mail.main();
+	//Mail.main();
 
-		// driver.quit();
+		driver.quit();
 	}
 
 }
