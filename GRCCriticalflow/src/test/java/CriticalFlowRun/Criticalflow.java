@@ -6,8 +6,10 @@ import java.io.IOException;
 import MainBase.*;
 
 import org.apache.commons.mail.EmailException;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
@@ -23,11 +25,11 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
-
 import Keymethods.Base;
 import Keymethods.Driver;
 
 import Keymethods.GRCPage;
+import Keymethods.NewCRM;
 import Keymethods.SendMailSSLWithAttachment;
 import PageFactory.HomescreenPageobject;
 import PageFactory.HelpdeskPageobject;
@@ -86,6 +88,8 @@ public class Criticalflow {
 		Driver d = new Driver(driver);
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
+		driver.manage().window().setSize(new Dimension(1440, 900));
+		
 		driver.manage().window().maximize();
 
 	}
@@ -105,16 +109,16 @@ public class Criticalflow {
 			String qpincode, String Professionalfees, String assignedtoName, String BDAgentName, String CrossSaleName,
 			String GRCMobileNumber, String GRCNewCompanyName, String CINNumber, String CrmUsernames,
 			String CrmUserpassword) throws Exception {
-	
-	//	********Base base = new Base(driver, Username, Mobilenumber, extentreport);
+
+		// ********Base base = new Base(driver, Username, Mobilenumber, extentreport);
 		GRCPage grcpage = new GRCPage(driver, extentreport, GRCMobileNumber, GRCNewCompanyName, CINNumber,
 				Helpdeskuserid, helpdeskpassword, assignedtoName);
 		CriticalFlowDetail Criticalflow = new CriticalFlowDetail(driver, Helpdeskuserid, helpdeskpassword, notesname,
 				notedescrption, QNameOfCustomer, qaddress, qpincode, Professionalfees, assignedtoName, BDAgentName,
-				CrossSaleName, GRCMobileNumber, CrmUsernames, CrmUserpassword, extentreport);
+			CrossSaleName, GRCMobileNumber, CrmUsernames, CrmUserpassword, extentreport);
 		
+
 		
-	
 
 	}
 
@@ -124,22 +128,21 @@ public class Criticalflow {
 		System.out.println("The close_up process is completed");
 
 	}
-
+ 
 	@AfterTest
 	public void Report() {
 		extentreport.flush();
-		
+
 		System.out.println("Test completed");
-		
 
 	}
 
 	@AfterSuite
 	public void cleanup() throws EmailException {
-		SendMailSSLWithAttachment Mail = new SendMailSSLWithAttachment();
-		Mail.main();
-		
-		//driver.quit();
+		//SendMailSSLWithAttachment Mail = new SendMailSSLWithAttachment();
+	//Mail.main();
+
+		driver.quit();
 	}
 
 }

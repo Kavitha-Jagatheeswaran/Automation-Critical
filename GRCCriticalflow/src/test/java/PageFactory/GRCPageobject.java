@@ -20,7 +20,7 @@ public class GRCPageobject extends HelpdeskPageobject{
 	@FindBy(xpath = "(//input[@style='width: 1em; text-align: center;'])[4]")
 	public static WebElement GRCOTP4;
 
-	@FindBy(xpath = "(//div[@class='styles_details__BqLwC'])[2]")
+	@FindBy(xpath = "(//div[@class='styles_details__BqLwC'])[1]")
 	public static WebElement GRCMailId0;
 
 	@FindBy(xpath = "//button[contains(text(),'Confirm')]")
@@ -29,7 +29,7 @@ public class GRCPageobject extends HelpdeskPageobject{
 	@FindBy(xpath = "//button[contains(text(),'Continue')]")
 	public static WebElement GRCPhonenumberConfirm;
 	
-	@FindBy(xpath = "//div//button[contains(text(),'Login')]")
+	@FindBy(xpath = "//div[@class='styles_footerContainer__UOnmt']/child::button")
 	public static WebElement GRCOTPConfirm;
 	
 	@FindBy(xpath = "//span[contains(text(),'Add new business')]")
@@ -153,6 +153,14 @@ public class GRCPageobject extends HelpdeskPageobject{
 	
 	@FindBy(xpath = "//div[@class='MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-qiwgdb']")
 	public static WebElement GSTRegistrationState;
+	
+	@FindBy(xpath = "(//div[@class='styles_resultBox__OmW_g '])[1]")
+	public static WebElement Selectindustryquestion1;
+	
+	@FindBy(xpath = "//img[@alt='closeIcon']")
+	public static WebElement Closepopup;
+	
+	
 	
 
 }
