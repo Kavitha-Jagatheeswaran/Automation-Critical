@@ -89,7 +89,7 @@ public class Criticalflow {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		driver.manage().window().setSize(new Dimension(1440, 900));
-		
+
 		driver.manage().window().maximize();
 
 	}
@@ -111,14 +111,14 @@ public class Criticalflow {
 			String CrmUserpassword) throws Exception {
 
 		// ********Base base = new Base(driver, Username, Mobilenumber, extentreport);
-		GRCPage grcpage = new GRCPage(driver, extentreport, GRCMobileNumber, GRCNewCompanyName, CINNumber,
-				Helpdeskuserid, helpdeskpassword, assignedtoName);
-		CriticalFlowDetail Criticalflow = new CriticalFlowDetail(driver, Helpdeskuserid, helpdeskpassword, notesname,
-				notedescrption, QNameOfCustomer, qaddress, qpincode, Professionalfees, assignedtoName, BDAgentName,
-			CrossSaleName, GRCMobileNumber, CrmUsernames, CrmUserpassword, extentreport);
-		
-
-		
+		 GRCPage grcpage = new GRCPage(driver, extentreport, GRCMobileNumber,
+		GRCNewCompanyName, CINNumber,
+		 Helpdeskuserid, helpdeskpassword, assignedtoName);
+		CriticalFlowDetail Criticalflow = new CriticalFlowDetail(driver,
+		 Helpdeskuserid, helpdeskpassword, notesname,
+		 notedescrption, QNameOfCustomer, qaddress, qpincode, Professionalfees,
+		 assignedtoName, BDAgentName,
+		 CrossSaleName, GRCMobileNumber, CrmUsernames, CrmUserpassword, extentreport);
 
 	}
 
@@ -128,7 +128,7 @@ public class Criticalflow {
 		System.out.println("The close_up process is completed");
 
 	}
- 
+
 	@AfterTest
 	public void Report() {
 		extentreport.flush();
@@ -139,9 +139,9 @@ public class Criticalflow {
 
 	@AfterSuite
 	public void cleanup() throws EmailException {
-		//SendMailSSLWithAttachment Mail = new SendMailSSLWithAttachment();
-	//Mail.main();
-
+		SendMailSSLWithAttachment Mail = new SendMailSSLWithAttachment();
+		Mail.main();
+		System.out.println("Test completed1");
 		driver.quit();
 	}
 

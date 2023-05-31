@@ -10,6 +10,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.By.ByXPath;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
@@ -105,10 +106,17 @@ public class GRCPage extends GRCPageobject {
 					test.log(Status.PASS, "Dashboard URL");
 					System.out.println(DashboardURL);
 				} else {
-					test.log(Status.FAIL, "Dashboard URL Not Same");
+					test.log(Status.FAIL, "Dashboard URL Not Same  "+ DashboardURL);
 					System.out.println(DashboardURL1);
 				}
-		
+				try {
+					Thread.sleep(3500);
+					Actions act =  new Actions(driver);
+					act.moveToElement(driver.findElement(By.xpath("//img[@alt='closeIcon']"))).click().perform();
+					//Closepopup.click();
+					}catch(Exception Closepopup) {
+						System.out.println("No popup");
+					}
 		try {
 			
 			addnewEntity.click();
@@ -117,28 +125,32 @@ public class GRCPage extends GRCPageobject {
 			
 			try {
 				wait.until(ExpectedConditions
-					.elementToBeClickable(By.xpath("//button[@class='styles_dropdownBtn__I6_4i']/child::p")));
+					.elementToBeClickable(By.xpath("//button[@class='styles_dropdownBtn__I6_4i']/parent::div")));
 				Thread.sleep(2500);
 				OpenEntityList.click();
 				Thread.sleep(2500);
 				AddNewBusiness2.click();
 			} catch(Exception openentity1) {
 				Actions act =  new Actions(driver);
-				robot.keyPress(KeyEvent.VK_CONTROL);
-				robot.keyRelease(KeyEvent.VK_R);
-				robot.keyPress(KeyEvent.VK_R);
-				robot.keyRelease(KeyEvent.VK_CONTROL);
-				try {
-					Thread.sleep(2500);
-					Closepopup.click();
-					}catch(Exception Closepopup) {
-						System.out.println("No popup");
-					}
-				Thread.sleep(2500);
-				act.moveToElement(driver.findElement(By.xpath("//button[@class='styles_dropdownBtn__I6_4i']/child::p"))).click().perform();
+				
+				
+			try {
+				wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='styles_dropdown__kgL4A']")));
+				driver.findElement(By.xpath("//div[@class='styles_dropdown__kgL4A']")).click();
 				Thread.sleep(2500);
 				
 				AddNewBusiness2.click();
+			} catch (ElementClickInterceptedException ex) {
+				
+				wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//img[@alt='closeIcon']")));
+				act.moveToElement(driver.findElement(By.xpath("//img[@alt='closeIcon']"))).click().perform();
+				wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='styles_dropdown__kgL4A']")));
+				driver.findElement(By.xpath("//div[@class='styles_dropdown__kgL4A']")).click();
+				Thread.sleep(2500);
+				
+				AddNewBusiness2.click();
+			}
+			
 			}
 
 		}
@@ -220,7 +232,7 @@ public class GRCPage extends GRCPageobject {
 					test.log(Status.PASS, "ProfileInformationURL");
 					System.out.println(ProfileInformationURL);
 				} else {
-					test.log(Status.FAIL, "ProfileInformationURL Not Same");
+					test.log(Status.FAIL, "ProfileInformationURL Not Same  "+ ProfileInformationURL);
 					System.out.println(ProfileInformationURL1);
 				}
 		
@@ -242,7 +254,7 @@ public class GRCPage extends GRCPageobject {
 		robot.keyPress(KeyEvent.VK_MINUS);
 		robot.keyRelease(KeyEvent.VK_MINUS);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
-		
+		js1.executeScript("arguments[0].scrollIntoView(true);", BuyNowService);
 		wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("(//button[contains(text(),'Buy now')])[1]"))).click();
 		//BuyNowService.click();
@@ -321,7 +333,7 @@ public class GRCPage extends GRCPageobject {
 					test.log(Status.PASS, "NeedHelpURL");
 					System.out.println(NeedHelpURL);
 				} else {
-					test.log(Status.FAIL, "NeedHelpURL Not Same");
+					test.log(Status.FAIL, "NeedHelpURL Not Same  "+NeedHelpURL);
 					System.out.println(NeedHelpURL1);
 				}
 		wait.until(ExpectedConditions

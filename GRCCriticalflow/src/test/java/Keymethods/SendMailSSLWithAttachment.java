@@ -67,17 +67,17 @@ public class SendMailSSLWithAttachment{
 			message.setFrom(new InternetAddress("automation@vakilsearch-emailer.com"));
 
 			// Set the recipient address
-			//message.setRecipients(Message.RecipientType.TO,InternetAddress.parse("sakthi.priyan@vakilsearch.com"));
+		//	message.setRecipients(Message.RecipientType.TO,InternetAddress.parse("sakthi.priyan@vakilsearch.com"));
          			message.setRecipients(Message.RecipientType.TO,InternetAddress.parse("sakthi.priyan@vakilsearch.com,sakthipriyan071297@gmail.com,kavitha.jagatheeswaran@vakilsearch.com,saravanan.muthu@vakilsearch.com,selvamani@vakilsearch.com,aejaaz.ghouse@vakilsearch.com,naveen.nagalingam@vakilsearch.com,divya.vijayaraghavan@vakilsearch.com"));
 
                      // Add the subject link
-			message.setSubject("CriticalFlow Automation");
+			message.setSubject("CriticalFlow Automation1");
 
 			// Create object to add multimedia type content
 			BodyPart messageBodyPart1 = new MimeBodyPart();
 
 			// Set the body of email
-			messageBodyPart1.setText("Automation Test Result");
+			messageBodyPart1.setText("Automation Test Result1");
 
 			// Create another object to add another content
 			MimeBodyPart messageBodyPart2 = new MimeBodyPart();
@@ -111,9 +111,9 @@ public class SendMailSSLWithAttachment{
 
 			System.out.println("=====Email Sent=====");
 
-		} catch (MessagingException e) {
+		} catch (MessagingException em) {
 
-			throw new RuntimeException(e);
+			throw new RuntimeException(em);
 
 		}
 

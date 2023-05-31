@@ -81,7 +81,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 					test.log(Status.PASS, "BusinessProfileURL");
 					System.out.println(BusinessProfileURL1);
 				} else {
-					test.log(Status.FAIL, "BusinessProfileURL Not Same");
+					test.log(Status.FAIL,"BusinessProfileURL not same"+ BusinessProfileURL);
 					System.out.println(BusinessProfileURL);
 				}
 		
@@ -101,7 +101,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 					test.log(Status.PASS, "UsersAndRolesURL");
 					System.out.println(UsersandRolesURL1);
 				} else {
-					test.log(Status.FAIL, "UsersAndRolesURL Not Same");
+					test.log(Status.FAIL,"UsersandRolesURL not same"+UsersandRolesURL);
 					System.out.println(UsersandRolesURL);
 				}
 		driver.navigate().back();
@@ -115,7 +115,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 					test.log(Status.PASS, "AddUserURL");
 					System.out.println(AddUserURL1);
 				} else {
-					test.log(Status.FAIL, "AddUserURL Not Same");
+					test.log(Status.FAIL,"AddUserURL not same"+AddUserURL);
 					System.out.println(AddUserURL);
 				}
 	//	driver.navigate().back();
@@ -130,7 +130,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 					test.log(Status.PASS, "HelpURL");
 					System.out.println(HelpURL1);
 				} else {
-					test.log(Status.FAIL, "HelpURL Not Same");
+					test.log(Status.FAIL,"HelpURL not same"+HelpURL);
 					System.out.println(HelpURL);
 				}
 		driver.navigate().back();
@@ -144,7 +144,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 					test.log(Status.PASS, "SupportURL");
 					System.out.println(SupportURL1);
 				} else {
-					test.log(Status.FAIL, "SupportURL Not Same");
+					test.log(Status.FAIL,"SupportURL not same"+ SupportURL);
 					System.out.println(SupportURL);
 				}
 		driver.navigate().back();
@@ -158,7 +158,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 					test.log(Status.PASS, "MessagesURL");
 					System.out.println(MessagesURL1);
 				} else {
-					test.log(Status.FAIL, "MessagesURL Not Same");
+					test.log(Status.FAIL,"MessagesURL not same"+MessagesURL);
 					System.out.println(MessagesURL);
 				}
 		
@@ -174,7 +174,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 					test.log(Status.PASS, "AllServicesURL");
 					System.out.println(AllServicesURL1);
 				} else {
-					test.log(Status.FAIL, "AllServicesURL Not Same");
+					test.log(Status.FAIL,"AllServicesURL not same"+ AllServicesURL);
 					System.out.println(AllServicesURL);
 				}
 		driver.navigate().back();
@@ -187,7 +187,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 					test.log(Status.PASS, "CompliancesForYou");
 					System.out.println(CompliancesForYou1);
 				} else {
-					test.log(Status.FAIL, "CompliancesForYou Not Same");
+					test.log(Status.FAIL,"CompliancesForYouURL not same"+CompliancesForYou);
 					System.out.println(CompliancesForYou);
 				}
 		driver.navigate().back();
@@ -200,7 +200,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 					test.log(Status.PASS, "PaymentsURL");
 					System.out.println(PaymentsURL1);
 				} else {
-					test.log(Status.FAIL, "PaymentsURL Not Same");
+					test.log(Status.FAIL,"PaymentsURL not same"+PaymentsURL);
 					System.out.println(PaymentsURL);
 				}
 		driver.navigate().back();
@@ -213,7 +213,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 					test.log(Status.PASS, "ComplianceCalendar");
 					System.out.println(ComplianceCalendar1);
 				} else {
-					test.log(Status.FAIL, "ComplianceCalendar Not Same");
+					test.log(Status.FAIL,"ComplianceCalendarURL not same"+ComplianceCalendar);
 					System.out.println(ComplianceCalendar);
 				}
 
@@ -226,7 +226,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 					test.log(Status.PASS, "RewardsURL");
 					System.out.println(RewardsURL1);
 				} else {
-					test.log(Status.FAIL, "RewardsURL Not Same");
+					test.log(Status.FAIL,"RewardsURL not same"+ RewardsURL);
 					System.out.println(RewardsURL);
 				}
 		driver.navigate().back();
@@ -238,7 +238,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 					test.log(Status.PASS, "MyServicesURL");
 					System.out.println(MyServicesURL1);
 				} else {
-					test.log(Status.FAIL, "MyServicesURL Not Same");
+					test.log(Status.FAIL,"MyServicesURL not same"+ MyServicesURL);
 					System.out.println(MyServicesURL);
 				}
 		driver.navigate().back();
@@ -273,7 +273,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 					test.log(Status.PASS, "MyInterestURL");
 					System.out.println(MyInterestURL);
 				} else {
-					test.log(Status.FAIL, "MyInterestURL Not Same");
+					test.log(Status.FAIL,"MyInterestURL not same"+MyInterestURL);
 					System.out.println(MyInterestURL1);
 				}
 		if (e.matches(e)) {
