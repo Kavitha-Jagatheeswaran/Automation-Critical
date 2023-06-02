@@ -113,14 +113,14 @@ public class Criticalflow {
 			String CrmUserpassword) throws Exception {
 
 		// ********Base base = new Base(driver, Username, Mobilenumber, extentreport);
-//		 GRCPage grcpage = new GRCPage(driver, extentreport, GRCMobileNumber,
-//		GRCNewCompanyName, CINNumber,
-//		 Helpdeskuserid, helpdeskpassword, assignedtoName);
-//		CriticalFlowDetail Criticalflow = new CriticalFlowDetail(driver,
-//		 Helpdeskuserid, helpdeskpassword, notesname,
-//		 notedescrption, QNameOfCustomer, qaddress, qpincode, Professionalfees,
-//		 assignedtoName, BDAgentName,
-//		 CrossSaleName, GRCMobileNumber, CrmUsernames, CrmUserpassword, extentreport);
+		 GRCPage grcpage = new GRCPage(driver, extentreport, GRCMobileNumber,
+		GRCNewCompanyName, CINNumber,
+		 Helpdeskuserid, helpdeskpassword, assignedtoName);
+		CriticalFlowDetail Criticalflow = new CriticalFlowDetail(driver,
+		 Helpdeskuserid, helpdeskpassword, notesname,
+		 notedescrption, QNameOfCustomer, qaddress, qpincode, Professionalfees,
+		 assignedtoName, BDAgentName,
+		 CrossSaleName, GRCMobileNumber, CrmUsernames, CrmUserpassword, extentreport);
 		
 	}
 
