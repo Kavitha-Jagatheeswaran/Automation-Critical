@@ -52,13 +52,13 @@ public class SendMailSSLWithAttachment{
 
 					protected PasswordAuthentication getPasswordAuthentication() {
 
-					return new PasswordAuthentication("legalisnowsimple@gmail.com", "xsmtpsib-c983edc8e24c956b9076ebec147580bcb684402b24892673c885fdcf56296b15-PALYSO7pnjsdCwQm");
+					return new PasswordAuthentication("legalisnowsimple@gmail.com","xsmtpsib-c983edc8e24c956b9076ebec147580bcb684402b24892673c885fdcf56296b15-mrcp0QBZG9FTxSfR");
 
 					}
 
 				});
 
-		try {
+		try { 
 
 			// Create object of MimeMessage class
 			Message message = new MimeMessage(session);
@@ -67,17 +67,17 @@ public class SendMailSSLWithAttachment{
 			message.setFrom(new InternetAddress("automation@vakilsearch-emailer.com"));
 
 			// Set the recipient address
-		//	message.setRecipients(Message.RecipientType.TO,InternetAddress.parse("sakthi.priyan@vakilsearch.com"));
-         			message.setRecipients(Message.RecipientType.TO,InternetAddress.parse("sakthi.priyan@vakilsearch.com,sakthipriyan071297@gmail.com,kavitha.jagatheeswaran@vakilsearch.com,saravanan.muthu@vakilsearch.com,selvamani@vakilsearch.com,aejaaz.ghouse@vakilsearch.com,naveen.nagalingam@vakilsearch.com,divya.vijayaraghavan@vakilsearch.com"));
+		message.setRecipients(Message.RecipientType.TO,InternetAddress.parse("sakthi.priyan@vakilsearch.com"));
+         			//message.setRecipients(Message.RecipientType.TO,InternetAddress.parse("sakthi.priyan@vakilsearch.com,sakthipriyan071297@gmail.com,kavitha.jagatheeswaran@vakilsearch.com,saravanan.muthu@vakilsearch.com,selvamani@vakilsearch.com,aejaaz.ghouse@vakilsearch.com,naveen.nagalingam@vakilsearch.com,divya.vijayaraghavan@vakilsearch.com"));
 
                      // Add the subject link
-			message.setSubject("CriticalFlow Automation1");
+			message.setSubject("CriticalFlow Automation");
 
 			// Create object to add multimedia type content
 			BodyPart messageBodyPart1 = new MimeBodyPart();
 
 			// Set the body of email
-			messageBodyPart1.setText("Automation Test Result1");
+			messageBodyPart1.setText("Automation Test Result");
 
 			// Create another object to add another content
 			MimeBodyPart messageBodyPart2 = new MimeBodyPart();
@@ -111,9 +111,9 @@ public class SendMailSSLWithAttachment{
 
 			System.out.println("=====Email Sent=====");
 
-		} catch (MessagingException em) {
+		} catch (MessagingException e) {
 
-			throw new RuntimeException(em);
+			throw new RuntimeException(e);
 
 		}
 
