@@ -70,8 +70,8 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		Thread.sleep(3000);
 		//**********
 		wait.until(ExpectedConditions.elementToBeClickable(
-				By.xpath("//button[@class='styles_gearBtn__s6cgl']")));
-		driver.findElement(By.xpath("//button[@class='styles_gearBtn__s6cgl']/child::img")).click();
+				By.xpath("//img[@alt='Settings']/parent::button")));
+		driver.findElement(By.xpath("//img[@alt='Settings']/parent::button")).click();
 		Thread.sleep(10000);
 		driver.findElement(By.xpath("//p[contains(text(),'Business Profile')]")).click();
 		Thread.sleep(10000);
@@ -418,7 +418,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			robot.keyRelease(KeyEvent.VK_G);
 			addnotesend.click();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
+Thread.sleep(2500);
 			addnote.click();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			driver.findElement(By.xpath("(//iframe[@class='cke_wysiwyg_frame cke_reset'])[4]")).click();
@@ -524,8 +524,10 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 
 		robot.keyPress(KeyEvent.VK_PAGE_UP);
 		robot.keyRelease(KeyEvent.VK_PAGE_UP);
-//	***if needed you can take this***	
+//*****if needed you can take this*****//
+		
 		try {
+			Thread.sleep(2000);
 			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='editBtn']")));
 			js.executeScript("arguments[0].scrollIntoView(true);", Editticket);
 			Editticket.click();
@@ -950,7 +952,27 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		} catch (Exception Merge1) {
 			test.log(Status.FAIL, "Merge Failed");
 		}
+		Thread.sleep(3000);
+		addnote.click();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.findElement(By.xpath("(//iframe[@class='cke_wysiwyg_frame cke_reset'])[4]")).click();
+		driver.findElement(By.xpath("(//iframe[@class='cke_wysiwyg_frame cke_reset'])[4]"))
+				.sendKeys("Testing Add note CRM");
+		EmailTo.click();
+		emailsearchTo.click();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		emailsearchTo.sendKeys(assignedtoName);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+		Thread.sleep(2000);
+		Emailtoaddnote.click();Thread.sleep(2500);
+		Emailtoaddnote.sendKeys("Hi Testing");
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
+		EmailAddAttachment
+				.sendKeys("C:\\\\Users\\\\admin\\\\eclipse-workspace\\\\GRCCriticalflow\\\\Excel\\\\Customer.xlsx");
+		EmailButtonSend.click();
 		try {
 			Magickeycopy.click();
 

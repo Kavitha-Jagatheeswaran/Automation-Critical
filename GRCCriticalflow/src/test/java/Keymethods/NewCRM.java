@@ -50,14 +50,14 @@ try {
 		CrmSearchforticketsIDorsubject.sendKeys(e);
 		Thread.sleep(2500);
 		CrmFirstTicketSelect.click();
-//		String InternalNotes = CrmInternalNote.getText();
-//		String b = "Testing";
-//		if ( InternalNotes== b) {
-//			test.log(Status.PASS, "add note verification success");
-//		} else {
-//			test.log(Status.FAIL, "add note verification Failed");
-//		}
-//		
+		String InternalNotes = CrmInternalNote.getText();
+		String b = "Hi Testing";
+		if ( InternalNotes.contains(b)) {
+			test.log(Status.PASS, "add note verification success");
+		} else {
+			test.log(Status.FAIL, "add note verification Failed");
+		}
+		
 		test.log(Status.PASS, "NewCrm  success");
 } catch (Exception Newcrnotevalidation1) {
 	test.log(Status.FAIL, "NewCrm  Failed");
