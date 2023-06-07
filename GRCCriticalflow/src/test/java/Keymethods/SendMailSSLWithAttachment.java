@@ -26,6 +26,8 @@ import org.apache.commons.mail.SimpleEmail;
 import org.testng.annotations.Test;
 
 public class SendMailSSLWithAttachment{
+//public static void main(String[] args) {
+	
 
  public void main() throws EmailException{
 	 Properties props = new Properties();
@@ -52,7 +54,7 @@ public class SendMailSSLWithAttachment{
 
 					protected PasswordAuthentication getPasswordAuthentication() {
 
-					return new PasswordAuthentication("legalisnowsimple@gmail.com","xsmtpsib-c983edc8e24c956b9076ebec147580bcb684402b24892673c885fdcf56296b15-mrcp0QBZG9FTxSfR");
+					return new PasswordAuthentication("legalisnowsimple@gmail.com","xsmtpsib-c983edc8e24c956b9076ebec147580bcb684402b24892673c885fdcf56296b15-a5MnI07UEzAHNx4B");
 
 					}
 

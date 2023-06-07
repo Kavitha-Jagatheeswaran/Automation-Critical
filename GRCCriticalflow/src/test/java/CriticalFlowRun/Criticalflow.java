@@ -113,7 +113,7 @@ public class Criticalflow {
 			String CrmUserpassword) throws Exception {
 
 		// ********Base base = new Base(driver, Username, Mobilenumber, extentreport);
-		 GRCPage grcpage = new GRCPage(driver, extentreport, GRCMobileNumber,
+	 GRCPage grcpage = new GRCPage(driver, extentreport, GRCMobileNumber,
 		GRCNewCompanyName, CINNumber,
 		 Helpdeskuserid, helpdeskpassword, assignedtoName);
 		CriticalFlowDetail Criticalflow = new CriticalFlowDetail(driver,
@@ -133,17 +133,18 @@ public class Criticalflow {
 
 	@AfterTest
 	public void Report() {
-		extentreport.flush();
+		extentreport.flush();			
+		
 
 		System.out.println("Test completed");
 
 	}
-
+ 
 	@AfterSuite
-	public void cleanup() throws EmailException {
+	public void Mail() throws EmailException {
 		SendMailSSLWithAttachment Mail = new SendMailSSLWithAttachment();
 		Mail.main();
-		System.out.println("Test completed1");
+	//	System.out.println("Test completed1");
 		driver.quit();
 	}
 
