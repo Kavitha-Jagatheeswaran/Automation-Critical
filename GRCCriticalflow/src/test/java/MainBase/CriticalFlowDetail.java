@@ -49,7 +49,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class CriticalFlowDetail extends HelpdeskPageobject {
 
 	JavascriptExecutor js;
-	Robot robot;
+	Robot robot; 
 	ExtentTest test;
 
 	public CriticalFlowDetail(WebDriver driver, String Helpdeskuserid, String helpdeskpassword, String notesname,
