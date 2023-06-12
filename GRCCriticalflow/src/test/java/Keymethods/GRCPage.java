@@ -1,5 +1,7 @@
 package Keymethods;
 
+import static org.testng.Assert.expectThrows;
+
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
@@ -100,7 +102,8 @@ public class GRCPage extends GRCPageobject {
 			}catch(Exception Closepopup) {
 				System.out.println("No popup");
 			}
-		Thread.sleep(3500);
+		
+		Thread.sleep(5500);
 		String DashboardURL = driver.getCurrentUrl().substring(0, 41);//41
 		System.out.println(DashboardURL);
 		String DashboardURL1 = "https://grc.vakilsearch.com/grc/dashboard";
@@ -141,22 +144,22 @@ public class GRCPage extends GRCPageobject {
 				Actions act =  new Actions(driver);
 				
 				
-			try {
+//			try {
 				wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='styles_dropdown__kgL4A']")));
 				driver.findElement(By.xpath("//div[@class='styles_dropdown__kgL4A']")).click();
 				Thread.sleep(2500);
-				
+//				
+//				AddNewBusiness2.click();
+//			} catch (ElementClickInterceptedException ex) {
+//				
+//				wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//img[@alt='closeIcon']")));
+//				act.moveToElement(driver.findElement(By.xpath("//img[@alt='closeIcon']"))).click().perform();
+//				wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='styles_dropdown__kgL4A']")));
+//				driver.findElement(By.xpath("//div[@class='styles_dropdown__kgL4A']")).click();
+//				Thread.sleep(2500);
+//				
 				AddNewBusiness2.click();
-			} catch (ElementClickInterceptedException ex) {
-				
-				wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//img[@alt='closeIcon']")));
-				act.moveToElement(driver.findElement(By.xpath("//img[@alt='closeIcon']"))).click().perform();
-				wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='styles_dropdown__kgL4A']")));
-				driver.findElement(By.xpath("//div[@class='styles_dropdown__kgL4A']")).click();
-				Thread.sleep(2500);
-				
-				AddNewBusiness2.click();
-			}
+//			}
 			
 			}
 
@@ -216,8 +219,8 @@ public class GRCPage extends GRCPageobject {
 		robot.keyPress(KeyEvent.VK_R);
 		robot.keyRelease(KeyEvent.VK_R);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
-		wait.until(ExpectedConditions
-				.elementToBeClickable(By.xpath("(//div[@class='styles_btnContainer__sVb_P']/child::button)[2]")));
+		//wait.until(ExpectedConditions
+		//		.elementToBeClickable(By.xpath("//button[@class='styles_dropdownBtn__I6_4i']/child::p")));
 		Thread.sleep(2500);
 		try {
 			
@@ -225,9 +228,15 @@ public class GRCPage extends GRCPageobject {
 		}catch(Exception Closepopup) {
 			System.out.println("No popup");
 		}
+		Thread.sleep(2500);
+		wait.until(ExpectedConditions
+				.elementToBeClickable(By.xpath("//button[@class='styles_dropdownBtn__I6_4i']/child::p"))).click();
+		Thread.sleep(2500);
 		// **just for option
-	OpenEntityList.click();
-		EntitySelect2.click();
+//	OpenEntityList.click();
+	wait.until(ExpectedConditions
+			.elementToBeClickable(By.xpath("(//div[@class='styles_accountsList__qfPzH']/child::div)[2]"))).click();
+	//	EntitySelect2.click();
 		Thread.sleep(1500);
 		ProfileMenu.click();
 		Thread.sleep(1500);
@@ -269,6 +278,10 @@ public class GRCPage extends GRCPageobject {
 		robot.keyPress(KeyEvent.VK_MINUS);
 		robot.keyRelease(KeyEvent.VK_MINUS);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_DOWN);
+		robot.keyRelease(KeyEvent.VK_DOWN);
+		robot.keyPress(KeyEvent.VK_DOWN);
+		robot.keyRelease(KeyEvent.VK_DOWN);
 		wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("(//button[contains(text(),'Buy now')])[1]"))).click();
 		robot.keyPress(KeyEvent.VK_UP);
@@ -318,10 +331,10 @@ public class GRCPage extends GRCPageobject {
 
 		String ServiceID = GetServiceID.getText().substring(1);
 		System.out.println(ServiceID + "GRC");
-		robot.keyPress(KeyEvent.VK_CONTROL);
-		robot.keyPress(KeyEvent.VK_R);
-		robot.keyRelease(KeyEvent.VK_R);
-		robot.keyRelease(KeyEvent.VK_CONTROL);
+//		robot.keyPress(KeyEvent.VK_CONTROL);
+//		robot.keyPress(KeyEvent.VK_R);
+//		robot.keyRelease(KeyEvent.VK_R);
+//		robot.keyRelease(KeyEvent.VK_CONTROL);
 
 //		Thread.sleep(1500);
 //		MessagesCTA.click();
@@ -341,7 +354,10 @@ public class GRCPage extends GRCPageobject {
 			}catch(Exception Closepopup1) {
 				System.out.println("No popup");
 			}
-
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_R);
+		robot.keyRelease(KeyEvent.VK_R);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
 		Thread.sleep(3000);
 		//actions.click(Needhelp);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[contains(text(),'Need help')]")));

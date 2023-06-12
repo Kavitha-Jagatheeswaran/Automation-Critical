@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-06-12T15:35:44 IST" name="Default suite" finished-at="2023-06-12T15:36:28 IST" duration-ms="43968">
+  <suite started-at="2023-06-12T22:03:47 IST" name="Default suite" finished-at="2023-06-12T22:04:58 IST" duration-ms="71681">
     <groups>
     </groups>
-    <test started-at="2023-06-12T15:35:44 IST" name="Default test" finished-at="2023-06-12T15:36:28 IST" duration-ms="43968">
+    <test started-at="2023-06-12T22:03:47 IST" name="Default test" finished-at="2023-06-12T22:04:58 IST" duration-ms="71681">
       <class name="CriticalFlowRun.Criticalflow">
-        <test-method is-config="true" signature="Login()[pri:0, instance:CriticalFlowRun.Criticalflow@30ee2816]" started-at="2023-06-12T15:35:43 IST" name="Login" finished-at="2023-06-12T15:35:44 IST" duration-ms="516" status="PASS">
+        <test-method is-config="true" signature="Login()[pri:0, instance:CriticalFlowRun.Criticalflow@30ee2816]" started-at="2023-06-12T22:03:46 IST" name="Login" finished-at="2023-06-12T22:03:47 IST" duration-ms="512" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method is-config="true" signature="Max()[pri:0, instance:CriticalFlowRun.Criticalflow@30ee2816]" started-at="2023-06-12T15:35:44 IST" name="Max" finished-at="2023-06-12T15:35:47 IST" duration-ms="3267" status="PASS">
+        <test-method is-config="true" signature="Max()[pri:0, instance:CriticalFlowRun.Criticalflow@30ee2816]" started-at="2023-06-12T22:03:47 IST" name="Max" finished-at="2023-06-12T22:03:50 IST" duration-ms="3355" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Max -->
-        <test-method is-config="true" signature="url()[pri:0, instance:CriticalFlowRun.Criticalflow@30ee2816]" started-at="2023-06-12T15:35:47 IST" name="url" finished-at="2023-06-12T15:35:50 IST" duration-ms="3067" status="PASS">
+        <test-method is-config="true" signature="url()[pri:0, instance:CriticalFlowRun.Criticalflow@30ee2816]" started-at="2023-06-12T22:03:50 IST" name="url" finished-at="2023-06-12T22:03:53 IST" duration-ms="3070" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- url -->
-        <test-method signature="Customercreation100(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:CriticalFlowRun.Criticalflow@30ee2816]" started-at="2023-06-12T15:35:50 IST" name="Customercreation100" data-provider="itemsdata" finished-at="2023-06-12T15:36:27 IST" duration-ms="36769" status="FAIL">
+        <test-method signature="Customercreation100(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:CriticalFlowRun.Criticalflow@30ee2816]" started-at="2023-06-12T22:03:53 IST" name="Customercreation100" data-provider="itemsdata" finished-at="2023-06-12T22:04:58 IST" duration-ms="64444" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -98,7 +98,7 @@
             </param>
             <param index="15">
               <value>
-                <![CDATA[L17110MH1973PLC269186]]>
+                <![CDATA[L17110MH1973PLC278186]]>
               </value>
             </param>
             <param index="16">
@@ -114,22 +114,22 @@
           </params>
           <exception class="org.openqa.selenium.ElementClickInterceptedException">
             <message>
-              <![CDATA[element click intercepted: Element <button class="styles_continue___WaLW styles_active__YH6bX">...</button> is not clickable at point (1180, 573). Other element would receive the click: <div class="styles_modal__ZlE5K"></div>
+              <![CDATA[element click intercepted: Element is not clickable at point (1097, 1010)
   (Session info: chrome=114.0.5735.110)
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-RG609L7', ip: '172.31.98.254', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.7'
+System info: host: 'DESKTOP-RG609L7', ip: '192.168.23.108', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.7'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.110, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:61540}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: ca38085a99b7d17b99b9d7e147a15e0b]]>
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.110, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:62080}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 6a23d37cd6290a9b66a5cd82d877ebb5]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <button class="styles_continue___WaLW styles_active__YH6bX">...</button> is not clickable at point (1180, 573). Other element would receive the click: <div class="styles_modal__ZlE5K"></div>
+              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element is not clickable at point (1097, 1010)
   (Session info: chrome=114.0.5735.110)
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-RG609L7', ip: '172.31.98.254', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.7'
+System info: host: 'DESKTOP-RG609L7', ip: '192.168.23.108', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.7'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.110, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:61540}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: ca38085a99b7d17b99b9d7e147a15e0b
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.110, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:62080}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 6a23d37cd6290a9b66a5cd82d877ebb5
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -143,13 +143,7 @@ at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverComman
 at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
 at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
 at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-at jdk.proxy2/jdk.proxy2.$Proxy18.click(Unknown Source)
-at Keymethods.GRCPage.<init>(GRCPage.java:186)
+at Keymethods.GRCPage.<init>(GRCPage.java:282)
 at CriticalFlowRun.Criticalflow.Customercreation100(Criticalflow.java:116)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
@@ -185,15 +179,15 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Customercreation100 -->
-        <test-method is-config="true" signature="close()[pri:0, instance:CriticalFlowRun.Criticalflow@30ee2816]" started-at="2023-06-12T15:36:27 IST" name="close" finished-at="2023-06-12T15:36:27 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="close()[pri:0, instance:CriticalFlowRun.Criticalflow@30ee2816]" started-at="2023-06-12T22:04:58 IST" name="close" finished-at="2023-06-12T22:04:58 IST" duration-ms="2" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close -->
-        <test-method is-config="true" signature="Report()[pri:0, instance:CriticalFlowRun.Criticalflow@30ee2816]" started-at="2023-06-12T15:36:27 IST" name="Report" finished-at="2023-06-12T15:36:28 IST" duration-ms="608" status="PASS">
+        <test-method is-config="true" signature="Report()[pri:0, instance:CriticalFlowRun.Criticalflow@30ee2816]" started-at="2023-06-12T22:04:58 IST" name="Report" finished-at="2023-06-12T22:04:58 IST" duration-ms="572" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Report -->
-        <test-method is-config="true" signature="Mail()[pri:0, instance:CriticalFlowRun.Criticalflow@30ee2816]" started-at="2023-06-12T15:36:28 IST" name="Mail" finished-at="2023-06-12T15:36:31 IST" duration-ms="3381" status="PASS">
+        <test-method is-config="true" signature="Mail()[pri:0, instance:CriticalFlowRun.Criticalflow@30ee2816]" started-at="2023-06-12T22:04:58 IST" name="Mail" finished-at="2023-06-12T22:05:06 IST" duration-ms="7281" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Mail -->

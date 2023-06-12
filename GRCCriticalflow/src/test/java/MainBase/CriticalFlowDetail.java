@@ -157,6 +157,8 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		Thread.sleep(5000);
 		//**************
 	//	driver.findElement(By.xpath("//button[@class='styles_gearBtn__s6cgl']")).click();
+		wait.until(ExpectedConditions.presenceOfElementLocated(
+				By.xpath("//span[contains(text(),'Messages')]")));
 		wait.until(ExpectedConditions.elementToBeClickable(
 				By.xpath("//span[contains(text(),'Messages')]"))).click();
 		//driver.findElement(By.xpath("//span[contains(text(),'Messages')]")).click();
