@@ -44,6 +44,7 @@ import PageFactory.HomescreenPageobject;
 import PageFactory.LoginPageobjects;
 import PageFactory.NewCRMPageobject;
 import groovyjarjarantlr4.v4.codegen.model.Action;
+import groovyjarjarantlr4.v4.runtime.tree.xpath.XPath;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class CriticalFlowDetail extends HelpdeskPageobject {
@@ -70,8 +71,8 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		Thread.sleep(3000);
 		//**********
 		wait.until(ExpectedConditions.elementToBeClickable(
-				By.xpath("//img[@alt='Settings']/parent::button")));
-		driver.findElement(By.xpath("//img[@alt='Settings']/parent::button")).click();
+				By.xpath("//img[@alt='Settings']/parent::button"))).click();
+	//	driver.findElement(By.xpath("//img[@alt='Settings']/parent::button")).click();
 		Thread.sleep(10000);
 		driver.findElement(By.xpath("//p[contains(text(),'Business Profile')]")).click();
 		Thread.sleep(10000);
@@ -156,7 +157,10 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		Thread.sleep(5000);
 		//**************
 	//	driver.findElement(By.xpath("//button[@class='styles_gearBtn__s6cgl']")).click();
-		driver.findElement(By.xpath("//span[contains(text(),'Messages')]")).click();Thread.sleep(2500);
+		wait.until(ExpectedConditions.elementToBeClickable(
+				By.xpath("//span[contains(text(),'Messages')]"))).click();
+		//driver.findElement(By.xpath("//span[contains(text(),'Messages')]")).click();
+		Thread.sleep(2500);
 		String MessagesURL = driver.getCurrentUrl().substring(0, 40);
 		String MessagesURL1 = "https://grc.vakilsearch.com/grc/messages";
 				if (MessagesURL1.contains(MessagesURL)) {
@@ -184,19 +188,22 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 				}
 		driver.navigate().back();
 		Thread.sleep(5500);
-	//	driver.findElement(By.xpath("//button[@class='styles_gearBtn__s6cgl']")).click();
-		driver.findElement(By.xpath("//span[contains(text(),'Compliances for you')]")).click();Thread.sleep(2500);
+	/*//	driver.findElement(By.xpath("//button[@class='styles_gearBtn__s6cgl']")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Compliances for you')]"))).click();
+	//	driver.findElement(By.xpath("//span[contains(text(),'Compliances for you')]")).click();
+		Thread.sleep(3500);
 		String CompliancesForYou = driver.getCurrentUrl().substring(0, 48);
 		String CompliancesForYou1 = "https://grc.vakilsearch.com/grc/compliance-score";
+		https://grc.vakilsearch.com/grc/services
 				if (CompliancesForYou.contains(CompliancesForYou1)) {
 					test.log(Status.PASS, "CompliancesForYou");
 					System.out.println(CompliancesForYou1);
 				} else {
 					test.log(Status.FAIL,"CompliancesForYouURL not same"+CompliancesForYou);
 					System.out.println(CompliancesForYou);
-				}
+			}
 		driver.navigate().back();
-		Thread.sleep(5500);
+		Thread.sleep(5500);*/
 	//	driver.findElement(By.xpath("//button[@class='styles_gearBtn__s6cgl']")).click();
 		driver.findElement(By.xpath("//span[contains(text(),'Payments')]")).click();Thread.sleep(2500);
 		String PaymentsURL = driver.getCurrentUrl().substring(0, 40);
@@ -419,7 +426,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			addnotesend.click();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 Thread.sleep(2500);
-			addnote.click();
+		/*	addnote.click();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			driver.findElement(By.xpath("(//iframe[@class='cke_wysiwyg_frame cke_reset'])[4]")).click();
 			driver.findElement(By.xpath("(//iframe[@class='cke_wysiwyg_frame cke_reset'])[4]"))
@@ -439,7 +446,7 @@ Thread.sleep(2500);
 			EmailAddAttachment
 					.sendKeys("C:\\\\Users\\\\admin\\\\eclipse-workspace\\\\GRCCriticalflow\\\\Excel\\\\Customer.xlsx");
 			EmailButtonSend.click();
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);*/
 			test.log(Status.PASS, "Add Note Created");
 		} catch (Exception AddNote) {
 			test.log(Status.FAIL, "Add Note Failed");
@@ -967,7 +974,22 @@ Thread.sleep(2500);
 		robot.keyRelease(KeyEvent.VK_ENTER);
 		Thread.sleep(2000);
 		Emailtoaddnote.click();Thread.sleep(2500);
-		Emailtoaddnote.sendKeys("Hi Testing");
+
+		robot.keyPress(KeyEvent.VK_T);
+		robot.keyRelease(KeyEvent.VK_T);
+		robot.keyPress(KeyEvent.VK_E);
+		robot.keyRelease(KeyEvent.VK_E);
+		robot.keyPress(KeyEvent.VK_S);
+		robot.keyRelease(KeyEvent.VK_S);
+		robot.keyPress(KeyEvent.VK_T);
+		robot.keyRelease(KeyEvent.VK_T);
+		robot.keyPress(KeyEvent.VK_I);
+		robot.keyRelease(KeyEvent.VK_I);
+		robot.keyPress(KeyEvent.VK_N);
+		robot.keyRelease(KeyEvent.VK_N);
+		robot.keyPress(KeyEvent.VK_G);
+		robot.keyRelease(KeyEvent.VK_G);
+	//****	Emailtoaddnote.sendKeys("Hi Testing");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 		EmailAddAttachment

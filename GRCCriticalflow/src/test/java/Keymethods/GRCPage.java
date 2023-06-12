@@ -261,13 +261,14 @@ public class GRCPage extends GRCPageobject {
 //		robot.keyPress(KeyEvent.VK_PAGE_DOWN);
 //		robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
 		
+
 		js1.executeScript("arguments[0].scrollIntoView(true);", BuyNowService);
-		wait.until(ExpectedConditions.elementToBeClickable(BuyNowService));
 		robot.keyPress(KeyEvent.VK_CONTROL);
 		robot.keyPress(KeyEvent.VK_MINUS);
 		robot.keyRelease(KeyEvent.VK_MINUS);
+		robot.keyPress(KeyEvent.VK_MINUS);
+		robot.keyRelease(KeyEvent.VK_MINUS);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
-		js1.executeScript("arguments[0].scrollIntoView(true);", BuyNowService);
 		wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("(//button[contains(text(),'Buy now')])[1]"))).click();
 		robot.keyPress(KeyEvent.VK_UP);
@@ -343,7 +344,9 @@ public class GRCPage extends GRCPageobject {
 
 		Thread.sleep(3000);
 		//actions.click(Needhelp);
-		Needhelp.click();
+		wait.until(ExpectedConditions
+				.elementToBeClickable(By.xpath("//div[contains(text(),'Need help')]"))).click();
+		//Needhelp.click();
 		Thread.sleep(1500);
 		String NeedHelpURL = driver.getCurrentUrl().substring(0, 36);
 		String NeedHelpURL1 = "https://grc.vakilsearch.com/grc/help";
