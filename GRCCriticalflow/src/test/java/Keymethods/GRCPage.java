@@ -344,6 +344,7 @@ public class GRCPage extends GRCPageobject {
 
 		Thread.sleep(3000);
 		//actions.click(Needhelp);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[contains(text(),'Need help')]")));
 		wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("//div[contains(text(),'Need help')]"))).click();
 		//Needhelp.click();
