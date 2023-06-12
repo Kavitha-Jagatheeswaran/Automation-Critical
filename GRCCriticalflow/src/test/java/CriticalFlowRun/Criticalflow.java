@@ -3,6 +3,8 @@ package CriticalFlowRun;
 import java.awt.AWTException;
 import java.io.FileInputStream;
 import java.io.IOException;
+
+
 import MainBase.*;
 
 import org.apache.commons.mail.EmailException;
@@ -89,7 +91,7 @@ public class Criticalflow {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		driver.manage().window().setSize(new Dimension(1440, 900));
-		
+
 		driver.manage().window().maximize();
 
 	}
@@ -111,15 +113,15 @@ public class Criticalflow {
 			String CrmUserpassword) throws Exception {
 
 		// ********Base base = new Base(driver, Username, Mobilenumber, extentreport);
-		GRCPage grcpage = new GRCPage(driver, extentreport, GRCMobileNumber, GRCNewCompanyName, CINNumber,
-				Helpdeskuserid, helpdeskpassword, assignedtoName);
-		CriticalFlowDetail Criticalflow = new CriticalFlowDetail(driver, Helpdeskuserid, helpdeskpassword, notesname,
-				notedescrption, QNameOfCustomer, qaddress, qpincode, Professionalfees, assignedtoName, BDAgentName,
-			CrossSaleName, GRCMobileNumber, CrmUsernames, CrmUserpassword, extentreport);
+	 GRCPage grcpage = new GRCPage(driver, extentreport, GRCMobileNumber,
+		GRCNewCompanyName, CINNumber,
+		 Helpdeskuserid, helpdeskpassword, assignedtoName);
+		CriticalFlowDetail Criticalflow = new CriticalFlowDetail(driver,
+		 Helpdeskuserid, helpdeskpassword, notesname,
+		 notedescrption, QNameOfCustomer, qaddress, qpincode, Professionalfees,
+		 assignedtoName, BDAgentName,
+		 CrossSaleName, GRCMobileNumber, CrmUsernames, CrmUserpassword, extentreport);
 		
-
-		
-
 	}
 
 	@AfterClass
@@ -128,21 +130,22 @@ public class Criticalflow {
 		System.out.println("The close_up process is completed");
 
 	}
- 
+
 	@AfterTest
 	public void Report() {
-		extentreport.flush();
+		extentreport.flush();			
+		
 
 		System.out.println("Test completed");
 
 	}
-
+ 
 	@AfterSuite
-	public void cleanup() throws EmailException {
-		//SendMailSSLWithAttachment Mail = new SendMailSSLWithAttachment();
-	//Mail.main();
-
-		driver.quit();
+	public void Mail() throws EmailException {
+		SendMailSSLWithAttachment Mail = new SendMailSSLWithAttachment();
+		Mail.main();
+	//	System.out.println("Test completed1");
+	//	driver.quit();
 	}
 
 }
