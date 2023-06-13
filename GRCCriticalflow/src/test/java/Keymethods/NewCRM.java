@@ -51,7 +51,7 @@ try {
 		Thread.sleep(2500);
 		CrmFirstTicketSelect.click();
 		String InternalNotes = CrmInternalNote.getText();
-		String b = "Testing";
+		String b = "TESTING";
 		if ( InternalNotes.contains(b)) {
 			test.log(Status.PASS, "add note verification success");
 		} else {
