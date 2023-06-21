@@ -282,6 +282,7 @@ public class GRCPage extends GRCPageobject {
 		robot.keyRelease(KeyEvent.VK_DOWN);
 		robot.keyPress(KeyEvent.VK_DOWN);
 		robot.keyRelease(KeyEvent.VK_DOWN);
+		Thread.sleep(5000);
 		wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("(//button[contains(text(),'Buy now')])[1]"))).click();
 		robot.keyPress(KeyEvent.VK_UP);

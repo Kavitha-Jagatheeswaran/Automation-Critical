@@ -68,7 +68,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		robot.keyPress(KeyEvent.VK_PAGE_UP);
 		robot.keyRelease(KeyEvent.VK_PAGE_UP);
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		//**********
 		wait.until(ExpectedConditions.elementToBeClickable(
 				By.xpath("//img[@alt='Settings']/parent::button"))).click();
@@ -319,7 +319,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 //		}
 
 		Password.sendKeys(helpdeskpassword);
-		Signin.click();
+		Signin.click();Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Helpdesk.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

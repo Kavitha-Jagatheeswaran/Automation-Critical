@@ -26,10 +26,10 @@ import org.apache.commons.mail.SimpleEmail;
 import org.testng.annotations.Test;
 
 public class SendMailSSLWithAttachment{
-//public static void main(String[] args) {
+public static void main(String[] args) {
 	
 
-public void main() throws EmailException{
+//public void main() throws EmailException{
 	 Properties props = new Properties();
 
 		// this will set host of server- you can change based on your requirement 
