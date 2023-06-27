@@ -12,6 +12,7 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
@@ -76,6 +77,7 @@ public class Criticalflow {
 	}
 
 	public WebDriver driver;
+	
 
 	@BeforeSuite
 	public void Login() throws InterruptedException, AWTException {
@@ -89,11 +91,16 @@ public class Criticalflow {
 	public void Max() throws InterruptedException, AWTException {
 		Driver d = new Driver(driver);
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
-		driver.manage().window().setSize(new Dimension(1440, 900));
-
-		driver.manage().window().maximize();
-
+		 DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+		    ChromeOptions option = new ChromeOptions();
+		    option.addArguments("incognito");
+		    
+		    option.addArguments("start-maximized");
+		    capabilities.setCapability(ChromeOptions.CAPABILITY,option);
+		    option.addArguments("--headless");
+	
+		    driver= new ChromeDriver(capabilities);
+		    driver.manage().window().setSize(new Dimension(1920, 1080));
 	}
 
 	@BeforeClass
@@ -113,14 +120,15 @@ public class Criticalflow {
 			String CrmUserpassword) throws Exception {
 
 		// ********Base base = new Base(driver, Username, Mobilenumber, extentreport);
-	 GRCPage grcpage = new GRCPage(driver, extentreport, GRCMobileNumber,
-		GRCNewCompanyName, CINNumber,
-		 Helpdeskuserid, helpdeskpassword, assignedtoName);
+	
+		// GRCPage grcpage1 = new GRCPage(driver, extentreport, GRCMobileNumber,
+		//			GRCNewCompanyName, CINNumber,
+			//		 Helpdeskuserid, helpdeskpassword, assignedtoName);
 		CriticalFlowDetail Criticalflow = new CriticalFlowDetail(driver,
 		 Helpdeskuserid, helpdeskpassword, notesname,
 		 notedescrption, QNameOfCustomer, qaddress, qpincode, Professionalfees,
 		 assignedtoName, BDAgentName,
-		 CrossSaleName, GRCMobileNumber, CrmUsernames, CrmUserpassword, extentreport);
+		 CrossSaleName, GRCMobileNumber, CrmUsernames, CrmUserpassword,GRCNewCompanyName, CINNumber, extentreport);
 		
 	}
 

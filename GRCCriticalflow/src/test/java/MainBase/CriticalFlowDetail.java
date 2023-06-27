@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.poi.poifs.property.Parent;
 import org.apache.xmlbeans.impl.xb.xsdschema.Public;
+import org.codehaus.groovy.transform.sc.StaticCompilationMetadataKeys;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.ElementNotInteractableException;
@@ -23,6 +24,7 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -35,6 +37,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
+import Keymethods.GRCPage;
 import Keymethods.GrcLogin;
 import Keymethods.NewCRM;
 import Keymethods.Payment;
@@ -44,20 +47,22 @@ import PageFactory.HomescreenPageobject;
 import PageFactory.LoginPageobjects;
 import PageFactory.NewCRMPageobject;
 import groovyjarjarantlr4.v4.codegen.model.Action;
+import groovyjarjarantlr4.v4.parse.ANTLRParser.actionScopeName_return;
+import groovyjarjarantlr4.v4.parse.ANTLRParser.action_return;
 import groovyjarjarantlr4.v4.runtime.tree.xpath.XPath;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class CriticalFlowDetail extends HelpdeskPageobject {
 
 	JavascriptExecutor js;
-	Robot robot; 
+	Robot robot;
 	ExtentTest test;
 
 	public CriticalFlowDetail(WebDriver driver, String Helpdeskuserid, String helpdeskpassword, String notesname,
 			String notedescrption, String QNameOfCustomer, String qaddress, String qpincode, String Professionalfees,
 			String assignedtoName, String BDAgentName, String CrossSaleName, String GRCMobileNumber,
-			String CrmUsernames, String CrmUserpassword, ExtentReports extentreport)
-			throws InterruptedException, AWTException,ElementClickInterceptedException {
+			String CrmUsernames, String CrmUserpassword, String GRCNewCompanyName, String CINNumber,
+			ExtentReports extentreport) throws InterruptedException, AWTException, ElementClickInterceptedException {
 		Robot robot = new Robot();
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -66,242 +71,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		PageFactory.initElements(driver, GRCPageobject.class);
 		PageFactory.initElements(driver, NewCRMPageobject.class);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		robot.keyPress(KeyEvent.VK_PAGE_UP);
-		robot.keyRelease(KeyEvent.VK_PAGE_UP);
-		Thread.sleep(4000);
-		//**********
-		wait.until(ExpectedConditions.elementToBeClickable(
-				By.xpath("//img[@alt='Settings']/parent::button"))).click();
-	//	driver.findElement(By.xpath("//img[@alt='Settings']/parent::button")).click();
-		Thread.sleep(10000);
-		driver.findElement(By.xpath("//p[contains(text(),'Business Profile')]")).click();
-		Thread.sleep(10000);
-		String BusinessProfileURL = driver.getCurrentUrl().substring(0, 48);
-		String BusinessProfileURL1 = "https://grc.vakilsearch.com/grc/business-profile";
-				if (BusinessProfileURL1.contains(BusinessProfileURL)) {
-					test.log(Status.PASS, "BusinessProfileURL");
-					System.out.println(BusinessProfileURL1);
-				} else {
-					test.log(Status.FAIL,"BusinessProfileURL not same"+ BusinessProfileURL);
-					System.out.println(BusinessProfileURL);
-				}
-		
-		driver.navigate().back();
-		Thread.sleep(10000);
-		
-		//*********
-		
-		driver.findElement(By.xpath("//button[@class='styles_gearBtn__s6cgl']/child::img")).click();Thread.sleep(2500);
-		Thread.sleep(10000);
-		
-		driver.findElement(By.xpath("//p[contains(text(),'Users & Roles')]")).click();
-		Thread.sleep(10000);
-		String UsersandRolesURL = driver.getCurrentUrl().substring(0, 42);
-		String UsersandRolesURL1 = "https://grc.vakilsearch.com/grc/user_roles";
-				if (UsersandRolesURL1.contains(UsersandRolesURL)) {
-					test.log(Status.PASS, "UsersAndRolesURL");
-					System.out.println(UsersandRolesURL1);
-				} else {
-					test.log(Status.FAIL,"UsersandRolesURL not same"+UsersandRolesURL);
-					System.out.println(UsersandRolesURL);
-				}
-		driver.navigate().back();
-		Thread.sleep(2500);
-		driver.findElement(By.xpath("//button[@class='styles_gearBtn__s6cgl']/child::img")).click();Thread.sleep(10000);
-		driver.findElement(By.xpath("//p[contains(text(),'Users & Roles')]")).click();Thread.sleep(10000);
-		driver.findElement(By.xpath("//Button[contains(text(),'Add users')]")).click();Thread.sleep(10000);
-		String AddUserURL = driver.getCurrentUrl().substring(0, 42);
-		String AddUserURL1 = "https://grc.vakilsearch.com/grc/user_roles";
-				if (AddUserURL1.contains(AddUserURL)) {
-					test.log(Status.PASS, "AddUserURL");
-					System.out.println(AddUserURL1);
-				} else {
-					test.log(Status.FAIL,"AddUserURL not same"+AddUserURL);
-					System.out.println(AddUserURL);
-				}
-	//	driver.navigate().back();
-		driver.navigate().back();
-		Thread.sleep(10000);
-		//*********
-		driver.findElement(By.xpath("//button[@class='styles_gearBtn__s6cgl']/child::img")).click();Thread.sleep(7500);
-		driver.findElement(By.xpath("//p[contains(text(),'Help')]")).click();Thread.sleep(7500);
-		String HelpURL = driver.getCurrentUrl().substring(0, 36);
-		String HelpURL1 = "https://grc.vakilsearch.com/grc/help";
-				if (HelpURL1.contains(HelpURL)) {
-					test.log(Status.PASS, "HelpURL");
-					System.out.println(HelpURL1);
-				} else {
-					test.log(Status.FAIL,"HelpURL not same"+HelpURL);
-					System.out.println(HelpURL);
-				}
-		driver.navigate().back();
-		Thread.sleep(5500);
-		//**********
-		driver.findElement(By.xpath("//button[@class='styles_gearBtn__s6cgl']")).click();Thread.sleep(5500);
-		driver.findElement(By.xpath("//p[contains(text(),'Support')]")).click();Thread.sleep(5500);
-		String SupportURL = driver.getCurrentUrl().substring(0, 42);
-		String SupportURL1 = "https://grc.vakilsearch.com/grc/contact-us";
-				if (SupportURL1.contains(SupportURL)) {
-					test.log(Status.PASS, "SupportURL");
-					System.out.println(SupportURL1);
-				} else {
-					test.log(Status.FAIL,"SupportURL not same"+ SupportURL);
-					System.out.println(SupportURL);
-				}
-		driver.navigate().back();
-		Thread.sleep(8000);
-		robot.keyPress(KeyEvent.VK_CONTROL);
-		robot.keyRelease(KeyEvent.VK_R);
-		robot.keyPress(KeyEvent.VK_R);
-		robot.keyRelease(KeyEvent.VK_CONTROL);
-		Thread.sleep(5000);
-		//**************
-	//	driver.findElement(By.xpath("//button[@class='styles_gearBtn__s6cgl']")).click();
-		wait.until(ExpectedConditions.presenceOfElementLocated(
-				By.xpath("//span[contains(text(),'Messages')]")));
-		wait.until(ExpectedConditions.elementToBeClickable(
-				By.xpath("//span[contains(text(),'Messages')]"))).click();
-		//driver.findElement(By.xpath("//span[contains(text(),'Messages')]")).click();
-		Thread.sleep(2500);
-		String MessagesURL = driver.getCurrentUrl().substring(0, 40);
-		String MessagesURL1 = "https://grc.vakilsearch.com/grc/messages";
-				if (MessagesURL1.contains(MessagesURL)) {
-					test.log(Status.PASS, "MessagesURL");
-					System.out.println(MessagesURL1);
-				} else {
-					test.log(Status.FAIL,"MessagesURL not same"+MessagesURL);
-					System.out.println(MessagesURL);
-				}
-		
-		driver.navigate().back();
-		Thread.sleep(5500);
-		//********
-		
-	//	driver.findElement(By.xpath("//button[@class='styles_gearBtn__s6cgl']")).click();
-		driver.findElement(By.xpath("//span[contains(text(),'All Services')]")).click();Thread.sleep(2500);
-		String AllServicesURL = driver.getCurrentUrl().substring(0, 40);
-		String AllServicesURL1 = "https://grc.vakilsearch.com/grc/services";
-				if (AllServicesURL1.contains(AllServicesURL)) {
-					test.log(Status.PASS, "AllServicesURL");
-					System.out.println(AllServicesURL1);
-				} else {
-					test.log(Status.FAIL,"AllServicesURL not same"+ AllServicesURL);
-					System.out.println(AllServicesURL);
-				}
-		driver.navigate().back();
-		Thread.sleep(5500);
-	/*//	driver.findElement(By.xpath("//button[@class='styles_gearBtn__s6cgl']")).click();
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Compliances for you')]"))).click();
-	//	driver.findElement(By.xpath("//span[contains(text(),'Compliances for you')]")).click();
-		Thread.sleep(3500);
-		String CompliancesForYou = driver.getCurrentUrl().substring(0, 48);
-		String CompliancesForYou1 = "https://grc.vakilsearch.com/grc/compliance-score";
-		https://grc.vakilsearch.com/grc/services
-				if (CompliancesForYou.contains(CompliancesForYou1)) {
-					test.log(Status.PASS, "CompliancesForYou");
-					System.out.println(CompliancesForYou1);
-				} else {
-					test.log(Status.FAIL,"CompliancesForYouURL not same"+CompliancesForYou);
-					System.out.println(CompliancesForYou);
-			}
-		driver.navigate().back();
-		Thread.sleep(5500);*/
-	//	driver.findElement(By.xpath("//button[@class='styles_gearBtn__s6cgl']")).click();
-		driver.findElement(By.xpath("//span[contains(text(),'Payments')]")).click();Thread.sleep(2500);
-		String PaymentsURL = driver.getCurrentUrl().substring(0, 40);
-		String PaymentsURL1 = "https://grc.vakilsearch.com/grc/payments";
-				if (PaymentsURL.contains(PaymentsURL1)) {
-					test.log(Status.PASS, "PaymentsURL");
-					System.out.println(PaymentsURL1);
-				} else {
-					test.log(Status.FAIL,"PaymentsURL not same"+PaymentsURL);
-					System.out.println(PaymentsURL);
-				}
-		driver.navigate().back();
-		Thread.sleep(5500);
-	//	driver.findElement(By.xpath("//button[@class='styles_gearBtn__s6cgl']")).click();
-		driver.findElement(By.xpath("//span[contains(text(),'Compliance Calendar')]")).click();Thread.sleep(2500);
-		String ComplianceCalendar = driver.getCurrentUrl().substring(0, 40);
-		String ComplianceCalendar1 = "https://grc.vakilsearch.com/grc/calendar";
-				if (ComplianceCalendar.contains(ComplianceCalendar1)) {
-					test.log(Status.PASS, "ComplianceCalendar");
-					System.out.println(ComplianceCalendar1);
-				} else {
-					test.log(Status.FAIL,"ComplianceCalendarURL not same"+ComplianceCalendar);
-					System.out.println(ComplianceCalendar);
-				}
-
-		driver.navigate().back();
-		Thread.sleep(5500);
-		driver.findElement(By.xpath("//span[contains(text(),'Rewards')]")).click();Thread.sleep(2500);
-		String RewardsURL = driver.getCurrentUrl().substring(0, 39);
-		String RewardsURL1 = "https://grc.vakilsearch.com/grc/rewards";
-				if (RewardsURL.contains(RewardsURL1)) {
-					test.log(Status.PASS, "RewardsURL");
-					System.out.println(RewardsURL1);
-				} else {
-					test.log(Status.FAIL,"RewardsURL not same"+ RewardsURL);
-					System.out.println(RewardsURL);
-				}
-		driver.navigate().back();
-		Thread.sleep(5500);
-		driver.findElement(By.xpath("//span[contains(text(),'My Services')]")).click();Thread.sleep(2500);
-		String MyServicesURL = driver.getCurrentUrl().substring(0, 43);
-		String MyServicesURL1 = "https://grc.vakilsearch.com/grc/my-services";
-				if (MyServicesURL.contains(MyServicesURL1)) {
-					test.log(Status.PASS, "MyServicesURL");
-					System.out.println(MyServicesURL1);
-				} else {
-					test.log(Status.FAIL,"MyServicesURL not same"+ MyServicesURL);
-					System.out.println(MyServicesURL);
-				}
-		driver.navigate().back();
-		Thread.sleep(3500);
-		
-		
-		
-		
-
-		try {
-			wait.until(
-					ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'My Interests')]")));
-			driver.findElement(By.xpath("//span[contains(text(),'My Interests')]")).click();
-
-		} catch (NoSuchElementException e7) {
-			GrcLogin grclogin = new GrcLogin(driver, GRCMobileNumber);
-			driver.findElement(By.xpath("//span[contains(text(),'My Interests')]")).click();
-		} catch (ElementClickInterceptedException MyintrestIntercepted) {
-			Thread.sleep(2500);
-			driver.findElement(By.xpath("//div[contains(text(),'Continue your service request from here ')]")).click();
-			driver.findElement(By.xpath("//span[contains(text(),'My Interests')]")).click();
-		}
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-//		String Ticketid1 = HomescreenPageobject.FirstTicketID.getText().substring(1);
-//System.out.println(Ticketid1);
-		String e = driver.findElement(By.xpath("(//div[@class='styles_ticketDetail__jg4A0']//child::P)[1]")).getText()
-				.substring(1);
-		
-		String MyInterestURL = driver.getCurrentUrl().substring(0, 44);
-		String MyInterestURL1 = "https://grc.vakilsearch.com/grc/my-interests";
-				if (MyInterestURL1.contains(MyInterestURL)) {
-					test.log(Status.PASS, "MyInterestURL");
-					System.out.println(MyInterestURL);
-				} else {
-					test.log(Status.FAIL,"MyInterestURL not same"+MyInterestURL);
-					System.out.println(MyInterestURL1);
-				}
-		if (e.matches(e)) {
-			test.log(Status.PASS, "Create a ticket from the vakilsearch.com");
-		} else {
-
-			test.log(Status.FAIL, "no lead is Create a ticket from the vakilsearch.com");
-		}
-
-		System.out.println(e);
-
-		
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		Payment key = new Payment(driver, test);
+		Actions actions = new Actions(driver);
 		Thread.sleep(5000);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.get("https://helpdesk.vakilsearch.com/login");
@@ -319,18 +89,71 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 //		}
 
 		Password.sendKeys(helpdeskpassword);
-		Signin.click();Thread.sleep(3000);
+		Signin.click();
+		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Helpdesk.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Tickets.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		ticketid.sendKeys(e);
-
+		// ticketid.sendKeys(GRCPage.e);
+		ticketid.sendKeys("3284255");
 		Search.click();
 		Firstservice.click();
 
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		/*
+		 * try { try { wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+		 * "//button[@id='editBtn']")));
+		 * js.executeScript("arguments[0].scrollIntoView(true);", Editticket);
+		 * Editticket.click();
+		 * 
+		 * } catch (ElementClickInterceptedException elementintercptedEdit) {
+		 * robot.keyPress(KeyEvent.VK_PAGE_UP); Thread.sleep(3000);
+		 * robot.keyRelease(KeyEvent.VK_PAGE_UP); robot.keyPress(KeyEvent.VK_PAGE_UP);
+		 * robot.keyRelease(KeyEvent.VK_PAGE_UP);
+		 * driver.findElement(By.xpath("//button[contains(text(),'Edit')]")).click(); }
+		 * Thread.sleep(2500); Assignedto.click();
+		 * driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		 * Thread.sleep(1500); Assignedtoname.click();
+		 * Assignedtoname.sendKeys(assignedtoName);
+		 * driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		 * 
+		 * robot.keyPress(KeyEvent.VK_ENTER); robot.keyRelease(KeyEvent.VK_ENTER);
+		 * Thread.sleep(1500);
+		 * 
+		 * Paymentstatus.click(); robot.keyPress(KeyEvent.VK_DOWN);
+		 * robot.keyRelease(KeyEvent.VK_DOWN); robot.keyPress(KeyEvent.VK_DOWN);
+		 * robot.keyRelease(KeyEvent.VK_DOWN); robot.keyPress(KeyEvent.VK_DOWN);
+		 * robot.keyRelease(KeyEvent.VK_DOWN); robot.keyPress(KeyEvent.VK_DOWN);
+		 * robot.keyRelease(KeyEvent.VK_DOWN); robot.keyPress(KeyEvent.VK_DOWN);
+		 * robot.keyRelease(KeyEvent.VK_DOWN); robot.keyPress(KeyEvent.VK_DOWN);
+		 * robot.keyRelease(KeyEvent.VK_DOWN); robot.keyPress(KeyEvent.VK_DOWN);
+		 * robot.keyRelease(KeyEvent.VK_DOWN); robot.keyPress(KeyEvent.VK_DOWN);
+		 * robot.keyRelease(KeyEvent.VK_DOWN); robot.keyPress(KeyEvent.VK_ENTER);
+		 * robot.keyRelease(KeyEvent.VK_ENTER); Thread.sleep(2000);
+		 * robot.keyPress(KeyEvent.VK_CONTROL); robot.keyPress(KeyEvent.VK_MINUS);
+		 * robot.keyRelease(KeyEvent.VK_MINUS); robot.keyRelease(KeyEvent.VK_CONTROL);
+		 * driver.findElement(By.xpath(
+		 * "//span[@id='select2-city_filter_edit-container']")).click();
+		 * Thread.sleep(1500);
+		 * driver.findElement(By.xpath("(//input[@class='select2-search__field'])[3]")).
+		 * sendKeys("chennai"); Thread.sleep(1500); robot.keyPress(KeyEvent.VK_ENTER);
+		 * robot.keyRelease(KeyEvent.VK_ENTER);
+		 * 
+		 * driver.findElement(By.
+		 * xpath("//span[contains(text(),'Please select a service')]")).click();
+		 * Thread.sleep(1500);
+		 * driver.findElement(By.xpath("(//input[@class='select2-search__field'])[3]")).
+		 * sendKeys("Account Management"); robot.keyPress(KeyEvent.VK_ENTER);
+		 * robot.keyRelease(KeyEvent.VK_ENTER);
+		 * 
+		 * Updateticket.click(); Thread.sleep(2000);
+		 * wait.until(ExpectedConditions.alertIsPresent()).accept();
+		 * test.log(Status.PASS, "Edit ticket success"); } catch (Exception Editticket1)
+		 * { test.log(Status.FAIL, "Edit ticket Failed");
+		 * robot.keyPress(KeyEvent.VK_CONTROL); robot.keyRelease(KeyEvent.VK_R);
+		 * robot.keyPress(KeyEvent.VK_R); robot.keyRelease(KeyEvent.VK_CONTROL); }
+		 */
 		try {
 
 			CriticalnotesCTA.click();
@@ -361,8 +184,35 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 //		 TypeCriticalNotes.sendKeys("Testing");driver.manage().timeouts().implicitlyWait(30,
 //		 TimeUnit.SECONDS);
 //		 ChooseCriticalNoesFile.click();
-			ChooseCriticalNoesFile
-					.sendKeys("C:\\Users\\admin\\eclipse-workspace\\GRCCriticalflow\\Excel\\Customer.xlsx");
+			ChooseCriticalNoesFile.sendKeys(
+					"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Excel\\sample-aadhaar-card-800x445.png");
+
+			employtonotify.click();
+			Thread.sleep(1500);
+			robot.keyPress(KeyEvent.VK_D);
+			robot.keyRelease(KeyEvent.VK_D);
+			robot.keyPress(KeyEvent.VK_H);
+			robot.keyRelease(KeyEvent.VK_H);
+			robot.keyPress(KeyEvent.VK_R);
+			robot.keyRelease(KeyEvent.VK_R);
+			robot.keyPress(KeyEvent.VK_U);
+			robot.keyRelease(KeyEvent.VK_U);
+			robot.keyPress(KeyEvent.VK_B);
+			robot.keyRelease(KeyEvent.VK_B);
+			robot.keyPress(KeyEvent.VK_O);
+			robot.keyRelease(KeyEvent.VK_O);
+
+			robot.keyPress(KeyEvent.VK_SPACE);
+			robot.keyRelease(KeyEvent.VK_SPACE);
+
+			robot.keyPress(KeyEvent.VK_B);
+			robot.keyRelease(KeyEvent.VK_B);
+			robot.keyPress(KeyEvent.VK_D);
+			robot.keyRelease(KeyEvent.VK_D);
+
+			robot.keyPress(KeyEvent.VK_ENTER);
+			robot.keyRelease(KeyEvent.VK_ENTER);
+
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			CriticalNoteSave.click();
 			Thread.sleep(5000);
@@ -370,6 +220,24 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		} catch (Exception CriticalNote) {
 			test.log(Status.PASS, "Critical note Failed");
 		}
+		Thread.sleep(3500);
+		// js.executeScript("arguments[0].scrollIntoView(true);",
+		// RecentNoteVerification);
+		String text = RecentNoteVerification.getText();
+		System.out.println(text);
+		if (text.contains("testing")) {
+
+			Viewattachment.click();
+			Thread.sleep(5000);
+			List<String> all29 = new ArrayList<String>(driver.getWindowHandles());
+			driver.switchTo().window(all29.get(1));
+			driver.close();
+			test.log(Status.PASS, "Critical Note verified");
+		} else {
+			test.log(Status.PASS, "Critical note verification failed");
+		}
+		List<String> all29 = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(all29.get(0));
 		try {
 
 			PersonalNote.click();
@@ -407,8 +275,8 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			addnote.click();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			addnoteattachment
-					.sendKeys("C:\\\\Users\\\\admin\\\\eclipse-workspace\\\\GRCCriticalflow\\\\Excel\\\\Customer.xlsx");
+			addnoteattachment.sendKeys(
+					"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Excel\\sample-aadhaar-card-800x445.png");
 			typeaddnote.click();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			robot.keyPress(KeyEvent.VK_T);
@@ -419,40 +287,78 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			robot.keyRelease(KeyEvent.VK_S);
 			robot.keyPress(KeyEvent.VK_T);
 			robot.keyRelease(KeyEvent.VK_T);
-			robot.keyPress(KeyEvent.VK_I);
-			robot.keyRelease(KeyEvent.VK_I);
-			robot.keyPress(KeyEvent.VK_N);
-			robot.keyRelease(KeyEvent.VK_N);
-			robot.keyPress(KeyEvent.VK_G);
-			robot.keyRelease(KeyEvent.VK_G);
-			addnotesend.click();
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-Thread.sleep(2500);
-		/*	addnote.click();
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			driver.findElement(By.xpath("(//iframe[@class='cke_wysiwyg_frame cke_reset'])[4]")).click();
-			driver.findElement(By.xpath("(//iframe[@class='cke_wysiwyg_frame cke_reset'])[4]"))
-					.sendKeys("Testing Add note CRM");
-			EmailTo.click();
-			emailsearchTo.click();
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			emailsearchTo.sendKeys(assignedtoName);
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+			addnoteTo.click();
+			Thread.sleep(1500);
+			robot.keyPress(KeyEvent.VK_D);
+			robot.keyRelease(KeyEvent.VK_D);
+			robot.keyPress(KeyEvent.VK_H);
+			robot.keyRelease(KeyEvent.VK_H);
+			robot.keyPress(KeyEvent.VK_R);
+			robot.keyRelease(KeyEvent.VK_R);
+			robot.keyPress(KeyEvent.VK_U);
+			robot.keyRelease(KeyEvent.VK_U);
+			robot.keyPress(KeyEvent.VK_B);
+			robot.keyRelease(KeyEvent.VK_B);
+			robot.keyPress(KeyEvent.VK_O);
+			robot.keyRelease(KeyEvent.VK_O);
+
+			robot.keyPress(KeyEvent.VK_SPACE);
+			robot.keyRelease(KeyEvent.VK_SPACE);
+
+			robot.keyPress(KeyEvent.VK_B);
+			robot.keyRelease(KeyEvent.VK_B);
+			robot.keyPress(KeyEvent.VK_D);
+			robot.keyRelease(KeyEvent.VK_D);
+
 			robot.keyPress(KeyEvent.VK_ENTER);
 			robot.keyRelease(KeyEvent.VK_ENTER);
-			Thread.sleep(2000);
-			Emailtoaddnote.click();Thread.sleep(1500);
-			Emailtoaddnote.sendKeys("Testing");
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-			EmailAddAttachment
-					.sendKeys("C:\\\\Users\\\\admin\\\\eclipse-workspace\\\\GRCCriticalflow\\\\Excel\\\\Customer.xlsx");
-			EmailButtonSend.click();
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);*/
+			addnotesend.click();
+
+			Thread.sleep(2500);
+			/*
+			 * addnote.click(); driver.manage().timeouts().implicitlyWait(30,
+			 * TimeUnit.SECONDS); driver.findElement(By.
+			 * xpath("(//iframe[@class='cke_wysiwyg_frame cke_reset'])[4]")).click();
+			 * driver.findElement(By.
+			 * xpath("(//iframe[@class='cke_wysiwyg_frame cke_reset'])[4]"))
+			 * .sendKeys("Testing Add note CRM"); EmailTo.click(); emailsearchTo.click();
+			 * driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			 * emailsearchTo.sendKeys(assignedtoName);
+			 * driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			 * robot.keyPress(KeyEvent.VK_ENTER); robot.keyRelease(KeyEvent.VK_ENTER);
+			 * Thread.sleep(2000); Emailtoaddnote.click();Thread.sleep(1500);
+			 * Emailtoaddnote.sendKeys("Testing");
+			 * driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			 * 
+			 * EmailAddAttachment .sendKeys(
+			 * "C:\\\\Users\\\\admin\\\\eclipse-workspace\\\\GRCCriticalflow\\\\Excel\\\\Customer.xlsx"
+			 * ); EmailButtonSend.click(); driver.manage().timeouts().implicitlyWait(30,
+			 * TimeUnit.SECONDS);
+			 */
 			test.log(Status.PASS, "Add Note Created");
 		} catch (Exception AddNote) {
 			test.log(Status.FAIL, "Add Note Failed");
 		}
+		Thread.sleep(3500);
+		// js.executeScript("arguments[0].scrollIntoView(true);",
+		// RecentNoteVerification);
+		String textTo = RecentNoteVerification.getText();
+		System.out.println(textTo);
+		if (textTo.contains("test")) {
+
+			Viewattachment.click();
+			Thread.sleep(5000);
+			List<String> all30 = new ArrayList<String>(driver.getWindowHandles());
+			driver.switchTo().window(all30.get(1));
+			driver.close();
+			test.log(Status.PASS, "add Note verified");
+		} else {
+			test.log(Status.PASS, "add note verification failed");
+		}
+		List<String> all30 = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(all30.get(0));
 
 		try {
 			MenuDownArrow.click();
@@ -481,8 +387,8 @@ Thread.sleep(2500);
 				cannedaddingadirector1.click();
 			}
 
-			wait.until(ExpectedConditions.elementToBeClickable(
-					By.xpath("(//a[@class='email-tempalte-object template_object_new'])[2]")));
+			wait.until(ExpectedConditions
+					.elementToBeClickable(By.xpath("(//a[@class='email-tempalte-object template_object_new'])[2]")));
 			try {
 				cannedFollowingEmail.click();
 			} catch (StaleElementReferenceException e03) {
@@ -491,7 +397,7 @@ Thread.sleep(2500);
 
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			cannedEmailaddattachment.sendKeys(
-					"C:\\\\\\\\Users\\\\\\\\admin\\\\\\\\eclipse-workspace\\\\\\\\GRCCriticalflow\\\\\\\\Excel\\\\\\\\Customer.xlsx");
+					"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Excel\\sample-aadhaar-card-800x445.png");
 			cannedsubject.sendKeys(notesname);
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			Thread.sleep(3000);
@@ -534,43 +440,7 @@ Thread.sleep(2500);
 		robot.keyPress(KeyEvent.VK_PAGE_UP);
 		robot.keyRelease(KeyEvent.VK_PAGE_UP);
 //*****if needed you can take this*****//
-		
-		try {
-			Thread.sleep(2000);
-			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='editBtn']")));
-			js.executeScript("arguments[0].scrollIntoView(true);", Editticket);
-			Editticket.click();
 
-		} catch (ElementClickInterceptedException elementintercptedEdit) {
-			robot.keyPress(KeyEvent.VK_PAGE_UP);
-			Thread.sleep(3000);
-			robot.keyRelease(KeyEvent.VK_PAGE_UP);
-			robot.keyPress(KeyEvent.VK_PAGE_UP);
-			robot.keyRelease(KeyEvent.VK_PAGE_UP);
-			driver.findElement(By.xpath("//button[contains(text(),'Edit')]")).click();
-		}
-		Thread.sleep(2000);
-		
-		driver.findElement(By.xpath("//span[@id='select2-city_filter_edit-container']")).click();
-		Thread.sleep(1500);
-		driver.findElement(By.xpath("(//input[@class='select2-search__field'])[3]")).sendKeys("chennai");
-		Thread.sleep(1500);
-		robot.keyPress(KeyEvent.VK_ENTER);
-		robot.keyRelease(KeyEvent.VK_ENTER);
-		
-		driver.findElement(By.xpath("//span[contains(text(),'Please select a service')]")).click();
-		Thread.sleep(1500);
-		driver.findElement(By.xpath("(//input[@class='select2-search__field'])[3]")).sendKeys("Account Management");
-		robot.keyPress(KeyEvent.VK_ENTER);
-		robot.keyRelease(KeyEvent.VK_ENTER);
-		
-		
-		
-		
-		Updateticket.click();
-		Thread.sleep(2000);
-		wait.until(ExpectedConditions.alertIsPresent()).accept();
-		
 		js.executeScript("arguments[0].scrollIntoView(true);", CreateQuotation);
 		try {
 			try {
@@ -601,8 +471,7 @@ Thread.sleep(2500);
 			all.addAll(allwindowsid);
 			driver.switchTo().window(all.get(1));
 
-			wait.until(
-					ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='name']//child::input)[1]")));
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='name']//child::input)[1]")));
 			QNameofthecustomer.click();
 
 			QNameofthecustomer.sendKeys(QNameOfCustomer);
@@ -682,6 +551,27 @@ Thread.sleep(2500);
 		robot.keyRelease(KeyEvent.VK_R);
 		robot.keyPress(KeyEvent.VK_R);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
+		String AmountValidation1 = driver
+				.findElement(By.xpath(
+						"//td[@style='border-bottom:1px solid #f7f7f7;padding:10px 14px 10px 10px;text-align:right;']"))
+				.getText().substring(2, 7);
+		driver.findElement(By.xpath("(//a[contains(text(),'Pay Now')])[1]")).click();
+		List<String> all32 = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(all32.get(1));
+		
+		String PaynowAmountValidation = driver.findElement(By.xpath("(//div[@class='styles_totalPrice__1O_p9']/child::h2)[2]")).getText().substring(2, 7);
+		
+		if(AmountValidation1.contains(PaynowAmountValidation)){
+		test.log(Status.PASS, "QuotationCreation amount verified");
+	} else {
+		test.log(Status.FAIL, "Quotation Creation amount verification failed "+AmountValidation1 + PaynowAmountValidation);
+	}
+		driver.close();
+		driver.switchTo().window(all32.get(0));
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyRelease(KeyEvent.VK_R);
+		robot.keyPress(KeyEvent.VK_R);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
 		Thread.sleep(2500);
 		robot.keyPress(KeyEvent.VK_PAGE_UP);
 		robot.keyRelease(KeyEvent.VK_PAGE_UP);
@@ -734,19 +624,40 @@ Thread.sleep(2500);
 			Thread.sleep(2500);
 			driver.switchTo().window(all2.get(0));
 			;
-			Thread.sleep(2500);
 			robot.keyPress(KeyEvent.VK_CONTROL);
 			robot.keyRelease(KeyEvent.VK_R);
 			robot.keyPress(KeyEvent.VK_R);
 			robot.keyRelease(KeyEvent.VK_CONTROL);
-			test.log(Status.PASS, "Edit Quotation");
+			String AmountValidation2 = driver
+					.findElement(By.xpath(
+							"//td[@style='border-bottom:1px solid #f7f7f7;padding:10px 14px 10px 10px;text-align:right;']"))
+					.getText().substring(2, 7);
+			driver.findElement(By.xpath("(//a[contains(text(),'Pay Now')])[1]")).click();
+			List<String> all33 = new ArrayList<String>(driver.getWindowHandles());
+			driver.switchTo().window(all33.get(1));
+			
+			String PaynowAmountValidation2 = driver.findElement(By.xpath("(//div[@class='styles_totalPrice__1O_p9']/child::h2)[2]")).getText().substring(2, 7);
+			
+			if(AmountValidation2.contains(PaynowAmountValidation2)){
+			test.log(Status.PASS, "Edit Quotation amount verified ");
+		} else {
+			test.log(Status.FAIL, "Edit Quotation Creation amount verification failed "+ AmountValidation2 + PaynowAmountValidation2);
+		}
+			driver.close();
+			driver.switchTo().window(all33.get(0));
+			Thread.sleep(2500);
+			robot.keyPress(KeyEvent.VK_CONTROL);
+			robot.keyRelease(KeyEvent.VK_R);
+			robot.keyPress(KeyEvent.VK_R);
+			robot.keyRelease(KeyEvent.VK_CONTROL); 
+			test.log(Status.PASS, "Edit Quotation success");
 		} catch (Exception EditQuotation1) {
 			test.log(Status.FAIL, "Edit Quotation Failed");
 			System.out.println("Edit Quotation failed");
 		}
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		Thread.sleep(2500);wait.until(
-				ExpectedConditions.elementToBeClickable(CreatenewQuotation));
+		Thread.sleep(2500);
+		wait.until(ExpectedConditions.elementToBeClickable(CreatenewQuotation));
 		CreatenewQuotation.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		try {
@@ -767,6 +678,22 @@ Thread.sleep(2500);
 		try {
 			deactivateQuotation.click();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			String AmountValidation3 = driver
+					.findElement(By.xpath(
+							"//td[@style='border-bottom:1px solid #f7f7f7;padding:10px 14px 10px 10px;text-align:right;']"))
+					.getText();
+			driver.findElement(By.xpath("(//a[contains(text(),'Pay Now')])[1]")).click();
+			List<String> all35 = new ArrayList<String>(driver.getWindowHandles());
+			driver.switchTo().window(all35.get(1));
+			
+			String PaynowAmountValidation3 = driver.findElement(By.xpath("//h3[@class='p-2']/child::b")).getText();
+			driver.close();
+			driver.switchTo().window(all35.get(0));
+			if("This quotation has been deactivated.".contains(PaynowAmountValidation3)){
+			test.log(Status.PASS, "Quotation Deactivation verified");
+		} else {
+			test.log(Status.FAIL, "Quotation Deactivation verification failed");
+		}
 			test.log(Status.PASS, "DeactivateQuotation success");
 		} catch (Exception DeactivateQuotation1) {
 			test.log(Status.FAIL, "DeactivateQuotation Failed");
@@ -798,66 +725,6 @@ Thread.sleep(2500);
 		robot.keyPress(KeyEvent.VK_PAGE_UP);
 		robot.keyRelease(KeyEvent.VK_PAGE_UP);
 		Thread.sleep(1500);
-		try {
-			try {
-				wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='editBtn']")));
-				js.executeScript("arguments[0].scrollIntoView(true);", Editticket);
-				Editticket.click();
-
-			} catch (ElementClickInterceptedException elementintercptedEdit) {
-				robot.keyPress(KeyEvent.VK_PAGE_UP);
-				Thread.sleep(3000);
-				robot.keyRelease(KeyEvent.VK_PAGE_UP);
-				robot.keyPress(KeyEvent.VK_PAGE_UP);
-				robot.keyRelease(KeyEvent.VK_PAGE_UP);
-				driver.findElement(By.xpath("//button[contains(text(),'Edit')]")).click();
-			}
-
-			Thread.sleep(2500);
-			Assignedto.click();
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			Thread.sleep(1500);
-			Assignedtoname.click();
-			Assignedtoname.sendKeys(assignedtoName);
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
-			robot.keyPress(KeyEvent.VK_ENTER);
-			robot.keyRelease(KeyEvent.VK_ENTER);
-			Thread.sleep(1500);
-
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
-			BDagentCTA.click();
-			Thread.sleep(1500);
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
-			Paymentstatus.click();
-			robot.keyPress(KeyEvent.VK_DOWN);
-			robot.keyRelease(KeyEvent.VK_DOWN);
-			robot.keyPress(KeyEvent.VK_DOWN);
-			robot.keyRelease(KeyEvent.VK_DOWN);
-			robot.keyPress(KeyEvent.VK_DOWN);
-			robot.keyRelease(KeyEvent.VK_DOWN);
-			robot.keyPress(KeyEvent.VK_DOWN);
-			robot.keyRelease(KeyEvent.VK_DOWN);
-			robot.keyPress(KeyEvent.VK_DOWN);
-			robot.keyRelease(KeyEvent.VK_DOWN);
-			robot.keyPress(KeyEvent.VK_DOWN);
-			robot.keyRelease(KeyEvent.VK_DOWN);
-			robot.keyPress(KeyEvent.VK_DOWN);
-			robot.keyRelease(KeyEvent.VK_DOWN);
-			robot.keyPress(KeyEvent.VK_DOWN);
-			robot.keyRelease(KeyEvent.VK_DOWN);
-			robot.keyPress(KeyEvent.VK_ENTER);
-			robot.keyRelease(KeyEvent.VK_ENTER);
-
-			Updateticket.click();
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			wait.until(ExpectedConditions.alertIsPresent()).accept();
-			test.log(Status.PASS, "Edit ticket success");
-		} catch (Exception Editticket1) {
-			test.log(Status.FAIL, "Edit ticket Failed");
-		}
 		try {
 			CrosssaleCTA.click();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -975,7 +842,8 @@ Thread.sleep(2500);
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
 		Thread.sleep(2000);
-		Emailtoaddnote.click();Thread.sleep(2500);
+		Emailtoaddnote.click();
+		Thread.sleep(2500);
 
 		robot.keyPress(KeyEvent.VK_T);
 		robot.keyRelease(KeyEvent.VK_T);
@@ -991,7 +859,7 @@ Thread.sleep(2500);
 		robot.keyRelease(KeyEvent.VK_N);
 		robot.keyPress(KeyEvent.VK_G);
 		robot.keyRelease(KeyEvent.VK_G);
-	//****	Emailtoaddnote.sendKeys("Hi Testing");
+		// **** Emailtoaddnote.sendKeys("Hi Testing");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 		EmailAddAttachment
@@ -1055,9 +923,9 @@ Thread.sleep(2500);
 			Thread.sleep(5000);
 			try {
 				GRCPageobject.Closepopup.click();
-				}catch(Exception Closepopup) {
-					System.out.println("No popup");
-				}
+			} catch (Exception Closepopup) {
+				System.out.println("No popup");
+			}
 			try {
 				GRCPageobject.ProfileMenu.click();
 				Thread.sleep(2000);
@@ -1070,7 +938,7 @@ Thread.sleep(2500);
 
 				Thread.sleep(2000);
 				driver.findElement(By.xpath("//p[contains(text(),'Sign out')]")).click();
-			}finally {
+			} finally {
 				System.out.println("GRC");
 			}
 
@@ -1082,17 +950,17 @@ Thread.sleep(2500);
 		}
 		Thread.sleep(2000);
 		try {
-		driver.findElement(By.xpath("(//div[@class='collapse navbar-collapse']/child::ul/child::li/child::a)[3]"))
-				.click();
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("//a[contains(text(),'Logout')]")).click();
-		}catch(Exception Logout1) {
+			driver.findElement(By.xpath("(//div[@class='collapse navbar-collapse']/child::ul/child::li/child::a)[3]"))
+					.click();
+			Thread.sleep(3000);
+			driver.findElement(By.xpath("//a[contains(text(),'Logout')]")).click();
+		} catch (Exception Logout1) {
 			System.out.println("already Logout");
-			
+
 		}
 		NewCRM newCRM = new NewCRM();
 
-		newCRM.newCRM(driver, e, CrmUsernames, CrmUserpassword, extentreport);
+		newCRM.newCRM(driver, GRCPage.e, CrmUsernames, CrmUserpassword, extentreport);
 	}
 
 }

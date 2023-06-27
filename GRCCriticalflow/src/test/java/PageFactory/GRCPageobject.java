@@ -65,7 +65,7 @@ public class GRCPageobject extends HelpdeskPageobject{
 	@FindBy(xpath = "//button[contains(text(),'Continue')]")
 	public static WebElement Continue2;
 	
-	@FindBy(xpath = "//button[contains(text(),'Skip')]")
+	@FindBy(xpath = "//button[contains(text(),'Skip')]/parent::div/child::button")
 	public static WebElement Skip;
 	
 	@FindBy(xpath = "//p[contains(text(),'Continue')]")
@@ -74,7 +74,7 @@ public class GRCPageobject extends HelpdeskPageobject{
 	@FindBy(xpath = "//a[contains(text(),' Add business')]")
 	public static WebElement AddNewBusiness2;
 	
-	@FindBy(xpath = "//button[@class='styles_dropdownBtn__I6_4i']/child::p")
+	@FindBy(xpath = "//div[@class='styles_dropdown__kgL4A']/child::button")
 	public static WebElement OpenEntityList;
 	
 	@FindBy(xpath = "(//div[@class='styles_accountsList__qfPzH']/child::div)[2]")
@@ -160,6 +160,11 @@ public class GRCPageobject extends HelpdeskPageobject{
 	@FindBy(xpath = "//img[@alt='closeIcon']")
 	public static WebElement Closepopup;
 	
+	@FindBy(xpath = "//div[@class='styles_imgWrapper__KOdnR']/child::img")
+	public static WebElement Closehelp1;
+	
+	@FindBy(xpath = "//div[@class='styles_imgWrapper__uoce0']/child::img")
+	public static WebElement Closehelp2;
 	
 	
 
