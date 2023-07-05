@@ -16,6 +16,8 @@ import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -32,6 +34,7 @@ public class Payment extends HomescreenPageobject {
 		ScreenShot screenshot = new ScreenShot();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 		String Date1 = dateFormat.format(new Date());
+		WebDriverWait wait = new WebDriverWait(driver, 7);
 		try{HomescreenPageobject.Firstsericepaynow.click();
 		
 		  
@@ -64,7 +67,12 @@ public class Payment extends HomescreenPageobject {
 		Thread.sleep(2500);
 		PhonepayBack.click();
 		Thread.sleep(2500);
-		
+		try {
+			wait.until(ExpectedConditions.alertIsPresent()).accept();
+		}catch(Exception alert){
+			System.out.println("noalert");
+			
+		}
 		
 		Thread.sleep(4000);
 		try {

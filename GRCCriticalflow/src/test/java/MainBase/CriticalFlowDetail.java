@@ -163,7 +163,12 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			Thread.sleep(1500);
 			robot.keyPress(KeyEvent.VK_ENTER);
 			robot.keyRelease(KeyEvent.VK_ENTER);
-
+			robot.keyPress(KeyEvent.VK_CONTROL);
+			robot.keyPress(KeyEvent.VK_MINUS);
+			robot.keyRelease(KeyEvent.VK_MINUS);
+			robot.keyPress(KeyEvent.VK_MINUS);
+			robot.keyRelease(KeyEvent.VK_MINUS);
+			robot.keyRelease(KeyEvent.VK_CONTROL);
 			driver.findElement(By.xpath("//span[contains(text(),'Please select a service')]")).click();
 			Thread.sleep(1500);
 			driver.findElement(By.xpath("(//input[@class='select2-search__field'])[3]"))
@@ -172,7 +177,12 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			robot.keyRelease(KeyEvent.VK_ENTER);
 			BDagentCTA.click();
 			BDagentsearch.sendKeys("Dhrubo BD");
-
+			robot.keyPress(KeyEvent.VK_ENTER);
+			robot.keyRelease(KeyEvent.VK_ENTER);
+			Thread.sleep(2500);
+			WebElement element11 = driver.findElement(By.xpath("//input[@class='btn btn-primary helpdesk_ticket_class']"));
+			JavascriptExecutor executor11 = (JavascriptExecutor) driver;
+			executor11.executeScript("arguments[0].click();", element11);
 			Updateticket.click();
 			Thread.sleep(2000);
 			wait.until(ExpectedConditions.alertIsPresent()).accept();
@@ -283,8 +293,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			Viewattachment.click();
 			Thread.sleep(5000);
 			List<String> all29 = new ArrayList<String>(driver.getWindowHandles());
-			driver.switchTo().window(all29.get(1));
-			driver.close();
+			
 			screenshot.screenshot22(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
@@ -292,7 +301,8 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 					MediaEntityBuilder.createScreenCaptureFromPath(
 							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots22.png",
 							"Critical Note verification").build());
-		
+			driver.switchTo().window(all29.get(1));
+			driver.close();
 		} else {
 			screenshot.screenshot22(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
@@ -471,8 +481,10 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			robot.keyPress(KeyEvent.VK_MINUS);
 			robot.keyRelease(KeyEvent.VK_MINUS);
 			robot.keyRelease(KeyEvent.VK_CONTROL);
-
-			MenuDownArrow.click();
+			WebElement element12 = driver.findElement(By.xpath("//span[@class='pull-right glyphicon glyphicon-menu-down']"));
+			JavascriptExecutor executor12 = (JavascriptExecutor) driver;
+			executor12.executeScript("arguments[0].click();", element12);
+			//MenuDownArrow.click();
 		}
 
 		try {

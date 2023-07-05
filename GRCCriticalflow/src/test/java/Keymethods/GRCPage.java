@@ -70,7 +70,7 @@ public class GRCPage extends GRCPageobject {
 		String Date2 = dateFormat1.format(new Date());
 		driver.get("https://grc.vakilsearch.com/grc/login");
 		Thread.sleep(2500);
-
+		
 		GRCUsername.sendKeys(GRCMobileNumber);
 		Thread.sleep(2500);
 		GRCPhonenumberConfirm.click();
@@ -210,8 +210,10 @@ public class GRCPage extends GRCPageobject {
 		Thread.sleep(3000);
 		Continue2.click();
 		Thread.sleep(2500);
-
-		Skip.click();
+		WebElement element4 = driver.findElement(By.xpath("//button[contains(text(),'Skip')]/parent::div/child::button"));
+		JavascriptExecutor executor4 = (JavascriptExecutor) driver;
+		executor4.executeScript("arguments[0].click();", element4);
+		//Skip.click();
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//p[contains(text(),'Continue')]")));
 		LetsGetStartedContinue.click();
 		Thread.sleep(2500);
@@ -285,22 +287,22 @@ public class GRCPage extends GRCPageobject {
 		}
 
 		Thread.sleep(2500);
-		js1.executeScript("arguments[0].scrollIntoView(true);", BuyNowService);
+		js1.executeScript("arguments[0].scrollIntoView(true);", Buynowmodule);
 		robot.keyPress(KeyEvent.VK_CONTROL);
 		robot.keyPress(KeyEvent.VK_MINUS);
 		robot.keyRelease(KeyEvent.VK_MINUS);
 		robot.keyPress(KeyEvent.VK_MINUS);
 		robot.keyRelease(KeyEvent.VK_MINUS);
-		robot.keyPress(KeyEvent.VK_MINUS);
-		robot.keyRelease(KeyEvent.VK_MINUS);
-		robot.keyPress(KeyEvent.VK_MINUS);
-		robot.keyRelease(KeyEvent.VK_MINUS);
+		
+		
 		robot.keyRelease(KeyEvent.VK_CONTROL);
 		robot.keyPress(KeyEvent.VK_PAGE_UP);
 		robot.keyRelease(KeyEvent.VK_PAGE_UP);
-
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[contains(text(),'Buy now')])[1]")))
-				.click();
+		WebElement element3 = driver.findElement(By.xpath("(//button[contains(text(),'Buy now')])[1]"));
+		JavascriptExecutor executor3 = (JavascriptExecutor) driver;
+		executor3.executeScript("arguments[0].click();", element3);
+		//wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[contains(text(),'Buy now')])[1]")))
+			//	.click();
 		robot.keyPress(KeyEvent.VK_UP);
 		robot.keyRelease(KeyEvent.VK_UP);
 		robot.keyPress(KeyEvent.VK_UP);
@@ -339,27 +341,29 @@ public class GRCPage extends GRCPageobject {
 				try {
 
 					ContinueGST.click();
-				} catch (NoSuchElementException ContinueGST) {
+				} catch (Exception ContinueGST) {
 					System.out.println("TicketID");
 				}
 			}
 
 		}
-
+Thread.sleep(1500);
 		String ServiceID = GetServiceID.getText().substring(1);
 		System.out.println(ServiceID + "GRC");
-
-		try {
-			Closepopup.click();
-		} catch (Exception Closepopup1) {
-			System.out.println("No popup");
-		}
-		Thread.sleep(2000);
-		robot.keyPress(KeyEvent.VK_CONTROL);
-		robot.keyPress(KeyEvent.VK_R);
-		robot.keyRelease(KeyEvent.VK_R);
-		robot.keyRelease(KeyEvent.VK_CONTROL);
-		Thread.sleep(4000);
+		WebElement element13 = driver.findElement(By.xpath("(//img[@alt='close'])[1]"));
+		JavascriptExecutor executor13 = (JavascriptExecutor) driver;
+		executor13.executeScript("arguments[0].click();", element13);
+//		try {
+//			Closepopup.click();
+//		} catch (Exception Closepopup1) {
+//			System.out.println("No popup");
+//		}
+//		Thread.sleep(2000);
+//		robot.keyPress(KeyEvent.VK_CONTROL);
+//		robot.keyPress(KeyEvent.VK_R);
+//		robot.keyRelease(KeyEvent.VK_R);
+//		robot.keyRelease(KeyEvent.VK_CONTROL);
+//		Thread.sleep(4000);
 
 		try {
 			wait.until(ExpectedConditions.elementToBeClickable(Closehelp1));
@@ -381,8 +385,10 @@ public class GRCPage extends GRCPageobject {
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(text(),'Need help')]"))).click();
 		Thread.sleep(3000);
 		}catch(Exception needhelpclick){
-		wait.until(ExpectedConditions
-				.elementToBeClickable(By.xpath("(//div[@class='styles_btnContainer__sVb_P']//child::div)[1]"))).click();
+			WebElement element2 = driver.findElement(By.xpath("(//div[@class='styles_btnContainer__sVb_P']//child::div)[1]"));
+			JavascriptExecutor executor2 = (JavascriptExecutor) driver;
+			executor2.executeScript("arguments[0].click();", element2);
+
 		}// Needhelp.click();
 		Thread.sleep(1500);
 		String NeedHelpURL = driver.getCurrentUrl().substring(0, 36);
@@ -403,8 +409,11 @@ public class GRCPage extends GRCPageobject {
 		}
 		wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("(//div[@class='styles_needHelpModal__xIW3p']/child::div/div)[6]")));
-		clickVideo.click();
-		Thread.sleep(3500);
+		WebElement element5 = driver.findElement(By.xpath("(//div[@class='styles_needHelpModal__xIW3p']/child::div/div)[6]"));
+		JavascriptExecutor executor5 = (JavascriptExecutor) driver;
+		executor5.executeScript("arguments[0].click();", element5);
+		//clickVideo.click();
+		Thread.sleep(8500);
 		robot.keyPress(KeyEvent.VK_TAB);
 		robot.keyRelease(KeyEvent.VK_TAB);
 		Thread.sleep(1500);
@@ -416,7 +425,7 @@ public class GRCPage extends GRCPageobject {
 		Thread.sleep(1500);
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
-		Thread.sleep(8000);
+		Thread.sleep(3000);
 
 		robot.keyPress(KeyEvent.VK_CONTROL);
 		robot.keyPress(KeyEvent.VK_R);
@@ -428,22 +437,26 @@ public class GRCPage extends GRCPageobject {
 		Thread.sleep(4500);
 		// **********
 		try {
-			wait.until(ExpectedConditions.elementToBeClickable(Closehelp1));
-			actions.moveToElement(Closehelp1).click().build().perform();
+			
+			WebElement element6 = driver.findElement(By.xpath("//div[@class='styles_container__BL2LZ false']/child::div"));
+			JavascriptExecutor executor6 = (JavascriptExecutor) driver;
+			executor6.executeScript("arguments[0].click();", element6);
 		} catch (Exception NeedClose) {
 			try {
-
-				wait.until(ExpectedConditions.elementToBeClickable(Closehelp2));
-				actions.moveToElement(Closehelp2).click().build().perform();
+				WebElement element6 = driver.findElement(By.xpath("//div[@class='styles_imgWrapper__uoce0']/child::img"));
+				JavascriptExecutor executor6 = (JavascriptExecutor) driver;
+				executor6.executeScript("arguments[0].click();", element6);
+				
 			} catch (Exception NeedClosed2) {
 				System.out.println("Need help closed");
 			}
 		}
 		Thread.sleep(2500);
 		try {
-			wait.until(ExpectedConditions
-					.elementToBeClickable(By.xpath("(//div[@class='styles_btnContainer__sVb_P']/child::button)[1]")))
-					.click();
+			WebElement element7 = driver.findElement(By.xpath("//img[@alt='Settings']/parent::button"));
+			JavascriptExecutor executor7 = (JavascriptExecutor) driver;
+			executor7.executeScript("arguments[0].click();", element7);
+			
 		} catch (Exception e100008) {
 			driver.findElement(By.xpath("//img[@alt='Settings']/parent::button")).click();
 		}
@@ -593,8 +606,10 @@ public class GRCPage extends GRCPageobject {
 		Thread.sleep(2000);
 		// **************
 		// driver.findElement(By.xpath("//button[@class='styles_gearBtn__s6cgl']")).click();
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[contains(text(),'Messages')]")));
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Messages')]"))).click();
+		WebElement element = driver.findElement(By.xpath("//span[contains(text(),'Messages')]"));
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
+		executor.executeScript("arguments[0].click();", element);
+		
 		// driver.findElement(By.xpath("//span[contains(text(),'Messages')]")).click();
 		Thread.sleep(2500);
 		String MessagesURL = driver.getCurrentUrl().substring(0, 40);
@@ -683,7 +698,10 @@ public class GRCPage extends GRCPageobject {
 
 		driver.navigate().back();
 		Thread.sleep(5500);
-		driver.findElement(By.xpath("//span[contains(text(),'Rewards')]")).click();
+		WebElement element21 = driver.findElement(By.xpath("//span[contains(text(),'Rewards')]"));
+		JavascriptExecutor executor21 = (JavascriptExecutor) driver;
+		executor21.executeScript("arguments[0].click();", element21);
+		
 		Thread.sleep(2500);
 		String RewardsURL = driver.getCurrentUrl().substring(0, 39);
 		String RewardsURL1 = "https://grc.vakilsearch.com/grc/rewards";

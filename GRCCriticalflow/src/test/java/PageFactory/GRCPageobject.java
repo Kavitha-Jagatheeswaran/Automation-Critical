@@ -151,6 +151,9 @@ public class GRCPageobject extends HelpdeskPageobject{
 	@FindBy(xpath = "//p[contains(text(),'Yes, continue')]")
 	public static WebElement AreyouintrestedinGST;
 	
+	@FindBy(xpath = "//div[@class='styles_container__2yUT8 undefined']")
+	public static WebElement Buynowmodule;
+	
 	@FindBy(xpath = "//div[@class='MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-qiwgdb']")
 	public static WebElement GSTRegistrationState;
 	
