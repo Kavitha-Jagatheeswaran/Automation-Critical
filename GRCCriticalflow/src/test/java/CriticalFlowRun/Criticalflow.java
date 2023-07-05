@@ -3,7 +3,8 @@ package CriticalFlowRun;
 import java.awt.AWTException;
 import java.io.FileInputStream;
 import java.io.IOException;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import MainBase.*;
 
@@ -12,6 +13,7 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
@@ -44,7 +46,7 @@ public class Criticalflow {
 
 	ExtentReports extentreport;
 	ExtentSparkReporter htmlReporter;
-	ExtentTest testcase;
+	ExtentTest test;
 
 	String[][] data = null;
 
@@ -76,24 +78,34 @@ public class Criticalflow {
 	}
 
 	public WebDriver driver;
+	
 
 	@BeforeSuite
 	public void Login() throws InterruptedException, AWTException {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+	String Date1 = dateFormat.format(new Date());
 		extentreport = new ExtentReports();
-		htmlReporter = new ExtentSparkReporter("extentreport.html");
+		htmlReporter = new ExtentSparkReporter("C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\extentreport.html");
+		
+      
 		extentreport.attachReporter(htmlReporter);
 
 	}
-
+    
 	@BeforeTest
 	public void Max() throws InterruptedException, AWTException {
 		Driver d = new Driver(driver);
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
-		driver.manage().window().setSize(new Dimension(1440, 900));
-
-		driver.manage().window().maximize();
-
+		 DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+		    ChromeOptions option = new ChromeOptions();
+		    option.addArguments("incognito");
+		    
+		    option.addArguments("start-maximized");
+		    capabilities.setCapability(ChromeOptions.CAPABILITY,option);
+		    option.addArguments("--headless");
+	
+		    driver= new ChromeDriver(capabilities);
+		    driver.manage().window().maximize();
 	}
 
 	@BeforeClass
@@ -113,14 +125,15 @@ public class Criticalflow {
 			String CrmUserpassword) throws Exception {
 
 		// ********Base base = new Base(driver, Username, Mobilenumber, extentreport);
-	 GRCPage grcpage = new GRCPage(driver, extentreport, GRCMobileNumber,
-		GRCNewCompanyName, CINNumber,
-		 Helpdeskuserid, helpdeskpassword, assignedtoName);
+	
+		 GRCPage grcpage1 = new GRCPage(driver, extentreport, GRCMobileNumber,
+					GRCNewCompanyName, CINNumber,
+					 Helpdeskuserid, helpdeskpassword, assignedtoName);
 		CriticalFlowDetail Criticalflow = new CriticalFlowDetail(driver,
 		 Helpdeskuserid, helpdeskpassword, notesname,
 		 notedescrption, QNameOfCustomer, qaddress, qpincode, Professionalfees,
 		 assignedtoName, BDAgentName,
-		 CrossSaleName, GRCMobileNumber, CrmUsernames, CrmUserpassword, extentreport);
+		 CrossSaleName, GRCMobileNumber, CrmUsernames, CrmUserpassword,GRCNewCompanyName, CINNumber, extentreport);
 		
 	}
 
@@ -128,7 +141,7 @@ public class Criticalflow {
 	public void close() {
 		// driver.close();
 		System.out.println("The close_up process is completed");
-
+		
 	}
 
 	@AfterTest
@@ -142,8 +155,8 @@ public class Criticalflow {
  
 	@AfterSuite
 	public void Mail() throws EmailException {
-		SendMailSSLWithAttachment Mail = new SendMailSSLWithAttachment();
-		Mail.main();
+	//	SendMailSSLWithAttachment Mail = new SendMailSSLWithAttachment();
+	//	Mail.main();
 	//	System.out.println("Test completed1");
 	//	driver.quit();
 	}

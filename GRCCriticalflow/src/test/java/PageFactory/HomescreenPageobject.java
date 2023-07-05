@@ -39,7 +39,7 @@ public class HomescreenPageobject extends NewCRMPageobject {
 	@FindBy(xpath = "(//div[@class='payment-options']/child::div)[2]" )
 	public static WebElement PaytmpaymentMode;
 	
-	@FindBy(xpath = "(//div[@class='flex flex-column full-width']/following::button)[2]" )
+	@FindBy(xpath = "(//div[@class='border-bottom-upi ']/child::button)[2]" )
 	public static WebElement Paynow;
 	
 	@FindBy(xpath = "//small[contains(text(),'Back')]")

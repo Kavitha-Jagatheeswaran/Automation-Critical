@@ -94,8 +94,8 @@ public class HelpdeskPageobject extends LoginPageobjects {
 	@FindBy (xpath = "//input[@id='name']")
 	public static WebElement cannedsubject ;
 	
-	@FindBy (xpath = "(//td[@data-date='29'])[1]")
-	public static WebElement cannedDate29 ;
+	@FindBy (xpath = "(//td[@data-date='29'])[2]")
+	public static WebElement cannedDate30 ;
 	
 	@FindBy (xpath = "//input[@class='event_reminder_from_time_date']")
 	public static WebElement cannedselectdate ;
@@ -284,8 +284,17 @@ public class HelpdeskPageobject extends LoginPageobjects {
 	@FindBy (xpath = "(//button[contains(text(),'Save')])[2]")
 	public static WebElement  SaveEntity2;
 	
+	@FindBy (xpath = "(//ul[@class='select2-selection__rendered']/child::li[@class='select2-search select2-search--inline'])[2]")
+	public static WebElement  employtonotify;
+
+	@FindBy (xpath = "(//div[@class='panel-collapse collapse1']/child::div/child::p)[2]")
+	public static WebElement  RecentNoteVerification;
 	
+	@FindBy (xpath = "(//div[@class='panel-collapse collapse1']/child::div)[2]/child::p/child::span")
+	public static WebElement  Viewattachment;
 	
+	@FindBy (xpath = "(//span[contains(text(),'To')]/parent::span)[4]")
+	public static WebElement  addnoteTo;
 	
 	
 	

@@ -28,5 +28,28 @@ public class NewCRMPageobject  {
 	@FindBy (xpath = "(//div[@class='markup']/child::p)[1]")
 	public static WebElement CrmInternalNote ;
 	
+	@FindBy (xpath = "//span[contains(text(),'Follow ups')]")
+	public static WebElement FollowupsCTA ;
+	
+	@FindBy (xpath = "((//div[@class='navbar-collapse collapse'])[2]/child::div[@class='navbar-nav']/child::div)[2]")
+	public static WebElement Calenderdropdown ;
+	
+	@FindBy (xpath = "(//div[@class='xdsoft_calendar']/child::table/child::tbody/child::tr/child::td)[34]")
+	public static WebElement dateselection ;
+	
+	@FindBy (xpath = "//span[@class='newTicket floatNone']/child::a")
+	public static WebElement EventTicketId ;
+	
+	@FindBy (xpath = "//button[contains(text(),'Events')]")
+	public static WebElement NewCRMEventCTA ;
+	
+	@FindBy (xpath = "//div[@class='css-1e0g14s']/child::input")
+	public static WebElement NewCRMCheckboxunchecked ;
+	
+	@FindBy (xpath = "//label[@for='eventcheck_0']/child::h6")
+	public static WebElement NewCRMDatevalidation ;
+	
+	
+	
 }
  
