@@ -157,10 +157,10 @@ public class GRCPageobject extends HelpdeskPageobject{
 	@FindBy(xpath = "(//div[@class='styles_resultBox__OmW_g '])[1]")
 	public static WebElement Selectindustryquestion1;
 	
-	@FindBy(xpath = "//img[@alt='closeIcon']")
+	@FindBy(xpath = "(//div[@class='styles_backdrop__Ofn4m']/child::div/child::div/child::div)[2]")
 	public static WebElement Closepopup;
 	
-	@FindBy(xpath = "//div[@class='styles_imgWrapper__KOdnR']/child::img")
+	@FindBy(xpath = "(//div[@class='styles_container__BL2LZ false']/child::div)[1]")
 	public static WebElement Closehelp1;
 	
 	@FindBy(xpath = "//div[@class='styles_imgWrapper__uoce0']/child::img")

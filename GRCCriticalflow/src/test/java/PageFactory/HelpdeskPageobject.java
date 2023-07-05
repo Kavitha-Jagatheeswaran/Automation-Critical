@@ -94,8 +94,8 @@ public class HelpdeskPageobject extends LoginPageobjects {
 	@FindBy (xpath = "//input[@id='name']")
 	public static WebElement cannedsubject ;
 	
-	@FindBy (xpath = "(//td[@data-date='29'])[1]")
-	public static WebElement cannedDate29 ;
+	@FindBy (xpath = "(//td[@data-date='29'])[2]")
+	public static WebElement cannedDate30 ;
 	
 	@FindBy (xpath = "//input[@class='event_reminder_from_time_date']")
 	public static WebElement cannedselectdate ;

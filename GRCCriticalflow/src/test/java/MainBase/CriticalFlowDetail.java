@@ -5,7 +5,11 @@ import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.lang.reflect.Array;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -34,6 +38,7 @@ import org.testng.util.Strings;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
@@ -41,6 +46,7 @@ import Keymethods.GRCPage;
 import Keymethods.GrcLogin;
 import Keymethods.NewCRM;
 import Keymethods.Payment;
+import Keymethods.ScreenShot;
 import PageFactory.GRCPageobject;
 import PageFactory.HelpdeskPageobject;
 import PageFactory.HomescreenPageobject;
@@ -62,9 +68,9 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			String notedescrption, String QNameOfCustomer, String qaddress, String qpincode, String Professionalfees,
 			String assignedtoName, String BDAgentName, String CrossSaleName, String GRCMobileNumber,
 			String CrmUsernames, String CrmUserpassword, String GRCNewCompanyName, String CINNumber,
-			ExtentReports extentreport) throws InterruptedException, AWTException, ElementClickInterceptedException {
+			ExtentReports extentreport) throws InterruptedException, AWTException, ElementClickInterceptedException, IOException {
 		Robot robot = new Robot();
-
+		ScreenShot screenshot = new ScreenShot();
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		test = extentreport.createTest("Helpdesk");
 		WebDriverWait wait = new WebDriverWait(driver, 100);
@@ -96,64 +102,103 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Tickets.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		// ticketid.sendKeys(GRCPage.e);
-		ticketid.sendKeys("3284255");
+		ticketid.sendKeys(GRCPage.e);
+		// ticketid.sendKeys("3284255");
 		Search.click();
 		Firstservice.click();
 
-		/*
-		 * try { try { wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-		 * "//button[@id='editBtn']")));
-		 * js.executeScript("arguments[0].scrollIntoView(true);", Editticket);
-		 * Editticket.click();
-		 * 
-		 * } catch (ElementClickInterceptedException elementintercptedEdit) {
-		 * robot.keyPress(KeyEvent.VK_PAGE_UP); Thread.sleep(3000);
-		 * robot.keyRelease(KeyEvent.VK_PAGE_UP); robot.keyPress(KeyEvent.VK_PAGE_UP);
-		 * robot.keyRelease(KeyEvent.VK_PAGE_UP);
-		 * driver.findElement(By.xpath("//button[contains(text(),'Edit')]")).click(); }
-		 * Thread.sleep(2500); Assignedto.click();
-		 * driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		 * Thread.sleep(1500); Assignedtoname.click();
-		 * Assignedtoname.sendKeys(assignedtoName);
-		 * driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		 * 
-		 * robot.keyPress(KeyEvent.VK_ENTER); robot.keyRelease(KeyEvent.VK_ENTER);
-		 * Thread.sleep(1500);
-		 * 
-		 * Paymentstatus.click(); robot.keyPress(KeyEvent.VK_DOWN);
-		 * robot.keyRelease(KeyEvent.VK_DOWN); robot.keyPress(KeyEvent.VK_DOWN);
-		 * robot.keyRelease(KeyEvent.VK_DOWN); robot.keyPress(KeyEvent.VK_DOWN);
-		 * robot.keyRelease(KeyEvent.VK_DOWN); robot.keyPress(KeyEvent.VK_DOWN);
-		 * robot.keyRelease(KeyEvent.VK_DOWN); robot.keyPress(KeyEvent.VK_DOWN);
-		 * robot.keyRelease(KeyEvent.VK_DOWN); robot.keyPress(KeyEvent.VK_DOWN);
-		 * robot.keyRelease(KeyEvent.VK_DOWN); robot.keyPress(KeyEvent.VK_DOWN);
-		 * robot.keyRelease(KeyEvent.VK_DOWN); robot.keyPress(KeyEvent.VK_DOWN);
-		 * robot.keyRelease(KeyEvent.VK_DOWN); robot.keyPress(KeyEvent.VK_ENTER);
-		 * robot.keyRelease(KeyEvent.VK_ENTER); Thread.sleep(2000);
-		 * robot.keyPress(KeyEvent.VK_CONTROL); robot.keyPress(KeyEvent.VK_MINUS);
-		 * robot.keyRelease(KeyEvent.VK_MINUS); robot.keyRelease(KeyEvent.VK_CONTROL);
-		 * driver.findElement(By.xpath(
-		 * "//span[@id='select2-city_filter_edit-container']")).click();
-		 * Thread.sleep(1500);
-		 * driver.findElement(By.xpath("(//input[@class='select2-search__field'])[3]")).
-		 * sendKeys("chennai"); Thread.sleep(1500); robot.keyPress(KeyEvent.VK_ENTER);
-		 * robot.keyRelease(KeyEvent.VK_ENTER);
-		 * 
-		 * driver.findElement(By.
-		 * xpath("//span[contains(text(),'Please select a service')]")).click();
-		 * Thread.sleep(1500);
-		 * driver.findElement(By.xpath("(//input[@class='select2-search__field'])[3]")).
-		 * sendKeys("Account Management"); robot.keyPress(KeyEvent.VK_ENTER);
-		 * robot.keyRelease(KeyEvent.VK_ENTER);
-		 * 
-		 * Updateticket.click(); Thread.sleep(2000);
-		 * wait.until(ExpectedConditions.alertIsPresent()).accept();
-		 * test.log(Status.PASS, "Edit ticket success"); } catch (Exception Editticket1)
-		 * { test.log(Status.FAIL, "Edit ticket Failed");
-		 * robot.keyPress(KeyEvent.VK_CONTROL); robot.keyRelease(KeyEvent.VK_R);
-		 * robot.keyPress(KeyEvent.VK_R); robot.keyRelease(KeyEvent.VK_CONTROL); }
-		 */
+		try {
+			try {
+				wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='editBtn']")));
+				js.executeScript("arguments[0].scrollIntoView(true);", Editticket);
+				Editticket.click();
+
+			} catch (ElementClickInterceptedException elementintercptedEdit) {
+				robot.keyPress(KeyEvent.VK_PAGE_UP);
+				Thread.sleep(3000);
+				robot.keyRelease(KeyEvent.VK_PAGE_UP);
+				robot.keyPress(KeyEvent.VK_PAGE_UP);
+				robot.keyRelease(KeyEvent.VK_PAGE_UP);
+				driver.findElement(By.xpath("//button[contains(text(),'Edit')]")).click();
+			}
+			Thread.sleep(2500);
+			Assignedto.click();
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			Thread.sleep(1500);
+			Assignedtoname.click();
+			Assignedtoname.sendKeys("Dhrubo RM");
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+			robot.keyPress(KeyEvent.VK_ENTER);
+			robot.keyRelease(KeyEvent.VK_ENTER);
+			Thread.sleep(1500);
+
+			Paymentstatus.click();
+			robot.keyPress(KeyEvent.VK_DOWN);
+			robot.keyRelease(KeyEvent.VK_DOWN);
+			robot.keyPress(KeyEvent.VK_DOWN);
+			robot.keyRelease(KeyEvent.VK_DOWN);
+			robot.keyPress(KeyEvent.VK_DOWN);
+			robot.keyRelease(KeyEvent.VK_DOWN);
+			robot.keyPress(KeyEvent.VK_DOWN);
+			robot.keyRelease(KeyEvent.VK_DOWN);
+			robot.keyPress(KeyEvent.VK_DOWN);
+			robot.keyRelease(KeyEvent.VK_DOWN);
+			robot.keyPress(KeyEvent.VK_DOWN);
+			robot.keyRelease(KeyEvent.VK_DOWN);
+			robot.keyPress(KeyEvent.VK_DOWN);
+			robot.keyRelease(KeyEvent.VK_DOWN);
+			robot.keyPress(KeyEvent.VK_DOWN);
+			robot.keyRelease(KeyEvent.VK_DOWN);
+			robot.keyPress(KeyEvent.VK_ENTER);
+			robot.keyRelease(KeyEvent.VK_ENTER);
+			Thread.sleep(2000);
+			robot.keyPress(KeyEvent.VK_CONTROL);
+			robot.keyPress(KeyEvent.VK_MINUS);
+			robot.keyRelease(KeyEvent.VK_MINUS);
+			robot.keyRelease(KeyEvent.VK_CONTROL);
+			driver.findElement(By.xpath("//span[@id='select2-city_filter_edit-container']")).click();
+			Thread.sleep(1500);
+			driver.findElement(By.xpath("(//input[@class='select2-search__field'])[3]")).sendKeys("chennai");
+			Thread.sleep(1500);
+			robot.keyPress(KeyEvent.VK_ENTER);
+			robot.keyRelease(KeyEvent.VK_ENTER);
+
+			driver.findElement(By.xpath("//span[contains(text(),'Please select a service')]")).click();
+			Thread.sleep(1500);
+			driver.findElement(By.xpath("(//input[@class='select2-search__field'])[3]"))
+					.sendKeys("Apply For Name Change - Minor");
+			robot.keyPress(KeyEvent.VK_ENTER);
+			robot.keyRelease(KeyEvent.VK_ENTER);
+			BDagentCTA.click();
+			BDagentsearch.sendKeys("Dhrubo BD");
+
+			Updateticket.click();
+			Thread.sleep(2000);
+			wait.until(ExpectedConditions.alertIsPresent()).accept();
+			
+		
+			screenshot.screenshot20(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots20.png",
+							"Editticket").build());
+		} catch (Exception Editticket1) {
+			screenshot.screenshot20(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots20.png",
+							"Editticket").build());
+			robot.keyPress(KeyEvent.VK_CONTROL);
+			robot.keyRelease(KeyEvent.VK_R);
+			robot.keyPress(KeyEvent.VK_R);
+			robot.keyRelease(KeyEvent.VK_CONTROL);
+		}
+
 		try {
 
 			CriticalnotesCTA.click();
@@ -181,9 +226,6 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			robot.keyPress(KeyEvent.VK_G);
 			robot.keyRelease(KeyEvent.VK_G);
 
-//		 TypeCriticalNotes.sendKeys("Testing");driver.manage().timeouts().implicitlyWait(30,
-//		 TimeUnit.SECONDS);
-//		 ChooseCriticalNoesFile.click();
 			ChooseCriticalNoesFile.sendKeys(
 					"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Excel\\sample-aadhaar-card-800x445.png");
 
@@ -216,13 +258,24 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			CriticalNoteSave.click();
 			Thread.sleep(5000);
-			test.log(Status.PASS, "Critical Note added");
+			screenshot.screenshot21(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots21.png",
+							"CriticalNote").build());
 		} catch (Exception CriticalNote) {
-			test.log(Status.PASS, "Critical note Failed");
+			screenshot.screenshot21(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots21.png",
+							"CriticalNote").build());
 		}
 		Thread.sleep(3500);
-		// js.executeScript("arguments[0].scrollIntoView(true);",
-		// RecentNoteVerification);
+
 		String text = RecentNoteVerification.getText();
 		System.out.println(text);
 		if (text.contains("testing")) {
@@ -232,9 +285,22 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			List<String> all29 = new ArrayList<String>(driver.getWindowHandles());
 			driver.switchTo().window(all29.get(1));
 			driver.close();
-			test.log(Status.PASS, "Critical Note verified");
+			screenshot.screenshot22(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots22.png",
+							"Critical Note verification").build());
+		
 		} else {
-			test.log(Status.PASS, "Critical note verification failed");
+			screenshot.screenshot22(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots22.png",
+							"Critical Note verification").build());
 		}
 		List<String> all29 = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(all29.get(0));
@@ -261,11 +327,23 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			robot.keyPress(KeyEvent.VK_G);
 			robot.keyRelease(KeyEvent.VK_G);
 			savepersonalnote.click();
-			test.log(Status.PASS, "Personal Note added");
+			screenshot.screenshot23(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots23.png",
+							"Personal Note").build());
 
 		} catch (Exception PersonalNote) {
 
-			test.log(Status.FAIL, "Personal Note Failed");
+			screenshot.screenshot23(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots23.png",
+							"Personal Note").build());
 		}
 
 		Thread.sleep(1500);
@@ -337,9 +415,21 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			 * ); EmailButtonSend.click(); driver.manage().timeouts().implicitlyWait(30,
 			 * TimeUnit.SECONDS);
 			 */
-			test.log(Status.PASS, "Add Note Created");
+			screenshot.screenshot24(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots24.png",
+							"Add Note").build());
 		} catch (Exception AddNote) {
-			test.log(Status.FAIL, "Add Note Failed");
+			screenshot.screenshot24(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots24.png",
+							"Add Note").build());
 		}
 		Thread.sleep(3500);
 		// js.executeScript("arguments[0].scrollIntoView(true);",
@@ -353,9 +443,21 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			List<String> all30 = new ArrayList<String>(driver.getWindowHandles());
 			driver.switchTo().window(all30.get(1));
 			driver.close();
-			test.log(Status.PASS, "add Note verified");
+			screenshot.screenshot25(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots25.png",
+							"Add Note Verification").build());
 		} else {
-			test.log(Status.PASS, "add note verification failed");
+			screenshot.screenshot25(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots25.png",
+							"Add Note Verification").build());
 		}
 		List<String> all30 = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(all30.get(0));
@@ -404,7 +506,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			cannedselectdate.click();
 
 			try {
-				cannedDate29.click();
+				cannedDate30.click();
 			} catch (StaleElementReferenceException e04) {
 
 				try {
@@ -429,11 +531,84 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			cannedupdateCTA.click();
-			test.log(Status.PASS, "Canned response Created");
+			screenshot.screenshot26(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots26.png",
+							"Canned response").build());
 		} catch (Exception cannedException) {
-			test.log(Status.FAIL, "Canned response Failed");
+			screenshot.screenshot26(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots26.png",
+							"Canned response").build());
 			driver.navigate().back();
 		}
+
+		try {
+			robot.keyPress(KeyEvent.VK_CONTROL);
+			robot.keyPress(KeyEvent.VK_T);
+			robot.keyRelease(KeyEvent.VK_T);
+			robot.keyRelease(KeyEvent.VK_CONTROL);
+			List<String> CRM = new ArrayList<String>(driver.getWindowHandles());
+			driver.switchTo().window(CRM.get(1));
+
+			driver.get("https://helpdesk.vakilsearch.com/login");
+
+			Username.sendKeys("dhruborm@gmail.com");
+			Thread.sleep(1500);
+			Password.sendKeys("Vakil@123");
+			Thread.sleep(1500);
+			Signin.click();
+			Thread.sleep(1500);
+			// Followup
+			wait.until(ExpectedConditions.elementToBeClickable(
+					By.xpath("(//div[@class='BD_dashboardOptions']/child::div/child::ul/child::li)[5]"))).click();
+
+			Thread.sleep(2500);
+			actions.moveToElement(dateselection).click().build().perform();
+			// actions.moveToElement(dateselection).click().build().perform();
+			// dateselection.click();//// 30
+			Thread.sleep(2500);
+
+			String subSequence1 = EventTicketId.getText().substring(1, 8);
+			if (GRCPage.e.contains(subSequence1)) {
+				screenshot.screenshot27(driver, extentreport);
+				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+				String Date1 = dateFormat.format(new Date());
+				test.log(Status.PASS,
+						MediaEntityBuilder.createScreenCaptureFromPath(
+								"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots27.png",
+								"Event TicketID Verified").build());
+				
+			} else {
+				screenshot.screenshot27(driver, extentreport);
+				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+				String Date1 = dateFormat.format(new Date());
+				test.log(Status.FAIL,
+						MediaEntityBuilder.createScreenCaptureFromPath(
+								"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots27.png",
+								"Event TicketID Verified").build());
+			}
+		} catch (Exception EventValidation) {
+			screenshot.screenshot28(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots28.png",
+							"Event creation and Verification failed").build());
+		
+
+		}
+		driver.close();
+
+		List<String> CRM1 = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(CRM1.get(0));
 
 		Thread.sleep(2000);
 
@@ -484,11 +659,11 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			WebElement QPaymenttypescroll = driver.findElement(By.xpath("//option[contains(text(),'Full Payment')]"));
 			js.executeScript("arguments[0].scrollIntoView(true);", QPaymenttypescroll);
 
-			PaymentType.click();
-			robot.keyPress(KeyEvent.VK_DOWN);
-			robot.keyRelease(KeyEvent.VK_DOWN);
-			robot.keyPress(KeyEvent.VK_ENTER);
-			robot.keyRelease(KeyEvent.VK_ENTER);
+//			PaymentType.click();
+//			robot.keyPress(KeyEvent.VK_DOWN);
+//			robot.keyRelease(KeyEvent.VK_DOWN);
+//			robot.keyPress(KeyEvent.VK_ENTER);
+//			robot.keyRelease(KeyEvent.VK_ENTER);
 
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			robot.keyPress(KeyEvent.VK_DOWN);
@@ -543,9 +718,21 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 
 			driver.switchTo().window(all.get(0));
 			Thread.sleep(2500);
-			test.log(Status.PASS, "QuotationCreated");
+			screenshot.screenshot29(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots29.png",
+							"Quotation Creation").build());
 		} catch (Exception CreatenewQuotation1) {
-			test.log(Status.FAIL, "Quotation Creation failed");
+			screenshot.screenshot29(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots29.png",
+							"Quotation Creation").build());
 		}
 		robot.keyPress(KeyEvent.VK_CONTROL);
 		robot.keyRelease(KeyEvent.VK_R);
@@ -554,18 +741,34 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		String AmountValidation1 = driver
 				.findElement(By.xpath(
 						"//td[@style='border-bottom:1px solid #f7f7f7;padding:10px 14px 10px 10px;text-align:right;']"))
-				.getText().substring(2, 7);
+				.getText().substring(2, 5);
 		driver.findElement(By.xpath("(//a[contains(text(),'Pay Now')])[1]")).click();
 		List<String> all32 = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(all32.get(1));
-		
-		String PaynowAmountValidation = driver.findElement(By.xpath("(//div[@class='styles_totalPrice__1O_p9']/child::h2)[2]")).getText().substring(2, 7);
-		
-		if(AmountValidation1.contains(PaynowAmountValidation)){
-		test.log(Status.PASS, "QuotationCreation amount verified");
-	} else {
-		test.log(Status.FAIL, "Quotation Creation amount verification failed "+AmountValidation1 + PaynowAmountValidation);
-	}
+		Thread.sleep(3000);
+		String PaynowAmountValidation = driver
+				.findElement(By.xpath("(//div[@class='styles_totalPrice__1O_p9']/child::h2)[2]")).getText()
+				.substring(2, 5);
+
+		if (AmountValidation1.contains(PaynowAmountValidation)) {
+			screenshot.screenshot30(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots30.png",
+							"Quotation Creation amount verification").build());
+		} else {
+			screenshot.screenshot30(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots30.png",
+							"Quotation Creation amount verification").build());
+			test.log(Status.FAIL,
+					"Quotation Creation amount verification failed " + AmountValidation1 + PaynowAmountValidation);
+		}
 		driver.close();
 		driver.switchTo().window(all32.get(0));
 		robot.keyPress(KeyEvent.VK_CONTROL);
@@ -628,32 +831,59 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			robot.keyRelease(KeyEvent.VK_R);
 			robot.keyPress(KeyEvent.VK_R);
 			robot.keyRelease(KeyEvent.VK_CONTROL);
-			String AmountValidation2 = driver
-					.findElement(By.xpath(
-							"//td[@style='border-bottom:1px solid #f7f7f7;padding:10px 14px 10px 10px;text-align:right;']"))
-					.getText().substring(2, 7);
+			String AmountValidation2 = driver.findElement(By.xpath(
+					"//td[@style='border-bottom:1px solid #f7f7f7;padding:10px 14px 10px 10px;text-align:right;']"))
+					.getText().substring(2, 6);
 			driver.findElement(By.xpath("(//a[contains(text(),'Pay Now')])[1]")).click();
 			List<String> all33 = new ArrayList<String>(driver.getWindowHandles());
 			driver.switchTo().window(all33.get(1));
-			
-			String PaynowAmountValidation2 = driver.findElement(By.xpath("(//div[@class='styles_totalPrice__1O_p9']/child::h2)[2]")).getText().substring(2, 7);
-			
-			if(AmountValidation2.contains(PaynowAmountValidation2)){
-			test.log(Status.PASS, "Edit Quotation amount verified ");
-		} else {
-			test.log(Status.FAIL, "Edit Quotation Creation amount verification failed "+ AmountValidation2 + PaynowAmountValidation2);
-		}
+
+			String PaynowAmountValidation2 = driver
+					.findElement(By.xpath("(//div[@class='styles_totalPrice__1O_p9']/child::h2)[2]")).getText()
+					.substring(2, 6);
+
+			if (AmountValidation2.contains(PaynowAmountValidation2)) {
+				screenshot.screenshot31(driver, extentreport);
+				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+				String Date1 = dateFormat.format(new Date());
+				test.log(Status.PASS,
+						MediaEntityBuilder.createScreenCaptureFromPath(
+								"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots31.png",
+								"Edit Quotation amount verified").build());
+				
+			} else {
+				screenshot.screenshot31(driver, extentreport);
+				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+				String Date1 = dateFormat.format(new Date());
+				test.log(Status.FAIL,
+						MediaEntityBuilder.createScreenCaptureFromPath(
+								"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots31.png",
+								"Edit Quotation amount verified").build());
+				test.log(Status.FAIL, "Edit Quotation Creation amount verification failed " + AmountValidation2
+						+ PaynowAmountValidation2);
+			}
 			driver.close();
 			driver.switchTo().window(all33.get(0));
 			Thread.sleep(2500);
 			robot.keyPress(KeyEvent.VK_CONTROL);
 			robot.keyRelease(KeyEvent.VK_R);
 			robot.keyPress(KeyEvent.VK_R);
-			robot.keyRelease(KeyEvent.VK_CONTROL); 
-			test.log(Status.PASS, "Edit Quotation success");
+			robot.keyRelease(KeyEvent.VK_CONTROL);
+			screenshot.screenshot32(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots32.png",
+							"Edit Quotation").build());
 		} catch (Exception EditQuotation1) {
-			test.log(Status.FAIL, "Edit Quotation Failed");
-			System.out.println("Edit Quotation failed");
+			screenshot.screenshot32(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots32.png",
+							"Edit Quotation").build());
 		}
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(2500);
@@ -663,8 +893,21 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		try {
 			Generatequotation.click();
 			Thread.sleep(2000);
-			test.log(Status.PASS, "Generate Quotation success");
+			screenshot.screenshot33(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots33.png",
+							"Generate Quotation").build());
 		} catch (Exception GenerateQuotation1) {
+			screenshot.screenshot33(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots33.png",
+							"Generate Quotation").build());
 			test.log(Status.FAIL, "Generate Quotation Failed");
 		}
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -678,35 +921,63 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		try {
 			deactivateQuotation.click();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			String AmountValidation3 = driver
-					.findElement(By.xpath(
-							"//td[@style='border-bottom:1px solid #f7f7f7;padding:10px 14px 10px 10px;text-align:right;']"))
+			String AmountValidation3 = driver.findElement(By.xpath(
+					"//td[@style='border-bottom:1px solid #f7f7f7;padding:10px 14px 10px 10px;text-align:right;']"))
 					.getText();
 			driver.findElement(By.xpath("(//a[contains(text(),'Pay Now')])[1]")).click();
 			List<String> all35 = new ArrayList<String>(driver.getWindowHandles());
 			driver.switchTo().window(all35.get(1));
-			
+
 			String PaynowAmountValidation3 = driver.findElement(By.xpath("//h3[@class='p-2']/child::b")).getText();
+
+			if ("This quotation has been deactivated.".contains(PaynowAmountValidation3)) {
+				screenshot.screenshot34(driver, extentreport);
+				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+				String Date1 = dateFormat.format(new Date());
+				test.log(Status.PASS,
+						MediaEntityBuilder.createScreenCaptureFromPath(
+								"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots34.png",
+								"DeactivateQuotation").build());
+			} else {
+				screenshot.screenshot34(driver, extentreport);
+				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+				String Date1 = dateFormat.format(new Date());
+				test.log(Status.FAIL,
+						MediaEntityBuilder.createScreenCaptureFromPath(
+								"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots34.png",
+								"Deactivate Quotation VERIFICATION").build());
+			}
+			test.log(Status.PASS, "DeactivateQuotation success");
 			driver.close();
 			driver.switchTo().window(all35.get(0));
-			if("This quotation has been deactivated.".contains(PaynowAmountValidation3)){
-			test.log(Status.PASS, "Quotation Deactivation verified");
-		} else {
-			test.log(Status.FAIL, "Quotation Deactivation verification failed");
-		}
-			test.log(Status.PASS, "DeactivateQuotation success");
 		} catch (Exception DeactivateQuotation1) {
 			test.log(Status.FAIL, "DeactivateQuotation Failed");
+			driver.close();
+
 		}
+
 		robot.keyPress(KeyEvent.VK_PAGE_DOWN);
 		Thread.sleep(4000);
 		robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
 		Thread.sleep(2000);
 		try {
 			LoadmoreMessagesCTA.click();
-			test.log(Status.PASS, "Loadmore message success");
+			screenshot.screenshot35(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots35.png",
+							"LoadmoreMessage").build());
 		} catch (Exception LoadmoreMessage) {
-			test.log(Status.FAIL, "load more Failed");
+		
+			screenshot.screenshot35(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots35.png",
+							"LoadmoreMessage").build());
 		}
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(2000);
@@ -743,9 +1014,21 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			robot.keyRelease(KeyEvent.VK_R);
 			robot.keyPress(KeyEvent.VK_R);
 			robot.keyRelease(KeyEvent.VK_CONTROL);
-			test.log(Status.PASS, "Cross sale creation success");
+			screenshot.screenshot36(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots36.png",
+							"Crosssale").build());
 		} catch (Exception Crosssale1) {
-			test.log(Status.FAIL, "Cross sale creation Failed");
+			screenshot.screenshot36(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots36.png",
+							"Crosssale").build());
 		}
 		Thread.sleep(10000);
 		robot.keyPress(KeyEvent.VK_CONTROL);
@@ -758,9 +1041,21 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			Thread.sleep(2500);
 			Recenetfirstticket.click();
 			Thread.sleep(5000);
-			test.log(Status.PASS, "Recent ticket id click success");
+			screenshot.screenshot37(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots37.png",
+							"RecentTicket").build());
 		} catch (Exception RecentTicket1) {
-			test.log(Status.FAIL, "Recent ticket id Failed");
+			screenshot.screenshot37(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots37.png",
+							"RecentTicket").build());
 		}
 		String T1 = recentTicketID.getText().substring(1, 8);
 		System.out.println(T1);
@@ -824,9 +1119,21 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			Thread.sleep(2000);
 			Thread.sleep(3500);
 			driver.switchTo().alert().accept();
-			test.log(Status.PASS, "Merge success");
+			screenshot.screenshot38(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots38.png",
+							"Merge").build());
 		} catch (Exception Merge1) {
-			test.log(Status.FAIL, "Merge Failed");
+			screenshot.screenshot38(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots38.png",
+							"Merge").build());
 		}
 		Thread.sleep(3000);
 		addnote.click();
@@ -893,27 +1200,63 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			System.out.println(title + " Title");
 			String A2 = "GRC | Vakilsearch";
 			if (title.contentEquals(A2)) {
-				test.log(Status.PASS, "Magic title success");
+				screenshot.screenshot39(driver, extentreport);
+				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+				String Date1 = dateFormat.format(new Date());
+				test.log(Status.PASS,
+						MediaEntityBuilder.createScreenCaptureFromPath(
+								"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots39.png",
+								"Magic Key title").build());
 
 			} else {
-				test.log(Status.FAIL, "Magic title failed");
+				screenshot.screenshot39(driver, extentreport);
+				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+				String Date1 = dateFormat.format(new Date());
+				test.log(Status.FAIL,
+						MediaEntityBuilder.createScreenCaptureFromPath(
+								"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots39.png",
+								"Magic Key title").build());
 			}
 
 			driver.close();
 			driver.switchTo().window(all6.get(0));
 			Thread.sleep(5000);
-			test.log(Status.PASS, "Magic Key success");
+			screenshot.screenshot40(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots40.png",
+							"Magic Key").build());
 		} catch (Exception magickey1) {
-			test.log(Status.FAIL, "Magic key failed");
+			screenshot.screenshot40(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots40.png",
+							"Magic Key").build());
 		}
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		try {
 			CustomerDashboard.click();
 			Thread.sleep(3000);
 			driver.navigate().back();
-			test.log(Status.PASS, "Customer dashboard success");
+			screenshot.screenshot41(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots41.png",
+							"Customerdashboard").build());
 		} catch (Exception Customerdashboard1) {
-			test.log(Status.FAIL, "Cstomer dashboard Failed");
+			screenshot.screenshot41(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots41.png",
+							"Customerdashboard").build());
 		}
 		Thread.sleep(3000);
 		try {
@@ -944,9 +1287,21 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 
 			driver.close();
 			driver.switchTo().window(all3.get(0));
-			test.log(Status.PASS, "GRC page Redirection success");
+			screenshot.screenshot42(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots42.png",
+							"Grc Redirection").build());
 		} catch (Exception Grcredirection1) {
-			test.log(Status.FAIL, "Grc page redirection Failed");
+			screenshot.screenshot42(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots42.png",
+							"Grc Redirection").build());
 		}
 		Thread.sleep(2000);
 		try {

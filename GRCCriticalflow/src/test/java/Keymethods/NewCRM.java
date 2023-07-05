@@ -3,6 +3,9 @@ package Keymethods;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,16 +15,18 @@ import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 
 import PageFactory.GRCPageobject;
 
 public class NewCRM extends GRCPageobject {
 	ExtentTest test;
-	public void newCRM(WebDriver driver,String e, String CrmUsernames, String CrmUserpassword,ExtentReports extentreport) throws InterruptedException, AWTException {
+	public void newCRM(WebDriver driver,String e, String CrmUsernames, String CrmUserpassword,ExtentReports extentreport) throws InterruptedException, AWTException, IOException {
 Robot robot = new Robot();
 Thread.sleep(3000);test = extentreport.createTest("NewCRM");
 WebDriverWait wait = new WebDriverWait(driver, 100);
+ScreenShot screenshot = new ScreenShot();
 try {
 		driver.get("https://newcrm.vakilsearch.com/login");
 		CrmUsername.sendKeys(CrmUsernames);
@@ -37,7 +42,7 @@ try {
 		wait.until(ExpectedConditions.alertIsPresent());
 		driver.switchTo().alert().accept();
 		Thread.sleep(2500);
-		try {
+		try {  
 			wait.until(ExpectedConditions
 					.elementToBeClickable(CrmAllBucket));
 			CrmAllBucket.click();	
@@ -53,14 +58,37 @@ try {
 		String InternalNotes = CrmInternalNote.getText();
 		String b = "testing";
 		if ( InternalNotes.contains(e)) {
-			test.log(Status.PASS, "add note verification success");
+			screenshot.screenshot43(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots43.png",
+							"InternalNotes").build());
 		} else {
-			test.log(Status.FAIL, "add note verification Failed");
+			screenshot.screenshot43(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots43.png",
+							"InternalNotes").build());
 		}
-		
-		test.log(Status.PASS, "NewCrm  success");
+		screenshot.screenshot44(driver, extentreport);
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+		String Date1 = dateFormat.format(new Date());
+		test.log(Status.FAIL,
+				MediaEntityBuilder.createScreenCaptureFromPath(
+						"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots44.png",
+						"Newcrnotevalidation").build());
 } catch (Exception Newcrnotevalidation1) {
-	test.log(Status.FAIL, "NewCrm  Failed");
+	screenshot.screenshot44(driver, extentreport);
+	SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+	String Date1 = dateFormat.format(new Date());
+	test.log(Status.FAIL,
+			MediaEntityBuilder.createScreenCaptureFromPath(
+					"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots44.png",
+					"Newcrnotevalidation").build());
 }
 	}
 

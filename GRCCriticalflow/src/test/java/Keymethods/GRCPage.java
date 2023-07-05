@@ -1,22 +1,28 @@
 package Keymethods;
 
 import static org.testng.Assert.expectThrows;
-
+import org.apache.commons.io.FileUtils;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.By;
 import org.openqa.selenium.By.ByXPath;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -27,7 +33,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.Markup;
 
 import CriticalFlowRun.Criticalflow;
 import PageFactory.GRCPageobject;
@@ -38,11 +46,12 @@ public class GRCPage extends GRCPageobject {
 
 	ExtentTest test;
 	public static String e = "";
+	
 
 	public GRCPage(WebDriver driver, ExtentReports extentreport, String GRCMobileNumber, String GRCNewCompanyName,
 			String CINNumber, String Helpdeskuserid, String helpdeskpassword, String assignedtoName)
-			throws InterruptedException, AWTException, ElementClickInterceptedException {
-
+			throws InterruptedException, AWTException, ElementClickInterceptedException, IOException {
+  
 //		Set<String> allwindowsid = driver.getWindowHandles();
 //		List<String> all = new ArrayList<>();
 //		all.addAll(allwindowsid);
@@ -53,9 +62,12 @@ public class GRCPage extends GRCPageobject {
 		Robot robot = new Robot();
 		Actions actions = new Actions(driver);
 		test = extentreport.createTest("GRC Test");
+		ScreenShot screenshot = new ScreenShot();
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		PageFactory.initElements(driver, GRCPageobject.class);
-		Actions act = new Actions(driver);
+		Actions act = new Actions(driver);  
+		SimpleDateFormat dateFormat1 = new SimpleDateFormat("MMddyyyyHHMMSS");
+		String Date2 = dateFormat1.format(new Date());
 		driver.get("https://grc.vakilsearch.com/grc/login");
 		Thread.sleep(2500);
 
@@ -70,6 +82,14 @@ public class GRCPage extends GRCPageobject {
 		GRCOTP3.sendKeys("0");
 		GRCOTP4.sendKeys("0");
 		Thread.sleep(1500);
+		screenshot.screenshot1(driver, extentreport);
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+		String Date1 = dateFormat.format(new Date());
+		System.out.println(Date1);
+		test.log(Status.PASS,
+				MediaEntityBuilder.createScreenCaptureFromPath(
+						"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots1.png",
+						"DashboardURL1").build());
 
 		robot.keyPress(KeyEvent.VK_CONTROL);
 		robot.keyPress(KeyEvent.VK_MINUS);
@@ -93,6 +113,7 @@ public class GRCPage extends GRCPageobject {
 
 		Thread.sleep(3500);
 		try {
+			wait.until(ExpectedConditions.elementToBeClickable(Closepopup));
 			Closepopup.click();
 		} catch (Exception Closepopup) {
 			System.out.println("No popup");
@@ -102,14 +123,27 @@ public class GRCPage extends GRCPageobject {
 		String DashboardURL = driver.getCurrentUrl().substring(0, 37);
 		String DashboardURL1 = "https://grc.vakilsearch.com/grc/dashboard";
 		if (DashboardURL1.contains(DashboardURL)) {
-			test.log(Status.PASS, "Dashboard URL");
-			System.out.println(DashboardURL);
+
+			screenshot.screenshot2(driver, extentreport);
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots2.png",
+							"DashboardURL1").build());
+
 		} else {
-			test.log(Status.FAIL, "Dashboard URL Not Same  " + DashboardURL);
-			System.out.println(DashboardURL1);
+
+			screenshot.screenshot2(driver, extentreport);
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots2.png","DashboardURL1").build());
 
 		}
 		Thread.sleep(5000);
+		try {
+			Closepopup.click();
+		} catch (Exception Closepopup) {
+			System.out.println("No popup");
+		}
 		try {
 			wait.until(ExpectedConditions.elementToBeClickable(Closehelp1));
 			actions.moveToElement(Closehelp1).click().build().perform();
@@ -119,6 +153,11 @@ public class GRCPage extends GRCPageobject {
 
 		}
 		Thread.sleep(3000);
+		try {
+			Closepopup.click();
+		} catch (Exception Closepopup) {
+			System.out.println("No popup");
+		}
 		try {
 
 			GRCPage.addnewEntity.click();
@@ -145,7 +184,7 @@ public class GRCPage extends GRCPageobject {
 		CompanyName.click();
 		CompanyName.sendKeys(GRCNewCompanyName);
 		CINNo.click();
-		CINNo.sendKeys(CINNumber);
+		CINNo.sendKeys(CINNumber+Date2);
 		Thread.sleep(3500);
 		try {
 			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(),'Continue')]")));
@@ -170,7 +209,7 @@ public class GRCPage extends GRCPageobject {
 		robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
 		Thread.sleep(3000);
 		Continue2.click();
-		Thread.sleep(1500);
+		Thread.sleep(2500);
 
 		Skip.click();
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//p[contains(text(),'Continue')]")));
@@ -207,13 +246,13 @@ public class GRCPage extends GRCPageobject {
 		wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("(//div[@class='styles_accountsList__qfPzH']/child::div)[2]"))).click();
 		// EntitySelect2.click();
-		wait.until(ExpectedConditions
-				.elementToBeClickable(By.xpath("//button[@class='styles_dropdownBtn__I6_4i']/child::p"))).click();
-		Thread.sleep(2500);
-		// **just for option
-//	OpenEntityList.click();
-		wait.until(ExpectedConditions
-				.elementToBeClickable(By.xpath("(//div[@class='styles_accountsList__qfPzH']/child::div)[1]"))).click();
+		try {
+
+			Closepopup.click();
+		} catch (Exception Closepopup) {
+			System.out.println("No popup");
+		}
+
 		Thread.sleep(1500);
 		ProfileMenu.click();
 		Thread.sleep(1500);
@@ -222,10 +261,18 @@ public class GRCPage extends GRCPageobject {
 		String ProfileInformationURL = driver.getCurrentUrl().substring(0, 44);
 		String ProfileInformationURL1 = "https://grc.vakilsearch.com/grc/user-profile";
 		if (ProfileInformationURL1.contains(ProfileInformationURL)) {
-			test.log(Status.PASS, "ProfileInformationURL");
+			screenshot.screenshot3(driver, extentreport);
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots3.png",
+							"ProfileInformationURL").build());
 			System.out.println(ProfileInformationURL);
 		} else {
-			test.log(Status.FAIL, "ProfileInformationURL Not Same  " + ProfileInformationURL);
+			screenshot.screenshot3(driver, extentreport);
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots3.png",
+							"ProfileInformationURL").build());
 			System.out.println(ProfileInformationURL1);
 		}
 
@@ -244,9 +291,11 @@ public class GRCPage extends GRCPageobject {
 		robot.keyRelease(KeyEvent.VK_MINUS);
 		robot.keyPress(KeyEvent.VK_MINUS);
 		robot.keyRelease(KeyEvent.VK_MINUS);
+		robot.keyPress(KeyEvent.VK_MINUS);
+		robot.keyRelease(KeyEvent.VK_MINUS);
+		robot.keyPress(KeyEvent.VK_MINUS);
+		robot.keyRelease(KeyEvent.VK_MINUS);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
-		robot.keyPress(KeyEvent.VK_PAGE_DOWN);
-		robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
 		robot.keyPress(KeyEvent.VK_PAGE_UP);
 		robot.keyRelease(KeyEvent.VK_PAGE_UP);
 
@@ -305,11 +354,12 @@ public class GRCPage extends GRCPageobject {
 		} catch (Exception Closepopup1) {
 			System.out.println("No popup");
 		}
+		Thread.sleep(2000);
 		robot.keyPress(KeyEvent.VK_CONTROL);
 		robot.keyPress(KeyEvent.VK_R);
 		robot.keyRelease(KeyEvent.VK_R);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 
 		try {
 			wait.until(ExpectedConditions.elementToBeClickable(Closehelp1));
@@ -322,21 +372,33 @@ public class GRCPage extends GRCPageobject {
 			} catch (Exception NeedClosed2) {
 				System.out.println("Need help closed");
 			}
-		}
 
+			Thread.sleep(3000);
+		}
+		Thread.sleep(2500);
 		// actions.click(Needhelp);
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[contains(text(),'Need help')]")));
-		Thread.sleep(3000);
+		try {
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(text(),'Need help')]"))).click();
-		// Needhelp.click();
+		Thread.sleep(3000);
+		}catch(Exception needhelpclick){
+		wait.until(ExpectedConditions
+				.elementToBeClickable(By.xpath("(//div[@class='styles_btnContainer__sVb_P']//child::div)[1]"))).click();
+		}// Needhelp.click();
 		Thread.sleep(1500);
 		String NeedHelpURL = driver.getCurrentUrl().substring(0, 36);
 		String NeedHelpURL1 = "https://grc.vakilsearch.com/grc/help";
 		if (NeedHelpURL1.contains(NeedHelpURL)) {
-			test.log(Status.PASS, "NeedHelpURL");
-			System.out.println(NeedHelpURL);
+			screenshot.screenshot4(driver, extentreport);
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots4.png",
+							"NeedHelpURL1").build());
 		} else {
-			test.log(Status.FAIL, "NeedHelpURL Not Same  " + NeedHelpURL);
+			screenshot.screenshot4(driver, extentreport);
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots4.png",
+							"NeedHelpURL1").build());
 			System.out.println(NeedHelpURL1);
 		}
 		wait.until(ExpectedConditions
@@ -363,20 +425,47 @@ public class GRCPage extends GRCPageobject {
 
 		robot.keyPress(KeyEvent.VK_PAGE_UP);
 		robot.keyRelease(KeyEvent.VK_PAGE_UP);
-		Thread.sleep(4000);
+		Thread.sleep(4500);
 		// **********
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//img[@alt='Settings']/parent::button"))).click();
-		// driver.findElement(By.xpath("//img[@alt='Settings']/parent::button")).click();
+		try {
+			wait.until(ExpectedConditions.elementToBeClickable(Closehelp1));
+			actions.moveToElement(Closehelp1).click().build().perform();
+		} catch (Exception NeedClose) {
+			try {
+
+				wait.until(ExpectedConditions.elementToBeClickable(Closehelp2));
+				actions.moveToElement(Closehelp2).click().build().perform();
+			} catch (Exception NeedClosed2) {
+				System.out.println("Need help closed");
+			}
+		}
+		Thread.sleep(2500);
+		try {
+			wait.until(ExpectedConditions
+					.elementToBeClickable(By.xpath("(//div[@class='styles_btnContainer__sVb_P']/child::button)[1]")))
+					.click();
+		} catch (Exception e100008) {
+			driver.findElement(By.xpath("//img[@alt='Settings']/parent::button")).click();
+		}
+
 		Thread.sleep(10000);
 		driver.findElement(By.xpath("//p[contains(text(),'Business Profile')]")).click();
 		Thread.sleep(10000);
 		String BusinessProfileURL = driver.getCurrentUrl().substring(0, 48);
 		String BusinessProfileURL1 = "https://grc.vakilsearch.com/grc/business-profile";
 		if (BusinessProfileURL1.contains(BusinessProfileURL)) {
-			test.log(Status.PASS, "BusinessProfileURL");
+			screenshot.screenshot5(driver, extentreport);
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots5.png",
+							"BusinessProfileURL").build());
 			System.out.println(BusinessProfileURL1);
 		} else {
-			test.log(Status.FAIL, "BusinessProfileURL not same" + BusinessProfileURL);
+			screenshot.screenshot5(driver, extentreport);
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots5.png",
+							"BusinessProfileURL").build());
 			System.out.println(BusinessProfileURL);
 		}
 
@@ -394,10 +483,18 @@ public class GRCPage extends GRCPageobject {
 		String UsersandRolesURL = driver.getCurrentUrl().substring(0, 42);
 		String UsersandRolesURL1 = "https://grc.vakilsearch.com/grc/user_roles";
 		if (UsersandRolesURL1.contains(UsersandRolesURL)) {
-			test.log(Status.PASS, "UsersAndRolesURL");
+			screenshot.screenshot6(driver, extentreport);
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots6.png",
+							"UsersandRolesURL1").build());
 			System.out.println(UsersandRolesURL1);
 		} else {
-			test.log(Status.FAIL, "UsersandRolesURL not same" + UsersandRolesURL);
+			screenshot.screenshot6(driver, extentreport);
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots6.png",
+							"UsersandRolesURL1").build());
 			System.out.println(UsersandRolesURL);
 		}
 		driver.navigate().back();
@@ -411,10 +508,18 @@ public class GRCPage extends GRCPageobject {
 		String AddUserURL = driver.getCurrentUrl().substring(0, 42);
 		String AddUserURL1 = "https://grc.vakilsearch.com/grc/user_roles";
 		if (AddUserURL1.contains(AddUserURL)) {
-			test.log(Status.PASS, "AddUserURL");
+			screenshot.screenshot7(driver, extentreport);
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots7.png",
+							"AddUserURL").build());
 			System.out.println(AddUserURL1);
 		} else {
-			test.log(Status.FAIL, "AddUserURL not same" + AddUserURL);
+			screenshot.screenshot7(driver, extentreport);
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots7.png",
+							"AddUserURL1").build());
 			System.out.println(AddUserURL);
 		}
 		// driver.navigate().back();
@@ -428,10 +533,18 @@ public class GRCPage extends GRCPageobject {
 		String HelpURL = driver.getCurrentUrl().substring(0, 36);
 		String HelpURL1 = "https://grc.vakilsearch.com/grc/help";
 		if (HelpURL1.contains(HelpURL)) {
-			test.log(Status.PASS, "HelpURL");
+			screenshot.screenshot8(driver, extentreport);
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots8.png",
+							"HelpURL").build());
 			System.out.println(HelpURL1);
 		} else {
-			test.log(Status.FAIL, "HelpURL not same" + HelpURL);
+			screenshot.screenshot8(driver, extentreport);
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots8.png",
+							"HelpURL").build());
 			System.out.println(HelpURL);
 		}
 		driver.navigate().back();
@@ -444,10 +557,18 @@ public class GRCPage extends GRCPageobject {
 		String SupportURL = driver.getCurrentUrl().substring(0, 42);
 		String SupportURL1 = "https://grc.vakilsearch.com/grc/contact-us";
 		if (SupportURL1.contains(SupportURL)) {
-			test.log(Status.PASS, "SupportURL");
+			screenshot.screenshot9(driver, extentreport);
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots9.png",
+							"SupportURL1").build());
 			System.out.println(SupportURL1);
 		} else {
-			test.log(Status.FAIL, "SupportURL not same" + SupportURL);
+			screenshot.screenshot9(driver, extentreport);
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots9.png",
+							"SupportURL1").build());
 			System.out.println(SupportURL);
 		}
 		driver.navigate().back();
@@ -469,6 +590,7 @@ public class GRCPage extends GRCPageobject {
 				System.out.println("Need help closed");
 			}
 		}
+		Thread.sleep(2000);
 		// **************
 		// driver.findElement(By.xpath("//button[@class='styles_gearBtn__s6cgl']")).click();
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[contains(text(),'Messages')]")));
@@ -478,10 +600,18 @@ public class GRCPage extends GRCPageobject {
 		String MessagesURL = driver.getCurrentUrl().substring(0, 40);
 		String MessagesURL1 = "https://grc.vakilsearch.com/grc/messages";
 		if (MessagesURL1.contains(MessagesURL)) {
-			test.log(Status.PASS, "MessagesURL");
+			screenshot.screenshot10(driver, extentreport);
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots10.png",
+							"MessagesURL").build());
 			System.out.println(MessagesURL1);
 		} else {
-			test.log(Status.FAIL, "MessagesURL not same" + MessagesURL);
+			screenshot.screenshot10(driver, extentreport);
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots10.png",
+							"MessagesURL").build());
 			System.out.println(MessagesURL);
 		}
 
@@ -495,10 +625,18 @@ public class GRCPage extends GRCPageobject {
 		String AllServicesURL = driver.getCurrentUrl().substring(0, 40);
 		String AllServicesURL1 = "https://grc.vakilsearch.com/grc/services";
 		if (AllServicesURL1.contains(AllServicesURL)) {
-			test.log(Status.PASS, "AllServicesURL");
+			screenshot.screenshot11(driver, extentreport);
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots11.png",
+							"AllServicesURL1").build());
 			System.out.println(AllServicesURL1);
 		} else {
-			test.log(Status.FAIL, "AllServicesURL not same" + AllServicesURL);
+			screenshot.screenshot11(driver, extentreport);
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots11.png",
+							"AllServicesURL1").build());
 			System.out.println(AllServicesURL);
 		}
 		driver.navigate().back();
@@ -509,11 +647,18 @@ public class GRCPage extends GRCPageobject {
 		String PaymentsURL = driver.getCurrentUrl().substring(0, 40);
 		String PaymentsURL1 = "https://grc.vakilsearch.com/grc/payments";
 		if (PaymentsURL.contains(PaymentsURL1)) {
-			test.log(Status.PASS, "PaymentsURL");
+			screenshot.screenshot12(driver, extentreport);
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots12.png",
+							"PaymentsURL").build());
 			System.out.println(PaymentsURL1);
 		} else {
-			test.log(Status.FAIL, "PaymentsURL not same" + PaymentsURL);
-			System.out.println(PaymentsURL);
+			screenshot.screenshot12(driver, extentreport);
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots12.png",
+							"PaymentsURL").build());			System.out.println(PaymentsURL);
 		}
 		driver.navigate().back();
 		Thread.sleep(5500);
@@ -523,11 +668,17 @@ public class GRCPage extends GRCPageobject {
 		String ComplianceCalendar = driver.getCurrentUrl().substring(0, 40);
 		String ComplianceCalendar1 = "https://grc.vakilsearch.com/grc/calendar";
 		if (ComplianceCalendar.contains(ComplianceCalendar1)) {
-			test.log(Status.PASS, "ComplianceCalendar");
-			System.out.println(ComplianceCalendar1);
+			screenshot.screenshot13(driver, extentreport);
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots13.png",
+							"ComplianceCalendar").build());			System.out.println(ComplianceCalendar1);
 		} else {
-			test.log(Status.FAIL, "ComplianceCalendarURL not same" + ComplianceCalendar);
-			System.out.println(ComplianceCalendar);
+			screenshot.screenshot13(driver, extentreport);
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots13.png",
+							"ComplianceCalendar").build());			System.out.println(ComplianceCalendar);
 		}
 
 		driver.navigate().back();
@@ -537,11 +688,17 @@ public class GRCPage extends GRCPageobject {
 		String RewardsURL = driver.getCurrentUrl().substring(0, 39);
 		String RewardsURL1 = "https://grc.vakilsearch.com/grc/rewards";
 		if (RewardsURL.contains(RewardsURL1)) {
-			test.log(Status.PASS, "RewardsURL");
-			System.out.println(RewardsURL1);
+			screenshot.screenshot14(driver, extentreport);
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots14.png",
+							"RewardsURL").build());			System.out.println(RewardsURL1);
 		} else {
-			test.log(Status.FAIL, "RewardsURL not same" + RewardsURL);
-			System.out.println(RewardsURL);
+			screenshot.screenshot14(driver, extentreport);
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots14.png",
+							"RewardsURL").build());			System.out.println(RewardsURL);
 		}
 		driver.navigate().back();
 		Thread.sleep(5500);
@@ -550,11 +707,17 @@ public class GRCPage extends GRCPageobject {
 		String MyServicesURL = driver.getCurrentUrl().substring(0, 43);
 		String MyServicesURL1 = "https://grc.vakilsearch.com/grc/my-services";
 		if (MyServicesURL.contains(MyServicesURL1)) {
-			test.log(Status.PASS, "MyServicesURL");
-			System.out.println(MyServicesURL1);
+			screenshot.screenshot15(driver, extentreport);
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots15.png",
+							"MyServicesURL").build());			System.out.println(MyServicesURL1);
 		} else {
-			test.log(Status.FAIL, "MyServicesURL not same" + MyServicesURL);
-			System.out.println(MyServicesURL);
+			screenshot.screenshot15(driver, extentreport);
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots15.png",
+							"MyServicesURL").build());			System.out.println(MyServicesURL);
 		}
 		driver.navigate().back();
 		Thread.sleep(3500);
@@ -581,23 +744,35 @@ public class GRCPage extends GRCPageobject {
 		String MyInterestURL = driver.getCurrentUrl().substring(0, 44);
 		String MyInterestURL1 = "https://grc.vakilsearch.com/grc/my-interests";
 		if (MyInterestURL1.contains(MyInterestURL)) {
-			test.log(Status.PASS, "MyInterestURL");
-			System.out.println(MyInterestURL);
+			screenshot.screenshot16(driver, extentreport);
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots16.png",
+							"MyInterestURL").build());			System.out.println(MyInterestURL);
 		} else {
-			test.log(Status.FAIL, "MyInterestURL not same" + MyInterestURL);
-			System.out.println(MyInterestURL1);
+			screenshot.screenshot16(driver, extentreport);
+			test.log(Status.FAIL,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots16.png",
+							"MyInterestURL").build());			System.out.println(MyInterestURL1);
 		}
 		if (e.matches(e)) {
-			test.log(Status.PASS, "Create a ticket from the vakilsearch.com");
-		} else {
+			screenshot.screenshot17(driver, extentreport);
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots17.png",
+							"LeadCreation").build());		} else {
 
-			test.log(Status.FAIL, "no lead is Create a ticket from the vakilsearch.com");
-		}
+								screenshot.screenshot17(driver, extentreport);
+								test.log(Status.FAIL,
+										MediaEntityBuilder.createScreenCaptureFromPath(
+												"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots17.png",
+												"LeadCreation").build());		}
 
 		System.out.println(e);
 
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		Payment key = new Payment(driver, test);
+		Payment key = new Payment(driver, test,extentreport);
 
 	}
 

@@ -3,7 +3,8 @@ package CriticalFlowRun;
 import java.awt.AWTException;
 import java.io.FileInputStream;
 import java.io.IOException;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import MainBase.*;
 
@@ -45,7 +46,7 @@ public class Criticalflow {
 
 	ExtentReports extentreport;
 	ExtentSparkReporter htmlReporter;
-	ExtentTest testcase;
+	ExtentTest test;
 
 	String[][] data = null;
 
@@ -81,12 +82,16 @@ public class Criticalflow {
 
 	@BeforeSuite
 	public void Login() throws InterruptedException, AWTException {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+	String Date1 = dateFormat.format(new Date());
 		extentreport = new ExtentReports();
-		htmlReporter = new ExtentSparkReporter("extentreport.html");
+		htmlReporter = new ExtentSparkReporter("C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\extentreport.html");
+		
+      
 		extentreport.attachReporter(htmlReporter);
 
 	}
-
+    
 	@BeforeTest
 	public void Max() throws InterruptedException, AWTException {
 		Driver d = new Driver(driver);
@@ -100,7 +105,7 @@ public class Criticalflow {
 		    option.addArguments("--headless");
 	
 		    driver= new ChromeDriver(capabilities);
-		    driver.manage().window().setSize(new Dimension(1920, 1080));
+		    driver.manage().window().maximize();
 	}
 
 	@BeforeClass
@@ -121,9 +126,9 @@ public class Criticalflow {
 
 		// ********Base base = new Base(driver, Username, Mobilenumber, extentreport);
 	
-		// GRCPage grcpage1 = new GRCPage(driver, extentreport, GRCMobileNumber,
-		//			GRCNewCompanyName, CINNumber,
-			//		 Helpdeskuserid, helpdeskpassword, assignedtoName);
+		 GRCPage grcpage1 = new GRCPage(driver, extentreport, GRCMobileNumber,
+					GRCNewCompanyName, CINNumber,
+					 Helpdeskuserid, helpdeskpassword, assignedtoName);
 		CriticalFlowDetail Criticalflow = new CriticalFlowDetail(driver,
 		 Helpdeskuserid, helpdeskpassword, notesname,
 		 notedescrption, QNameOfCustomer, qaddress, qpincode, Professionalfees,
@@ -136,7 +141,7 @@ public class Criticalflow {
 	public void close() {
 		// driver.close();
 		System.out.println("The close_up process is completed");
-
+		
 	}
 
 	@AfterTest
