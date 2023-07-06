@@ -63,7 +63,7 @@ public class GRCPage extends GRCPageobject {
 		Actions actions = new Actions(driver);
 		test = extentreport.createTest("GRC Test");
 		ScreenShot screenshot = new ScreenShot();
-		WebDriverWait wait = new WebDriverWait(driver, 10);
+		WebDriverWait wait = new WebDriverWait(driver, 20);
 		PageFactory.initElements(driver, GRCPageobject.class);
 		Actions act = new Actions(driver);  
 		SimpleDateFormat dateFormat1 = new SimpleDateFormat("MMddyyyyHHMMSS");
@@ -347,7 +347,7 @@ public class GRCPage extends GRCPageobject {
 			}
 
 		}
-Thread.sleep(1500);
+Thread.sleep(2500);
 		String ServiceID = GetServiceID.getText().substring(1);
 		System.out.println(ServiceID + "GRC");
 		WebElement element13 = driver.findElement(By.xpath("(//img[@alt='close'])[1]"));
@@ -358,7 +358,7 @@ Thread.sleep(1500);
 //		} catch (Exception Closepopup1) {
 //			System.out.println("No popup");
 //		}
-//		Thread.sleep(2000);
+		Thread.sleep(2000);
 //		robot.keyPress(KeyEvent.VK_CONTROL);
 //		robot.keyPress(KeyEvent.VK_R);
 //		robot.keyRelease(KeyEvent.VK_R);
@@ -413,18 +413,8 @@ Thread.sleep(1500);
 		JavascriptExecutor executor5 = (JavascriptExecutor) driver;
 		executor5.executeScript("arguments[0].click();", element5);
 		//clickVideo.click();
-		Thread.sleep(8500);
-		robot.keyPress(KeyEvent.VK_TAB);
-		robot.keyRelease(KeyEvent.VK_TAB);
-		Thread.sleep(1500);
-		robot.keyPress(KeyEvent.VK_TAB);
-		robot.keyRelease(KeyEvent.VK_TAB);
-		Thread.sleep(1500);
-		robot.keyPress(KeyEvent.VK_TAB);
-		robot.keyRelease(KeyEvent.VK_TAB);
-		Thread.sleep(1500);
-		robot.keyPress(KeyEvent.VK_ENTER);
-		robot.keyRelease(KeyEvent.VK_ENTER);
+		
+		
 		Thread.sleep(3000);
 
 		robot.keyPress(KeyEvent.VK_CONTROL);
@@ -432,12 +422,11 @@ Thread.sleep(1500);
 		robot.keyRelease(KeyEvent.VK_R);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
 
-		robot.keyPress(KeyEvent.VK_PAGE_UP);
-		robot.keyRelease(KeyEvent.VK_PAGE_UP);
+		
 		Thread.sleep(4500);
 		// **********
 		try {
-			
+			Thread.sleep(4500);
 			WebElement element6 = driver.findElement(By.xpath("//div[@class='styles_container__BL2LZ false']/child::div"));
 			JavascriptExecutor executor6 = (JavascriptExecutor) driver;
 			executor6.executeScript("arguments[0].click();", element6);
@@ -487,7 +476,9 @@ Thread.sleep(1500);
 
 		// *********
 
-		driver.findElement(By.xpath("//button[@class='styles_gearBtn__s6cgl']/child::img")).click();
+		WebElement element7 = driver.findElement(By.xpath("//img[@alt='Settings']/parent::button"));
+		JavascriptExecutor executor7 = (JavascriptExecutor) driver;
+		executor7.executeScript("arguments[0].click();", element7);
 		Thread.sleep(2500);
 		Thread.sleep(10000);
 
@@ -678,7 +669,10 @@ Thread.sleep(1500);
 		driver.navigate().back();
 		Thread.sleep(5500);
 		// driver.findElement(By.xpath("//button[@class='styles_gearBtn__s6cgl']")).click();
-		driver.findElement(By.xpath("//span[contains(text(),'Compliance Calendar')]")).click();
+		WebElement element33 = driver.findElement(By.xpath("//span[contains(text(),'Compliance Calendar')]"));
+		JavascriptExecutor executor33 = (JavascriptExecutor) driver;
+		executor33.executeScript("arguments[0].click();", element33);
+	
 		Thread.sleep(2500);
 		String ComplianceCalendar = driver.getCurrentUrl().substring(0, 40);
 		String ComplianceCalendar1 = "https://grc.vakilsearch.com/grc/calendar";

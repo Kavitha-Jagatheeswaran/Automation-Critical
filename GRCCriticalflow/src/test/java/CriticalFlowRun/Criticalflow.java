@@ -126,9 +126,9 @@ public class Criticalflow {
 
 		// ********Base base = new Base(driver, Username, Mobilenumber, extentreport);
 	
-		 GRCPage grcpage1 = new GRCPage(driver, extentreport, GRCMobileNumber,
-					GRCNewCompanyName, CINNumber,
-					 Helpdeskuserid, helpdeskpassword, assignedtoName);
+		GRCPage grcpage1 = new GRCPage(driver, extentreport, GRCMobileNumber,
+				GRCNewCompanyName, CINNumber,
+				Helpdeskuserid, helpdeskpassword, assignedtoName);
 		CriticalFlowDetail Criticalflow = new CriticalFlowDetail(driver,
 		 Helpdeskuserid, helpdeskpassword, notesname,
 		 notedescrption, QNameOfCustomer, qaddress, qpincode, Professionalfees,
