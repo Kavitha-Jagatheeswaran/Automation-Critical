@@ -63,7 +63,7 @@ try {
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots43.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots43.png",
 							"InternalNotes").build());
 		} else {
 			screenshot.screenshot43(driver, extentreport);
@@ -71,7 +71,7 @@ try {
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots43.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots43.png",
 							"InternalNotes").build());
 		}
 		screenshot.screenshot44(driver, extentreport);
@@ -79,7 +79,7 @@ try {
 		String Date1 = dateFormat.format(new Date());
 		test.log(Status.FAIL,
 				MediaEntityBuilder.createScreenCaptureFromPath(
-						"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots44.png",
+						"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots44.png",
 						"Newcrnotevalidation").build());
 } catch (Exception Newcrnotevalidation1) {
 	screenshot.screenshot44(driver, extentreport);
@@ -87,7 +87,7 @@ try {
 	String Date1 = dateFormat.format(new Date());
 	test.log(Status.FAIL,
 			MediaEntityBuilder.createScreenCaptureFromPath(
-					"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots44.png",
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots44.png",
 					"Newcrnotevalidation").build());
 }
 	}

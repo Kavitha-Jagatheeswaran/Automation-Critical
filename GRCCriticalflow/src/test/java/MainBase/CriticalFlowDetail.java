@@ -103,7 +103,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		Tickets.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		ticketid.sendKeys(GRCPage.e);
-	 //ticketid.sendKeys("3313738");
+	// ticketid.sendKeys("3317605");
 		Search.click();
 		Firstservice.click();
 
@@ -177,16 +177,40 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 					.sendKeys("Apply For Name Change - Minor");
 			robot.keyPress(KeyEvent.VK_ENTER);
 			robot.keyRelease(KeyEvent.VK_ENTER);
+			try {
 			BDagentCTA.click();
+			Thread.sleep(2000);
 			BDagentsearch.sendKeys("Dhrubo BD");
+			Thread.sleep(2000);
 			robot.keyPress(KeyEvent.VK_ENTER);
 			robot.keyRelease(KeyEvent.VK_ENTER);
-			
+			}catch(Exception Editbdagent){
+				Thread.sleep(5000);
+			}
+			Thread.sleep(10000);
+			try {
+
 			WebElement element11 = driver.findElement(By.xpath("(//input[@value='Update'])[1]"));
 			JavascriptExecutor executor11 = (JavascriptExecutor) driver;
 			executor11.executeScript("arguments[0].click();", element11);
+			}catch(Exception updateedit) {
+				robot.keyPress(KeyEvent.VK_TAB);
+				robot.keyRelease(KeyEvent.VK_TAB);
+				robot.keyPress(KeyEvent.VK_TAB);
+				robot.keyRelease(KeyEvent.VK_TAB);
+				robot.keyPress(KeyEvent.VK_TAB);
+				robot.keyRelease(KeyEvent.VK_TAB);
+				robot.keyPress(KeyEvent.VK_TAB);
+				robot.keyRelease(KeyEvent.VK_TAB);
+				robot.keyPress(KeyEvent.VK_TAB);
+				robot.keyRelease(KeyEvent.VK_TAB);
+				robot.keyPress(KeyEvent.VK_TAB);
+				robot.keyRelease(KeyEvent.VK_TAB);
+				robot.keyPress(KeyEvent.VK_ENTER);
+				robot.keyRelease(KeyEvent.VK_ENTER);
+			}
 		//	Updateticket.click();
-			Thread.sleep(5000);
+			Thread.sleep(10000);
 			wait.until(ExpectedConditions.alertIsPresent()).accept();
 			
 			Thread.sleep(8000);
@@ -195,15 +219,16 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots20.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots20.png",
 							"Editticket").build());
 		} catch (Exception Editticket1) {
+			wait.until(ExpectedConditions.alertIsPresent()).accept();
 			screenshot.screenshot20(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots20.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots20.png",
 							"Editticket").build());
 			Thread.sleep(5000);
 			robot.keyPress(KeyEvent.VK_CONTROL);
@@ -276,7 +301,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots21.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots21.png",
 							"CriticalNote").build());
 		} catch (Exception CriticalNote) {
 			screenshot.screenshot21(driver, extentreport);
@@ -284,7 +309,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots21.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots21.png",
 							"CriticalNote").build());
 		}
 		Thread.sleep(3500);
@@ -302,7 +327,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots22.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots22.png",
 							"Critical Note verification").build());
 			driver.switchTo().window(all29.get(1));
 			driver.close();
@@ -312,7 +337,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots22.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots22.png",
 							"Critical Note verification").build());
 		}
 		List<String> all29 = new ArrayList<String>(driver.getWindowHandles());
@@ -345,7 +370,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots23.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots23.png",
 							"Personal Note").build());
 
 		} catch (Exception PersonalNote) {
@@ -355,7 +380,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots23.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots23.png",
 							"Personal Note").build());
 		}
 
@@ -433,7 +458,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots24.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots24.png",
 							"Add Note").build());
 		} catch (Exception AddNote) {
 			screenshot.screenshot24(driver, extentreport);
@@ -441,7 +466,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots24.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots24.png",
 							"Add Note").build());
 		}
 		Thread.sleep(3500);
@@ -460,7 +485,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots25.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots25.png",
 							"Add Note Verification").build());
 			driver.switchTo().window(all30.get(1));
 			driver.close();
@@ -470,7 +495,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots25.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots25.png",
 							"Add Note Verification").build());
 		}
 		List<String> all30 = new ArrayList<String>(driver.getWindowHandles());
@@ -552,7 +577,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots26.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots26.png",
 							"Canned response").build());
 		} catch (Exception cannedException) {
 			screenshot.screenshot26(driver, extentreport);
@@ -560,7 +585,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots26.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots26.png",
 							"Canned response").build());
 			driver.navigate().back();
 		}
@@ -600,7 +625,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 				String Date1 = dateFormat.format(new Date());
 				test.log(Status.PASS,
 						MediaEntityBuilder.createScreenCaptureFromPath(
-								"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots27.png",
+								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots27.png",
 								"Event TicketID Verified").build());
 				
 			} else {
@@ -609,7 +634,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 				String Date1 = dateFormat.format(new Date());
 				test.log(Status.FAIL,
 						MediaEntityBuilder.createScreenCaptureFromPath(
-								"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots27.png",
+								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots27.png",
 								"Event TicketID Verified").build());
 				
 			}
@@ -620,7 +645,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots28.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots28.png",
 							"Event creation and Verification failed").build());
 		
 driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
@@ -761,7 +786,7 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots29.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots29.png",
 							"Quotation Creation").build());
 		} catch (Exception CreatenewQuotation1) {
 			screenshot.screenshot29(driver, extentreport);
@@ -769,7 +794,7 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots29.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots29.png",
 							"Quotation Creation").build());
 		}
 		robot.keyPress(KeyEvent.VK_CONTROL);
@@ -794,7 +819,7 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots30.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots30.png",
 							"Quotation Creation amount verification").build());
 		} else {
 			screenshot.screenshot30(driver, extentreport);
@@ -802,7 +827,7 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots30.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots30.png",
 							"Quotation Creation amount verification").build());
 			test.log(Status.FAIL,
 					"Quotation Creation amount verification failed " + AmountValidation1 + PaynowAmountValidation);
@@ -886,7 +911,7 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 				String Date1 = dateFormat.format(new Date());
 				test.log(Status.PASS,
 						MediaEntityBuilder.createScreenCaptureFromPath(
-								"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots31.png",
+								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots31.png",
 								"Edit Quotation amount verified").build());
 				
 			} else {
@@ -895,7 +920,7 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 				String Date1 = dateFormat.format(new Date());
 				test.log(Status.FAIL,
 						MediaEntityBuilder.createScreenCaptureFromPath(
-								"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots31.png",
+								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots31.png",
 								"Edit Quotation amount verified").build());
 				test.log(Status.FAIL, "Edit Quotation Creation amount verification failed " + AmountValidation2
 						+ PaynowAmountValidation2);
@@ -911,7 +936,7 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots32.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots32.png",
 							"Edit Quotation").build());
 			driver.close();
 			driver.switchTo().window(all33.get(0));
@@ -921,7 +946,7 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots32.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots32.png",
 							"Edit Quotation").build());
 		}
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -937,7 +962,7 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots33.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots33.png",
 							"Generate Quotation").build());
 		} catch (Exception GenerateQuotation1) {
 			screenshot.screenshot33(driver, extentreport);
@@ -945,7 +970,7 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots33.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots33.png",
 							"Generate Quotation").build());
 			test.log(Status.FAIL, "Generate Quotation Failed");
 		}
@@ -975,7 +1000,7 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 				String Date1 = dateFormat.format(new Date());
 				test.log(Status.PASS,
 						MediaEntityBuilder.createScreenCaptureFromPath(
-								"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots34.png",
+								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots34.png",
 								"DeactivateQuotation").build());
 			} else {
 				screenshot.screenshot34(driver, extentreport);
@@ -983,7 +1008,7 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 				String Date1 = dateFormat.format(new Date());
 				test.log(Status.FAIL,
 						MediaEntityBuilder.createScreenCaptureFromPath(
-								"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots34.png",
+								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots34.png",
 								"Deactivate Quotation VERIFICATION").build());
 			}
 			test.log(Status.PASS, "DeactivateQuotation success");
@@ -1006,7 +1031,7 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots35.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots35.png",
 							"LoadmoreMessage").build());
 		} catch (Exception LoadmoreMessage) {
 		
@@ -1015,7 +1040,7 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots35.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots35.png",
 							"LoadmoreMessage").build());
 		}
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -1058,7 +1083,7 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots36.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots36.png",
 							"Crosssale").build());
 		} catch (Exception Crosssale1) {
 			screenshot.screenshot36(driver, extentreport);
@@ -1066,7 +1091,7 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots36.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots36.png",
 							"Crosssale").build());
 		}
 		Thread.sleep(10000);
@@ -1085,7 +1110,7 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots37.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots37.png",
 							"RecentTicket").build());
 		} catch (Exception RecentTicket1) {
 			screenshot.screenshot37(driver, extentreport);
@@ -1093,7 +1118,7 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots37.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots37.png",
 							"RecentTicket").build());
 		}
 		String T1 = recentTicketID.getText().substring(1, 8);
@@ -1163,7 +1188,7 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots38.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots38.png",
 							"Merge").build());
 		} catch (Exception Merge1) {
 			screenshot.screenshot38(driver, extentreport);
@@ -1171,7 +1196,7 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots38.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots38.png",
 							"Merge").build());
 		}
 		Thread.sleep(3000);
@@ -1244,7 +1269,7 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 				String Date1 = dateFormat.format(new Date());
 				test.log(Status.PASS,
 						MediaEntityBuilder.createScreenCaptureFromPath(
-								"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots39.png",
+								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots39.png",
 								"Magic Key title").build());
 
 			} else {
@@ -1253,7 +1278,7 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 				String Date1 = dateFormat.format(new Date());
 				test.log(Status.FAIL,
 						MediaEntityBuilder.createScreenCaptureFromPath(
-								"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots39.png",
+								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots39.png",
 								"Magic Key title").build());
 			}
 
@@ -1265,7 +1290,7 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots40.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots40.png",
 							"Magic Key").build());
 		} catch (Exception magickey1) {
 			screenshot.screenshot40(driver, extentreport);
@@ -1273,7 +1298,7 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots40.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots40.png",
 							"Magic Key").build());
 		}
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -1286,7 +1311,7 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots41.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots41.png",
 							"Customerdashboard").build());
 		} catch (Exception Customerdashboard1) {
 			screenshot.screenshot41(driver, extentreport);
@@ -1294,7 +1319,7 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots41.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots41.png",
 							"Customerdashboard").build());
 		}
 		Thread.sleep(3000);
@@ -1332,7 +1357,7 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots42.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots42.png",
 							"Grc Redirection").build());
 		} catch (Exception Grcredirection1) {
 			screenshot.screenshot42(driver, extentreport);
@@ -1340,7 +1365,7 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots42.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots42.png",
 							"Grc Redirection").build());
 			
 			

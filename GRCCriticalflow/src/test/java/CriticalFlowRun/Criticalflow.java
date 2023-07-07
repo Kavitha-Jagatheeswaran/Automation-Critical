@@ -85,8 +85,8 @@ public class Criticalflow {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 	String Date1 = dateFormat.format(new Date());
 		extentreport = new ExtentReports();
-		htmlReporter = new ExtentSparkReporter("C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\extentreport.html");
-		
+		htmlReporter = new ExtentSparkReporter("\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\extentreport.html");
+	//	htmlReporter = new ExtentSparkReporter("C:\\Users\\admit\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\extentreport.html");
       
 		extentreport.attachReporter(htmlReporter);
 
@@ -114,7 +114,7 @@ public class Criticalflow {
 		PageFactory.initElements(driver, HomescreenPageobject.class);
 		PageFactory.initElements(driver, HelpdeskPageobject.class);
 		Thread.sleep(3000);
- 
+
 	}
 
 	@Test(dataProvider = "itemsdata")
@@ -124,7 +124,8 @@ public class Criticalflow {
 			String GRCMobileNumber, String GRCNewCompanyName, String CINNumber, String CrmUsernames,
 			String CrmUserpassword) throws Exception {
 
-		// ********Base base = new Base(driver, Username, Mobilenumber, extentreport);
+		// ********Base base = new Base(driver, Username, Mobilenumber, extentreport)dhrubo bd
+		;
 	
 		GRCPage grcpage1 = new GRCPage(driver, extentreport, GRCMobileNumber,
 				GRCNewCompanyName, CINNumber,

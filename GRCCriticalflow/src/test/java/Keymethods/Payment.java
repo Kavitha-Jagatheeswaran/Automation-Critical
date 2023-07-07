@@ -46,7 +46,7 @@ public class Payment extends HomescreenPageobject {
 			screenshot.screenshot18(driver, extentreport);
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots18.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots18.png",
 							"Payment Cart page success").build());
 			
 			
@@ -54,7 +54,7 @@ public class Payment extends HomescreenPageobject {
 			screenshot.screenshot18(driver, extentreport);
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots18.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots18.png",
 							"Payment URL Failed").build());
 			
 		}
@@ -100,7 +100,7 @@ public class Payment extends HomescreenPageobject {
 		screenshot.screenshot19(driver, extentreport);
 		test.log(Status.PASS,
 				MediaEntityBuilder.createScreenCaptureFromPath(
-						"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots19.png",
+						"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots19.png",
 						"payment Success").build());
 		
 		Thread.sleep(4000);
@@ -108,7 +108,7 @@ public class Payment extends HomescreenPageobject {
 			screenshot.screenshot19(driver, extentreport);
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots19.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots19.png",
 							"Whole payment failed").build());
 			
 		}

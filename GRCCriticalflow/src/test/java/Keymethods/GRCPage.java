@@ -88,7 +88,7 @@ public class GRCPage extends GRCPageobject {
 		System.out.println(Date1);
 		test.log(Status.PASS,
 				MediaEntityBuilder.createScreenCaptureFromPath(
-						"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots1.png",
+						"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot1.png",
 						"DashboardURL1").build());
 
 		robot.keyPress(KeyEvent.VK_CONTROL);
@@ -127,7 +127,7 @@ public class GRCPage extends GRCPageobject {
 			screenshot.screenshot2(driver, extentreport);
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots2.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot2.png",
 							"DashboardURL1").build());
 
 		} else {
@@ -135,7 +135,7 @@ public class GRCPage extends GRCPageobject {
 			screenshot.screenshot2(driver, extentreport);
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots2.png","DashboardURL1").build());
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot2.png","DashboardURL1").build());
 
 		}
 		Thread.sleep(5000);
@@ -266,14 +266,14 @@ public class GRCPage extends GRCPageobject {
 			screenshot.screenshot3(driver, extentreport);
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots3.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot3.png",
 							"ProfileInformationURL").build());
 			System.out.println(ProfileInformationURL);
 		} else {
 			screenshot.screenshot3(driver, extentreport);
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots3.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot3.png",
 							"ProfileInformationURL").build());
 			System.out.println(ProfileInformationURL1);
 		}
@@ -397,13 +397,13 @@ Thread.sleep(2500);
 			screenshot.screenshot4(driver, extentreport);
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots4.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot4.png",
 							"NeedHelpURL1").build());
 		} else {
 			screenshot.screenshot4(driver, extentreport);
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots4.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot4.png",
 							"NeedHelpURL1").build());
 			System.out.println(NeedHelpURL1);
 		}
@@ -459,14 +459,14 @@ Thread.sleep(2500);
 			screenshot.screenshot5(driver, extentreport);
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots5.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot5.png",
 							"BusinessProfileURL").build());
 			System.out.println(BusinessProfileURL1);
 		} else {
 			screenshot.screenshot5(driver, extentreport);
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots5.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot5.png",
 							"BusinessProfileURL").build());
 			System.out.println(BusinessProfileURL);
 		}
@@ -490,14 +490,14 @@ Thread.sleep(2500);
 			screenshot.screenshot6(driver, extentreport);
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots6.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot6.png",
 							"UsersandRolesURL1").build());
 			System.out.println(UsersandRolesURL1);
 		} else {
 			screenshot.screenshot6(driver, extentreport);
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots6.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot6.png",
 							"UsersandRolesURL1").build());
 			System.out.println(UsersandRolesURL);
 		}
@@ -515,14 +515,14 @@ Thread.sleep(2500);
 			screenshot.screenshot7(driver, extentreport);
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots7.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot7.png",
 							"AddUserURL").build());
 			System.out.println(AddUserURL1);
 		} else {
 			screenshot.screenshot7(driver, extentreport);
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots7.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot7.png",
 							"AddUserURL1").build());
 			System.out.println(AddUserURL);
 		}
@@ -540,14 +540,14 @@ Thread.sleep(2500);
 			screenshot.screenshot8(driver, extentreport);
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots8.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot8.png",
 							"HelpURL").build());
 			System.out.println(HelpURL1);
 		} else {
 			screenshot.screenshot8(driver, extentreport);
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots8.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot8.png",
 							"HelpURL").build());
 			System.out.println(HelpURL);
 		}
@@ -564,14 +564,14 @@ Thread.sleep(2500);
 			screenshot.screenshot9(driver, extentreport);
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots9.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot9.png",
 							"SupportURL1").build());
 			System.out.println(SupportURL1);
 		} else {
 			screenshot.screenshot9(driver, extentreport);
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots9.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot9.png",
 							"SupportURL1").build());
 			System.out.println(SupportURL);
 		}
@@ -609,14 +609,14 @@ Thread.sleep(2500);
 			screenshot.screenshot10(driver, extentreport);
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots10.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot10.png",
 							"MessagesURL").build());
 			System.out.println(MessagesURL1);
 		} else {
 			screenshot.screenshot10(driver, extentreport);
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots10.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot10.png",
 							"MessagesURL").build());
 			System.out.println(MessagesURL);
 		}
@@ -634,14 +634,14 @@ Thread.sleep(2500);
 			screenshot.screenshot11(driver, extentreport);
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots11.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot11.png",
 							"AllServicesURL1").build());
 			System.out.println(AllServicesURL1);
 		} else {
 			screenshot.screenshot11(driver, extentreport);
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots11.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot11.png",
 							"AllServicesURL1").build());
 			System.out.println(AllServicesURL);
 		}
@@ -656,14 +656,14 @@ Thread.sleep(2500);
 			screenshot.screenshot12(driver, extentreport);
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots12.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot12.png",
 							"PaymentsURL").build());
 			System.out.println(PaymentsURL1);
 		} else {
 			screenshot.screenshot12(driver, extentreport);
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots12.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot12.png",
 							"PaymentsURL").build());			System.out.println(PaymentsURL);
 		}
 		driver.navigate().back();
@@ -680,13 +680,13 @@ Thread.sleep(2500);
 			screenshot.screenshot13(driver, extentreport);
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots13.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot13.png",
 							"ComplianceCalendar").build());			System.out.println(ComplianceCalendar1);
 		} else {
 			screenshot.screenshot13(driver, extentreport);
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots13.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot13.png",
 							"ComplianceCalendar").build());			System.out.println(ComplianceCalendar);
 		}
 
@@ -703,13 +703,13 @@ Thread.sleep(2500);
 			screenshot.screenshot14(driver, extentreport);
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots14.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot14.png",
 							"RewardsURL").build());			System.out.println(RewardsURL1);
 		} else {
 			screenshot.screenshot14(driver, extentreport);
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots14.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot14.png",
 							"RewardsURL").build());			System.out.println(RewardsURL);
 		}
 		driver.navigate().back();
@@ -722,13 +722,13 @@ Thread.sleep(2500);
 			screenshot.screenshot15(driver, extentreport);
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots15.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot15.png",
 							"MyServicesURL").build());			System.out.println(MyServicesURL1);
 		} else {
 			screenshot.screenshot15(driver, extentreport);
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots15.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot15.png",
 							"MyServicesURL").build());			System.out.println(MyServicesURL);
 		}
 		driver.navigate().back();
@@ -759,26 +759,26 @@ Thread.sleep(2500);
 			screenshot.screenshot16(driver, extentreport);
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots16.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot16.png",
 							"MyInterestURL").build());			System.out.println(MyInterestURL);
 		} else {
 			screenshot.screenshot16(driver, extentreport);
 			test.log(Status.FAIL,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots16.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot16.png",
 							"MyInterestURL").build());			System.out.println(MyInterestURL1);
 		}
 		if (e.matches(e)) {
 			screenshot.screenshot17(driver, extentreport);
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots17.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot17.png",
 							"LeadCreation").build());		} else {
 
 								screenshot.screenshot17(driver, extentreport);
 								test.log(Status.FAIL,
 										MediaEntityBuilder.createScreenCaptureFromPath(
-												"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\Screenshots17.png",
+												"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot17.png",
 												"LeadCreation").build());		}
 
 		System.out.println(e);
