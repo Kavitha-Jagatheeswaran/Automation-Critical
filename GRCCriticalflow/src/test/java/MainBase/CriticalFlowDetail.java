@@ -68,7 +68,8 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			String notedescrption, String QNameOfCustomer, String qaddress, String qpincode, String Professionalfees,
 			String assignedtoName, String BDAgentName, String CrossSaleName, String GRCMobileNumber,
 			String CrmUsernames, String CrmUserpassword, String GRCNewCompanyName, String CINNumber,
-			ExtentReports extentreport) throws InterruptedException, AWTException, ElementClickInterceptedException, IOException {
+			ExtentReports extentreport)
+			throws InterruptedException, AWTException, ElementClickInterceptedException, IOException {
 		Robot robot = new Robot();
 		ScreenShot screenshot = new ScreenShot();
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -103,7 +104,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		Tickets.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		ticketid.sendKeys(GRCPage.e);
-	// ticketid.sendKeys("3317605");
+		// ticketid.sendKeys("3317605");
 		Search.click();
 		Firstservice.click();
 
@@ -178,22 +179,22 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			robot.keyPress(KeyEvent.VK_ENTER);
 			robot.keyRelease(KeyEvent.VK_ENTER);
 			try {
-			BDagentCTA.click();
-			Thread.sleep(2000);
-			BDagentsearch.sendKeys("Dhrubo BD");
-			Thread.sleep(2000);
-			robot.keyPress(KeyEvent.VK_ENTER);
-			robot.keyRelease(KeyEvent.VK_ENTER);
-			}catch(Exception Editbdagent){
+				BDagentCTA.click();
+				Thread.sleep(2000);
+				BDagentsearch.sendKeys("Dhrubo BD");
+				Thread.sleep(2000);
+				robot.keyPress(KeyEvent.VK_ENTER);
+				robot.keyRelease(KeyEvent.VK_ENTER);
+			} catch (Exception Editbdagent) {
 				Thread.sleep(5000);
 			}
 			Thread.sleep(10000);
 			try {
 
-			WebElement element11 = driver.findElement(By.xpath("(//input[@value='Update'])[1]"));
-			JavascriptExecutor executor11 = (JavascriptExecutor) driver;
-			executor11.executeScript("arguments[0].click();", element11);
-			}catch(Exception updateedit) {
+				WebElement element11 = driver.findElement(By.xpath("(//input[@value='Update'])[1]"));
+				JavascriptExecutor executor11 = (JavascriptExecutor) driver;
+				executor11.executeScript("arguments[0].click();", element11);
+			} catch (Exception updateedit) {
 				robot.keyPress(KeyEvent.VK_TAB);
 				robot.keyRelease(KeyEvent.VK_TAB);
 				robot.keyPress(KeyEvent.VK_TAB);
@@ -209,27 +210,25 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 				robot.keyPress(KeyEvent.VK_ENTER);
 				robot.keyRelease(KeyEvent.VK_ENTER);
 			}
-		//	Updateticket.click();
+			// Updateticket.click();
 			Thread.sleep(10000);
 			wait.until(ExpectedConditions.alertIsPresent()).accept();
-			
+
 			Thread.sleep(8000);
 			screenshot.screenshot20(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots20.png",
-							"Editticket").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots20.png",
+					"Editticket").build());
 		} catch (Exception Editticket1) {
 			wait.until(ExpectedConditions.alertIsPresent()).accept();
 			screenshot.screenshot20(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots20.png",
-							"Editticket").build());
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots20.png",
+					"Editticket").build());
 			Thread.sleep(5000);
 			robot.keyPress(KeyEvent.VK_CONTROL);
 			robot.keyRelease(KeyEvent.VK_R);
@@ -299,18 +298,16 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			screenshot.screenshot21(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots21.png",
-							"CriticalNote").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots21.png",
+					"CriticalNote").build());
 		} catch (Exception CriticalNote) {
 			screenshot.screenshot21(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots21.png",
-							"CriticalNote").build());
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots21.png",
+					"CriticalNote").build());
 		}
 		Thread.sleep(3500);
 
@@ -321,24 +318,22 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			Viewattachment.click();
 			Thread.sleep(5000);
 			List<String> all29 = new ArrayList<String>(driver.getWindowHandles());
-			
+
 			screenshot.screenshot22(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots22.png",
-							"Critical Note verification").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots22.png",
+					"Critical Note verification").build());
 			driver.switchTo().window(all29.get(1));
 			driver.close();
 		} else {
 			screenshot.screenshot22(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots22.png",
-							"Critical Note verification").build());
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots22.png",
+					"Critical Note verification").build());
 		}
 		List<String> all29 = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(all29.get(0));
@@ -368,20 +363,18 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			screenshot.screenshot23(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots23.png",
-							"Personal Note").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots23.png",
+					"Personal Note").build());
 
 		} catch (Exception PersonalNote) {
 
 			screenshot.screenshot23(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots23.png",
-							"Personal Note").build());
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots23.png",
+					"Personal Note").build());
 		}
 
 		Thread.sleep(1500);
@@ -456,18 +449,16 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			screenshot.screenshot24(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots24.png",
-							"Add Note").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots24.png",
+					"Add Note").build());
 		} catch (Exception AddNote) {
 			screenshot.screenshot24(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots24.png",
-							"Add Note").build());
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots24.png",
+					"Add Note").build());
 		}
 		Thread.sleep(3500);
 		// js.executeScript("arguments[0].scrollIntoView(true);",
@@ -479,24 +470,22 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			Viewattachment.click();
 			Thread.sleep(5000);
 			List<String> all30 = new ArrayList<String>(driver.getWindowHandles());
-			
+
 			screenshot.screenshot25(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots25.png",
-							"Add Note Verification").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots25.png",
+					"Add Note Verification").build());
 			driver.switchTo().window(all30.get(1));
 			driver.close();
 		} else {
 			screenshot.screenshot25(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots25.png",
-							"Add Note Verification").build());
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots25.png",
+					"Add Note Verification").build());
 		}
 		List<String> all30 = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(all30.get(0));
@@ -510,10 +499,11 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			robot.keyPress(KeyEvent.VK_MINUS);
 			robot.keyRelease(KeyEvent.VK_MINUS);
 			robot.keyRelease(KeyEvent.VK_CONTROL);
-			WebElement element12 = driver.findElement(By.xpath("//span[@class='pull-right glyphicon glyphicon-menu-down']"));
+			WebElement element12 = driver
+					.findElement(By.xpath("//span[@class='pull-right glyphicon glyphicon-menu-down']"));
 			JavascriptExecutor executor12 = (JavascriptExecutor) driver;
 			executor12.executeScript("arguments[0].click();", element12);
-			//MenuDownArrow.click();
+			// MenuDownArrow.click();
 		}
 
 		try {
@@ -575,82 +565,92 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			screenshot.screenshot26(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots26.png",
-							"Canned response").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots26.png",
+					"Canned response").build());
 		} catch (Exception cannedException) {
 			screenshot.screenshot26(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots26.png",
-							"Canned response").build());
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots26.png",
+					"Canned response").build());
 			driver.navigate().back();
 		}
 
 		try {
 			robot.keyPress(KeyEvent.VK_CONTROL);
-			
+
 			robot.keyPress(KeyEvent.VK_T);
 			robot.keyRelease(KeyEvent.VK_T);
-		
+
 			robot.keyRelease(KeyEvent.VK_CONTROL);
 			List<String> CRM = new ArrayList<String>(driver.getWindowHandles());
 			driver.switchTo().window(CRM.get(1));
 
 			driver.get("https://helpdesk.vakilsearch.com/login");
+			try {
+				Username.sendKeys("dhruborm@gmail.com");
+				Thread.sleep(1500);
+				Password.sendKeys("Vakil@123");
+				Thread.sleep(1500);
+				Signin.click();
+				Thread.sleep(1500);
+				// Followup
+				wait.until(ExpectedConditions.elementToBeClickable(
+						By.xpath("(//div[@class='BD_dashboardOptions']/child::div/child::ul/child::li)[5]"))).click();
 
-			Username.sendKeys("dhruborm@gmail.com");
-			Thread.sleep(1500);
-			Password.sendKeys("Vakil@123");
-			Thread.sleep(1500);
-			Signin.click();
-			Thread.sleep(1500);
-			// Followup
-			wait.until(ExpectedConditions.elementToBeClickable(
-					By.xpath("(//div[@class='BD_dashboardOptions']/child::div/child::ul/child::li)[5]"))).click();
+				Thread.sleep(2500);
+				actions.moveToElement(dateselection).click().build().perform();
+				// actions.moveToElement(dateselection).click().build().perform();
+				// dateselection.click();//// 30
+				Thread.sleep(2500);
 
-			Thread.sleep(2500);
-			actions.moveToElement(dateselection).click().build().perform();
-			// actions.moveToElement(dateselection).click().build().perform();
-			// dateselection.click();//// 30
-			Thread.sleep(2500);
+				String subSequence1 = EventTicketId.getText().substring(1, 8);
+				if (GRCPage.e.contains(subSequence1)) {
+					screenshot.screenshot27(driver, extentreport);
+					SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+					String Date1 = dateFormat.format(new Date());
+					test.log(Status.PASS,
+							MediaEntityBuilder.createScreenCaptureFromPath(
+									"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1
+											+ "\\Screenshots27.png",
+									"Event TicketID Verified").build());
 
-			String subSequence1 = EventTicketId.getText().substring(1, 8);
-			if (GRCPage.e.contains(subSequence1)) {
-				screenshot.screenshot27(driver, extentreport);
+				} else {
+					screenshot.screenshot27(driver, extentreport);
+					SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+					String Date1 = dateFormat.format(new Date());
+					test.log(Status.FAIL,
+							MediaEntityBuilder.createScreenCaptureFromPath(
+									"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1
+											+ "\\Screenshots27.png",
+									"Event TicketID Verified").build());
+
+				}
+				driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
+			} catch (Exception EventValidation) {
+				screenshot.screenshot28(driver, extentreport);
 				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 				String Date1 = dateFormat.format(new Date());
-				test.log(Status.PASS,
-						MediaEntityBuilder.createScreenCaptureFromPath(
-								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots27.png",
-								"Event TicketID Verified").build());
-				
-			} else {
-				screenshot.screenshot27(driver, extentreport);
-				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
-				String Date1 = dateFormat.format(new Date());
-				test.log(Status.FAIL,
-						MediaEntityBuilder.createScreenCaptureFromPath(
-								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots27.png",
-								"Event TicketID Verified").build());
-				
+				test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+						"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots28.png",
+						"Event creation and Verification failed").build());
+
+				driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			}
-			driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
-		} catch (Exception EventValidation) {
-			screenshot.screenshot28(driver, extentreport);
+
+			driver.close();
+
+		} catch (Exception NewCRM) {
+			screenshot.screenshot51(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots28.png",
-							"Event creation and Verification failed").build());
-		
-driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots51.png",
+					"Authentication Verification failed").build());
+			driver.close();
 		}
-		driver.close();
 
 		List<String> CRM1 = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(CRM1.get(0));
@@ -664,6 +664,7 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 		robot.keyRelease(KeyEvent.VK_R);
 		robot.keyPress(KeyEvent.VK_R);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
+		try {
 		Username.sendKeys(Helpdeskuserid);
 
 		Password.sendKeys(helpdeskpassword);
@@ -675,10 +676,13 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 		Tickets.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		ticketid.sendKeys(GRCPage.e);
-	// ticketid.sendKeys("3313738");
+		// ticketid.sendKeys("3313738");
 		Search.click();
 		Firstservice.click();
-		
+		}catch(Exception NewsignUp){
+			System.out.println("Helpdesk Login");
+		}
+
 		js.executeScript("arguments[0].scrollIntoView(true);", CreateQuotation);
 		try {
 			try {
@@ -784,26 +788,23 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			screenshot.screenshot29(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots29.png",
-							"Quotation Creation").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots29.png",
+					"Quotation Creation").build());
 		} catch (Exception CreatenewQuotation1) {
 			screenshot.screenshot29(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots29.png",
-							"Quotation Creation").build());
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots29.png",
+					"Quotation Creation").build());
 		}
 		robot.keyPress(KeyEvent.VK_CONTROL);
 		robot.keyRelease(KeyEvent.VK_R);
 		robot.keyPress(KeyEvent.VK_R);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
-		String AmountValidation1 = driver
-				.findElement(By.xpath(
-						"(//td[@style='border-bottom:1px solid #f7f7f7;padding:10px 14px 10px 10px;text-align:right;'])[1]"))
+		String AmountValidation1 = driver.findElement(By.xpath(
+				"(//td[@style='border-bottom:1px solid #f7f7f7;padding:10px 14px 10px 10px;text-align:right;'])[1]"))
 				.getText().substring(2, 5);
 		driver.findElement(By.xpath("(//a[contains(text(),'Pay Now')])[1]")).click();
 		List<String> all32 = new ArrayList<String>(driver.getWindowHandles());
@@ -817,18 +818,16 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			screenshot.screenshot30(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots30.png",
-							"Quotation Creation amount verification").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots30.png",
+					"Quotation Creation amount verification").build());
 		} else {
 			screenshot.screenshot30(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots30.png",
-							"Quotation Creation amount verification").build());
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots30.png",
+					"Quotation Creation amount verification").build());
 			test.log(Status.FAIL,
 					"Quotation Creation amount verification failed " + AmountValidation1 + PaynowAmountValidation);
 		}
@@ -909,23 +908,21 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 				screenshot.screenshot31(driver, extentreport);
 				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 				String Date1 = dateFormat.format(new Date());
-				test.log(Status.PASS,
-						MediaEntityBuilder.createScreenCaptureFromPath(
-								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots31.png",
-								"Edit Quotation amount verified").build());
-				
+				test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+						"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots31.png",
+						"Edit Quotation amount verified").build());
+
 			} else {
 				screenshot.screenshot31(driver, extentreport);
 				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 				String Date1 = dateFormat.format(new Date());
-				test.log(Status.FAIL,
-						MediaEntityBuilder.createScreenCaptureFromPath(
-								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots31.png",
-								"Edit Quotation amount verified").build());
+				test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+						"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots31.png",
+						"Edit Quotation amount verified").build());
 				test.log(Status.FAIL, "Edit Quotation Creation amount verification failed " + AmountValidation2
 						+ PaynowAmountValidation2);
 			}
-		
+
 			Thread.sleep(2500);
 			robot.keyPress(KeyEvent.VK_CONTROL);
 			robot.keyRelease(KeyEvent.VK_R);
@@ -934,20 +931,18 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			screenshot.screenshot32(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots32.png",
-							"Edit Quotation").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots32.png",
+					"Edit Quotation").build());
 			driver.close();
 			driver.switchTo().window(all33.get(0));
 		} catch (Exception EditQuotation1) {
 			screenshot.screenshot32(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots32.png",
-							"Edit Quotation").build());
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots32.png",
+					"Edit Quotation").build());
 		}
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(2500);
@@ -960,18 +955,16 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			screenshot.screenshot33(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots33.png",
-							"Generate Quotation").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots33.png",
+					"Generate Quotation").build());
 		} catch (Exception GenerateQuotation1) {
 			screenshot.screenshot33(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots33.png",
-							"Generate Quotation").build());
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots33.png",
+					"Generate Quotation").build());
 			test.log(Status.FAIL, "Generate Quotation Failed");
 		}
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -998,18 +991,16 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 				screenshot.screenshot34(driver, extentreport);
 				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 				String Date1 = dateFormat.format(new Date());
-				test.log(Status.PASS,
-						MediaEntityBuilder.createScreenCaptureFromPath(
-								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots34.png",
-								"DeactivateQuotation").build());
+				test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+						"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots34.png",
+						"DeactivateQuotation").build());
 			} else {
 				screenshot.screenshot34(driver, extentreport);
 				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 				String Date1 = dateFormat.format(new Date());
-				test.log(Status.FAIL,
-						MediaEntityBuilder.createScreenCaptureFromPath(
-								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots34.png",
-								"Deactivate Quotation VERIFICATION").build());
+				test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+						"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots34.png",
+						"Deactivate Quotation VERIFICATION").build());
 			}
 			test.log(Status.PASS, "DeactivateQuotation success");
 			driver.close();
@@ -1029,19 +1020,17 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			screenshot.screenshot35(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots35.png",
-							"LoadmoreMessage").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots35.png",
+					"LoadmoreMessage").build());
 		} catch (Exception LoadmoreMessage) {
-		
+
 			screenshot.screenshot35(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots35.png",
-							"LoadmoreMessage").build());
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots35.png",
+					"LoadmoreMessage").build());
 		}
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(2000);
@@ -1081,18 +1070,16 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			screenshot.screenshot36(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots36.png",
-							"Crosssale").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots36.png",
+					"Crosssale").build());
 		} catch (Exception Crosssale1) {
 			screenshot.screenshot36(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots36.png",
-							"Crosssale").build());
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots36.png",
+					"Crosssale").build());
 		}
 		Thread.sleep(10000);
 		robot.keyPress(KeyEvent.VK_CONTROL);
@@ -1108,18 +1095,16 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			screenshot.screenshot37(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots37.png",
-							"RecentTicket").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots37.png",
+					"RecentTicket").build());
 		} catch (Exception RecentTicket1) {
 			screenshot.screenshot37(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots37.png",
-							"RecentTicket").build());
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots37.png",
+					"RecentTicket").build());
 		}
 		String T1 = recentTicketID.getText().substring(1, 8);
 		System.out.println(T1);
@@ -1186,18 +1171,16 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			screenshot.screenshot38(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots38.png",
-							"Merge").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots38.png",
+					"Merge").build());
 		} catch (Exception Merge1) {
 			screenshot.screenshot38(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots38.png",
-							"Merge").build());
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots38.png",
+					"Merge").build());
 		}
 		Thread.sleep(3000);
 		addnote.click();
@@ -1267,19 +1250,17 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 				screenshot.screenshot39(driver, extentreport);
 				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 				String Date1 = dateFormat.format(new Date());
-				test.log(Status.PASS,
-						MediaEntityBuilder.createScreenCaptureFromPath(
-								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots39.png",
-								"Magic Key title").build());
+				test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+						"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots39.png",
+						"Magic Key title").build());
 
 			} else {
 				screenshot.screenshot39(driver, extentreport);
 				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 				String Date1 = dateFormat.format(new Date());
-				test.log(Status.FAIL,
-						MediaEntityBuilder.createScreenCaptureFromPath(
-								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots39.png",
-								"Magic Key title").build());
+				test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+						"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots39.png",
+						"Magic Key title").build());
 			}
 
 			driver.close();
@@ -1288,18 +1269,16 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			screenshot.screenshot40(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots40.png",
-							"Magic Key").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots40.png",
+					"Magic Key").build());
 		} catch (Exception magickey1) {
 			screenshot.screenshot40(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots40.png",
-							"Magic Key").build());
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots40.png",
+					"Magic Key").build());
 		}
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		try {
@@ -1309,27 +1288,25 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 			screenshot.screenshot41(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots41.png",
-							"Customerdashboard").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots41.png",
+					"Customerdashboard").build());
 		} catch (Exception Customerdashboard1) {
 			screenshot.screenshot41(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots41.png",
-							"Customerdashboard").build());
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots41.png",
+					"Customerdashboard").build());
 		}
 		Thread.sleep(3000);
-		
+
 		GRCCTA.click();
 		List<String> all3 = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(all3.get(1));
 		Thread.sleep(5000);
 		try {
-			
+
 			try {
 				GRCPageobject.Closepopup.click();
 			} catch (Exception Closepopup) {
@@ -1351,24 +1328,20 @@ driver.findElement(By.xpath("//a[@rel='nofollow']")).click();
 				System.out.println("GRC");
 			}
 
-	
 			screenshot.screenshot42(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots42.png",
-							"Grc Redirection").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots42.png",
+					"Grc Redirection").build());
 		} catch (Exception Grcredirection1) {
 			screenshot.screenshot42(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshots42.png",
-							"Grc Redirection").build());
-			
-			
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshots42.png",
+					"Grc Redirection").build());
+
 		}
 		driver.close();
 		driver.switchTo().window(all3.get(0));
