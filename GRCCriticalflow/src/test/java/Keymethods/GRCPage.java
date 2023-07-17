@@ -46,12 +46,11 @@ public class GRCPage extends GRCPageobject {
 
 	ExtentTest test;
 	public static String e = "";
-	
 
 	public GRCPage(WebDriver driver, ExtentReports extentreport, String GRCMobileNumber, String GRCNewCompanyName,
 			String CINNumber, String Helpdeskuserid, String helpdeskpassword, String assignedtoName)
 			throws InterruptedException, AWTException, ElementClickInterceptedException, IOException {
-  
+
 //		Set<String> allwindowsid = driver.getWindowHandles();
 //		List<String> all = new ArrayList<>();
 //		all.addAll(allwindowsid);
@@ -63,14 +62,22 @@ public class GRCPage extends GRCPageobject {
 		Actions actions = new Actions(driver);
 		test = extentreport.createTest("GRC Test");
 		ScreenShot screenshot = new ScreenShot();
-		WebDriverWait wait = new WebDriverWait(driver, 20);
+		WebDriverWait wait = new WebDriverWait(driver, 60);
 		PageFactory.initElements(driver, GRCPageobject.class);
-		Actions act = new Actions(driver);  
+		Actions act = new Actions(driver);
 		SimpleDateFormat dateFormat1 = new SimpleDateFormat("MMddyyyyHHMMSS");
 		String Date2 = dateFormat1.format(new Date());
 		driver.get("https://grc.vakilsearch.com/grc/login");
+		screenshot.screenshot1(driver, extentreport);
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+		String Date1 = dateFormat.format(new Date());
+		System.out.println(Date1);
+		test.log(Status.PASS,
+				MediaEntityBuilder.createScreenCaptureFromPath(
+						"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot1.png",
+						"GRC URL").build());
 		Thread.sleep(2500);
-		
+
 		GRCUsername.sendKeys(GRCMobileNumber);
 		Thread.sleep(2500);
 		GRCPhonenumberConfirm.click();
@@ -82,15 +89,6 @@ public class GRCPage extends GRCPageobject {
 		GRCOTP3.sendKeys("0");
 		GRCOTP4.sendKeys("0");
 		Thread.sleep(1500);
-		screenshot.screenshot1(driver, extentreport);
-		SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
-		String Date1 = dateFormat.format(new Date());
-		System.out.println(Date1);
-		test.log(Status.PASS,
-				MediaEntityBuilder.createScreenCaptureFromPath(
-						"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot1.png",
-						"DashboardURL1").build());
-
 		robot.keyPress(KeyEvent.VK_CONTROL);
 		robot.keyPress(KeyEvent.VK_MINUS);
 		robot.keyRelease(KeyEvent.VK_MINUS);
@@ -98,7 +96,11 @@ public class GRCPage extends GRCPageobject {
 		robot.keyRelease(KeyEvent.VK_MINUS);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
 		try {
-			GRCOTPConfirm.click();
+			WebElement element301 = driver
+					.findElement(By.xpath("//div[@class='styles_footerContainer__UOnmt']/child::button"));
+			JavascriptExecutor executor301 = (JavascriptExecutor) driver;
+			executor301.executeScript("arguments[0].click();", element301);
+
 		} catch (NoSuchElementException Login) {
 			robot.keyPress(KeyEvent.VK_TAB);
 			robot.keyRelease(KeyEvent.VK_TAB);
@@ -125,17 +127,16 @@ public class GRCPage extends GRCPageobject {
 		if (DashboardURL1.contains(DashboardURL)) {
 
 			screenshot.screenshot2(driver, extentreport);
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot2.png",
-							"DashboardURL1").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot2.png",
+					"DashboardURL1").build());
 
 		} else {
 
 			screenshot.screenshot2(driver, extentreport);
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot2.png","DashboardURL1").build());
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot2.png",
+					"DashboardURL1").build());
 
 		}
 		Thread.sleep(5000);
@@ -173,7 +174,12 @@ public class GRCPage extends GRCPageobject {
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='btn btn-primary']")));
 		Letsgo.click();
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='styles_dropdownToggle__oqhXx ']")));
-		ChooseBusinessType.click();
+		
+		WebElement element41= driver
+				.findElement(By.xpath("//div[@class='styles_dropdownToggle__oqhXx ']"));
+		JavascriptExecutor executor41 = (JavascriptExecutor) driver;
+		executor41.executeScript("arguments[0].click();", element41);
+		//ChooseBusinessType.click();
 		Thread.sleep(1500);
 		wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("//li[contains(text(),'Private Limited Company(PVT)')]")));
@@ -184,7 +190,7 @@ public class GRCPage extends GRCPageobject {
 		CompanyName.click();
 		CompanyName.sendKeys(GRCNewCompanyName);
 		CINNo.click();
-		CINNo.sendKeys(CINNumber+Date2);
+		CINNo.sendKeys(CINNumber + Date2);
 		Thread.sleep(3500);
 		try {
 			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(),'Continue')]")));
@@ -210,10 +216,11 @@ public class GRCPage extends GRCPageobject {
 		Thread.sleep(3000);
 		Continue2.click();
 		Thread.sleep(2500);
-		WebElement element4 = driver.findElement(By.xpath("//button[contains(text(),'Skip')]/parent::div/child::button"));
+		WebElement element4 = driver
+				.findElement(By.xpath("//button[contains(text(),'Skip')]/parent::div/child::button"));
 		JavascriptExecutor executor4 = (JavascriptExecutor) driver;
 		executor4.executeScript("arguments[0].click();", element4);
-		//Skip.click();
+		// Skip.click();
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//p[contains(text(),'Continue')]")));
 		LetsGetStartedContinue.click();
 		Thread.sleep(2500);
@@ -264,17 +271,15 @@ public class GRCPage extends GRCPageobject {
 		String ProfileInformationURL1 = "https://grc.vakilsearch.com/grc/user-profile";
 		if (ProfileInformationURL1.contains(ProfileInformationURL)) {
 			screenshot.screenshot3(driver, extentreport);
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot3.png",
-							"ProfileInformationURL").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot3.png",
+					"ProfileInformationURL").build());
 			System.out.println(ProfileInformationURL);
 		} else {
 			screenshot.screenshot3(driver, extentreport);
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot3.png",
-							"ProfileInformationURL").build());
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot3.png",
+					"ProfileInformationURL").build());
 			System.out.println(ProfileInformationURL1);
 		}
 
@@ -293,16 +298,17 @@ public class GRCPage extends GRCPageobject {
 		robot.keyRelease(KeyEvent.VK_MINUS);
 		robot.keyPress(KeyEvent.VK_MINUS);
 		robot.keyRelease(KeyEvent.VK_MINUS);
-		
-		
+
 		robot.keyRelease(KeyEvent.VK_CONTROL);
 		robot.keyPress(KeyEvent.VK_PAGE_UP);
 		robot.keyRelease(KeyEvent.VK_PAGE_UP);
+		
 		WebElement element3 = driver.findElement(By.xpath("(//button[contains(text(),'Buy now')])[1]"));
 		JavascriptExecutor executor3 = (JavascriptExecutor) driver;
 		executor3.executeScript("arguments[0].click();", element3);
-		//wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[contains(text(),'Buy now')])[1]")))
-			//	.click();
+		// wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[contains(text(),'Buy
+		// now')])[1]")))
+		// .click();
 		robot.keyPress(KeyEvent.VK_UP);
 		robot.keyRelease(KeyEvent.VK_UP);
 		robot.keyPress(KeyEvent.VK_UP);
@@ -347,7 +353,8 @@ public class GRCPage extends GRCPageobject {
 			}
 
 		}
-Thread.sleep(2500);
+		Thread.sleep(2500);
+		wait.until(ExpectedConditions.elementToBeClickable(GetServiceID));
 		String ServiceID = GetServiceID.getText().substring(1);
 		System.out.println(ServiceID + "GRC");
 		WebElement element13 = driver.findElement(By.xpath("(//img[@alt='close'])[1]"));
@@ -382,60 +389,59 @@ Thread.sleep(2500);
 		Thread.sleep(2500);
 		// actions.click(Needhelp);
 		try {
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(text(),'Need help')]"))).click();
-		Thread.sleep(3000);
-		}catch(Exception needhelpclick){
-			WebElement element2 = driver.findElement(By.xpath("(//div[@class='styles_btnContainer__sVb_P']//child::div)[1]"));
+			wait.until(ExpectedConditions
+					.elementToBeClickable(By.xpath("(//div[@class='styles_btnContainer__sVb_P']//child::div)[1]")))
+					.click();
+			Thread.sleep(3000);
+		} catch (Exception needhelpclick) {
+			WebElement element2 = driver
+					.findElement(By.xpath("(//div[@class='styles_btnContainer__sVb_P']//child::div)[1]"));
 			JavascriptExecutor executor2 = (JavascriptExecutor) driver;
 			executor2.executeScript("arguments[0].click();", element2);
 
-		}// Needhelp.click();
+		} // Needhelp.click();
 		Thread.sleep(1500);
 		String NeedHelpURL = driver.getCurrentUrl().substring(0, 36);
 		String NeedHelpURL1 = "https://grc.vakilsearch.com/grc/help";
 		if (NeedHelpURL1.contains(NeedHelpURL)) {
 			screenshot.screenshot4(driver, extentreport);
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot4.png",
-							"NeedHelpURL1").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot4.png",
+					"NeedHelpURL1").build());
 		} else {
 			screenshot.screenshot4(driver, extentreport);
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot4.png",
-							"NeedHelpURL1").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot4.png",
+					"NeedHelpURL1").build());
 			System.out.println(NeedHelpURL1);
 		}
-		wait.until(ExpectedConditions
-				.elementToBeClickable(By.xpath("(//div[@class='styles_needHelpModal__xIW3p']/child::div/div)[6]")));
-		WebElement element5 = driver.findElement(By.xpath("(//div[@class='styles_needHelpModal__xIW3p']/child::div/div)[6]"));
-		JavascriptExecutor executor5 = (JavascriptExecutor) driver;
-		executor5.executeScript("arguments[0].click();", element5);
-		//clickVideo.click();
-		
-		
-		Thread.sleep(3000);
+		try {
+			Thread.sleep(3000);
+			WebElement element5 = driver.findElement(By.xpath("//button[@class='styles_closeBtn__ULw05']/child::*"));
+			JavascriptExecutor executor5 = (JavascriptExecutor) driver;
+			executor5.executeScript("arguments[0].click();", element5);
+			// clickVideo.click();
+		} catch (Exception Video) {
+			robot.keyPress(KeyEvent.VK_CONTROL);
+			robot.keyPress(KeyEvent.VK_R);
+			robot.keyRelease(KeyEvent.VK_R);
+			robot.keyRelease(KeyEvent.VK_CONTROL);
+			System.out.println(Video);
+		}
 
-		robot.keyPress(KeyEvent.VK_CONTROL);
-		robot.keyPress(KeyEvent.VK_R);
-		robot.keyRelease(KeyEvent.VK_R);
-		robot.keyRelease(KeyEvent.VK_CONTROL);
-
-		
-		Thread.sleep(4500);
-		// **********
 		try {
 			Thread.sleep(4500);
-			WebElement element6 = driver.findElement(By.xpath("//div[@class='styles_container__BL2LZ false']/child::div"));
+			WebElement element6 = driver
+					.findElement(By.xpath("//div[@class='styles_container__BL2LZ false']/child::div"));
 			JavascriptExecutor executor6 = (JavascriptExecutor) driver;
 			executor6.executeScript("arguments[0].click();", element6);
 		} catch (Exception NeedClose) {
 			try {
-				WebElement element6 = driver.findElement(By.xpath("//div[@class='styles_imgWrapper__uoce0']/child::img"));
+				WebElement element6 = driver
+						.findElement(By.xpath("//div[@class='styles_imgWrapper__uoce0']/child::img"));
 				JavascriptExecutor executor6 = (JavascriptExecutor) driver;
 				executor6.executeScript("arguments[0].click();", element6);
-				
+
 			} catch (Exception NeedClosed2) {
 				System.out.println("Need help closed");
 			}
@@ -445,7 +451,7 @@ Thread.sleep(2500);
 			WebElement element7 = driver.findElement(By.xpath("//img[@alt='Settings']/parent::button"));
 			JavascriptExecutor executor7 = (JavascriptExecutor) driver;
 			executor7.executeScript("arguments[0].click();", element7);
-			
+
 		} catch (Exception e100008) {
 			driver.findElement(By.xpath("//img[@alt='Settings']/parent::button")).click();
 		}
@@ -457,17 +463,15 @@ Thread.sleep(2500);
 		String BusinessProfileURL1 = "https://grc.vakilsearch.com/grc/business-profile";
 		if (BusinessProfileURL1.contains(BusinessProfileURL)) {
 			screenshot.screenshot5(driver, extentreport);
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot5.png",
-							"BusinessProfileURL").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot5.png",
+					"BusinessProfileURL").build());
 			System.out.println(BusinessProfileURL1);
 		} else {
 			screenshot.screenshot5(driver, extentreport);
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot5.png",
-							"BusinessProfileURL").build());
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot5.png",
+					"BusinessProfileURL").build());
 			System.out.println(BusinessProfileURL);
 		}
 
@@ -488,17 +492,15 @@ Thread.sleep(2500);
 		String UsersandRolesURL1 = "https://grc.vakilsearch.com/grc/user_roles";
 		if (UsersandRolesURL1.contains(UsersandRolesURL)) {
 			screenshot.screenshot6(driver, extentreport);
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot6.png",
-							"UsersandRolesURL1").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot6.png",
+					"UsersandRolesURL1").build());
 			System.out.println(UsersandRolesURL1);
 		} else {
 			screenshot.screenshot6(driver, extentreport);
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot6.png",
-							"UsersandRolesURL1").build());
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot6.png",
+					"UsersandRolesURL1").build());
 			System.out.println(UsersandRolesURL);
 		}
 		driver.navigate().back();
@@ -513,17 +515,15 @@ Thread.sleep(2500);
 		String AddUserURL1 = "https://grc.vakilsearch.com/grc/user_roles";
 		if (AddUserURL1.contains(AddUserURL)) {
 			screenshot.screenshot7(driver, extentreport);
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot7.png",
-							"AddUserURL").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot7.png",
+					"AddUserURL").build());
 			System.out.println(AddUserURL1);
 		} else {
 			screenshot.screenshot7(driver, extentreport);
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot7.png",
-							"AddUserURL1").build());
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot7.png",
+					"AddUserURL1").build());
 			System.out.println(AddUserURL);
 		}
 		// driver.navigate().back();
@@ -538,17 +538,15 @@ Thread.sleep(2500);
 		String HelpURL1 = "https://grc.vakilsearch.com/grc/help";
 		if (HelpURL1.contains(HelpURL)) {
 			screenshot.screenshot8(driver, extentreport);
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot8.png",
-							"HelpURL").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot8.png",
+					"HelpURL").build());
 			System.out.println(HelpURL1);
 		} else {
 			screenshot.screenshot8(driver, extentreport);
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot8.png",
-							"HelpURL").build());
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot8.png",
+					"HelpURL").build());
 			System.out.println(HelpURL);
 		}
 		driver.navigate().back();
@@ -562,17 +560,15 @@ Thread.sleep(2500);
 		String SupportURL1 = "https://grc.vakilsearch.com/grc/contact-us";
 		if (SupportURL1.contains(SupportURL)) {
 			screenshot.screenshot9(driver, extentreport);
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot9.png",
-							"SupportURL1").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot9.png",
+					"SupportURL1").build());
 			System.out.println(SupportURL1);
 		} else {
 			screenshot.screenshot9(driver, extentreport);
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot9.png",
-							"SupportURL1").build());
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot9.png",
+					"SupportURL1").build());
 			System.out.println(SupportURL);
 		}
 		driver.navigate().back();
@@ -600,49 +596,50 @@ Thread.sleep(2500);
 		WebElement element = driver.findElement(By.xpath("//span[contains(text(),'Messages')]"));
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
 		executor.executeScript("arguments[0].click();", element);
-		
+
 		// driver.findElement(By.xpath("//span[contains(text(),'Messages')]")).click();
 		Thread.sleep(2500);
 		String MessagesURL = driver.getCurrentUrl().substring(0, 40);
 		String MessagesURL1 = "https://grc.vakilsearch.com/grc/messages";
 		if (MessagesURL1.contains(MessagesURL)) {
 			screenshot.screenshot10(driver, extentreport);
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot10.png",
-							"MessagesURL").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot10.png",
+					"MessagesURL").build());
 			System.out.println(MessagesURL1);
 		} else {
 			screenshot.screenshot10(driver, extentreport);
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot10.png",
-							"MessagesURL").build());
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot10.png",
+					"MessagesURL").build());
 			System.out.println(MessagesURL);
 		}
 
 		driver.navigate().back();
 		Thread.sleep(5500);
+		
 		// ********
 
 		// driver.findElement(By.xpath("//button[@class='styles_gearBtn__s6cgl']")).click();
-		driver.findElement(By.xpath("//span[contains(text(),'All Services')]")).click();
+		// driver.findElement(By.xpath("//span[contains(text(),'All
+		// Services')]")).click();
+		WebElement element97 = driver.findElement(By.xpath("//span[contains(text(),'All Services')]"));
+		JavascriptExecutor executor97 = (JavascriptExecutor) driver;
+		executor97.executeScript("arguments[0].click();", element97);
 		Thread.sleep(2500);
 		String AllServicesURL = driver.getCurrentUrl().substring(0, 40);
 		String AllServicesURL1 = "https://grc.vakilsearch.com/grc/services";
 		if (AllServicesURL1.contains(AllServicesURL)) {
 			screenshot.screenshot11(driver, extentreport);
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot11.png",
-							"AllServicesURL1").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot11.png",
+					"AllServicesURL1").build());
 			System.out.println(AllServicesURL1);
 		} else {
 			screenshot.screenshot11(driver, extentreport);
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot11.png",
-							"AllServicesURL1").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot11.png",
+					"AllServicesURL1").build());
 			System.out.println(AllServicesURL);
 		}
 		driver.navigate().back();
@@ -654,17 +651,16 @@ Thread.sleep(2500);
 		String PaymentsURL1 = "https://grc.vakilsearch.com/grc/payments";
 		if (PaymentsURL.contains(PaymentsURL1)) {
 			screenshot.screenshot12(driver, extentreport);
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot12.png",
-							"PaymentsURL").build());
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot12.png",
+					"PaymentsURL").build());
 			System.out.println(PaymentsURL1);
 		} else {
 			screenshot.screenshot12(driver, extentreport);
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot12.png",
-							"PaymentsURL").build());			System.out.println(PaymentsURL);
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot12.png",
+					"PaymentsURL").build());
+			System.out.println(PaymentsURL);
 		}
 		driver.navigate().back();
 		Thread.sleep(5500);
@@ -672,22 +668,22 @@ Thread.sleep(2500);
 		WebElement element33 = driver.findElement(By.xpath("//span[contains(text(),'Compliance Calendar')]"));
 		JavascriptExecutor executor33 = (JavascriptExecutor) driver;
 		executor33.executeScript("arguments[0].click();", element33);
-	
+
 		Thread.sleep(2500);
 		String ComplianceCalendar = driver.getCurrentUrl().substring(0, 40);
 		String ComplianceCalendar1 = "https://grc.vakilsearch.com/grc/calendar";
 		if (ComplianceCalendar.contains(ComplianceCalendar1)) {
 			screenshot.screenshot13(driver, extentreport);
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot13.png",
-							"ComplianceCalendar").build());			System.out.println(ComplianceCalendar1);
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot13.png",
+					"ComplianceCalendar").build());
+			System.out.println(ComplianceCalendar1);
 		} else {
 			screenshot.screenshot13(driver, extentreport);
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot13.png",
-							"ComplianceCalendar").build());			System.out.println(ComplianceCalendar);
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot13.png",
+					"ComplianceCalendar").build());
+			System.out.println(ComplianceCalendar);
 		}
 
 		driver.navigate().back();
@@ -695,22 +691,22 @@ Thread.sleep(2500);
 		WebElement element21 = driver.findElement(By.xpath("//span[contains(text(),'Rewards')]"));
 		JavascriptExecutor executor21 = (JavascriptExecutor) driver;
 		executor21.executeScript("arguments[0].click();", element21);
-		
+
 		Thread.sleep(2500);
 		String RewardsURL = driver.getCurrentUrl().substring(0, 39);
 		String RewardsURL1 = "https://grc.vakilsearch.com/grc/rewards";
 		if (RewardsURL.contains(RewardsURL1)) {
 			screenshot.screenshot14(driver, extentreport);
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot14.png",
-							"RewardsURL").build());			System.out.println(RewardsURL1);
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot14.png",
+					"RewardsURL").build());
+			System.out.println(RewardsURL1);
 		} else {
 			screenshot.screenshot14(driver, extentreport);
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot14.png",
-							"RewardsURL").build());			System.out.println(RewardsURL);
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot14.png",
+					"RewardsURL").build());
+			System.out.println(RewardsURL);
 		}
 		driver.navigate().back();
 		Thread.sleep(5500);
@@ -720,16 +716,16 @@ Thread.sleep(2500);
 		String MyServicesURL1 = "https://grc.vakilsearch.com/grc/my-services";
 		if (MyServicesURL.contains(MyServicesURL1)) {
 			screenshot.screenshot15(driver, extentreport);
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot15.png",
-							"MyServicesURL").build());			System.out.println(MyServicesURL1);
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot15.png",
+					"MyServicesURL").build());
+			System.out.println(MyServicesURL1);
 		} else {
 			screenshot.screenshot15(driver, extentreport);
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot15.png",
-							"MyServicesURL").build());			System.out.println(MyServicesURL);
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot15.png",
+					"MyServicesURL").build());
+			System.out.println(MyServicesURL);
 		}
 		driver.navigate().back();
 		Thread.sleep(3500);
@@ -757,34 +753,34 @@ Thread.sleep(2500);
 		String MyInterestURL1 = "https://grc.vakilsearch.com/grc/my-interests";
 		if (MyInterestURL1.contains(MyInterestURL)) {
 			screenshot.screenshot16(driver, extentreport);
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot16.png",
-							"MyInterestURL").build());			System.out.println(MyInterestURL);
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot16.png",
+					"MyInterestURL").build());
+			System.out.println(MyInterestURL);
 		} else {
 			screenshot.screenshot16(driver, extentreport);
-			test.log(Status.FAIL,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot16.png",
-							"MyInterestURL").build());			System.out.println(MyInterestURL1);
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot16.png",
+					"MyInterestURL").build());
+			System.out.println(MyInterestURL1);
 		}
 		if (e.matches(e)) {
 			screenshot.screenshot17(driver, extentreport);
-			test.log(Status.PASS,
-					MediaEntityBuilder.createScreenCaptureFromPath(
-							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot17.png",
-							"LeadCreation").build());		} else {
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot17.png",
+					"LeadCreation").build());
+		} else {
 
-								screenshot.screenshot17(driver, extentreport);
-								test.log(Status.FAIL,
-										MediaEntityBuilder.createScreenCaptureFromPath(
-												"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot17.png",
-												"LeadCreation").build());		}
+			screenshot.screenshot17(driver, extentreport);
+			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot17.png",
+					"LeadCreation").build());
+		}
 
 		System.out.println(e);
 
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		Payment key = new Payment(driver, test,extentreport);
+		Payment key = new Payment(driver, test, extentreport);
 
 	}
 

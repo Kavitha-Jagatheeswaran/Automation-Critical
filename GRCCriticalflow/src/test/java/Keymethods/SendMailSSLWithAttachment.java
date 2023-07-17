@@ -32,7 +32,8 @@ public class SendMailSSLWithAttachment{static SimpleDateFormat dateFormat = new 
 static String Date1 = dateFormat.format(new Date());
 public static void main(String[] args) throws IOException {
 	
-
+	SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+	String Date1 = dateFormat.format(new Date());
 //public void main() throws EmailException{
 	
 	 Properties props = new Properties();
@@ -90,7 +91,7 @@ public static void main(String[] args) throws IOException {
 			MimeBodyPart messageBodyPart2 = new MimeBodyPart();
 			//"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots"
 			// Mention the file which you want to send
-			String filename = "\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\07072023\\extentreport.html";
+			String filename = "\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\extentreport.html";
 		//	String filename = "C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\extentreport.html";
 			// Create data source and pass the filename
 			DataSource source = new FileDataSource(filename);

@@ -323,7 +323,7 @@ public class ScreenShot {
 		TakesScreenshot screenshot31 = ((TakesScreenshot) driver);
 		File srcFile31 = screenshot31.getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(srcFile31,
-				new File("C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshot\\"
+				new File("\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"
 						+ Date1 + "\\\\Screenshot31.png"));
 
 	}
