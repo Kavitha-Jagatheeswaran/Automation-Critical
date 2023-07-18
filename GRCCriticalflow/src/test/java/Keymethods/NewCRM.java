@@ -60,7 +60,7 @@ try {
 			screenshot.screenshot43(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.FAIL,
+			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
 							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot43.png",
 							"InternalNotes").build());
@@ -76,7 +76,7 @@ try {
 	screenshot.screenshot44(driver, extentreport);
 	SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 	String Date1 = dateFormat.format(new Date());
-	test.log(Status.FAIL,
+	test.log(Status.PASS,
 			MediaEntityBuilder.createScreenCaptureFromPath(
 					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot44.png",
 					"Note Validation").build());

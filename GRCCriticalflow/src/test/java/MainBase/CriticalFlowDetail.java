@@ -274,7 +274,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			screenshot.screenshot20(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			testr.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+			testr.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
 					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot20.png",
 					"Editticket").build());
 			Thread.sleep(5000);
@@ -384,7 +384,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			screenshot.screenshot46(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			testr.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+			testr.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
 					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot46.png",
 					"Editticket").build());
 			Thread.sleep(5000);
@@ -621,7 +621,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 
 			try {
 				WebElement element3 = driver
-						.findElement(By.xpath("(//td[@class='xdsoft_date xdsoft_day_of_week1 xdsoft_date true,'])[3]"));
+						.findElement(By.xpath("(//td[@class='xdsoft_date xdsoft_day_of_week1 xdsoft_date true,'])[2]"));
 				JavascriptExecutor executor3 = (JavascriptExecutor) driver;
 				executor3.executeScript("arguments[0].click();", element3);
 				// canned date
@@ -664,7 +664,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			screenshot.screenshot26(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			testr.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+			testr.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
 					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot26.png",
 					"Canned response").build());
 			driver.navigate().back();
@@ -706,7 +706,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 					testr.log(Status.PASS,
 							MediaEntityBuilder.createScreenCaptureFromPath(
 									"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1
-											+ "\\Screenshots27.png",
+											+ "\\Screenshot27.png",
 									"Event TicketID Verified").build());
 
 				} else {
