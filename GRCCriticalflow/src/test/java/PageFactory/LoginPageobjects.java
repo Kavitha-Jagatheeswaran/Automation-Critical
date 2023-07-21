@@ -11,7 +11,7 @@ public class LoginPageobjects extends HomescreenPageobject {
 	@FindBy(xpath = "//b[normalize-space()='Private Limited Company']")
 	public static WebElement Pvtdcompany;
 
-	@FindBy(xpath = "//div[normalize-space()='Select City*']//div[@id='react-select-2-placeholder']")
+	@FindBy(xpath = "//input[@placeholder='City*']")
 	public static WebElement City;
 
 	@FindBy(xpath = "//span[@class='whatsapp_toggles false']//div[@class='switch_bg bg-success']")
@@ -20,7 +20,7 @@ public class LoginPageobjects extends HomescreenPageobject {
 	@FindBy(xpath = "//button[@class='fullwidth btn btn-primary']")
 	public static WebElement talktoanexpert;
 
-	@FindBy(xpath = "//button[@class='styles_customBtn__nb6mV styles_next__NvT8q false']")
+	@FindBy(xpath = "//button[@class='styles_customBtn__nb6mV styles_next__NvT8q false false ']")
 	public static WebElement Next;
 
 	@FindBy(xpath = "//input[@id='service_form_primary_email']")
@@ -35,7 +35,7 @@ public class LoginPageobjects extends HomescreenPageobject {
 	@FindBy(xpath = "(//div[@class='styles_availableStatus__44C8o'])[2]")
 	public static WebElement noidonthaveacompany;
 
-	@FindBy(xpath = "//label[contains(text(),'No, I don’t have a company name')]")
+	@FindBy(xpath = "//label[contains(text(),'New business')]")
 	public static WebElement noidonthaveacompany1;
 
 	@FindBy(xpath = "//button[@class='styles_customBtn__nb6mV styles_next__NvT8q false']")

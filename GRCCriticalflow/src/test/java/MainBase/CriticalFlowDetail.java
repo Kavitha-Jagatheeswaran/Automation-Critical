@@ -89,11 +89,133 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Tickets.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		ticketid.sendKeys(GRCPage.e);
-		// ticketid.sendKeys("3333627");
-		Search.click();
-		Firstservice.click();
+		Thread.sleep(8000);
 		try {
+		WebElement element501011 = driver.findElement(By.xpath("//input[@id='search']"));
+		JavascriptExecutor executor501011 = (JavascriptExecutor) driver;
+		executor501011.executeScript("arguments[0].click();", element501011);
+		element501011.sendKeys("9789955331");
+	    //driver.findElement(By.xpath("//input[@class='form-control ticket_search']")).sendKeys("9789955331");
+		//ticketid.sendKeys(GRCPage.e);
+		}catch(Exception Search){
+			System.out.println(Search);
+			
+		}
+		
+		
+		//Search.click();
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+		Firstservice.click();
+		
+		String ReferenceTicketID = driver.findElement(By.xpath("//div[@class='marginZero']/child::h2/child::strong")).getText().substring(1, 8);
+		
+		
+		
+		try {
+			try {
+				wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='editBtn']")));
+				js.executeScript("arguments[0].scrollIntoView(true);", Editticket);
+				Editticket.click();
+
+			} catch (ElementClickInterceptedException elementintercptedEdit) {
+				robot.keyPress(KeyEvent.VK_PAGE_UP);
+				Thread.sleep(3000);
+				robot.keyRelease(KeyEvent.VK_PAGE_UP);
+				robot.keyPress(KeyEvent.VK_PAGE_UP);
+				robot.keyRelease(KeyEvent.VK_PAGE_UP);
+				driver.findElement(By.xpath("//button[contains(text(),'Edit')]")).click();
+			}
+			Thread.sleep(2500);
+			Assignedto.click();
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			Thread.sleep(1500);
+			Assignedtoname.click();
+			Assignedtoname.sendKeys("Dhrubo RM");
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+			robot.keyPress(KeyEvent.VK_ENTER);
+			robot.keyRelease(KeyEvent.VK_ENTER);
+			Thread.sleep(1500);
+
+			Thread.sleep(2000);
+			robot.keyPress(KeyEvent.VK_CONTROL);
+			robot.keyPress(KeyEvent.VK_MINUS);
+			robot.keyRelease(KeyEvent.VK_MINUS);
+			robot.keyRelease(KeyEvent.VK_CONTROL);
+			driver.findElement(By.xpath("//span[@id='select2-city_filter_edit-container']")).click();
+			Thread.sleep(1500);
+			//driver.findElement(By.xpath("(//input[@class='select2-search__field'])[3]")).sendKeys("chennai");
+			Thread.sleep(1500);
+			robot.keyPress(KeyEvent.VK_ENTER);
+			robot.keyRelease(KeyEvent.VK_ENTER);
+			robot.keyPress(KeyEvent.VK_CONTROL);
+			robot.keyPress(KeyEvent.VK_MINUS);
+			robot.keyRelease(KeyEvent.VK_MINUS);
+			robot.keyPress(KeyEvent.VK_MINUS);
+			robot.keyRelease(KeyEvent.VK_MINUS);
+			robot.keyPress(KeyEvent.VK_MINUS);
+			robot.keyRelease(KeyEvent.VK_MINUS);
+			robot.keyRelease(KeyEvent.VK_CONTROL);
+			driver.findElement(By.xpath("(//span[@class='select2-selection__rendered'])[9]")).click();
+			Thread.sleep(1500);
+			driver.findElement(By.xpath("(//input[@class='select2-search__field'])[3]"))
+					.sendKeys("Apply For Name Change - Minor");
+			robot.keyPress(KeyEvent.VK_ENTER);
+			robot.keyRelease(KeyEvent.VK_ENTER);
+
+		try {
+			BDagentCTA.click();
+			BDagentsearch.sendKeys("Dhrubo BD");
+			robot.keyPress(KeyEvent.VK_ENTER);
+			robot.keyRelease(KeyEvent.VK_ENTER);
+		}catch(Exception Bdagent1) {
+			
+			System.out.println("No BDAgent Needed");
+		}
+			screenshot.screenshot20(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			testr.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot20.png",
+					"Editticket").build());
+			Thread.sleep(5000);
+			
+			robot.keyPress(KeyEvent.VK_PAGE_DOWN);
+			robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
+			Thread.sleep(5000);
+			try {
+				WebElement element5010 = driver.findElement(By.xpath("(//div[@class='actions']/child::input)[1]"));
+				JavascriptExecutor executor5010 = (JavascriptExecutor) driver;
+				executor5010.executeScript("arguments[0].click();", element5010);
+			} catch (Exception updateedit1) {
+				
+				driver.findElement(By.xpath("(//input[@type='submit'])[4]"));
+			
+			}
+		
+			wait.until(ExpectedConditions.alertIsPresent()).accept();
+
+			
+
+		} catch (Exception Editticket1) {
+			
+			
+			
+			
+			wait.until(ExpectedConditions.alertIsPresent()).accept();
+			screenshot.screenshot20(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			testr.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot20.png",
+					"Editticket").build());
+			Thread.sleep(5000);
+		}
+		
+try {
+			
+			
 			Thread.sleep(5000);
 			CriticalnotesCTA.click();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -168,236 +290,20 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 					"CriticalNote").build());
 		}
 		Thread.sleep(3000);
-		try {
-			try {
-				wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='editBtn']")));
-				js.executeScript("arguments[0].scrollIntoView(true);", Editticket);
-				Editticket.click();
-
-			} catch (ElementClickInterceptedException elementintercptedEdit) {
-				robot.keyPress(KeyEvent.VK_PAGE_UP);
-				Thread.sleep(3000);
-				robot.keyRelease(KeyEvent.VK_PAGE_UP);
-				robot.keyPress(KeyEvent.VK_PAGE_UP);
-				robot.keyRelease(KeyEvent.VK_PAGE_UP);
-				driver.findElement(By.xpath("//button[contains(text(),'Edit')]")).click();
-			}
-			Thread.sleep(2500);
-			Assignedto.click();
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			Thread.sleep(1500);
-			Assignedtoname.click();
-			Assignedtoname.sendKeys("Dhrubo RM");
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
-			robot.keyPress(KeyEvent.VK_ENTER);
-			robot.keyRelease(KeyEvent.VK_ENTER);
-			Thread.sleep(1500);
-
-			Paymentstatus.click();
-			robot.keyPress(KeyEvent.VK_DOWN);
-			robot.keyRelease(KeyEvent.VK_DOWN);
-			robot.keyPress(KeyEvent.VK_DOWN);
-			robot.keyRelease(KeyEvent.VK_DOWN);
-			robot.keyPress(KeyEvent.VK_DOWN);
-			robot.keyRelease(KeyEvent.VK_DOWN);
-			robot.keyPress(KeyEvent.VK_DOWN);
-			robot.keyRelease(KeyEvent.VK_DOWN);
-			robot.keyPress(KeyEvent.VK_DOWN);
-			robot.keyRelease(KeyEvent.VK_DOWN);
-			robot.keyPress(KeyEvent.VK_DOWN);
-			robot.keyRelease(KeyEvent.VK_DOWN);
-			robot.keyPress(KeyEvent.VK_DOWN);
-			robot.keyRelease(KeyEvent.VK_DOWN);
-			robot.keyPress(KeyEvent.VK_DOWN);
-			robot.keyRelease(KeyEvent.VK_DOWN);
-			robot.keyPress(KeyEvent.VK_ENTER);
-			robot.keyRelease(KeyEvent.VK_ENTER);
-			Thread.sleep(2000);
-			robot.keyPress(KeyEvent.VK_CONTROL);
-			robot.keyPress(KeyEvent.VK_MINUS);
-			robot.keyRelease(KeyEvent.VK_MINUS);
-			robot.keyRelease(KeyEvent.VK_CONTROL);
-			driver.findElement(By.xpath("//span[@id='select2-city_filter_edit-container']")).click();
-			Thread.sleep(1500);
-			driver.findElement(By.xpath("(//input[@class='select2-search__field'])[3]")).sendKeys("chennai");
-			Thread.sleep(1500);
-			robot.keyPress(KeyEvent.VK_ENTER);
-			robot.keyRelease(KeyEvent.VK_ENTER);
-			robot.keyPress(KeyEvent.VK_CONTROL);
-			robot.keyPress(KeyEvent.VK_MINUS);
-			robot.keyRelease(KeyEvent.VK_MINUS);
-			robot.keyPress(KeyEvent.VK_MINUS);
-			robot.keyRelease(KeyEvent.VK_MINUS);
-			robot.keyPress(KeyEvent.VK_MINUS);
-			robot.keyRelease(KeyEvent.VK_MINUS);
-			robot.keyRelease(KeyEvent.VK_CONTROL);
-			driver.findElement(By.xpath("//span[contains(text(),'Please select a service')]")).click();
-			Thread.sleep(1500);
-			driver.findElement(By.xpath("(//input[@class='select2-search__field'])[3]"))
-					.sendKeys("Apply For Name Change - Minor");
-			robot.keyPress(KeyEvent.VK_ENTER);
-			robot.keyRelease(KeyEvent.VK_ENTER);
-
 		
-			BDagentCTA.click();
-			BDagentsearch.sendKeys("Dhrubo BD");
-			robot.keyPress(KeyEvent.VK_ENTER);
-			robot.keyRelease(KeyEvent.VK_ENTER);
-			screenshot.screenshot20(driver, extentreport);
-			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
-			String Date1 = dateFormat.format(new Date());
-			testr.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
-					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot20.png",
-					"Editticket").build());
-			Thread.sleep(5000);
-			
-			robot.keyPress(KeyEvent.VK_PAGE_DOWN);
-			robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
-			Thread.sleep(5000);
-			try {
-				WebElement element5010 = driver.findElement(By.xpath("(//div[@class='actions']/child::input)[1]"));
-				JavascriptExecutor executor5010 = (JavascriptExecutor) driver;
-				executor5010.executeScript("arguments[0].click();", element5010);
-			} catch (Exception updateedit1) {
-				
-				driver.findElement(By.xpath("(//input[@type='submit'])[4]"));
-			
-			}
-		
-			wait.until(ExpectedConditions.alertIsPresent()).accept();
-
-			
-
-		} catch (Exception Editticket1) {
-			wait.until(ExpectedConditions.alertIsPresent()).accept();
-			screenshot.screenshot20(driver, extentreport);
-			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
-			String Date1 = dateFormat.format(new Date());
-			testr.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
-					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot20.png",
-					"Editticket").build());
-			Thread.sleep(5000);
-		}
-		
-		Thread.sleep(9000);
-		try {
-			try {
-				wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='editBtn']")));
-				js.executeScript("arguments[0].scrollIntoView(true);", Editticket);
-				Editticket.click();
-
-			} catch (ElementClickInterceptedException elementintercptedEdit) {
-				robot.keyPress(KeyEvent.VK_PAGE_UP);
-				Thread.sleep(3000);
-				robot.keyRelease(KeyEvent.VK_PAGE_UP);
-				robot.keyPress(KeyEvent.VK_PAGE_UP);
-				robot.keyRelease(KeyEvent.VK_PAGE_UP);
-				driver.findElement(By.xpath("//button[contains(text(),'Edit')]")).click();
-			}
-			Thread.sleep(2500);
-			Assignedto.click();
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			Thread.sleep(1500);
-			Assignedtoname.click();
-			Assignedtoname.sendKeys("Dhrubo RM");
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
-			robot.keyPress(KeyEvent.VK_ENTER);
-			robot.keyRelease(KeyEvent.VK_ENTER);
-			Thread.sleep(1500);
-
-			Paymentstatus.click();
-			robot.keyPress(KeyEvent.VK_DOWN);
-			robot.keyRelease(KeyEvent.VK_DOWN);
-			robot.keyPress(KeyEvent.VK_DOWN);
-			robot.keyRelease(KeyEvent.VK_DOWN);
-			robot.keyPress(KeyEvent.VK_DOWN);
-			robot.keyRelease(KeyEvent.VK_DOWN);
-			robot.keyPress(KeyEvent.VK_DOWN);
-			robot.keyRelease(KeyEvent.VK_DOWN);
-			robot.keyPress(KeyEvent.VK_DOWN);
-			robot.keyRelease(KeyEvent.VK_DOWN);
-			robot.keyPress(KeyEvent.VK_DOWN);
-			robot.keyRelease(KeyEvent.VK_DOWN);
-			robot.keyPress(KeyEvent.VK_DOWN);
-			robot.keyRelease(KeyEvent.VK_DOWN);
-			robot.keyPress(KeyEvent.VK_DOWN);
-			robot.keyRelease(KeyEvent.VK_DOWN);
-			robot.keyPress(KeyEvent.VK_ENTER);
-			robot.keyRelease(KeyEvent.VK_ENTER);
-			Thread.sleep(2000);
-			robot.keyPress(KeyEvent.VK_CONTROL);
-			robot.keyPress(KeyEvent.VK_MINUS);
-			robot.keyRelease(KeyEvent.VK_MINUS);
-			robot.keyRelease(KeyEvent.VK_CONTROL);
-			driver.findElement(By.xpath("//span[@id='select2-city_filter_edit-container']")).click();
-			Thread.sleep(1500);
-			driver.findElement(By.xpath("(//input[@class='select2-search__field'])[3]")).sendKeys("chennai");
-			Thread.sleep(1500);
-			robot.keyPress(KeyEvent.VK_ENTER);
-			robot.keyRelease(KeyEvent.VK_ENTER);
-			robot.keyPress(KeyEvent.VK_CONTROL);
-			robot.keyPress(KeyEvent.VK_MINUS);
-			robot.keyRelease(KeyEvent.VK_MINUS);
-			robot.keyPress(KeyEvent.VK_MINUS);
-			robot.keyRelease(KeyEvent.VK_MINUS);
-			robot.keyPress(KeyEvent.VK_MINUS);
-			robot.keyRelease(KeyEvent.VK_MINUS);
-			robot.keyRelease(KeyEvent.VK_CONTROL);
-			driver.findElement(By.xpath("//span[contains(text(),'Please select a service')]")).click();
-			Thread.sleep(1500);
-			driver.findElement(By.xpath("(//input[@class='select2-search__field'])[3]"))
-					.sendKeys("Apply For Name Change - Minor");
-			robot.keyPress(KeyEvent.VK_ENTER);
-			robot.keyRelease(KeyEvent.VK_ENTER);
-
-		
-			screenshot.screenshot46(driver, extentreport);
-			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
-			String Date1 = dateFormat.format(new Date());
-			testr.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
-					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot46.png",
-					"Editticket").build());
-			Thread.sleep(5000);
-			
-			robot.keyPress(KeyEvent.VK_PAGE_DOWN);
-			robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
-			Thread.sleep(5000);
-			try {
-				WebElement element5010 = driver.findElement(By.xpath("(//div[@class='actions']/child::input)[1]"));
-				JavascriptExecutor executor5010 = (JavascriptExecutor) driver;
-				executor5010.executeScript("arguments[0].click();", element5010);
-			} catch (Exception updateedit1) {
-				WebElement element50101 = driver.findElement(By.xpath("(//input[@type='submit'])[4]"));
-				JavascriptExecutor executor50101 = (JavascriptExecutor) driver;
-				executor50101.executeScript("arguments[0].click();", element50101);
-			
-			}
-		
-			wait.until(ExpectedConditions.alertIsPresent()).accept();
-
-			
-
-		} catch (Exception Editticket1) {
-			wait.until(ExpectedConditions.alertIsPresent()).accept();
-			screenshot.screenshot46(driver, extentreport);
-			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
-			String Date1 = dateFormat.format(new Date());
-			testr.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
-					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot46.png",
-					"Editticket").build());
-			Thread.sleep(5000);
-		}
 
 		Thread.sleep(8500);
 
 		String text = RecentNoteVerification.getText();
-
+		js.executeScript("arguments[0].scrollIntoView(true);", RecentNoteVerification);
+	//	js.executeScript("arguments[0].scrollIntoView(true);", RecentNoteVerification);
 		System.out.println(text);
 		if (text.contains("testing")) {
-
-			Viewattachment.click();
+			Thread.sleep(2000);
+		WebElement elementview1 = driver.findElement(By.xpath("(//div[@class='panel-collapse collapse1']/child::div)[2]/child::p/child::span"));
+			JavascriptExecutor executorview1 = (JavascriptExecutor) driver;
+			executorview1.executeScript("arguments[0].click();", elementview1);
+		//	Viewattachment.click();
 			Thread.sleep(5000);
 			List<String> all29 = new ArrayList<String>(driver.getWindowHandles());
 
@@ -625,20 +531,12 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 				JavascriptExecutor executor3 = (JavascriptExecutor) driver;
 				executor3.executeScript("arguments[0].click();", element3);
 				// canned date
-			} catch (StaleElementReferenceException e04) {
-
-				try {
-
-					driver.findElement(
-							By.xpath("(//td[@class='xdsoft_date xdsoft_day_of_week1 xdsoft_date true,'])[4]")).click();
-				} catch (NoSuchElementException CanneddateCatch1) {
-
-					driver.findElement(By.xpath("(//td[@data-date='29'])[1]")).click();
-				}
-
-			} catch (ElementNotInteractableException CanneddateCatch) {
-
-				driver.findElement(By.xpath("(//td[@data-date='27'])[4]")).click();
+			} catch (Exception e04) {
+				WebElement element3s = driver
+						.findElement(By.xpath("(//td[@class='xdsoft_date xdsoft_day_of_week1 xdsoft_date true,'])[3]"));
+				JavascriptExecutor executor3s = (JavascriptExecutor) driver;
+				executor3s.executeScript("arguments[0].click();", element3s);
+				
 			}
 
 			Thread.sleep(3000);
@@ -690,7 +588,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 				Thread.sleep(1500);
 				// Followup
 				wait.until(ExpectedConditions.elementToBeClickable(
-						By.xpath("(//div[@class='BD_dashboardOptions']/child::div/child::ul/child::li)[5]"))).click();
+						By.xpath("//div[@id='add_note_tickets']"))).click();
 
 				Thread.sleep(2500);
 				actions.moveToElement(dateselection).click().build().perform();
@@ -699,7 +597,9 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 				Thread.sleep(2500);
 
 				String subSequence1 = EventTicketId.getText().substring(1, 8);
-				if (GRCPage.e.contains(subSequence1)) {
+				String bd = ReferenceTicketID;
+				//if (GRCPage.e.contains(subSequence1)) {
+					if (bd.contains(subSequence1)) {
 					screenshot.screenshot27(driver, extentreport);
 					SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 					String Date1 = dateFormat.format(new Date());
@@ -760,6 +660,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		robot.keyPress(KeyEvent.VK_R);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
 		try {
+			Thread.sleep(3000);
 			Username.sendKeys(Helpdeskuserid);
 
 			Password.sendKeys(helpdeskpassword);
@@ -770,8 +671,8 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			Tickets.click();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			ticketid.sendKeys(GRCPage.e);
-			// ticketid.sendKeys("3333627");
+		//	ticketid.sendKeys(GRCPage.e);
+			ticketid.sendKeys(ReferenceTicketID);
 			Search.click();
 			Firstservice.click();
 		} catch (Exception NewsignUp) {
@@ -827,6 +728,12 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			robot.keyPress(KeyEvent.VK_ENTER);
 			robot.keyRelease(KeyEvent.VK_ENTER);
 			Thread.sleep(2500);
+			screenshot.screenshot29(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			testr.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot29.png",
+					"Quotation Creation").build());
 			WebElement Partialamount = driver
 					.findElement(By.xpath("(//div[@class='service-sub-title']/child::input)[2]"));
 
@@ -858,21 +765,15 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			robot.keyRelease(KeyEvent.VK_MINUS);
 			robot.keyPress(KeyEvent.VK_MINUS);
 			robot.keyRelease(KeyEvent.VK_MINUS);
+			robot.keyPress(KeyEvent.VK_MINUS);
+			robot.keyRelease(KeyEvent.VK_MINUS);
 			robot.keyRelease(KeyEvent.VK_CONTROL);
-			Thread.sleep(1500);
-
+			Thread.sleep(3500);
+		
 			sendquotation.click();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 			try {
-				CreatenewQuotation.click();
-				Thread.sleep(2500);
-				robot.keyPress(KeyEvent.VK_CONTROL);
-				robot.keyRelease(KeyEvent.VK_R);
-				robot.keyPress(KeyEvent.VK_R);
-				robot.keyRelease(KeyEvent.VK_CONTROL);
-			} catch (NoSuchElementException deactivate) {
-
 				DeactivateYES.click();
 				Thread.sleep(3500);
 
@@ -880,6 +781,14 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 				robot.keyRelease(KeyEvent.VK_R);
 				robot.keyPress(KeyEvent.VK_R);
 				robot.keyRelease(KeyEvent.VK_CONTROL);
+			} catch (NoSuchElementException deactivate) {
+				CreatenewQuotation.click();
+				Thread.sleep(2500);
+				robot.keyPress(KeyEvent.VK_CONTROL);
+				robot.keyRelease(KeyEvent.VK_R);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_CONTROL);
+				
 
 			}
 			Thread.sleep(3000);
@@ -888,18 +797,13 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 
 			driver.switchTo().window(all.get(0));
 			Thread.sleep(2500);
-			screenshot.screenshot29(driver, extentreport);
-			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
-			String Date1 = dateFormat.format(new Date());
-			testr.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
-					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot29.png",
-					"Quotation Creation").build());
+		
 		} catch (Exception CreatenewQuotation1) {
 			System.out.println(CreatenewQuotation1);
 			screenshot.screenshot29(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			testr.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+			testr.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
 					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot29.png",
 					"Quotation Creation").build());
 		}
@@ -980,6 +884,12 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			robot.keyRelease(KeyEvent.VK_BACK_SPACE);
 			Partialamount.sendKeys("101");
 
+			screenshot.screenshot32(driver, extentreport);
+			SimpleDateFormat dateFormat1 = new SimpleDateFormat("MMddyyyy");
+			String Date11 = dateFormat1.format(new Date());
+			testr.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date11 + "\\Screenshot32.png",
+					"Edit Quotation").build());
 			robot.keyPress(KeyEvent.VK_PAGE_DOWN);
 			Thread.sleep(1500);
 			robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
@@ -991,11 +901,14 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			robot.keyRelease(KeyEvent.VK_MINUS);
 			robot.keyPress(KeyEvent.VK_MINUS);
 			robot.keyRelease(KeyEvent.VK_MINUS);
+			robot.keyPress(KeyEvent.VK_MINUS);
+			robot.keyRelease(KeyEvent.VK_MINUS);
 			robot.keyRelease(KeyEvent.VK_CONTROL);
 			js.executeScript("arguments[0].scrollIntoView(true);", ConfirmquotationEdit);
 			ConfirmquotationEdit.click();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
+			robot.keyPress(KeyEvent.VK_PAGE_DOWN);
+			robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
 			sendquotationedit.click();
 			Thread.sleep(2500);
 			driver.close();
@@ -1040,12 +953,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			robot.keyRelease(KeyEvent.VK_R);
 			robot.keyPress(KeyEvent.VK_R);
 			robot.keyRelease(KeyEvent.VK_CONTROL);
-			screenshot.screenshot32(driver, extentreport);
-			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
-			String Date1 = dateFormat.format(new Date());
-			testr.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
-					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot32.png",
-					"Edit Quotation").build());
+			
 			driver.close();
 			driver.switchTo().window(all33.get(0));
 		} catch (Exception EditQuotation1) {
@@ -1064,6 +972,11 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		try {
 			Generatequotation.click();
 			Thread.sleep(2000);
+			List<String> all4 = new ArrayList<String>(driver.getWindowHandles());
+			driver.switchTo().window(all4.get(1));
+			Thread.sleep(2000);
+			WebElement scrollforquotationview = driver.findElement(By.xpath("(//span[@class='glyphicon glyphicon-paperclip'])[2]/child::a"));
+			js.executeScript("arguments[0].scrollIntoView(true);", scrollforquotationview);
 			screenshot.screenshot33(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
@@ -1083,6 +996,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		List<String> all4 = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(all4.get(1));
 		Thread.sleep(2000);
+		
 		driver.close();
 		Thread.sleep(2000);
 		driver.switchTo().window(all4.get(0));
@@ -1297,6 +1211,29 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 					"Merge").build());
 		}
 		Thread.sleep(3000);
+		driver.findElement(By.xpath("//a[contains(text(),'UnMerge')]")).click();
+		Thread.sleep(1500);
+		WebElement unmerg = driver.findElement(By.xpath("(//div[@class='panel-body'])[4]/child::p/child::a"));
+		js.executeScript("arguments[0].scrollIntoView(true);", unmerg);
+		String substring1 = unmerg.getText().substring(1, 8);
+		if (substring1.contains(T1)) {
+			screenshot.screenshot50(driver, extentreport);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+			String Date1 = dateFormat.format(new Date());
+			testr.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot50.png",
+					"UnMerge").build());
+			}else {
+				screenshot.screenshot50(driver, extentreport);
+				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+				String Date1 = dateFormat.format(new Date());
+				testr.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+						"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot50.png",
+						"UnMerge").build());
+			
+			}
+		
+		Thread.sleep(3000);
 		addnote.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.findElement(By.xpath("(//iframe[@class='cke_wysiwyg_frame cke_reset'])[4]")).click();
@@ -1477,7 +1414,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		}
 		NewCRM newCRM = new NewCRM();
 
-		newCRM.newCRM(driver, GRCPage.e, CrmUsernames, CrmUserpassword, extentreport);
+		newCRM.newCRM(driver, ReferenceTicketID, CrmUsernames, CrmUserpassword, extentreport);
 	}
 
 }

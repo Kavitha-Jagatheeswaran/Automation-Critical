@@ -23,7 +23,7 @@ import PageFactory.GRCPageobject;
 
 public class NewCRM extends GRCPageobject {
 	ExtentTest test;
-	public void newCRM(WebDriver driver,String e, String CrmUsernames, String CrmUserpassword,ExtentReports extentreport) throws InterruptedException, AWTException, IOException {
+	public void newCRM(WebDriver driver,String ReferenceTicketID, String CrmUsernames, String CrmUserpassword,ExtentReports extentreport) throws InterruptedException, AWTException, IOException {
 Robot robot = new Robot();
 Thread.sleep(3000);test = extentreport.createTest("NewCRM");
 WebDriverWait wait = new WebDriverWait(driver, 100);
@@ -48,7 +48,7 @@ try {
 		String InternalNotes = CrmInternalNote.getText().substring(1, 8);
 		
 		System.out.println(InternalNotes);
-		if ( InternalNotes.contains(GRCPage.e)) {
+		if ( InternalNotes.contains(ReferenceTicketID)) {
 			screenshot.screenshot43(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());

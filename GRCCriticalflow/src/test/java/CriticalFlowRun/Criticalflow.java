@@ -23,6 +23,8 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
+import Keymethods.Base;
 import Keymethods.Driver;
 import Keymethods.GRCPage;
 import PageFactory.HomescreenPageobject;
@@ -95,7 +97,7 @@ public class Criticalflow {
 
 		option.addArguments("start-maximized");
 		capabilities.setCapability(ChromeOptions.CAPABILITY, option);
-		option.addArguments("--headless");
+		option.addArguments("--headless"); 
 
 		driver = new ChromeDriver(capabilities);
 		driver.manage().window().maximize();
@@ -117,12 +119,11 @@ public class Criticalflow {
 			String GRCMobileNumber, String GRCNewCompanyName, String CINNumber, String CrmUsernames,
 			String CrmUserpassword) throws Exception {
 
-		// ********Base base = new Base(driver, Username, Mobilenumber,
-		// extentreport)dhrubo bd;
+		Base base = new Base(driver, Username, Mobilenumber,extentreport);
 
-GRCPage grcpage1 = new GRCPage(driver, extentreport, GRCMobileNumber,
-		 GRCNewCompanyName, CINNumber,
-Helpdeskuserid, helpdeskpassword, assignedtoName);
+//GRCPage grcpage1 = new GRCPage(driver, extentreport, GRCMobileNumber,
+//GRCNewCompanyName, CINNumber,
+//Helpdeskuserid, helpdeskpassword, assignedtoName);
 		CriticalFlowDetail Criticalflow = new CriticalFlowDetail(driver, Helpdeskuserid, helpdeskpassword, notesname,
 				notedescrption, QNameOfCustomer, qaddress, qpincode, Professionalfees, assignedtoName, BDAgentName,
 				CrossSaleName, GRCMobileNumber, CrmUsernames, CrmUserpassword, GRCNewCompanyName, CINNumber,

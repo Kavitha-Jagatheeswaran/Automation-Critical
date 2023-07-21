@@ -97,7 +97,7 @@ public class GRCPage extends GRCPageobject {
 		robot.keyRelease(KeyEvent.VK_CONTROL);
 		try {
 			WebElement element301 = driver
-					.findElement(By.xpath("//div[@class='styles_footerContainer__UOnmt']/child::button"));
+					.findElement(By.xpath("//button[contains(text(),'Login')]"));
 			JavascriptExecutor executor301 = (JavascriptExecutor) driver;
 			executor301.executeScript("arguments[0].click();", element301);
 
