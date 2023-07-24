@@ -27,6 +27,7 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import Keymethods.Base;
 import Keymethods.Driver;
 import Keymethods.GRCPage;
+import Keymethods.SendMailSSLWithAttachment;
 import PageFactory.HomescreenPageobject;
 import PageFactory.HelpdeskPageobject;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -101,7 +102,9 @@ public class Criticalflow {
 
 		driver = new ChromeDriver(capabilities);
 		driver.manage().window().maximize();
+		 
 	}
+	
 
 	@BeforeClass
 	public void url() throws InterruptedException, AWTException {
@@ -148,8 +151,8 @@ public class Criticalflow {
 
 	@AfterSuite
 	public void Mail() throws EmailException {
-		// SendMailSSLWithAttachment Mail = new SendMailSSLWithAttachment();
-		// Mail.main();
+	//	 SendMailSSLWithAttachment Mail = new SendMailSSLWithAttachment();
+	//	 Mail.main();
 		// System.out.println("Test completed1");
 		// driver.quit();
 	}

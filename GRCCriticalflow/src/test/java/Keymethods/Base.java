@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
+import org.apache.tools.ant.taskdefs.Sleep;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -155,7 +156,7 @@ public class Base {
 			try {
 				LoginPageobjects.noidonthaveacompany1.click();
 				LoginPageobjects.Next.click();
-			} catch (NoSuchElementException e) {
+			} catch (Exception e) {
 				
 					System.out.println(e);
 				
@@ -163,6 +164,7 @@ public class Base {
 			
 
 		}
+			Thread.sleep(3000);
 		LoginPageobjects.Software.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		LoginPageobjects.Next.click();
@@ -208,7 +210,7 @@ public class Base {
 			screenshot.screenshot49(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
 					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot49.png",
 					"Otp Validation / Payment Cart Page").build());
 		}

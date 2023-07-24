@@ -28,13 +28,14 @@ import org.apache.commons.mail.MultiPartEmail;
 import org.apache.commons.mail.SimpleEmail;
 import org.testng.annotations.Test;
 
-public class SendMailSSLWithAttachment{static SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+public class SendMailSSLWithAttachment{
+	static SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 static String Date1 = dateFormat.format(new Date());
-public static void main(String[] args) throws IOException {
-	
+//public static void main(String[] args) throws IOException {
+public void main() throws EmailException{
 	SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 	String Date1 = dateFormat.format(new Date());
-//public void main() throws EmailException{
+
 	
 	 Properties props = new Properties();
 
