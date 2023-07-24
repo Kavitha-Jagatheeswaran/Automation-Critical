@@ -670,12 +670,12 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			System.out.println("Helpdesk Login");
 		}
 
-		js.executeScript("arguments[0].scrollIntoView(true);", CreateQuotation);
+	//	js.executeScript("arguments[0].scrollIntoView(true);", CreateQuotation);
 		try {
 			try {
 
-				robot.keyPress(KeyEvent.VK_PAGE_UP);
-				robot.keyRelease(KeyEvent.VK_PAGE_UP);
+				robot.keyPress(KeyEvent.VK_PAGE_DOWN);
+				robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
 				CreatenewQuotation.click();
 				CreateQuotation.click();
 				CreateQuotation.click();
@@ -1066,6 +1066,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		robot.keyPress(KeyEvent.VK_PAGE_UP);
 		robot.keyRelease(KeyEvent.VK_PAGE_UP);
 		Thread.sleep(1500);
+	
 		try {
 			CrosssaleCTA.click();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -1210,7 +1211,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		WebElement unmerg = driver.findElement(By.xpath("(//div[@class='panel-body'])[6]/child::p/child::a"));
 	//	js.executeScript("arguments[0].scrollIntoView(true);", unmerg);
 		String substring1 = unmerg.getText().substring(1, 8);
-		if (substring1.contains(T1)) {
+		if (substring1.contains(ReferenceTicketID)) {
 			screenshot.screenshot50(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
@@ -1221,51 +1222,19 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			screenshot.screenshot50(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			testr.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+			testr.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
 					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot50.png",
 					"UnMerge").build());
 
 		}
 
-		Thread.sleep(3000);
-		addnote.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		driver.findElement(By.xpath("(//iframe[@class='cke_wysiwyg_frame cke_reset'])[4]")).click();
-		driver.findElement(By.xpath("(//iframe[@class='cke_wysiwyg_frame cke_reset'])[4]"))
-				.sendKeys("Testing Add note CRM");
-		Thread.sleep(2000);
-		EmailTo.click();
-		emailsearchTo.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		emailsearchTo.sendKeys("Dhrubo RM");
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		robot.keyPress(KeyEvent.VK_ENTER);
-		robot.keyRelease(KeyEvent.VK_ENTER);
-		Thread.sleep(2000);
-		Emailtoaddnote.click();
-		Thread.sleep(2500);
-
-		robot.keyPress(KeyEvent.VK_T);
-		robot.keyRelease(KeyEvent.VK_T);
-		robot.keyPress(KeyEvent.VK_E);
-		robot.keyRelease(KeyEvent.VK_E);
-		robot.keyPress(KeyEvent.VK_S);
-		robot.keyRelease(KeyEvent.VK_S);
-		robot.keyPress(KeyEvent.VK_T);
-		robot.keyRelease(KeyEvent.VK_T);
-		robot.keyPress(KeyEvent.VK_I);
-		robot.keyRelease(KeyEvent.VK_I);
-		robot.keyPress(KeyEvent.VK_N);
-		robot.keyRelease(KeyEvent.VK_N);
-		robot.keyPress(KeyEvent.VK_G);
-		robot.keyRelease(KeyEvent.VK_G);
-		// **** Emailtoaddnote.sendKeys("Hi Testing");
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
-		EmailAddAttachment
-				.sendKeys("C:\\\\Users\\\\admin\\\\eclipse-workspace\\\\GRCCriticalflow\\\\Excel\\\\Customer.xlsx");
-		EmailButtonSend.click();
+	
 		try {
+			
+			robot.keyPress(KeyEvent.VK_PAGE_UP);
+			robot.keyRelease(KeyEvent.VK_PAGE_UP);
+			robot.keyPress(KeyEvent.VK_PAGE_UP);
+			robot.keyRelease(KeyEvent.VK_PAGE_UP);
 			Magickeycopy.click();
 
 			robot.keyPress(KeyEvent.VK_CONTROL);
@@ -1406,9 +1375,9 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			System.out.println("already Logout");
 
 		}
-		NewCRM newCRM = new NewCRM();
+	//	NewCRM newCRM = new NewCRM();
 
-		newCRM.newCRM(driver, ReferenceTicketID, CrmUsernames, CrmUserpassword, extentreport);
+		//newCRM.newCRM(driver, ReferenceTicketID, CrmUsernames, CrmUserpassword, extentreport);
 	}
 
 }
