@@ -67,7 +67,7 @@ import PageFactory.LoginPageobjects;
 						MediaEntityBuilder.createScreenCaptureFromPath(
 								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot47.png",
 					"VakilSearchURL").build());
-
+ 
 			}
  
 			// wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@datainput='1']")));
