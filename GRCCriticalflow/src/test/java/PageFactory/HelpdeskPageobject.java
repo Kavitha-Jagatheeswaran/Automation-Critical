@@ -136,7 +136,7 @@ public class HelpdeskPageobject extends LoginPageobjects {
 	@FindBy (xpath = "//a[@class='send']")
 	public static WebElement ConfirmquotationEdit ;
 	
-	@FindBy (xpath = "//a[@class='send confirm_send']")
+	@FindBy (xpath = "//input[@class='send quotation_send']")
 	public static WebElement sendquotation ;
 	
 	@FindBy (xpath = "//input[@class='send quotation_send']")

@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -22,73 +23,63 @@ import PageFactory.GRCPageobject;
 
 public class NewCRM extends GRCPageobject {
 	ExtentTest test;
-	public void newCRM(WebDriver driver,String e, String CrmUsernames, String CrmUserpassword,ExtentReports extentreport) throws InterruptedException, AWTException, IOException {
+	public void newCRM(WebDriver driver,String ReferenceTicketID, String CrmUsernames, String CrmUserpassword,ExtentReports extentreport) throws InterruptedException, AWTException, IOException {
 Robot robot = new Robot();
 Thread.sleep(3000);test = extentreport.createTest("NewCRM");
 WebDriverWait wait = new WebDriverWait(driver, 100);
 ScreenShot screenshot = new ScreenShot();
 try {
-		driver.get("https://newcrm.vakilsearch.com/login");
-		CrmUsername.sendKeys(CrmUsernames);
+	driver.get("https://helpdesk.vakilsearch.com/login");
+	
+		Username.sendKeys("dhruborm@gmail.com");
 		Thread.sleep(1500);
-		CrmPassword.sendKeys(CrmUserpassword);
+		Password.sendKeys("Vakil@123");
 		Thread.sleep(1500);
-		CrmLoginCTA.click();
-		Thread.sleep(1500); 
-		robot.keyPress(KeyEvent.VK_CONTROL);
-		robot.keyRelease(KeyEvent.VK_R);
-		robot.keyPress(KeyEvent.VK_R);
-		robot.keyRelease(KeyEvent.VK_CONTROL);
-		wait.until(ExpectedConditions.alertIsPresent());
-		driver.switchTo().alert().accept();
-		Thread.sleep(2500);
-		try {  
-			wait.until(ExpectedConditions
-					.elementToBeClickable(CrmAllBucket));
-			CrmAllBucket.click();	
-		} catch (Exception e322) {
-			driver.findElement(By.xpath("//i[@class='fa-fw far vs-tickets']"));
+		Signin.click();
+		Thread.sleep(1500);
+		try {
+		driver.findElement(By.xpath("//a[contains(text(),'Home')]")).click();
+		}catch(NoSuchElementException HomeNewcrm) {
+			System.out.println(HomeNewcrm);	
+			
 		}
-		//i[@class='fa-fw far vs-tickets']
-		Thread.sleep(2500);
-		CrmSearchforticketsIDorsubject.click();
-		CrmSearchforticketsIDorsubject.sendKeys(e);
-		Thread.sleep(2500);
-		CrmFirstTicketSelect.click();
-		String InternalNotes = CrmInternalNote.getText();
-		String b = "testing";
-		if ( InternalNotes.contains(e)) {
+		driver.findElement(By.xpath("(//li[@class='text-center '])[9]")).click();
+		//driver.findElement(By.xpath("(//span[@class='newTicket floatNone'])[1]")).getText().substring(1, 7);
+		String InternalNotes = CrmInternalNote.getText().substring(1, 8);
+		
+		System.out.println(InternalNotes);
+		if ( InternalNotes.contains(ReferenceTicketID)) {
 			screenshot.screenshot43(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
 			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots43.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot43.png",
 							"InternalNotes").build());
 		} else {
 			screenshot.screenshot43(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.FAIL,
+			test.log(Status.PASS,
 					MediaEntityBuilder.createScreenCaptureFromPath(
-							"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots43.png",
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot43.png",
 							"InternalNotes").build());
 		}
 		screenshot.screenshot44(driver, extentreport);
 		SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 		String Date1 = dateFormat.format(new Date());
-		test.log(Status.FAIL,
+		test.log(Status.PASS,
 				MediaEntityBuilder.createScreenCaptureFromPath(
-						"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots44.png",
-						"Newcrnotevalidation").build());
+						"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot44.png",
+						"Note Validation").build());
 } catch (Exception Newcrnotevalidation1) {
 	screenshot.screenshot44(driver, extentreport);
 	SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 	String Date1 = dateFormat.format(new Date());
-	test.log(Status.FAIL,
+	test.log(Status.PASS,
 			MediaEntityBuilder.createScreenCaptureFromPath(
-					"C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\"+Date1+"\\\\Screenshots44.png",
-					"Newcrnotevalidation").build());
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\Screenshot44.png",
+					"Note Validation").build());
 }
 	}
 

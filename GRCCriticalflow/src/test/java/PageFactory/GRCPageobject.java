@@ -19,6 +19,9 @@ public class GRCPageobject extends HelpdeskPageobject{
 
 	@FindBy(xpath = "(//input[@style='width: 1em; text-align: center;'])[4]")
 	public static WebElement GRCOTP4;
+	
+	@FindBy(xpath = "//button[contains(text(),'Login')]")
+	public static WebElement GRCpageContinue;
 
 	@FindBy(xpath = "(//div[@class='styles_details__BqLwC'])[1]")
 	public static WebElement GRCMailId0;
@@ -150,6 +153,9 @@ public class GRCPageobject extends HelpdeskPageobject{
 	
 	@FindBy(xpath = "//p[contains(text(),'Yes, continue')]")
 	public static WebElement AreyouintrestedinGST;
+	
+	@FindBy(xpath = "//div[@class='styles_container__2yUT8 undefined']")
+	public static WebElement Buynowmodule;
 	
 	@FindBy(xpath = "//div[@class='MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-qiwgdb']")
 	public static WebElement GSTRegistrationState;

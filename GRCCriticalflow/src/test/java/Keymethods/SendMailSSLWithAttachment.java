@@ -28,12 +28,15 @@ import org.apache.commons.mail.MultiPartEmail;
 import org.apache.commons.mail.SimpleEmail;
 import org.testng.annotations.Test;
 
-public class SendMailSSLWithAttachment{static SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+public class SendMailSSLWithAttachment{
+	static SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 static String Date1 = dateFormat.format(new Date());
 public static void main(String[] args) throws IOException {
-	
-
 //public void main() throws EmailException{
+	SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+	String Date1 = dateFormat.format(new Date());
+
+	
 	 Properties props = new Properties();
 
 		// this will set host of server- you can change based on your requirement 
@@ -73,8 +76,8 @@ public static void main(String[] args) throws IOException {
 			message.setFrom(new InternetAddress("automation@vakilsearch-emailer.com"));
 
 			// Set the recipient address
-	message.setRecipients(Message.RecipientType.TO,InternetAddress.parse("sakthi.priyan@vakilsearch.com"));
-         		//	message.setRecipients(Message.RecipientType.TO,InternetAddress.parse("sakthi.priyan@vakilsearch.com,sakthipriyan071297@gmail.com,senthilkumar@vakilsearch.com,kavitha.jagatheeswaran@vakilsearch.com,saravanan.muthu@vakilsearch.com,selvamani@vakilsearch.com,aejaaz.ghouse@vakilsearch.com,naveen.nagalingam@vakilsearch.com,divya.vijayaraghavan@vakilsearch.com"));
+	//message.setRecipients(Message.RecipientType.TO,InternetAddress.parse("sakthi.priyan@vakilsearch.com"));
+         			message.setRecipients(Message.RecipientType.TO,InternetAddress.parse("sakthi.priyan@vakilsearch.com,sakthipriyan071297@gmail.com,senthilkumar@vakilsearch.com,kavitha.jagatheeswaran@vakilsearch.com,saravanan.muthu@vakilsearch.com,selvamani@vakilsearch.com,aejaaz.ghouse@vakilsearch.com,naveen.nagalingam@vakilsearch.com,divya.vijayaraghavan@vakilsearch.com"));
 
                      // Add the subject link
 			message.setSubject("CriticalFlow Automation");
@@ -89,8 +92,8 @@ public static void main(String[] args) throws IOException {
 			MimeBodyPart messageBodyPart2 = new MimeBodyPart();
 			//"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots"
 			// Mention the file which you want to send
-			//String filename = "C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\extentreport.html";
-			String filename = "C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\extentreport.html";
+			String filename = "\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\"+Date1+"\\extentreport.html";
+		//	String filename = "C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\extentreport.html";
 			// Create data source and pass the filename
 			DataSource source = new FileDataSource(filename);
 			
@@ -123,6 +126,7 @@ public static void main(String[] args) throws IOException {
 			throw new RuntimeException(e);
 
 		}
+		
 
 	}
 
