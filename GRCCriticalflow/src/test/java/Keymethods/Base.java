@@ -59,8 +59,8 @@ import PageFactory.LoginPageobjects;
 								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot47.png",
 					"VakilSearchURL launched").build());
 
-			} else {
-				screenshot.screenshot47(driver, extentreport);
+			} else {  
+				screenshot.screenshot47(driver, extentreport);  
 				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 				String Date1 = dateFormat.format(new Date());
 				test.log(Status.FAIL,
@@ -69,7 +69,7 @@ import PageFactory.LoginPageobjects;
 					"VakilSearchURL").build());
 
 			}
-
+ 
 			// wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@datainput='1']")));
 			// Thread.sleep(2000);
 
