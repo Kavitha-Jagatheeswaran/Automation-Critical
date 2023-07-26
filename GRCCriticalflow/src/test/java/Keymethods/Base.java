@@ -166,7 +166,7 @@ public class Base {
 		}
 			Thread.sleep(3000);
 		LoginPageobjects.Software.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 		LoginPageobjects.Next.click();
 
 		Thread.sleep(2000);
