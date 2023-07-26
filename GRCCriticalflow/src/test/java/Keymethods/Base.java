@@ -59,7 +59,7 @@ import PageFactory.LoginPageobjects;
 								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot47.png",
 					"VakilSearchURL launched").build());
 
-			} else { 
+			} else {  
 				screenshot.screenshot47(driver, extentreport);  
 				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 				String Date1 = dateFormat.format(new Date());
