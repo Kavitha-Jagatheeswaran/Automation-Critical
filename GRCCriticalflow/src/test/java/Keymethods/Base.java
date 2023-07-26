@@ -60,7 +60,7 @@ import PageFactory.LoginPageobjects;
 					"VakilSearchURL launched").build());
 
 			} else {
-				screenshot.screenshot47(driver, extentreport);
+				screenshot.screenshot47(driver, extentreport);  
 				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 				String Date1 = dateFormat.format(new Date());
 				test.log(Status.FAIL,
