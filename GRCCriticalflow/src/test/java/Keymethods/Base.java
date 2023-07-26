@@ -69,7 +69,7 @@ import PageFactory.LoginPageobjects;
 					"VakilSearchURL").build());
 
 			}
-
+ 
 			// wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@datainput='1']")));
 			// Thread.sleep(2000);
 
