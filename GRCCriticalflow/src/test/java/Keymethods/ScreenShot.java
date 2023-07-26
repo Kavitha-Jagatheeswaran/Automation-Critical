@@ -526,4 +526,13 @@ public class ScreenShot {
 						+ "\\Screenshot51.png"));
 
 	}
+	public void screenshot52(WebDriver driver, ExtentReports extentreport) throws IOException {
+
+		TakesScreenshot screenshot52 = ((TakesScreenshot) driver);
+		File srcFile52 = screenshot52.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(srcFile52,
+				new File("\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1
+						+ "\\Screenshot52.png"));
+
+	}
 }

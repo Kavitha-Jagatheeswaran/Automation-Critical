@@ -34,8 +34,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
-
-
+   
 
 public class Criticalflow {
 
@@ -122,8 +121,9 @@ public class Criticalflow {
 			String GRCMobileNumber, String GRCNewCompanyName, String CINNumber, String CrmUsernames,
 			String CrmUserpassword) throws Exception {
 
-		Base base = new Base(driver, Username, Mobilenumber,extentreport);
-
+		Base base = new Base();
+base.Base1(driver, CrmUsernames, GRCMobileNumber, extentreport);
+base.PrivateLimited(driver, CrmUsernames, GRCMobileNumber, extentreport);
 //GRCPage grcpage1 = new GRCPage(driver, extentreport, GRCMobileNumber,
 //GRCNewCompanyName, CINNumber,
 //Helpdeskuserid, helpdeskpassword, assignedtoName);
