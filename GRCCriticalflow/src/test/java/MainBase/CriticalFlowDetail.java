@@ -556,7 +556,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			screenshot.screenshot26(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			testr.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+			testr.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
 					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot26.png",
 					"Canned response").build());
 			driver.navigate().back();
@@ -618,7 +618,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 				screenshot.screenshot28(driver, extentreport);
 				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 				String Date1 = dateFormat.format(new Date());
-				testr.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+				testr.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
 						"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot28.png",
 						"Event creation and Verification failed").build());
 
@@ -748,7 +748,11 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			WebElement QConfirmquotationScroll = driver.findElement(By.xpath("//a[@class='send confirm_value']"));
 			js.executeScript("arguments[0].scrollIntoView(true);", QConfirmquotationScroll);
-			Confirmquotation.click();
+			
+			WebElement element44100 = driver.findElement(By.xpath("//a[@class='send confirm_value']"));
+			JavascriptExecutor executor44100 = (JavascriptExecutor) driver;
+			executor44100.executeScript("arguments[0].click();", element44100);
+	
 			robot.keyPress(KeyEvent.VK_CONTROL);
 			robot.keyPress(KeyEvent.VK_MINUS);
 			robot.keyRelease(KeyEvent.VK_MINUS);
@@ -796,6 +800,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			testr.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
 					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot29.png",
 					"Quotation Creation").build());
+			System.out.println(CreatenewQuotation1);
 		}
 		robot.keyPress(KeyEvent.VK_CONTROL);
 		robot.keyRelease(KeyEvent.VK_R);
@@ -1067,6 +1072,13 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		robot.keyRelease(KeyEvent.VK_PAGE_UP);
 		Thread.sleep(1500);
 	
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_ADD);
+		robot.keyRelease(KeyEvent.VK_ADD);
+		robot.keyPress(KeyEvent.VK_ADD);
+		robot.keyRelease(KeyEvent.VK_ADD);
+		
+		robot.keyRelease(KeyEvent.VK_CONTROL);
 		try {
 			CrosssaleCTA.click();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -1359,7 +1371,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
 			testr.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
-					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot 42.png",
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot42.png",
 					"Grc Redirection").build());
 
 		}

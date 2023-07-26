@@ -25,201 +25,272 @@ import com.aventstack.extentreports.Status;
 
 import CriticalFlowRun.Criticalflow;
 import MainBase.CriticalFlowDetail;
+import PageFactory.HelpdeskPageobject;
 import PageFactory.HomescreenPageobject;
 import PageFactory.LoginPageobjects;
 
-public class Base {
-	ExtentTest test;
 
-	public Base(WebDriver driver, String Username, String Mobilenumber, ExtentReports extentreport)
-			throws InterruptedException, AWTException, IOException {
-		test = extentreport.createTest("Vakilsearch Test");
-		WebDriverWait wait = new WebDriverWait(driver, 30);
+
+	public class Base extends HelpdeskPageobject {
+
+		ExtentTest test;
+
 		ScreenShot screenshot = new ScreenShot();
-		SimpleDateFormat dateFormat1 = new SimpleDateFormat("MMddyyyy");
+		SimpleDateFormat dateFormat1 = new SimpleDateFormat("MMddyyyyHHMMSS");
 		String Date11 = dateFormat1.format(new Date());
-		driver.manage().window().maximize();
+		SimpleDateFormat dateFormat2 = new SimpleDateFormat("MMddyyyyM");
+		String Date12 = dateFormat2.format(new Date());
 
-		driver.get("https://vakilsearch.com/");
+		public void Base1(WebDriver driver, String Username, String Mobilenumber, ExtentReports extentreport)
+				throws InterruptedException, AWTException, IOException {
+			test = extentreport.createTest("Vakilsearch Test");
+			WebDriverWait wait = new WebDriverWait(driver, 30);
+			driver.manage().window().maximize();
 
-		PageFactory.initElements(driver, LoginPageobjects.class);
-		if (driver.getTitle() != "Online Legal Services for Startups & SMEs in India | Vakil Search") {
-			screenshot.screenshot47(driver, extentreport);
-			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
-			String Date1 = dateFormat.format(new Date());
-			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
-					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot47.png",
+			driver.get("https://vakilsearch.com/");
+
+			PageFactory.initElements(driver, LoginPageobjects.class);
+			if (driver.getTitle() != "Online Legal Services for Startups & SMEs in India | Vakil Search") {
+				screenshot.screenshot47(driver, extentreport);
+				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+				String Date1 = dateFormat.format(new Date());
+				test.log(Status.PASS,
+						MediaEntityBuilder.createScreenCaptureFromPath(
+								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot47.png",
 					"VakilSearchURL launched").build());
 
-		} else {
-			screenshot.screenshot47(driver, extentreport);
-			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
-			String Date1 = dateFormat.format(new Date());
-			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
-					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot47.png",
+			} else {
+				screenshot.screenshot47(driver, extentreport);
+				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+				String Date1 = dateFormat.format(new Date());
+				test.log(Status.FAIL,
+						MediaEntityBuilder.createScreenCaptureFromPath(
+								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot47.png",
 					"VakilSearchURL").build());
 
+			}
+
+			// wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@datainput='1']")));
+			// Thread.sleep(2000);
+
 		}
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[normalize-space()='Business Setup']")));
-		LoginPageobjects.Businesssetup.click();
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		// wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@datainput='1']")));
-		// Thread.sleep(2000);
-		wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("//b[normalize-space()='Private Limited Company']")));
-		LoginPageobjects.Pvtdcompany.click();
-		System.out.println(driver.getTitle().toString());
-		if (driver.getTitle() != "Private Limited (Pvt Ltd) Company Registration Online In India") {
-			screenshot.screenshot48(driver, extentreport);
-			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
-			String Date1 = dateFormat.format(new Date());
-			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
-					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot48.png",
+
+		public void PrivateLimited(WebDriver driver, String Username, String Mobilenumber, ExtentReports extentreport)
+				throws IOException, InterruptedException, AWTException {
+
+			test = extentreport.createTest("Private Limited Company");
+			WebDriverWait wait = new WebDriverWait(driver, 30);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[normalize-space()='Business Setup']")));
+			LoginPageobjects.Businesssetup.click();
+			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(By.xpath("//b[normalize-space()='Private Limited Company']")));
+			long start = System.currentTimeMillis();
+			LoginPageobjects.Pvtdcompany.click();
+			long finish = System.currentTimeMillis();
+			long totalTime = finish - start;
+			System.out.println("Total Time for page load - " + totalTime);
+
+			System.out.println(driver.getTitle().toString());
+			if (driver.getTitle() != "Private Limited (Pvt Ltd) Company Registration Online In India") {
+				screenshot.screenshot48(driver, extentreport);
+				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+				String Date1 = dateFormat.format(new Date());
+				test.log(Status.PASS,
+						MediaEntityBuilder.createScreenCaptureFromPath(
+								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot48.png",
+					"PVT page Launched" + totalTime + "ms").build());
+
+			} else {
+				screenshot.screenshot48(driver, extentreport);
+				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+				String Date1 = dateFormat.format(new Date());
+				test.log(Status.FAIL,
+						MediaEntityBuilder.createScreenCaptureFromPath(
+								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot48.png",
 					"PVT page Launched").build());
 
-		} else {
-			screenshot.screenshot48(driver, extentreport);
-			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
-			String Date1 = dateFormat.format(new Date());
-			test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
-					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot48.png",
-					"PVT page Launched").build());
+			}
+			wait.until(
+					ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='service_form_primary_email']")));
+			LoginPageobjects.Email.click();
+			if (LoginPageobjects.Email.isEnabled()) {
 
-		}
-		wait.until(
-				ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='service_form_primary_email']")));
-		LoginPageobjects.Email.click();
-		if (LoginPageobjects.Email.isEnabled()) {
+				test.log(Status.PASS, "Email Username clicked");
+			} else {
 
-			test.log(Status.PASS, "Email Username clicked");
-		} else {
+				test.log(Status.FAIL, "Email Username notfound");
+			}
+			LoginPageobjects.Email.sendKeys("shakthi" + Date11 + "@yopmail.com");
 
-			test.log(Status.FAIL, "Email Username notfound");
-		}
-		LoginPageobjects.Email.sendKeys("shakthi"+Date11+"@yopmail.com");
+			LoginPageobjects.Phonenumber.click();
+			if (LoginPageobjects.Phonenumber.isEnabled()) {
 
-		LoginPageobjects.Phonenumber.click();
-		if (LoginPageobjects.Phonenumber.isEnabled()) {
+				test.log(Status.PASS, " Phonenumber field clicked");
+			} else {
 
-			test.log(Status.PASS, " Phonenumber field clicked");
-		} else {
+				test.log(Status.FAIL, "Phonenumber field notfound");
+			}
+			LoginPageobjects.Phonenumber.sendKeys("9" + Date12);
+			Thread.sleep(2000);
+			LoginPageobjects.City.click();
+			LoginPageobjects.City.sendKeys("chen");
+			if (LoginPageobjects.City.isEnabled()) {
 
-			test.log(Status.FAIL, "Phonenumber field notfound");
-		}
-		LoginPageobjects.Phonenumber.sendKeys("9789955331");
-		Thread.sleep(2000);
-		LoginPageobjects.City.click();
-		LoginPageobjects.City.sendKeys("chen");
-		if (LoginPageobjects.City.isEnabled()) {
+				test.log(Status.PASS, "Select City clicked");
+			} else {
 
-			test.log(Status.PASS, "Select City clicked");
-		} else {
+				test.log(Status.FAIL, "Select City field notfound");
+			}
 
-			test.log(Status.FAIL, "Select City field notfound");
-		}
+			Thread.sleep(6000);
+			WebElement findElement12 = driver.findElement(By.xpath("//div[contains(text(),'Chennai, Tamil Nadu')]"));
+			wait.until(ExpectedConditions.elementToBeClickable(findElement12)).click();
+			Robot robot = new Robot();
 
-		Thread.sleep(16000);
-		WebElement findElement12 = driver.findElement(By.xpath("//div[contains(text(),'Chennai, Tamil Nadu')]"));
-		wait.until(ExpectedConditions.elementToBeClickable(findElement12)).click();
-		Robot robot = new Robot();
-
-//		if (LoginPageobjects.whatsapptogleoff.isSelected()) {
-//
-//			test.log(Status.PASS, "whatsapptogle off");
-//		} else {
-//System.out.println("failed");
-//			test.log(Status.FAIL, "whatsapptogleoff Failed");
-//		}
-		LoginPageobjects.whatsapptogleoff.click();
-		Thread.sleep(2000);
-		try {
+//			if (LoginPageobjects.whatsapptogleoff.isSelected()) {
+	//
+//				test.log(Status.PASS, "whatsapptogle off");
+//			} else {
+	//System.out.println("failed");
+//				test.log(Status.FAIL, "whatsapptogleoff Failed");
+//			}
+			LoginPageobjects.whatsapptogleoff.click();
+			Thread.sleep(2000);
 			wait.until(ExpectedConditions
 					.visibilityOfElementLocated(By.xpath("//button[@class='fullwidth btn btn-primary']")));
+			long start1 = System.currentTimeMillis();
 			driver.findElement(By.xpath("//button[@class='fullwidth btn btn-primary']")).click();
 			System.out.println("succes1");
 
-		} catch (NoSuchElementException ek) {
+			long finish1 = System.currentTimeMillis();
+			long totalTime1 = finish1 - start1;
+			System.out.println("Total Time for page load - " + totalTime1);
 			Thread.sleep(2000);
-			robot.keyPress(KeyEvent.VK_ENTER);
-			robot.keyRelease(KeyEvent.VK_ENTER);
-			System.out.println("succes2");
-		} finally {
-			robot.keyPress(KeyEvent.VK_ENTER);
-			robot.keyRelease(KeyEvent.VK_ENTER);
-			robot.keyPress(KeyEvent.VK_ENTER);
-			robot.keyRelease(KeyEvent.VK_ENTER);
-			System.out.println("succes3");
-		}
-		Thread.sleep(1500);
-	
+			screenshot.screenshot52(driver, extentreport);
+			SimpleDateFormat dateFormat1 = new SimpleDateFormat("MMddyyyy");
+			String Date11 = dateFormat1.format(new Date());
+			test.log(Status.PASS,
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date11 + "\\Screenshot52.png",
+					"Pvt Login " + totalTime1 + "ms").build());
+
+			Thread.sleep(1500);
 
 			try {
 				LoginPageobjects.noidonthaveacompany1.click();
 				LoginPageobjects.Next.click();
 			} catch (Exception e) {
-				
+
+				System.out.println(e);
+
+			}
+			try {
+				Thread.sleep(3000);
+				LoginPageobjects.Software.click();
+				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+				LoginPageobjects.Next.click();
+
+				Thread.sleep(2000);
+				LoginPageobjects.Ageofbusiness.click();
+				robot.keyPress(KeyEvent.VK_DOWN);
+				robot.keyRelease(KeyEvent.VK_DOWN);
+
+				robot.keyPress(KeyEvent.VK_ENTER);
+				robot.keyRelease(KeyEvent.VK_ENTER);
+				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+				// LoginPageobjects.Next.click();
+				long start21 = System.currentTimeMillis();
+				driver.findElement(By.xpath("//button[@class='styles_customBtn__nb6mV styles_next__NvT8q false false ']"))
+						.click();
+				long finish21 = System.currentTimeMillis();
+				long totalTime21 = finish21 - start21;
+				System.out.println("Total Time for page load - " + totalTime21);
+				driver.findElement(By.xpath("(//div[@class='nav-item'])[1]")).click();
+				driver.findElement(By.xpath("//input[@id='gpay']")).click();
+				driver.findElement(By.xpath("//button[@id='btn-gpay']")).click();
+				Thread.sleep(3000);
+				try {
+
+					driver.findElement(By.xpath("//i[@class='back']")).click();
+					try {
+						driver.switchTo().alert().accept();
+					} catch (Exception Z) {
+						System.out.println(Z);
+					}
+					driver.findElement(By.xpath("//i[@class='back']")).click();
+					driver.findElement(By.xpath("//button[contains(text(),'YES, CANCEL')]")).click();
+
+				} catch (Exception e) {
 					System.out.println(e);
-				
+				}
 
-			
+				screenshot.screenshot49(driver, extentreport);
+				SimpleDateFormat dateFormat2 = new SimpleDateFormat("MMddyyyy");
+				String Date2 = dateFormat2.format(new Date());
+				test.log(Status.PASS,
+						MediaEntityBuilder.createScreenCaptureFromPath(
+								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date2 + "\\Screenshot49.png",
+					"Payment Cart Page" + totalTime21).build());
+			} catch (Exception SD) {
+				System.out.println(SD);
+				Thread.sleep(3000);
+			}
+			try {
+				driver.findElement(By.xpath("//input[@class='styles_otpInput__5bXLj']")).click();
+				robot.keyPress(KeyEvent.VK_CONTROL);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_CONTROL);
+				robot.keyPress(KeyEvent.VK_DELETE);
+				robot.keyRelease(KeyEvent.VK_DELETE);
+				driver.findElement(By.xpath("//input[@class='styles_otpInput__5bXLj']")).sendKeys("9789955331");
 
-		}
-			Thread.sleep(3000);
-		LoginPageobjects.Software.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
-		LoginPageobjects.Next.click();
+				driver.findElement(By.xpath("//button[contains(text(),'Send OTP')]")).click();
+				Thread.sleep(1500);
+				driver.findElement(By.xpath("(//div[@class='styles_boxes__yq8YR false false']/child::input)[1]"))
+						.sendKeys("0");
+				driver.findElement(By.xpath("(//div[@class='styles_boxes__yq8YR false false']/child::input)[2]"))
+						.sendKeys("0");
+				driver.findElement(By.xpath("(//div[@class='styles_boxes__yq8YR false false']/child::input)[3]"))
+						.sendKeys("0");
+				driver.findElement(By.xpath("(//div[@class='styles_boxes__yq8YR false false']/child::input)[4]"))
+						.sendKeys("0");
+				Thread.sleep(4000);
+				long start2 = System.currentTimeMillis();
+				driver.findElement(By.xpath("//p[contains(text(),'Next')]")).click();
+				long finish2 = System.currentTimeMillis();
+				long totalTime2 = finish2 - start2;
+				System.out.println("Total Time for page load - " + totalTime2);
+				screenshot.screenshot49(driver, extentreport);
+				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+				String Date1 = dateFormat.format(new Date());
+				test.log(Status.PASS,
+						MediaEntityBuilder.createScreenCaptureFromPath(
+								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot49.png",
+					"Payment Cart Page" + totalTime2 + "ms").build());
+				driver.findElement(By.xpath("(//div[@class='nav-item'])[1]")).click();
+				driver.findElement(By.xpath("//input[@id='gpay']")).click();
+				driver.findElement(By.xpath("//button[@id='btn-gpay']")).click();
+				driver.findElement(By.xpath("//i[@class='back']")).click();
 
-		Thread.sleep(2000);
-		LoginPageobjects.Ageofbusiness.click();
-		robot.keyPress(KeyEvent.VK_DOWN);
-		robot.keyRelease(KeyEvent.VK_DOWN);
-
-		robot.keyPress(KeyEvent.VK_ENTER);
-		robot.keyRelease(KeyEvent.VK_ENTER);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		LoginPageobjects.Next.click();
-
-		Thread.sleep(3000);
-
-		try {
-			driver.findElement(By.xpath("//button[contains(text(),'Send OTP')]")).click();
-			Thread.sleep(1500);
-			driver.findElement(By.xpath("(//div[@class='styles_boxes__yq8YR false false']/child::input)[1]"))
-					.sendKeys("0");
-			driver.findElement(By.xpath("(//div[@class='styles_boxes__yq8YR false false']/child::input)[2]"))
-					.sendKeys("0");
-			driver.findElement(By.xpath("(//div[@class='styles_boxes__yq8YR false false']/child::input)[3]"))
-					.sendKeys("0");
-			driver.findElement(By.xpath("(//div[@class='styles_boxes__yq8YR false false']/child::input)[4]"))
-					.sendKeys("0");
-			Thread.sleep(3000);
-
-			driver.findElement(By.xpath("//p[contains(text(),'Next')]")).click();
-			Thread.sleep(1500);
-			// driver.findElement(By.xpath("//button[contains(text(),'View
-			// account')]")).click();
-
-			screenshot.screenshot49(driver, extentreport);
-			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
-			String Date1 = dateFormat.format(new Date());
-			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
-					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot49.png",
-					"Payment Cart Page").build());
-
-		} catch (NoSuchElementException MyIntrest1) {
-			screenshot.screenshot49(driver, extentreport);
-			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
-			String Date1 = dateFormat.format(new Date());
-			test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
-					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot49.png",
+			} catch (Exception MyIntrest1) {
+				screenshot.screenshot49(driver, extentreport);
+				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+				String Date1 = dateFormat.format(new Date());
+				test.log(Status.PASS,
+						MediaEntityBuilder.createScreenCaptureFromPath(
+								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot49.png",
 					"Otp Validation / Payment Cart Page").build());
+				System.out.println(MyIntrest1);
+			}
+			try {
+				driver.switchTo().alert().accept();
+			} catch (Exception Alert34) {
+				System.out.println(Alert34);
+			}
+			// driver.findElement(By.xpath("//i[@class='back']")).click();
+			driver.findElement(By.xpath("//button[contains(text(),'YES, CANCEL')]")).click();
 		}
-		try {
-		driver.switchTo().alert().accept();
-		}catch(Exception Alert34){
-			System.out.println(Alert34);
-		}
-
-	}
-
+		
 }
