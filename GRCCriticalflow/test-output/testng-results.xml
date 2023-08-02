@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-07-26T12:29:23 IST" name="Default suite" finished-at="2023-07-26T12:36:34 IST" duration-ms="431540">
+  <suite started-at="2023-08-02T12:54:00 IST" name="Default suite" finished-at="2023-08-02T12:55:37 IST" duration-ms="97254">
     <groups>
     </groups>
-    <test started-at="2023-07-26T12:29:23 IST" name="Default test" finished-at="2023-07-26T12:36:34 IST" duration-ms="431540">
+    <test started-at="2023-08-02T12:54:00 IST" name="Default test" finished-at="2023-08-02T12:55:37 IST" duration-ms="97254">
       <class name="CriticalFlowRun.Criticalflow">
-        <test-method is-config="true" signature="Login()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-07-26T12:29:22 IST" name="Login" finished-at="2023-07-26T12:29:23 IST" duration-ms="515" status="PASS">
+        <test-method is-config="true" signature="Login()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-02T12:53:59 IST" name="Login" finished-at="2023-08-02T12:54:00 IST" duration-ms="936" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method is-config="true" signature="Max()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-07-26T12:29:23 IST" name="Max" finished-at="2023-07-26T12:29:26 IST" duration-ms="3233" status="PASS">
+        <test-method is-config="true" signature="Max()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-02T12:54:00 IST" name="Max" finished-at="2023-08-02T12:54:04 IST" duration-ms="4313" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Max -->
-        <test-method is-config="true" signature="url()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-07-26T12:29:26 IST" name="url" finished-at="2023-07-26T12:29:29 IST" duration-ms="3121" status="PASS">
+        <test-method is-config="true" signature="url()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-02T12:54:04 IST" name="url" finished-at="2023-08-02T12:54:07 IST" duration-ms="3125" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- url -->
-        <test-method signature="Customercreation100(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-07-26T12:29:29 IST" name="Customercreation100" data-provider="itemsdata" finished-at="2023-07-26T12:36:33 IST" duration-ms="424309" status="FAIL">
+        <test-method signature="Customercreation100(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-02T12:54:07 IST" name="Customercreation100" data-provider="itemsdata" finished-at="2023-08-02T12:55:36 IST" duration-ms="88626" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -112,16 +112,29 @@
               </value>
             </param>
           </params>
-          <exception class="java.lang.IllegalArgumentException">
+          <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
-              <![CDATA[Invalid key code]]>
+              <![CDATA[Cannot locate an element using xpath=/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[3]/span[1]/table[1]/tbody[1]/tr[1]/td[3]/div[2]/ul[1]/li[1]/a[1]
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-RG609L7', ip: '172.31.98.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.7'
+Driver info: driver.version: RemoteWebDriver]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.IllegalArgumentException: Invalid key code
-at java.desktop/sun.awt.windows.WRobotPeer.keyPress(Native Method)
-at java.desktop/java.awt.Robot.keyPress(Robot.java:351)
-at MainBase.CriticalFlowDetail.<init>(CriticalFlowDetail.java:1076)
-at CriticalFlowRun.Criticalflow.Customercreation100(Criticalflow.java:131)
+              <![CDATA[org.openqa.selenium.NoSuchElementException: Cannot locate an element using xpath=/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[3]/span[1]/table[1]/tbody[1]/tr[1]/td[3]/div[2]/ul[1]/li[1]/a[1]
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-RG609L7', ip: '172.31.98.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.7'
+Driver info: driver.version: RemoteWebDriver
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:327)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy18.click(Unknown Source)
+at MainBase.CriticalFlowDetail.<init>(CriticalFlowDetail.java:109)
+at CriticalFlowRun.Criticalflow.Customercreation100(Criticalflow.java:130)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -152,19 +165,19 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.IllegalArgumentException -->
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Customercreation100 -->
-        <test-method is-config="true" signature="close()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-07-26T12:36:34 IST" name="close" finished-at="2023-07-26T12:36:34 IST" duration-ms="2" status="PASS">
+        <test-method is-config="true" signature="close()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-02T12:55:36 IST" name="close" finished-at="2023-08-02T12:55:36 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close -->
-        <test-method is-config="true" signature="Report()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-07-26T12:36:34 IST" name="Report" finished-at="2023-07-26T12:36:34 IST" duration-ms="652" status="PASS">
+        <test-method is-config="true" signature="Report()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-02T12:55:36 IST" name="Report" finished-at="2023-08-02T12:55:37 IST" duration-ms="931" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Report -->
-        <test-method is-config="true" signature="Mail()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-07-26T12:36:34 IST" name="Mail" finished-at="2023-07-26T12:36:34 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="Mail()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-02T12:55:37 IST" name="Mail" finished-at="2023-08-02T12:55:37 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Mail -->

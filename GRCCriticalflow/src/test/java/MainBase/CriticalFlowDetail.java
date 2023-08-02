@@ -764,8 +764,12 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			js.executeScript("arguments[0].scrollIntoView(true);", sendquotation);
 
 			Thread.sleep(4500);
-
+try {
 			sendquotation.click();
+}catch(Exception send) {
+	
+	driver.findElement(By.xpath("//input[@class='send quotation_send']")).click();
+}
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 			try {

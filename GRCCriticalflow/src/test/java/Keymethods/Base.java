@@ -176,21 +176,21 @@ import PageFactory.LoginPageobjects;
 					"Pvt Login " + totalTime1 + "ms").build());
 
 			Thread.sleep(1500);
-
+//
 			try {
-				LoginPageobjects.noidonthaveacompany1.click();
-				LoginPageobjects.Next.click();
-			} catch (Exception e) {
-
-				System.out.println(e);
-
-			}
-			try {
-				Thread.sleep(3000);
-				LoginPageobjects.Software.click();
-				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-				LoginPageobjects.Next.click();
-
+//				LoginPageobjects.noidonthaveacompany1.click();
+//				LoginPageobjects.Next.click();
+//			} catch (Exception e) {
+//
+//				System.out.println(e);
+//
+//			}
+//			try {
+//				Thread.sleep(3000);
+//				LoginPageobjects.Software.click();
+//				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+//				LoginPageobjects.Next.click();
+driver.findElement(By.xpath("//span[contains(text(),'Skip it for now')]")).click();
 				Thread.sleep(2000);
 				LoginPageobjects.Ageofbusiness.click();
 				robot.keyPress(KeyEvent.VK_DOWN);
@@ -206,37 +206,7 @@ import PageFactory.LoginPageobjects;
 				long finish21 = System.currentTimeMillis();
 				long totalTime21 = finish21 - start21;
 				System.out.println("Total Time for page load - " + totalTime21);
-				driver.findElement(By.xpath("(//div[@class='nav-item'])[1]")).click();
-				driver.findElement(By.xpath("//input[@id='gpay']")).click();
-				driver.findElement(By.xpath("//button[@id='btn-gpay']")).click();
-				Thread.sleep(3000);
-				try {
-
-					driver.findElement(By.xpath("//i[@class='back']")).click();
-					try {
-						driver.switchTo().alert().accept();
-					} catch (Exception Z) {
-						System.out.println(Z);
-					}
-					driver.findElement(By.xpath("//i[@class='back']")).click();
-					driver.findElement(By.xpath("//button[contains(text(),'YES, CANCEL')]")).click();
-
-				} catch (Exception e) {
-					System.out.println(e);
-				}
-
-				screenshot.screenshot49(driver, extentreport);
-				SimpleDateFormat dateFormat2 = new SimpleDateFormat("MMddyyyy");
-				String Date2 = dateFormat2.format(new Date());
-				test.log(Status.PASS,
-						MediaEntityBuilder.createScreenCaptureFromPath(
-								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date2 + "\\Screenshot49.png",
-					"Payment Cart Page" + totalTime21).build());
-			} catch (Exception SD) {
-				System.out.println(SD);
-				Thread.sleep(3000);
-			}
-			try {
+				
 				driver.findElement(By.xpath("//input[@class='styles_otpInput__5bXLj']")).click();
 				robot.keyPress(KeyEvent.VK_CONTROL);
 				robot.keyPress(KeyEvent.VK_A);
@@ -245,7 +215,7 @@ import PageFactory.LoginPageobjects;
 				robot.keyPress(KeyEvent.VK_DELETE);
 				robot.keyRelease(KeyEvent.VK_DELETE);
 				driver.findElement(By.xpath("//input[@class='styles_otpInput__5bXLj']")).sendKeys("9789955331");
-
+Thread.sleep(2500);
 				driver.findElement(By.xpath("//button[contains(text(),'Send OTP')]")).click();
 				Thread.sleep(1500);
 				driver.findElement(By.xpath("(//div[@class='styles_boxes__yq8YR false false']/child::input)[1]"))
@@ -269,6 +239,7 @@ import PageFactory.LoginPageobjects;
 						MediaEntityBuilder.createScreenCaptureFromPath(
 								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot49.png",
 					"Payment Cart Page" + totalTime2 + "ms").build());
+				driver.findElement(By.xpath("//span[contains(text(),'Proceed to pay')]")).click();
 				driver.findElement(By.xpath("(//div[@class='nav-item'])[1]")).click();
 				driver.findElement(By.xpath("//input[@id='gpay']")).click();
 				driver.findElement(By.xpath("//button[@id='btn-gpay']")).click();
