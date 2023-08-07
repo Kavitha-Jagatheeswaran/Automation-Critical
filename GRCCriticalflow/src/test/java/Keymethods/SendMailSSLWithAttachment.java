@@ -120,12 +120,15 @@ public static void main(String[] args) throws IOException {
 			Transport.send(message);
 
 			System.out.println("=====Email Sent=====");
+			
+			
 
 		} catch (MessagingException e) {
 
 			throw new RuntimeException(e);
 
 		}
+		
 		
 
 	}

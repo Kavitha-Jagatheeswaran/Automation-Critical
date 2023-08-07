@@ -522,7 +522,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			Thread.sleep(2000);
 			try {
 				WebElement element3 = driver.findElement(
-						By.xpath("(//td[@class='xdsoft_date xdsoft_day_of_week1 xdsoft_date true,'])"));
+						By.xpath("//td[@class='xdsoft_date xdsoft_day_of_week4 xdsoft_date true,']/child::*[contains(text(),'31')]"));
 				JavascriptExecutor executor3 = (JavascriptExecutor) driver;
 				executor3.executeScript("arguments[0].click();", element3);
 				// canned date

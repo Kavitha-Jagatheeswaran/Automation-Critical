@@ -175,7 +175,7 @@ import PageFactory.LoginPageobjects;
 							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date11 + "\\Screenshot52.png",
 					"Pvt Login " + totalTime1 + "ms").build());
 
-			Thread.sleep(1500);
+			Thread.sleep(2500);
 //
 			try {
 //				LoginPageobjects.noidonthaveacompany1.click();
