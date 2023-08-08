@@ -94,7 +94,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			WebElement element501011 = driver.findElement(By.xpath("//input[@id='search']"));
 			JavascriptExecutor executor501011 = (JavascriptExecutor) driver;
 			executor501011.executeScript("arguments[0].click();", element501011);
-			element501011.sendKeys("9789955331");
+			element501011.sendKeys("9361079767");
 			// driver.findElement(By.xpath("//input[@class='form-control
 			// ticket_search']")).sendKeys("9789955331");
 			// ticketid.sendKeys(GRCPage.e);
@@ -398,8 +398,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			Thread.sleep(1500);
 			Assignedtoname.click();
 			Assignedtoname.sendKeys("Testing automation");
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
+		
 			robot.keyPress(KeyEvent.VK_ENTER);
 			robot.keyRelease(KeyEvent.VK_ENTER);
 			Thread.sleep(1500);
@@ -522,7 +521,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			Thread.sleep(2000);
 			try {
 				WebElement element3 = driver.findElement(
-						By.xpath("(//td[@class='xdsoft_date xdsoft_day_of_week1 xdsoft_date true,'])"));
+						By.xpath("//td[@class='xdsoft_date xdsoft_day_of_week4 xdsoft_date true,']/child::*[contains(text(),'31')]"));
 				JavascriptExecutor executor3 = (JavascriptExecutor) driver;
 				executor3.executeScript("arguments[0].click();", element3);
 				// canned date
@@ -764,8 +763,12 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			js.executeScript("arguments[0].scrollIntoView(true);", sendquotation);
 
 			Thread.sleep(4500);
-
+try {
 			sendquotation.click();
+}catch(Exception send) {
+	
+	driver.findElement(By.xpath("//input[@class='send quotation_send']")).click();
+}
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 			try {
@@ -1220,6 +1223,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		Thread.sleep(5500);
 		robot.keyPress(KeyEvent.VK_PAGE_DOWN);
 		robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
+		Thread.sleep(2500);
 		WebElement unmerg = driver.findElement(By.xpath("(//div[@class='panel-body'])[6]/child::p/child::a"));
 	//	js.executeScript("arguments[0].scrollIntoView(true);", unmerg);
 		String substring1 = unmerg.getText().substring(1, 8);
