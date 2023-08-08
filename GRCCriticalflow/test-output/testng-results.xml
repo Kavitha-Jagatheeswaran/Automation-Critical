@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-08-04T01:10:51 IST" name="Default suite" finished-at="2023-08-04T01:20:31 IST" duration-ms="580365">
+  <suite started-at="2023-08-07T23:59:12 IST" name="Default suite" finished-at="2023-08-08T00:08:21 IST" duration-ms="549266">
     <groups>
     </groups>
-    <test started-at="2023-08-04T01:10:51 IST" name="Default test" finished-at="2023-08-04T01:20:31 IST" duration-ms="580365">
+    <test started-at="2023-08-07T23:59:12 IST" name="Default test" finished-at="2023-08-08T00:08:21 IST" duration-ms="549266">
       <class name="CriticalFlowRun.Criticalflow">
-        <test-method is-config="true" signature="Login()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-04T01:10:50 IST" name="Login" finished-at="2023-08-04T01:10:51 IST" duration-ms="1075" status="PASS">
+        <test-method is-config="true" signature="Login()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-07T23:59:11 IST" name="Login" finished-at="2023-08-07T23:59:12 IST" duration-ms="655" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method is-config="true" signature="Max()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-04T01:10:51 IST" name="Max" finished-at="2023-08-04T01:10:57 IST" duration-ms="6248" status="PASS">
+        <test-method is-config="true" signature="Max()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-07T23:59:12 IST" name="Max" finished-at="2023-08-07T23:59:16 IST" duration-ms="4417" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Max -->
-        <test-method is-config="true" signature="url()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-04T01:10:57 IST" name="url" finished-at="2023-08-04T01:11:00 IST" duration-ms="3111" status="PASS">
+        <test-method is-config="true" signature="url()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-07T23:59:17 IST" name="url" finished-at="2023-08-07T23:59:20 IST" duration-ms="3084" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- url -->
-        <test-method signature="Customercreation100(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-04T01:11:00 IST" name="Customercreation100" data-provider="itemsdata" finished-at="2023-08-04T01:20:30 IST" duration-ms="569522" status="PASS">
+        <test-method signature="Customercreation100(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-07T23:59:20 IST" name="Customercreation100" data-provider="itemsdata" finished-at="2023-08-08T00:08:20 IST" duration-ms="540371" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -115,15 +115,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Customercreation100 -->
-        <test-method is-config="true" signature="close()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-04T01:20:30 IST" name="close" finished-at="2023-08-04T01:20:30 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="close()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-08T00:08:20 IST" name="close" finished-at="2023-08-08T00:08:20 IST" duration-ms="3" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close -->
-        <test-method is-config="true" signature="Report()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-04T01:20:30 IST" name="Report" finished-at="2023-08-04T01:20:31 IST" duration-ms="1131" status="PASS">
+        <test-method is-config="true" signature="Report()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-08T00:08:20 IST" name="Report" finished-at="2023-08-08T00:08:21 IST" duration-ms="1053" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Report -->
-        <test-method is-config="true" signature="Mail()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-04T01:20:31 IST" name="Mail" finished-at="2023-08-04T01:20:31 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="Mail()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-08T00:08:21 IST" name="Mail" finished-at="2023-08-08T00:08:21 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Mail -->

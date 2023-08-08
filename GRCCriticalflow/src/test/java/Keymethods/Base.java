@@ -131,7 +131,7 @@ import PageFactory.LoginPageobjects;
 
 				test.log(Status.FAIL, "Phonenumber field notfound");
 			}
-			LoginPageobjects.Phonenumber.sendKeys("9" + Date12);
+			LoginPageobjects.Phonenumber.sendKeys("9361079767");
 			Thread.sleep(2000);
 			LoginPageobjects.City.click();
 			LoginPageobjects.City.sendKeys("chen");
@@ -207,28 +207,31 @@ driver.findElement(By.xpath("//span[contains(text(),'Skip it for now')]")).click
 				long totalTime21 = finish21 - start21;
 				System.out.println("Total Time for page load - " + totalTime21);
 				
-				driver.findElement(By.xpath("//input[@class='styles_otpInput__5bXLj']")).click();
-				robot.keyPress(KeyEvent.VK_CONTROL);
-				robot.keyPress(KeyEvent.VK_A);
-				robot.keyRelease(KeyEvent.VK_A);
-				robot.keyRelease(KeyEvent.VK_CONTROL);
-				robot.keyPress(KeyEvent.VK_DELETE);
-				robot.keyRelease(KeyEvent.VK_DELETE);
-				driver.findElement(By.xpath("//input[@class='styles_otpInput__5bXLj']")).sendKeys("9789955331");
-Thread.sleep(2500);
-				driver.findElement(By.xpath("//button[contains(text(),'Send OTP')]")).click();
-				Thread.sleep(1500);
-				driver.findElement(By.xpath("(//div[@class='styles_boxes__yq8YR false false']/child::input)[1]"))
-						.sendKeys("0");
-				driver.findElement(By.xpath("(//div[@class='styles_boxes__yq8YR false false']/child::input)[2]"))
-						.sendKeys("0");
-				driver.findElement(By.xpath("(//div[@class='styles_boxes__yq8YR false false']/child::input)[3]"))
-						.sendKeys("0");
-				driver.findElement(By.xpath("(//div[@class='styles_boxes__yq8YR false false']/child::input)[4]"))
-						.sendKeys("0");
-				Thread.sleep(4000);
+//				driver.findElement(By.xpath("//input[@class='styles_otpInput__5bXLj']")).click();
+//				robot.keyPress(KeyEvent.VK_CONTROL);
+//				robot.keyPress(KeyEvent.VK_A);
+//				robot.keyRelease(KeyEvent.VK_A);
+//				robot.keyRelease(KeyEvent.VK_CONTROL);
+//				robot.keyPress(KeyEvent.VK_DELETE);
+//				robot.keyRelease(KeyEvent.VK_DELETE);
+//				driver.findElement(By.xpath("//input[@class='styles_otpInput__5bXLj']")).sendKeys("9789955331");
+//Thread.sleep(2500);
+//				driver.findElement(By.xpath("//button[contains(text(),'Send OTP')]")).click();
+//				Thread.sleep(1500);
+//				driver.findElement(By.xpath("(//div[@class='styles_boxes__yq8YR false false']/child::input)[1]"))
+//						.sendKeys("0");
+//				driver.findElement(By.xpath("(//div[@class='styles_boxes__yq8YR false false']/child::input)[2]"))
+//						.sendKeys("0");
+//				driver.findElement(By.xpath("(//div[@class='styles_boxes__yq8YR false false']/child::input)[3]"))
+//						.sendKeys("0");
+//				driver.findElement(By.xpath("(//div[@class='styles_boxes__yq8YR false false']/child::input)[4]"))
+//						.sendKeys("0");
+//				Thread.sleep(4000);
 				long start2 = System.currentTimeMillis();
 				driver.findElement(By.xpath("//p[contains(text(),'Next')]")).click();
+				wait.until(ExpectedConditions
+						.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Proceed to pay')]")));
+				driver.findElement(By.xpath("//span[contains(text(),'Proceed to pay')]")).click();
 				long finish2 = System.currentTimeMillis();
 				long totalTime2 = finish2 - start2;
 				System.out.println("Total Time for page load - " + totalTime2);
@@ -239,7 +242,7 @@ Thread.sleep(2500);
 						MediaEntityBuilder.createScreenCaptureFromPath(
 								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot49.png",
 					"Payment Cart Page" + totalTime2 + "ms").build());
-				driver.findElement(By.xpath("//span[contains(text(),'Proceed to pay')]")).click();
+				
 				driver.findElement(By.xpath("(//div[@class='nav-item'])[1]")).click();
 				driver.findElement(By.xpath("//input[@id='gpay']")).click();
 				driver.findElement(By.xpath("//button[@id='btn-gpay']")).click();
