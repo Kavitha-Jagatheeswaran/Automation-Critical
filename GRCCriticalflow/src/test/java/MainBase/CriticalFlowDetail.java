@@ -813,6 +813,9 @@ try {
 					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot29.png",
 					"Quotation Creation").build());
 			System.out.println(CreatenewQuotation1);
+			driver.close();
+
+			
 		}
 		robot.keyPress(KeyEvent.VK_CONTROL);
 		robot.keyRelease(KeyEvent.VK_R);
@@ -822,7 +825,9 @@ try {
 		String AmountValidation1 = driver.findElement(By.xpath(
 				"(//td[@style='border-bottom:1px solid #f7f7f7;padding:10px 14px 10px 10px;text-align:right;'])[1]"))
 				.getText().substring(2, 4);
+		Thread.sleep(3500);
 		driver.findElement(By.xpath("(//a[contains(text(),'Pay Now')])[1]")).click();
+		Thread.sleep(1500);
 		List<String> all32 = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(all32.get(1));
 		Thread.sleep(3000);

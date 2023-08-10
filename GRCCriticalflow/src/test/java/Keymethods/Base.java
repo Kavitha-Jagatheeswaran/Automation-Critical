@@ -144,7 +144,9 @@ import PageFactory.LoginPageobjects;
 				test.log(Status.FAIL, "Select City field notfound");
 			}
 
-			Thread.sleep(6000);
+			
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Chennai, Tamil Nadu')]")));
 			WebElement findElement12 = driver.findElement(By.xpath("//div[contains(text(),'Chennai, Tamil Nadu')]"));
 			
 			JavascriptExecutor executorview11 = (JavascriptExecutor) driver;

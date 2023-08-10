@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-08-10T15:19:09 IST" name="Default suite" finished-at="2023-08-10T15:28:26 IST" duration-ms="556543">
+  <suite started-at="2023-08-10T16:16:19 IST" name="Default suite" finished-at="2023-08-10T16:22:46 IST" duration-ms="387656">
     <groups>
     </groups>
-    <test started-at="2023-08-10T15:19:09 IST" name="Default test" finished-at="2023-08-10T15:28:26 IST" duration-ms="556543">
+    <test started-at="2023-08-10T16:16:19 IST" name="Default test" finished-at="2023-08-10T16:22:46 IST" duration-ms="387656">
       <class name="CriticalFlowRun.Criticalflow">
-        <test-method is-config="true" signature="Login()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-10T15:19:09 IST" name="Login" finished-at="2023-08-10T15:19:09 IST" duration-ms="546" status="PASS">
+        <test-method is-config="true" signature="Login()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-10T16:16:18 IST" name="Login" finished-at="2023-08-10T16:16:19 IST" duration-ms="540" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method is-config="true" signature="Max()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-10T15:19:09 IST" name="Max" finished-at="2023-08-10T15:19:13 IST" duration-ms="4177" status="PASS">
+        <test-method is-config="true" signature="Max()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-10T16:16:19 IST" name="Max" finished-at="2023-08-10T16:16:24 IST" duration-ms="5878" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Max -->
-        <test-method is-config="true" signature="url()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-10T15:19:13 IST" name="url" finished-at="2023-08-10T15:19:16 IST" duration-ms="3082" status="PASS">
+        <test-method is-config="true" signature="url()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-10T16:16:25 IST" name="url" finished-at="2023-08-10T16:16:28 IST" duration-ms="3114" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- url -->
-        <test-method signature="Customercreation100(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-10T15:19:17 IST" name="Customercreation100" data-provider="itemsdata" finished-at="2023-08-10T15:28:25 IST" duration-ms="548440" status="FAIL">
+        <test-method signature="Customercreation100(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-10T16:16:28 IST" name="Customercreation100" data-provider="itemsdata" finished-at="2023-08-10T16:22:45 IST" duration-ms="377331" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -114,26 +114,26 @@
           </params>
           <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
-              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"(//div[@class='panel-body'])[6]/child::p/child::a"}
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"(//div[@class='styles_totalPrice__1O_p9']/child::h2)[2]"}
   (Session info: chrome=115.0.5790.171)
 For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'DESKTOP-RG609L7', ip: '172.31.98.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.7'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 115.0.5790.171, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:56747}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 08ee19dd9971106b251b646a69125f42
-*** Element info: {Using=xpath, value=(//div[@class='panel-body'])[6]/child::p/child::a}]]>
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 115.0.5790.171, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:60498}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 5a77a2b18970495b7c4b52910e8e5b52
+*** Element info: {Using=xpath, value=(//div[@class='styles_totalPrice__1O_p9']/child::h2)[2]}]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"(//div[@class='panel-body'])[6]/child::p/child::a"}
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"(//div[@class='styles_totalPrice__1O_p9']/child::h2)[2]"}
   (Session info: chrome=115.0.5790.171)
 For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'DESKTOP-RG609L7', ip: '172.31.98.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.7'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 115.0.5790.171, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:56747}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 08ee19dd9971106b251b646a69125f42
-*** Element info: {Using=xpath, value=(//div[@class='panel-body'])[6]/child::p/child::a}
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 115.0.5790.171, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:60498}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 5a77a2b18970495b7c4b52910e8e5b52
+*** Element info: {Using=xpath, value=(//div[@class='styles_totalPrice__1O_p9']/child::h2)[2]}
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -149,7 +149,7 @@ at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:3
 at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
 at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
 at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-at MainBase.CriticalFlowDetail.<init>(CriticalFlowDetail.java:1237)
+at MainBase.CriticalFlowDetail.<init>(CriticalFlowDetail.java:830)
 at CriticalFlowRun.Criticalflow.Customercreation100(Criticalflow.java:130)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
@@ -185,15 +185,15 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Customercreation100 -->
-        <test-method is-config="true" signature="close()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-10T15:28:25 IST" name="close" finished-at="2023-08-10T15:28:25 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="close()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-10T16:22:45 IST" name="close" finished-at="2023-08-10T16:22:45 IST" duration-ms="2" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close -->
-        <test-method is-config="true" signature="Report()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-10T15:28:25 IST" name="Report" finished-at="2023-08-10T15:28:26 IST" duration-ms="613" status="PASS">
+        <test-method is-config="true" signature="Report()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-10T16:22:45 IST" name="Report" finished-at="2023-08-10T16:22:46 IST" duration-ms="846" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Report -->
-        <test-method is-config="true" signature="Mail()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-10T15:28:26 IST" name="Mail" finished-at="2023-08-10T15:28:26 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="Mail()[pri:0, instance:CriticalFlowRun.Criticalflow@635eaaf1]" started-at="2023-08-10T16:22:46 IST" name="Mail" finished-at="2023-08-10T16:22:46 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Mail -->
