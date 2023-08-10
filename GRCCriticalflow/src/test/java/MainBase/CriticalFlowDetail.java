@@ -57,6 +57,8 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			ExtentReports extentreport)
 			throws InterruptedException, AWTException, ElementClickInterceptedException, IOException {
 		Robot robot = new Robot();
+		SimpleDateFormat dateFormat2 = new SimpleDateFormat("MMddyyyyM");
+		String Date12 = dateFormat2.format(new Date());
 		ScreenShot screenshot = new ScreenShot();
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		testr = extentreport.createTest("Helpdesk");
@@ -94,7 +96,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			WebElement element501011 = driver.findElement(By.xpath("//input[@id='search']"));
 			JavascriptExecutor executor501011 = (JavascriptExecutor) driver;
 			executor501011.executeScript("arguments[0].click();", element501011);
-			element501011.sendKeys("9361079767");
+			element501011.sendKeys("9" + Date12);
 			// driver.findElement(By.xpath("//input[@class='form-control
 			// ticket_search']")).sendKeys("9789955331");
 			// ticketid.sendKeys(GRCPage.e);
@@ -747,10 +749,17 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			WebElement QConfirmquotationScroll = driver.findElement(By.xpath("//a[@class='send confirm_value']"));
 			js.executeScript("arguments[0].scrollIntoView(true);", QConfirmquotationScroll);
-			
-			WebElement element44100 = driver.findElement(By.xpath("//a[@class='send confirm_value']"));
+			try {
+			WebElement element44100 = driver.findElement(By.xpath("//input[@class='send quotation_send']"));
 			JavascriptExecutor executor44100 = (JavascriptExecutor) driver;
 			executor44100.executeScript("arguments[0].click();", element44100);
+			}catch (Exception quo) {
+				WebElement element44100 = driver.findElement(By.xpath("//a[@class='send confirm_value']"));
+				JavascriptExecutor executor44100 = (JavascriptExecutor) driver;
+				executor44100.executeScript("arguments[0].click();", element44100);
+				
+				
+			}
 	
 			robot.keyPress(KeyEvent.VK_CONTROL);
 			robot.keyPress(KeyEvent.VK_MINUS);
@@ -809,6 +818,7 @@ try {
 		robot.keyRelease(KeyEvent.VK_R);
 		robot.keyPress(KeyEvent.VK_R);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
+		Thread.sleep(2000);
 		String AmountValidation1 = driver.findElement(By.xpath(
 				"(//td[@style='border-bottom:1px solid #f7f7f7;padding:10px 14px 10px 10px;text-align:right;'])[1]"))
 				.getText().substring(2, 4);
@@ -819,7 +829,7 @@ try {
 		String PaynowAmountValidation = driver
 				.findElement(By.xpath("(//div[@class='styles_totalPrice__1O_p9']/child::h2)[2]")).getText()
 				.substring(1, 3);
-
+Thread.sleep(2000);
 		if (AmountValidation1.contains(PaynowAmountValidation)) {
 			screenshot.screenshot30(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
@@ -1224,7 +1234,7 @@ try {
 		robot.keyPress(KeyEvent.VK_PAGE_DOWN);
 		robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
 		Thread.sleep(2500);
-		WebElement unmerg = driver.findElement(By.xpath("(//div[@class='panel-body'])[6]/child::p/child::a"));
+		WebElement unmerg = driver.findElement(By.xpath("//p[contains(text(),'This ticket has been unmerged from')]/child::a"));
 	//	js.executeScript("arguments[0].scrollIntoView(true);", unmerg);
 		String substring1 = unmerg.getText().substring(1, 8);
 		if (substring1.contains(ReferenceTicketID)) {

@@ -11,6 +11,7 @@ import java.util.concurrent.TimeoutException;
 
 import org.apache.tools.ant.taskdefs.Sleep;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -131,7 +132,7 @@ import PageFactory.LoginPageobjects;
 
 				test.log(Status.FAIL, "Phonenumber field notfound");
 			}
-			LoginPageobjects.Phonenumber.sendKeys("9361079767");
+			LoginPageobjects.Phonenumber.sendKeys("9" + Date12);
 			Thread.sleep(2000);
 			LoginPageobjects.City.click();
 			LoginPageobjects.City.sendKeys("chen");
@@ -145,7 +146,10 @@ import PageFactory.LoginPageobjects;
 
 			Thread.sleep(6000);
 			WebElement findElement12 = driver.findElement(By.xpath("//div[contains(text(),'Chennai, Tamil Nadu')]"));
-			wait.until(ExpectedConditions.elementToBeClickable(findElement12)).click();
+			
+			JavascriptExecutor executorview11 = (JavascriptExecutor) driver;
+			executorview11.executeScript("arguments[0].click();", findElement12);
+			
 			Robot robot = new Robot();
 
 //			if (LoginPageobjects.whatsapptogleoff.isSelected()) {
@@ -155,12 +159,14 @@ import PageFactory.LoginPageobjects;
 	//System.out.println("failed");
 //				test.log(Status.FAIL, "whatsapptogleoff Failed");
 //			}
-			LoginPageobjects.whatsapptogleoff.click();
+		
 			Thread.sleep(2000);
 			wait.until(ExpectedConditions
 					.visibilityOfElementLocated(By.xpath("//button[@class='fullwidth btn btn-primary']")));
 			long start1 = System.currentTimeMillis();
-			driver.findElement(By.xpath("//button[@class='fullwidth btn btn-primary']")).click();
+			WebElement findElement9 = driver.findElement(By.xpath("//button[@class='fullwidth btn btn-primary']"));
+			JavascriptExecutor executorview111 = (JavascriptExecutor) driver;
+			executorview111.executeScript("arguments[0].click();", findElement9);
 			System.out.println("succes1");
 
 			long finish1 = System.currentTimeMillis();
