@@ -54,11 +54,10 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			String notedescrption, String QNameOfCustomer, String qaddress, String qpincode, String Professionalfees,
 			String assignedtoName, String BDAgentName, String CrossSaleName, String GRCMobileNumber,
 			String CrmUsernames, String CrmUserpassword, String GRCNewCompanyName, String CINNumber,
-			ExtentReports extentreport)
+			ExtentReports extentreport,String Date12)
 			throws InterruptedException, AWTException, ElementClickInterceptedException, IOException {
 		Robot robot = new Robot();
-		SimpleDateFormat dateFormat2 = new SimpleDateFormat("MMddyyyyM");
-		String Date12 = dateFormat2.format(new Date());
+		
 		ScreenShot screenshot = new ScreenShot();
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		testr = extentreport.createTest("Helpdesk");
@@ -746,6 +745,19 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			robot.keyRelease(KeyEvent.VK_BACK_SPACE);
 			Partialamount.sendKeys("100");
 
+		
+	
+			robot.keyPress(KeyEvent.VK_CONTROL);
+			robot.keyPress(KeyEvent.VK_MINUS);
+			robot.keyRelease(KeyEvent.VK_MINUS);
+			robot.keyPress(KeyEvent.VK_MINUS);
+			robot.keyRelease(KeyEvent.VK_MINUS);
+			robot.keyPress(KeyEvent.VK_MINUS);
+			robot.keyRelease(KeyEvent.VK_MINUS);
+			robot.keyRelease(KeyEvent.VK_CONTROL);
+			js.executeScript("arguments[0].scrollIntoView(true);", sendquotation);
+
+			Thread.sleep(4500);
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			WebElement QConfirmquotationScroll = driver.findElement(By.xpath("//a[@class='send confirm_value']"));
 			js.executeScript("arguments[0].scrollIntoView(true);", QConfirmquotationScroll);
@@ -760,24 +772,9 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 				
 				
 			}
-	
-			robot.keyPress(KeyEvent.VK_CONTROL);
-			robot.keyPress(KeyEvent.VK_MINUS);
-			robot.keyRelease(KeyEvent.VK_MINUS);
-			robot.keyPress(KeyEvent.VK_MINUS);
-			robot.keyRelease(KeyEvent.VK_MINUS);
-			robot.keyPress(KeyEvent.VK_MINUS);
-			robot.keyRelease(KeyEvent.VK_MINUS);
-			robot.keyRelease(KeyEvent.VK_CONTROL);
-			js.executeScript("arguments[0].scrollIntoView(true);", sendquotation);
 
-			Thread.sleep(4500);
-try {
-			sendquotation.click();
-}catch(Exception send) {
-	
-	driver.findElement(By.xpath("//input[@class='send quotation_send']")).click();
-}
+
+
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 			try {

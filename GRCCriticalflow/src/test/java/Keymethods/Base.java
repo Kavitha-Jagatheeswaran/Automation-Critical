@@ -39,10 +39,9 @@ import PageFactory.LoginPageobjects;
 		ScreenShot screenshot = new ScreenShot();
 		SimpleDateFormat dateFormat1 = new SimpleDateFormat("MMddyyyyHHMMSS");
 		String Date11 = dateFormat1.format(new Date());
-		SimpleDateFormat dateFormat2 = new SimpleDateFormat("MMddyyyyM");
-		String Date12 = dateFormat2.format(new Date());
+		
 
-		public void Base1(WebDriver driver, String Username, String Mobilenumber, ExtentReports extentreport)
+		public void Base1(WebDriver driver, String Username, String Mobilenumber, ExtentReports extentreport,String Date12)
 				throws InterruptedException, AWTException, IOException {
 			test = extentreport.createTest("Vakilsearch Test");
 			WebDriverWait wait = new WebDriverWait(driver, 30);
@@ -76,7 +75,7 @@ import PageFactory.LoginPageobjects;
 
 		}
 
-		public void PrivateLimited(WebDriver driver, String Username, String Mobilenumber, ExtentReports extentreport)
+		public void PrivateLimited(WebDriver driver, String Username, String Mobilenumber, ExtentReports extentreport,String Date12)
 				throws IOException, InterruptedException, AWTException {
 
 			test = extentreport.createTest("Private Limited Company");
