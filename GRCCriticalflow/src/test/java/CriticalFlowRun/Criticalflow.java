@@ -123,7 +123,7 @@ public class Criticalflow {
 
 		Base base = new Base();
 base.Base1(driver, CrmUsernames, GRCMobileNumber, extentreport);
-base.PrivateLimited(driver, CrmUsernames, GRCMobileNumber, extentreport);
+		base.PrivateLimited(driver, CrmUsernames, GRCMobileNumber, extentreport);
 //GRCPage grcpage1 = new GRCPage(driver, extentreport, GRCMobileNumber,
 //GRCNewCompanyName, CINNumber,
 //Helpdeskuserid, helpdeskpassword, assignedtoName);
@@ -151,8 +151,8 @@ base.PrivateLimited(driver, CrmUsernames, GRCMobileNumber, extentreport);
 
 	@AfterSuite
 	public void Mail() throws EmailException {
-	 SendMailSSLWithAttachment Mail = new SendMailSSLWithAttachment();
-	 Mail.main();
+	// SendMailSSLWithAttachment Mail = new SendMailSSLWithAttachment();
+//	 Mail.main();
 		System.out.println("Test completed1");
 		// driver.quit();
 	}

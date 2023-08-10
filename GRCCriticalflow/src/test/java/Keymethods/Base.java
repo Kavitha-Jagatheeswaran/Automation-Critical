@@ -177,7 +177,7 @@ import PageFactory.LoginPageobjects;
 
 			Thread.sleep(2500);
 //
-			try {
+			
 //				LoginPageobjects.noidonthaveacompany1.click();
 //				LoginPageobjects.Next.click();
 //			} catch (Exception e) {
@@ -232,39 +232,8 @@ driver.findElement(By.xpath("//span[contains(text(),'Skip it for now')]")).click
 				wait.until(ExpectedConditions
 						.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Proceed to pay')]")));
 				driver.findElement(By.xpath("//span[contains(text(),'Proceed to pay')]")).click();
-				long finish2 = System.currentTimeMillis();
-				long totalTime2 = finish2 - start2;
-				System.out.println("Total Time for page load - " + totalTime2);
-				screenshot.screenshot49(driver, extentreport);
-				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
-				String Date1 = dateFormat.format(new Date());
-				test.log(Status.PASS,
-						MediaEntityBuilder.createScreenCaptureFromPath(
-								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot49.png",
-					"Payment Cart Page" + totalTime2 + "ms").build());
-				
-				driver.findElement(By.xpath("(//div[@class='nav-item'])[1]")).click();
-				driver.findElement(By.xpath("//input[@id='gpay']")).click();
-				driver.findElement(By.xpath("//button[@id='btn-gpay']")).click();
-				driver.findElement(By.xpath("//i[@class='back']")).click();
-
-			} catch (Exception MyIntrest1) {
-				screenshot.screenshot49(driver, extentreport);
-				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
-				String Date1 = dateFormat.format(new Date());
-				test.log(Status.PASS,
-						MediaEntityBuilder.createScreenCaptureFromPath(
-								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot49.png",
-					"Otp Validation / Payment Cart Page").build());
-				System.out.println(MyIntrest1);
 			}
-			try {
-				driver.switchTo().alert().accept();
-			} catch (Exception Alert34) {
-				System.out.println(Alert34);
-			}
-			// driver.findElement(By.xpath("//i[@class='back']")).click();
-			driver.findElement(By.xpath("//button[contains(text(),'YES, CANCEL')]")).click();
+			
 		}
 		
-}
+
