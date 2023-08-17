@@ -755,7 +755,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			robot.keyPress(KeyEvent.VK_MINUS);
 			robot.keyRelease(KeyEvent.VK_MINUS);
 			robot.keyRelease(KeyEvent.VK_CONTROL);
-			js.executeScript("arguments[0].scrollIntoView(true);", sendquotation);
+		//	js.executeScript("arguments[0].scrollIntoView(true);", sendquotation);
 
 			Thread.sleep(4500);
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

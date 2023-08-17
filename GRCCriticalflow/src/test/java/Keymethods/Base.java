@@ -234,12 +234,20 @@ driver.findElement(By.xpath("//span[contains(text(),'Skip it for now')]")).click
 //				driver.findElement(By.xpath("(//div[@class='styles_boxes__yq8YR false false']/child::input)[4]"))
 //						.sendKeys("0");
 //				Thread.sleep(4000);
-				long start2 = System.currentTimeMillis();
+				long start211 = System.currentTimeMillis();
 				driver.findElement(By.xpath("//p[contains(text(),'Next')]")).click();
 				wait.until(ExpectedConditions
 						.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Proceed to pay')]")));
 				driver.findElement(By.xpath("//span[contains(text(),'Proceed to pay')]")).click();
-			}
+			
+				long finish2111 = System.currentTimeMillis();
+				long totalTime2111 = finish2111 - start211;
+				System.out.println("Total Time for page load - " + totalTime21);
+		
+		
+		}
+		
+		
 			
 		}
 		
