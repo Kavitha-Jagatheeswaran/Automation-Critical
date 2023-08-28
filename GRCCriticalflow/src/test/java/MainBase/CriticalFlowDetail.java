@@ -54,10 +54,12 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			String notedescrption, String QNameOfCustomer, String qaddress, String qpincode, String Professionalfees,
 			String assignedtoName, String BDAgentName, String CrossSaleName, String GRCMobileNumber,
 			String CrmUsernames, String CrmUserpassword, String GRCNewCompanyName, String CINNumber,
-			ExtentReports extentreport,String Date12)
+			ExtentReports extentreport)
 			throws InterruptedException, AWTException, ElementClickInterceptedException, IOException {
 		Robot robot = new Robot();
-		
+		SimpleDateFormat dateFormat2 = new SimpleDateFormat("ddwwyyyyh");
+		String Date12222 = dateFormat2.format(new Date());
+
 		ScreenShot screenshot = new ScreenShot();
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		testr = extentreport.createTest("Helpdesk");
@@ -95,7 +97,8 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			WebElement element501011 = driver.findElement(By.xpath("//input[@id='search']"));
 			JavascriptExecutor executor501011 = (JavascriptExecutor) driver;
 			executor501011.executeScript("arguments[0].click();", element501011);
-			element501011.sendKeys("9" + Date12);
+			element501011.sendKeys("9" + Date12222);
+			System.out.println(Date12222);
 			// driver.findElement(By.xpath("//input[@class='form-control
 			// ticket_search']")).sendKeys("9789955331");
 			// ticketid.sendKeys(GRCPage.e);

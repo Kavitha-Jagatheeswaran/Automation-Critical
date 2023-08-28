@@ -120,19 +120,20 @@ public class Criticalflow {
 			String qpincode, String Professionalfees, String assignedtoName, String BDAgentName, String CrossSaleName,
 			String GRCMobileNumber, String GRCNewCompanyName, String CINNumber, String CrmUsernames,
 			String CrmUserpassword) throws Exception {
-		SimpleDateFormat dateFormat2 = new SimpleDateFormat("MMddyyymm");
+		SimpleDateFormat dateFormat2 = new SimpleDateFormat("ddww yyyyh");
 		String Date12 = dateFormat2.format(new Date());
 
 		Base base = new Base();
 base.Base1(driver, CrmUsernames, GRCMobileNumber, extentreport,Date12);
 		base.PrivateLimited(driver, CrmUsernames, GRCMobileNumber,extentreport, Date12);
+		System.out.println(Date12);
 //GRCPage grcpage1 = new GRCPage(driver, extentreport, GRCMobileNumber,
 //GRCNewCompanyName, CINNumber,
 //Helpdeskuserid, helpdeskpassword, assignedtoName);
 		CriticalFlowDetail Criticalflow = new CriticalFlowDetail(driver, Helpdeskuserid, helpdeskpassword, notesname,
 				notedescrption, QNameOfCustomer, qaddress, qpincode, Professionalfees, assignedtoName, BDAgentName,
 				CrossSaleName, GRCMobileNumber, CrmUsernames, CrmUserpassword, GRCNewCompanyName, CINNumber,
-				extentreport,Date12);
+				extentreport);
 
 	}
 
