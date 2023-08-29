@@ -120,7 +120,7 @@ public class Criticalflow {
 			String qpincode, String Professionalfees, String assignedtoName, String BDAgentName, String CrossSaleName,
 			String GRCMobileNumber, String GRCNewCompanyName, String CINNumber, String CrmUsernames,
 			String CrmUserpassword) throws Exception {
-		SimpleDateFormat dateFormat2 = new SimpleDateFormat("ddww yyyyh");
+		SimpleDateFormat dateFormat2 = new SimpleDateFormat("wwyyyyhh");
 		String Date12 = dateFormat2.format(new Date());
 
 		Base base = new Base();
@@ -157,7 +157,7 @@ base.Base1(driver, CrmUsernames, GRCMobileNumber, extentreport,Date12);
 	SendMailSSLWithAttachment Mail = new SendMailSSLWithAttachment();
 Mail.main();
 		System.out.println("Test completed1");
-		// driver.quit();
+		 driver.quit();
 	}
 
 }
