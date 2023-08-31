@@ -416,8 +416,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			Thread.sleep(1500);
 			// driver.findElement(By.xpath("(//input[@class='select2-search__field'])[3]")).sendKeys("chennai");
 			Thread.sleep(1500);
-			robot.keyPress(KeyEvent.VK_ENTER);
-			robot.keyRelease(KeyEvent.VK_ENTER);
+		
 			robot.keyPress(KeyEvent.VK_CONTROL);
 			robot.keyPress(KeyEvent.VK_MINUS);
 			robot.keyRelease(KeyEvent.VK_MINUS);
@@ -426,6 +425,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			robot.keyPress(KeyEvent.VK_MINUS);
 			robot.keyRelease(KeyEvent.VK_MINUS);
 			robot.keyRelease(KeyEvent.VK_CONTROL);
+			Thread.sleep(2000);
 			driver.findElement(By.xpath("(//span[@class='select2-selection__rendered'])[9]")).click();
 			Thread.sleep(1500);
 			driver.findElement(By.xpath("(//input[@class='select2-search__field'])[3]"))
@@ -435,6 +435,9 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 				driver.findElement(By.xpath("//span[@id='select2-city_filter_edit-container']")).click();
 			Thread.sleep(1500);
 			 driver.findElement(By.xpath("(//input[@class='select2-search__field'])[3]")).sendKeys("chennai");
+				robot.keyPress(KeyEvent.VK_ENTER);
+				robot.keyRelease(KeyEvent.VK_ENTER);
+				Thread.sleep(2500);
 			try {
 				BDagentCTA.click();
 				BDagentsearch.sendKeys("Dhrubo BD");
