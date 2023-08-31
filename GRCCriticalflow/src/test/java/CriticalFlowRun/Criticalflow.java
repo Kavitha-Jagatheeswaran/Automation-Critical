@@ -154,8 +154,8 @@ base.Base1(driver, CrmUsernames, GRCMobileNumber, extentreport,Date12);
 
 	@AfterSuite
 	public void Mail() throws EmailException {
-	SendMailSSLWithAttachment Mail = new SendMailSSLWithAttachment();
-Mail.main();
+	//SendMailSSLWithAttachment Mail = new SendMailSSLWithAttachment();
+//Mail.main();
 		System.out.println("Test completed1");
 		 driver.quit();
 	}

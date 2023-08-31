@@ -144,7 +144,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			robot.keyRelease(KeyEvent.VK_G);
 
 			ChooseCriticalNoesFile.sendKeys(
-					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\Excel\\sample-aadhaar-card-800x445");
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\Excel\\sample-aadhaar-card.png");
 
 			employtonotify.click();
 			Thread.sleep(1500);
