@@ -276,7 +276,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			addnote.click();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			addnoteattachment.sendKeys(
-					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\Excel\\sample-aadhaar-card-800x445");
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\Excel\\sample-aadhaar-card.png");
 			typeaddnote.click();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			robot.keyPress(KeyEvent.VK_T);
@@ -522,7 +522,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			cannedEmailaddattachment.sendKeys(
-					"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Excel\\sample-aadhaar-card-800x445.png");
+					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\Excel\\sample-aadhaar-card.png");
 			cannedsubject.sendKeys(notesname);
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			Thread.sleep(3000);
