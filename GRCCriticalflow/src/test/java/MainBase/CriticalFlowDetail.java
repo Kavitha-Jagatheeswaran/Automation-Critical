@@ -412,7 +412,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			robot.keyPress(KeyEvent.VK_MINUS);
 			robot.keyRelease(KeyEvent.VK_MINUS);
 			robot.keyRelease(KeyEvent.VK_CONTROL);
-			driver.findElement(By.xpath("//span[@id='select2-city_filter_edit-container']")).click();
+		//	driver.findElement(By.xpath("//span[@id='select2-city_filter_edit-container']")).click();
 			Thread.sleep(1500);
 			// driver.findElement(By.xpath("(//input[@class='select2-search__field'])[3]")).sendKeys("chennai");
 			Thread.sleep(1500);
@@ -432,7 +432,9 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 					.sendKeys("Apply For Name Change - Minor");
 			robot.keyPress(KeyEvent.VK_ENTER);
 			robot.keyRelease(KeyEvent.VK_ENTER);
-
+				driver.findElement(By.xpath("//span[@id='select2-city_filter_edit-container']")).click();
+			Thread.sleep(1500);
+			 driver.findElement(By.xpath("(//input[@class='select2-search__field'])[3]")).sendKeys("chennai");
 			try {
 				BDagentCTA.click();
 				BDagentsearch.sendKeys("Dhrubo BD");
