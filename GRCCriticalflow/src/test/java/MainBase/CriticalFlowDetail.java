@@ -530,7 +530,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			Thread.sleep(2000);
 			try {
 				WebElement element3 = driver.findElement(
-						By.xpath("//td[@class='xdsoft_date xdsoft_day_of_week4 xdsoft_date true,']/child::*[contains(text(),'31')]"));
+						By.xpath("//td[@class='xdsoft_date xdsoft_day_of_week6 xdsoft_date xdsoft_weekend true,']/child::*[contains(text(),'30')]"));
 				JavascriptExecutor executor3 = (JavascriptExecutor) driver;
 				executor3.executeScript("arguments[0].click();", element3);
 				// canned date
@@ -1238,7 +1238,7 @@ Thread.sleep(2000);
 					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot38.png",
 					"Merge").build());
 		}
-		Thread.sleep(3000);
+		Thread.sleep(8000);
 		driver.findElement(By.xpath("//a[contains(text(),'UnMerge')]")).click();
 		Thread.sleep(5500);
 		robot.keyPress(KeyEvent.VK_PAGE_DOWN);
