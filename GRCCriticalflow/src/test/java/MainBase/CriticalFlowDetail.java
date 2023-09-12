@@ -402,7 +402,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			Thread.sleep(1500);
 			Assignedtoname.click();
 			Assignedtoname.sendKeys("Testing automation");
-		
+
 			robot.keyPress(KeyEvent.VK_ENTER);
 			robot.keyRelease(KeyEvent.VK_ENTER);
 			Thread.sleep(1500);
@@ -412,11 +412,11 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			robot.keyPress(KeyEvent.VK_MINUS);
 			robot.keyRelease(KeyEvent.VK_MINUS);
 			robot.keyRelease(KeyEvent.VK_CONTROL);
-		//	driver.findElement(By.xpath("//span[@id='select2-city_filter_edit-container']")).click();
+			// driver.findElement(By.xpath("//span[@id='select2-city_filter_edit-container']")).click();
 			Thread.sleep(1500);
 			// driver.findElement(By.xpath("(//input[@class='select2-search__field'])[3]")).sendKeys("chennai");
 			Thread.sleep(1500);
-		
+
 			robot.keyPress(KeyEvent.VK_CONTROL);
 			robot.keyPress(KeyEvent.VK_MINUS);
 			robot.keyRelease(KeyEvent.VK_MINUS);
@@ -432,12 +432,12 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 					.sendKeys("Apply For Name Change - Minor");
 			robot.keyPress(KeyEvent.VK_ENTER);
 			robot.keyRelease(KeyEvent.VK_ENTER);
-				driver.findElement(By.xpath("//span[@id='select2-city_filter_edit-container']")).click();
+			driver.findElement(By.xpath("//span[@id='select2-city_filter_edit-container']")).click();
 			Thread.sleep(1500);
-			 driver.findElement(By.xpath("(//input[@class='select2-search__field'])[3]")).sendKeys("chennai");
-				robot.keyPress(KeyEvent.VK_ENTER);
-				robot.keyRelease(KeyEvent.VK_ENTER);
-				Thread.sleep(2500);
+			driver.findElement(By.xpath("(//input[@class='select2-search__field'])[3]")).sendKeys("chennai");
+			robot.keyPress(KeyEvent.VK_ENTER);
+			robot.keyRelease(KeyEvent.VK_ENTER);
+			Thread.sleep(2500);
 			try {
 				BDagentCTA.click();
 				BDagentsearch.sendKeys("Dhrubo BD");
@@ -467,16 +467,15 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 				driver.findElement(By.xpath("(//input[@type='submit'])[4]"));
 
 			}
-
+			Thread.sleep(2000);
 			wait.until(ExpectedConditions.alertIsPresent()).accept();
 
 		} catch (Exception Editticket1) {
 
-			wait.until(ExpectedConditions.alertIsPresent()).accept();
 			screenshot.screenshot20(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			testr.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
+			testr.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
 					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot20.png",
 					"Editticket").build());
 			Thread.sleep(5000);
@@ -497,13 +496,13 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			executor12.executeScript("arguments[0].click();", element12);
 			// MenuDownArrow.click();
 		}
-
-		try {
+Thread.sleep(3500);
+try {
 
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			CannedResponseCTA.click();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
+			Thread.sleep(3500);
 			wait.until(ExpectedConditions.visibilityOfElementLocated(
 					By.xpath("//a[@class='nav-link canned_response_folder_select active']")));
 			try {
@@ -529,8 +528,8 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			cannedselectdate.click();
 			Thread.sleep(2000);
 			try {
-				WebElement element3 = driver.findElement(
-						By.xpath("//td[@class='xdsoft_date xdsoft_day_of_week6 xdsoft_date xdsoft_weekend true,']/child::*[contains(text(),'30')]"));
+				WebElement element3 = driver.findElement(By.xpath(
+						"//td[@class='xdsoft_date xdsoft_day_of_week6 xdsoft_date xdsoft_weekend true,']/child::*[contains(text(),'30')]"));
 				JavascriptExecutor executor3 = (JavascriptExecutor) driver;
 				executor3.executeScript("arguments[0].click();", element3);
 				// canned date
@@ -678,7 +677,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			System.out.println("Helpdesk Login");
 		}
 
-	//	js.executeScript("arguments[0].scrollIntoView(true);", CreateQuotation);
+		// js.executeScript("arguments[0].scrollIntoView(true);", CreateQuotation);
 		try {
 			try {
 
@@ -753,8 +752,6 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			robot.keyRelease(KeyEvent.VK_BACK_SPACE);
 			Partialamount.sendKeys("100");
 
-		
-	
 			robot.keyPress(KeyEvent.VK_CONTROL);
 			robot.keyPress(KeyEvent.VK_MINUS);
 			robot.keyRelease(KeyEvent.VK_MINUS);
@@ -763,25 +760,22 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			robot.keyPress(KeyEvent.VK_MINUS);
 			robot.keyRelease(KeyEvent.VK_MINUS);
 			robot.keyRelease(KeyEvent.VK_CONTROL);
-		//	js.executeScript("arguments[0].scrollIntoView(true);", sendquotation);
+			// js.executeScript("arguments[0].scrollIntoView(true);", sendquotation);
 
 			Thread.sleep(4500);
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			WebElement QConfirmquotationScroll = driver.findElement(By.xpath("//a[@class='send confirm_value']"));
 			js.executeScript("arguments[0].scrollIntoView(true);", QConfirmquotationScroll);
 			try {
-			WebElement element44100 = driver.findElement(By.xpath("//input[@class='send quotation_send']"));
-			JavascriptExecutor executor44100 = (JavascriptExecutor) driver;
-			executor44100.executeScript("arguments[0].click();", element44100);
-			}catch (Exception quo) {
+				WebElement element44100 = driver.findElement(By.xpath("//input[@class='send quotation_send']"));
+				JavascriptExecutor executor44100 = (JavascriptExecutor) driver;
+				executor44100.executeScript("arguments[0].click();", element44100);
+			} catch (Exception quo) {
 				WebElement element44100 = driver.findElement(By.xpath("//a[@class='send confirm_value']"));
 				JavascriptExecutor executor44100 = (JavascriptExecutor) driver;
 				executor44100.executeScript("arguments[0].click();", element44100);
-				
-				
+
 			}
-
-
 
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -820,7 +814,6 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 			System.out.println(CreatenewQuotation1);
 			driver.close();
 
-			
 		}
 		robot.keyPress(KeyEvent.VK_CONTROL);
 		robot.keyRelease(KeyEvent.VK_R);
@@ -839,7 +832,7 @@ public class CriticalFlowDetail extends HelpdeskPageobject {
 		String PaynowAmountValidation = driver
 				.findElement(By.xpath("(//div[@class='styles_totalPrice__1O_p9']/child::h2)[2]")).getText()
 				.substring(1, 3);
-Thread.sleep(2000);
+		Thread.sleep(2000);
 		if (AmountValidation1.contains(PaynowAmountValidation)) {
 			screenshot.screenshot30(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
@@ -1094,13 +1087,13 @@ Thread.sleep(2000);
 		robot.keyPress(KeyEvent.VK_PAGE_UP);
 		robot.keyRelease(KeyEvent.VK_PAGE_UP);
 		Thread.sleep(1500);
-	
+
 		robot.keyPress(KeyEvent.VK_CONTROL);
 		robot.keyPress(KeyEvent.VK_ADD);
 		robot.keyRelease(KeyEvent.VK_ADD);
 		robot.keyPress(KeyEvent.VK_ADD);
 		robot.keyRelease(KeyEvent.VK_ADD);
-		
+
 		robot.keyRelease(KeyEvent.VK_CONTROL);
 		try {
 			CrosssaleCTA.click();
@@ -1244,8 +1237,9 @@ Thread.sleep(2000);
 		robot.keyPress(KeyEvent.VK_PAGE_DOWN);
 		robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
 		Thread.sleep(2500);
-		WebElement unmerg = driver.findElement(By.xpath("//p[contains(text(),'This ticket has been unmerged from')]/child::a"));
-	//	js.executeScript("arguments[0].scrollIntoView(true);", unmerg);
+		WebElement unmerg = driver
+				.findElement(By.xpath("//p[contains(text(),'This ticket has been unmerged from')]/child::a"));
+		// js.executeScript("arguments[0].scrollIntoView(true);", unmerg);
 		String substring1 = unmerg.getText().substring(1, 8);
 		if (substring1.contains(ReferenceTicketID)) {
 			screenshot.screenshot50(driver, extentreport);
@@ -1264,9 +1258,8 @@ Thread.sleep(2000);
 
 		}
 
-	
 		try {
-			
+
 			robot.keyPress(KeyEvent.VK_PAGE_UP);
 			robot.keyRelease(KeyEvent.VK_PAGE_UP);
 			robot.keyPress(KeyEvent.VK_PAGE_UP);
@@ -1411,9 +1404,10 @@ Thread.sleep(2000);
 			System.out.println("already Logout");
 
 		}
-	//	NewCRM newCRM = new NewCRM();
+		// NewCRM newCRM = new NewCRM();
 
-		//newCRM.newCRM(driver, ReferenceTicketID, CrmUsernames, CrmUserpassword, extentreport);
+		// newCRM.newCRM(driver, ReferenceTicketID, CrmUsernames, CrmUserpassword,
+		// extentreport);
 	}
 
 }
