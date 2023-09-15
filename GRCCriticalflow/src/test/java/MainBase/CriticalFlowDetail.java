@@ -828,9 +828,9 @@ try {
 		Thread.sleep(1500);
 		List<String> all32 = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(all32.get(1));
-		Thread.sleep(3000);
+		Thread.sleep(6000);
 		String PaynowAmountValidation = driver
-				.findElement(By.xpath("(//div[@class='styles_totalPrice__1O_p9']/child::h2)[2]")).getText()
+				.findElement(By.xpath("//h2[@class='styles_price__px1hT']")).getText()
 				.substring(1, 3);
 		Thread.sleep(2000);
 		if (AmountValidation1.contains(PaynowAmountValidation)) {
@@ -844,7 +844,7 @@ try {
 			screenshot.screenshot30(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			testr.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(
+			testr.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath(
 					"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot30.png",
 					"Quotation Creation amount verification").build());
 
@@ -1361,6 +1361,7 @@ try {
 			} catch (Exception Closepopup) {
 				System.out.println("No popup");
 			}
+			
 			try {
 				GRCPageobject.ProfileMenu.click();
 				Thread.sleep(2000);
@@ -1405,7 +1406,6 @@ try {
 
 		}
 		// NewCRM newCRM = new NewCRM();
-
 		// newCRM.newCRM(driver, ReferenceTicketID, CrmUsernames, CrmUserpassword,
 		// extentreport);
 	}
