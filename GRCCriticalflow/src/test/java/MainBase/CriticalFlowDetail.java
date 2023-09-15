@@ -938,7 +938,7 @@ try {
 			driver.switchTo().window(all33.get(1));
 
 			String PaynowAmountValidation2 = driver
-					.findElement(By.xpath("(//div[@class='styles_totalPrice__1O_p9']/child::h2)[2]")).getText()
+					.findElement(By.xpath("//h2[@class='styles_price__px1hT']")).getText()
 					.substring(1, 3);
 
 			if (AmountValidation2.contains(PaynowAmountValidation2)) {
