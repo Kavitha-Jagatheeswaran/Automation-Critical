@@ -120,10 +120,13 @@ public class Criticalflow {
 			String qpincode, String Professionalfees, String assignedtoName, String BDAgentName, String CrossSaleName,
 			String GRCMobileNumber, String GRCNewCompanyName, String CINNumber, String CrmUsernames,
 			String CrmUserpassword) throws Exception {
+		SimpleDateFormat dateFormat2 = new SimpleDateFormat("wwyyyyhh");
+		String Date12 = dateFormat2.format(new Date());
 
 		Base base = new Base();
-base.Base1(driver, CrmUsernames, GRCMobileNumber, extentreport);
-base.PrivateLimited(driver, CrmUsernames, GRCMobileNumber, extentreport);
+base.Base1(driver, CrmUsernames, GRCMobileNumber, extentreport,Date12);
+		base.PrivateLimited(driver, CrmUsernames, GRCMobileNumber,extentreport, Date12);
+		System.out.println(Date12);
 //GRCPage grcpage1 = new GRCPage(driver, extentreport, GRCMobileNumber,
 //GRCNewCompanyName, CINNumber,
 //Helpdeskuserid, helpdeskpassword, assignedtoName);
@@ -151,10 +154,10 @@ base.PrivateLimited(driver, CrmUsernames, GRCMobileNumber, extentreport);
 
 	@AfterSuite
 	public void Mail() throws EmailException {
-	//	 SendMailSSLWithAttachment Mail = new SendMailSSLWithAttachment();
-	//	 Mail.main();
-		// System.out.println("Test completed1");
-		// driver.quit();
+	SendMailSSLWithAttachment Mail = new SendMailSSLWithAttachment();
+Mail.main();
+		System.out.println("Test completed1");
+		 driver.quit();
 	}
 
 }

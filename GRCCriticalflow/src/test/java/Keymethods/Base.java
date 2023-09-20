@@ -11,6 +11,7 @@ import java.util.concurrent.TimeoutException;
 
 import org.apache.tools.ant.taskdefs.Sleep;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -38,10 +39,9 @@ import PageFactory.LoginPageobjects;
 		ScreenShot screenshot = new ScreenShot();
 		SimpleDateFormat dateFormat1 = new SimpleDateFormat("MMddyyyyHHMMSS");
 		String Date11 = dateFormat1.format(new Date());
-		SimpleDateFormat dateFormat2 = new SimpleDateFormat("MMddyyyyM");
-		String Date12 = dateFormat2.format(new Date());
+		
 
-		public void Base1(WebDriver driver, String Username, String Mobilenumber, ExtentReports extentreport)
+		public void Base1(WebDriver driver, String Username, String Mobilenumber, ExtentReports extentreport,String Date12)
 				throws InterruptedException, AWTException, IOException {
 			test = extentreport.createTest("Vakilsearch Test");
 			WebDriverWait wait = new WebDriverWait(driver, 30);
@@ -75,16 +75,16 @@ import PageFactory.LoginPageobjects;
 
 		}
 
-		public void PrivateLimited(WebDriver driver, String Username, String Mobilenumber, ExtentReports extentreport)
+		public void PrivateLimited(WebDriver driver, String Username, String Mobilenumber, ExtentReports extentreport,String Date12)
 				throws IOException, InterruptedException, AWTException {
 
 			test = extentreport.createTest("Private Limited Company");
 			WebDriverWait wait = new WebDriverWait(driver, 30);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[normalize-space()='Business Setup']")));
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//p[contains(text(),'Business Setup')])[1]")));
 			LoginPageobjects.Businesssetup.click();
 			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			wait.until(ExpectedConditions
-					.visibilityOfElementLocated(By.xpath("//b[normalize-space()='Private Limited Company']")));
+					.visibilityOfElementLocated(By.xpath("(//a[contains(text(),'Private Limited Company')])[1]")));
 			long start = System.currentTimeMillis();
 			LoginPageobjects.Pvtdcompany.click();
 			long finish = System.currentTimeMillis();
@@ -122,8 +122,12 @@ import PageFactory.LoginPageobjects;
 				test.log(Status.FAIL, "Email Username notfound");
 			}
 			LoginPageobjects.Email.sendKeys("shakthi" + Date11 + "@yopmail.com");
-
-			LoginPageobjects.Phonenumber.click();
+			Thread.sleep(2500);
+			
+			WebElement phonenumber1 = driver.findElement(By.xpath("//input[@id='service_form_primary_mobile_number']"));
+			JavascriptExecutor phonenumber2 = (JavascriptExecutor) driver;
+			phonenumber2.executeScript("arguments[0].click();", phonenumber1);
+		
 			if (LoginPageobjects.Phonenumber.isEnabled()) {
 
 				test.log(Status.PASS, " Phonenumber field clicked");
@@ -131,7 +135,7 @@ import PageFactory.LoginPageobjects;
 
 				test.log(Status.FAIL, "Phonenumber field notfound");
 			}
-			LoginPageobjects.Phonenumber.sendKeys("9361079767");
+			LoginPageobjects.Phonenumber.sendKeys("91" + Date12);
 			Thread.sleep(2000);
 			LoginPageobjects.City.click();
 			LoginPageobjects.City.sendKeys("chen");
@@ -143,9 +147,14 @@ import PageFactory.LoginPageobjects;
 				test.log(Status.FAIL, "Select City field notfound");
 			}
 
-			Thread.sleep(6000);
+			
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Chennai, Tamil Nadu')]")));
 			WebElement findElement12 = driver.findElement(By.xpath("//div[contains(text(),'Chennai, Tamil Nadu')]"));
-			wait.until(ExpectedConditions.elementToBeClickable(findElement12)).click();
+			
+			JavascriptExecutor executorview11 = (JavascriptExecutor) driver;
+			executorview11.executeScript("arguments[0].click();", findElement12);
+			
 			Robot robot = new Robot();
 
 //			if (LoginPageobjects.whatsapptogleoff.isSelected()) {
@@ -155,12 +164,14 @@ import PageFactory.LoginPageobjects;
 	//System.out.println("failed");
 //				test.log(Status.FAIL, "whatsapptogleoff Failed");
 //			}
-			LoginPageobjects.whatsapptogleoff.click();
+		
 			Thread.sleep(2000);
 			wait.until(ExpectedConditions
 					.visibilityOfElementLocated(By.xpath("//button[@class='fullwidth btn btn-primary']")));
 			long start1 = System.currentTimeMillis();
-			driver.findElement(By.xpath("//button[@class='fullwidth btn btn-primary']")).click();
+			WebElement findElement9 = driver.findElement(By.xpath("//button[@class='fullwidth btn btn-primary']"));
+			JavascriptExecutor executorview111 = (JavascriptExecutor) driver;
+			executorview111.executeScript("arguments[0].click();", findElement9);
 			System.out.println("succes1");
 
 			long finish1 = System.currentTimeMillis();
@@ -175,96 +186,48 @@ import PageFactory.LoginPageobjects;
 							"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date11 + "\\Screenshot52.png",
 					"Pvt Login " + totalTime1 + "ms").build());
 
-			Thread.sleep(2500);
-//
-			try {
-//				LoginPageobjects.noidonthaveacompany1.click();
-//				LoginPageobjects.Next.click();
-//			} catch (Exception e) {
-//
-//				System.out.println(e);
-//
-//			}
-//			try {
-//				Thread.sleep(3000);
-//				LoginPageobjects.Software.click();
-//				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-//				LoginPageobjects.Next.click();
-driver.findElement(By.xpath("//span[contains(text(),'Skip it for now')]")).click();
-				Thread.sleep(2000);
-				LoginPageobjects.Ageofbusiness.click();
-				robot.keyPress(KeyEvent.VK_DOWN);
-				robot.keyRelease(KeyEvent.VK_DOWN);
+			Thread.sleep(1500);
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Skip it for now')]")));
+			driver.findElement(By.xpath("//span[contains(text(),'Skip it for now')]")).click();
+			Thread.sleep(2000);
+			LoginPageobjects.Ageofbusiness.click();
+			robot.keyPress(KeyEvent.VK_DOWN);
+			robot.keyRelease(KeyEvent.VK_DOWN);
 
-				robot.keyPress(KeyEvent.VK_ENTER);
-				robot.keyRelease(KeyEvent.VK_ENTER);
-				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-				// LoginPageobjects.Next.click();
-				long start21 = System.currentTimeMillis();
-				driver.findElement(By.xpath("//button[@class='styles_customBtn__nb6mV styles_next__NvT8q false false ']"))
-						.click();
-				long finish21 = System.currentTimeMillis();
-				long totalTime21 = finish21 - start21;
-				System.out.println("Total Time for page load - " + totalTime21);
-				
-//				driver.findElement(By.xpath("//input[@class='styles_otpInput__5bXLj']")).click();
-//				robot.keyPress(KeyEvent.VK_CONTROL);
-//				robot.keyPress(KeyEvent.VK_A);
-//				robot.keyRelease(KeyEvent.VK_A);
-//				robot.keyRelease(KeyEvent.VK_CONTROL);
-//				robot.keyPress(KeyEvent.VK_DELETE);
-//				robot.keyRelease(KeyEvent.VK_DELETE);
-//				driver.findElement(By.xpath("//input[@class='styles_otpInput__5bXLj']")).sendKeys("9789955331");
-//Thread.sleep(2500);
-//				driver.findElement(By.xpath("//button[contains(text(),'Send OTP')]")).click();
-//				Thread.sleep(1500);
-//				driver.findElement(By.xpath("(//div[@class='styles_boxes__yq8YR false false']/child::input)[1]"))
-//						.sendKeys("0");
-//				driver.findElement(By.xpath("(//div[@class='styles_boxes__yq8YR false false']/child::input)[2]"))
-//						.sendKeys("0");
-//				driver.findElement(By.xpath("(//div[@class='styles_boxes__yq8YR false false']/child::input)[3]"))
-//						.sendKeys("0");
-//				driver.findElement(By.xpath("(//div[@class='styles_boxes__yq8YR false false']/child::input)[4]"))
-//						.sendKeys("0");
-//				Thread.sleep(4000);
-				long start2 = System.currentTimeMillis();
-				driver.findElement(By.xpath("//p[contains(text(),'Next')]")).click();
-				wait.until(ExpectedConditions
-						.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Proceed to pay')]")));
-				driver.findElement(By.xpath("//span[contains(text(),'Proceed to pay')]")).click();
-				long finish2 = System.currentTimeMillis();
-				long totalTime2 = finish2 - start2;
-				System.out.println("Total Time for page load - " + totalTime2);
-				screenshot.screenshot49(driver, extentreport);
-				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
-				String Date1 = dateFormat.format(new Date());
-				test.log(Status.PASS,
-						MediaEntityBuilder.createScreenCaptureFromPath(
-								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot49.png",
-					"Payment Cart Page" + totalTime2 + "ms").build());
-				
-				driver.findElement(By.xpath("(//div[@class='nav-item'])[1]")).click();
-				driver.findElement(By.xpath("//input[@id='gpay']")).click();
-				driver.findElement(By.xpath("//button[@id='btn-gpay']")).click();
-				driver.findElement(By.xpath("//i[@class='back']")).click();
+			robot.keyPress(KeyEvent.VK_ENTER);
+			robot.keyRelease(KeyEvent.VK_ENTER);
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			// LoginPageobjects.Next.click();
 
-			} catch (Exception MyIntrest1) {
-				screenshot.screenshot49(driver, extentreport);
-				SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
-				String Date1 = dateFormat.format(new Date());
-				test.log(Status.PASS,
-						MediaEntityBuilder.createScreenCaptureFromPath(
-								"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\" + Date1 + "\\Screenshot49.png",
-					"Otp Validation / Payment Cart Page").build());
-				System.out.println(MyIntrest1);
-			}
-			try {
-				driver.switchTo().alert().accept();
-			} catch (Exception Alert34) {
-				System.out.println(Alert34);
-			}
-			// driver.findElement(By.xpath("//i[@class='back']")).click();
-			driver.findElement(By.xpath("//button[contains(text(),'YES, CANCEL')]")).click();
+			// .findElement(By.xpath("//button[@class='styles_customBtn__nb6mV
+			// styles_next__NvT8q false false ']"))
+			// .click();
+
+			long start21 = System.currentTimeMillis();
+			
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//p[contains(text(),'Next')]"))).getText();
+
+			long finish21 = System.currentTimeMillis();
+			long totalTime21 = finish21 - start21;
+			System.out.println("Total Time for page load - " + totalTime21);
+
+			test.log(Status.PASS, "Mobile OTP Redirection " + totalTime21 + "ms");
+
+			long start211 = System.currentTimeMillis();
+			driver.findElement(By.xpath("//p[contains(text(),'Next')]")).click();
+			wait.until(
+					ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Proceed to pay')]")));
+			driver.findElement(By.xpath("//span[contains(text(),'Proceed to pay')]")).click();
+
+			long finish2111 = System.currentTimeMillis();
+			long totalTime2111 = finish2111 - start211;
+			System.out.println("Total Time for page load - " + totalTime21);
+
+			test.log(Status.PASS, "PaymentPage redirection " + totalTime2111 + "ms");
 		}
 		
-}
+		
+			
+		}
+		
+

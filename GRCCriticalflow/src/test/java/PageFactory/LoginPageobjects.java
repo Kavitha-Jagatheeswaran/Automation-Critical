@@ -5,10 +5,10 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPageobjects extends HomescreenPageobject {
 
-	@FindBy(xpath = "//a[normalize-space()='Business Setup']")
+	@FindBy(xpath = "(//p[contains(text(),'Business Setup')])[1]")
 	public static WebElement Businesssetup;
 
-	@FindBy(xpath = "//b[normalize-space()='Private Limited Company']")
+	@FindBy(xpath = "(//a[contains(text(),'Private Limited Company')])[1]")
 	public static WebElement Pvtdcompany;
 
 	@FindBy(xpath = "//input[@placeholder='City*']")
